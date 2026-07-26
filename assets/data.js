@@ -118,6 +118,13 @@ const VIDEOS = [
 
 const ARTICLES = [
   {
+    slug: "just-arrested-what-youre-facing",
+    title: "You've Just Been Arrested in New York: What You're Actually Facing, and the Question That Changes Everything",
+    category: "Restorative Justice",
+    date: "2026-07-26",
+    excerpt: "What the first hours and days after an arrest actually look like, and the one question about restorative justice that has to be asked before a plea — not after."
+  },
+  {
     slug: "after-an-arrest-in-new-york",
     title: "What Actually Happens After an Arrest in New York State",
     category: "Rights & Process",

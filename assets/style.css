@@ -168,9 +168,16 @@ section{padding:64px 0;}
 .intake-band a.btn{background:var(--accent);}
 
 footer.site-footer{border-top:1px solid var(--line); padding:40px 0; margin-top:40px;}
-footer.site-footer .foot-grid{display:flex; justify-content:space-between; gap:24px; flex-wrap:wrap;}
+footer.site-footer .foot-grid{display:flex; justify-content:space-between; align-items:flex-start; gap:24px; flex-wrap:wrap;}
 footer.site-footer p{font-size:13px; color:var(--ink-soft); max-width:60ch; margin:0 0 8px;}
+footer.site-footer .foot-right{display:flex; flex-direction:column; align-items:flex-end; gap:14px;}
 footer.site-footer nav{display:flex; gap:16px; flex-wrap:wrap;}
+.donate-btn{
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; font-size:12.5px; font-weight:600;
+  letter-spacing:.04em; padding:8px 16px; border-radius:20px; border:1px solid var(--accent);
+  color:var(--accent) !important; text-decoration:none !important; white-space:nowrap;
+}
+.donate-btn:hover{background:var(--accent-soft);}
 footer.site-footer nav a{font-size:13.5px; color:var(--ink-soft);}
 
 .overflow-x{overflow-x:auto;}
