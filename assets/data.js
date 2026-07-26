@@ -23,8 +23,8 @@ const VIDEOS = [
     category: "Rights & Process",
     format: "Short",
     description: "Riley v. California settled it in 2014 — here's what that actually means at a traffic stop.",
-    youtubeId: "",
-    published: false
+    youtubeId: "H6cLZtvvHSg",
+    published: true
   },
   {
     title: "NY's Clean Slate Act Explained: When Does YOUR Record Actually Seal?",
