@@ -118,6 +118,13 @@ const VIDEOS = [
 
 const ARTICLES = [
   {
+    slug: "nyc-restorative-justice-funding-2026",
+    title: "NYC Just Put $6.5 Million Behind Restorative Justice — Here's What That Actually Funds",
+    category: "Restorative Justice",
+    date: "2026-07-26",
+    excerpt: "16 organizations, real circles for real people — students, domestic violence survivors, people in addiction recovery, teens arrested on gun charges. This isn't theory anymore."
+  },
+  {
     slug: "just-arrested-what-youre-facing",
     title: "You've Just Been Arrested in New York: What You're Actually Facing, and the Question That Changes Everything",
     category: "Restorative Justice",
