@@ -49,7 +49,11 @@ nothing else to touch.
 2. Fill in the bracketed placeholders and write the body.
 3. Open `assets/data.js`, add one object to the `ARTICLES` array with a
    matching `slug` (same name, no `.html`).
-4. Save both files and redeploy.
+4. Add one `<url>` entry to `sitemap.xml` (copy an existing one, swap the
+   `<loc>` and `<lastmod>`) — this is what tells Google/Bing the new page
+   exists. Easy to forget since the site still works fine without it; it
+   just won't get found in search as fast.
+5. Save all three files and redeploy.
 
 The articles page picks up new entries automatically from `data.js` — you
 never have to touch `articles.html` itself.
