@@ -6,12 +6,13 @@
   --paper:#eef1ef;
   --paper-raised:#ffffff;
   --line:#ccd2d0;
-  --accent:#a8712f;
+  --accent:#8f5a1e;
   --accent-soft:#f1e4d2;
   --pillar:#3c6e71;
   --pillar-soft:#e2edec;
   --focus:#2f6fed;
   --nav-h:64px;
+  --btn-fill:#8f5a1e; /* fixed, not theme-flipping: solid fill behind white button text needs ~5:1 contrast in both themes */
 }
 @media (prefers-color-scheme: dark){
   :root{
@@ -25,7 +26,7 @@
 }
 :root[data-theme="light"]{
   --ink:#1b2430; --ink-soft:#4b5563; --paper:#eef1ef; --paper-raised:#ffffff;
-  --line:#ccd2d0; --accent:#a8712f; --accent-soft:#f1e4d2; --pillar:#3c6e71; --pillar-soft:#e2edec;
+  --line:#ccd2d0; --accent:#8f5a1e; --accent-soft:#f1e4d2; --pillar:#3c6e71; --pillar-soft:#e2edec;
 }
 
 *{box-sizing:border-box;}
@@ -65,7 +66,7 @@ nav.links a{color:var(--ink); font-size:14.5px;}
 nav.links a.current{color:var(--pillar); font-weight:600;}
 .btn{
   display:inline-block; font-size:14px; font-weight:600; padding:9px 16px; border-radius:5px;
-  background:var(--accent); color:#fff !important; text-decoration:none !important; white-space:nowrap;
+  background:var(--btn-fill); color:#fff !important; text-decoration:none !important; white-space:nowrap;
 }
 .btn:hover{filter:brightness(1.08);}
 .btn-outline{
@@ -165,7 +166,7 @@ section{padding:64px 0;}
 }
 .intake-band h3{margin:0 0 6px; font-size:20px; color:#f2f1ec;}
 .intake-band p{margin:0; color:#c9cdd2; max-width:48ch;}
-.intake-band a.btn{background:var(--accent);}
+.intake-band a.btn{background:var(--btn-fill);}
 
 footer.site-footer{border-top:1px solid var(--line); padding:40px 0; margin-top:40px;}
 footer.site-footer .foot-grid{display:flex; justify-content:space-between; align-items:flex-start; gap:24px; flex-wrap:wrap;}
