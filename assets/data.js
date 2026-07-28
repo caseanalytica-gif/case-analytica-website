@@ -118,6 +118,41 @@ const VIDEOS = [
 
 const ARTICLES = [
   {
+    slug: "two-failures-after-a-nys-arrest",
+    title: "The Two Failures Nobody Warns You About: Information and Representation After a NY Arrest",
+    category: "Access to Justice",
+    date: "2026-07-27",
+    excerpt: "Two things break down at almost the same moment after a New York arrest: nobody explains what's happening, and nobody guarantees someone with the time to fight for you. Start here."
+  },
+  {
+    slug: "right-to-counsel-gap-new-york",
+    title: "The Hours Before You Get a Lawyer: New York's Right-to-Counsel Gap",
+    category: "Access to Justice",
+    date: "2026-07-27",
+    excerpt: "New York guarantees a lawyer at arraignment — not before it. What the Hurrell-Harring settlement actually fixed, and what still happens in the hours before that first court appearance."
+  },
+  {
+    slug: "public-defender-caseload-crisis-ny",
+    title: "Why Your Public Defender Might Be Carrying 100+ Cases (And What NY Law Says About It)",
+    category: "Access to Justice",
+    date: "2026-07-27",
+    excerpt: "New York's own standards cap public defenders at roughly 300 weighted cases a year — and many offices still can't meet that. Here's what the numbers mean, county by county."
+  },
+  {
+    slug: "what-the-system-doesnt-tell-you",
+    title: "The Information Nobody Hands You: Court Dates, Discovery, and Diversion You Have to Ask About Yourself",
+    category: "Access to Justice",
+    date: "2026-07-27",
+    excerpt: "Discovery reform fixed what evidence prosecutors have to turn over. It didn't fix whether anyone explains it to you. Here's exactly what falls through the cracks."
+  },
+  {
+    slug: "language-access-ny-courts",
+    title: "When You Don't Understand the Language of Your Own Case: Interpreters, Literacy, and Access in NY Courts",
+    category: "Access to Justice",
+    date: "2026-07-27",
+    excerpt: "About 1.8 million New Yorkers have limited English proficiency and need a court interpreter. The state's interpreter workforce has shrunk by double digits since 2019."
+  },
+  {
     slug: "nyc-restorative-justice-funding-2026",
     title: "NYC Just Put $6.5 Million Behind Restorative Justice — Here's What That Actually Funds",
     category: "Restorative Justice",
