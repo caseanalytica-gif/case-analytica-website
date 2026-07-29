@@ -118,6 +118,13 @@ const VIDEOS = [
 
 const ARTICLES = [
   {
+    slug: "the-question-before-you-plead-guilty",
+    title: "The Question Before You Plead Guilty",
+    category: "Restorative Justice",
+    date: "2026-07-29",
+    excerpt: "Almost every criminal case ends in a guilty plea, not a trial. Here's the pressure that drives that, and the one question that can change the outcome."
+  },
+  {
     slug: "two-failures-after-a-nys-arrest",
     title: "The Two Failures Nobody Warns You About: Information and Representation After a NY Arrest",
     category: "Access to Justice",
