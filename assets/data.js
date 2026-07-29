@@ -19,6 +19,14 @@
 
 const VIDEOS = [
   {
+    title: "The Question Before You Plead Guilty",
+    category: "Restorative Justice",
+    format: "Short",
+    description: "Almost every criminal case ends in a guilty plea, not a trial. Here's the question that can change that outcome.",
+    youtubeId: "ed8sOleYkAE",
+    published: true
+  },
+  {
     title: "Can NY Police Search Your Phone Without a Warrant?",
     category: "Rights & Process",
     format: "Short",
