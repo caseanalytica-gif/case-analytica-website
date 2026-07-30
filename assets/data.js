@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Case Analytica — content data
+   Case Analytica: content data
    ==========================================================================
    HOW TO ADD A NEW VIDEO
    1. Copy one of the objects in VIDEOS below.
@@ -8,7 +8,7 @@
    3. Once it's live on YouTube, paste the video ID into youtubeId
       (the part after "v=" in the URL, e.g. youtube.com/watch?v=XXXXXXXXXXX)
       and set published to true.
-   4. Save this file. That's the entire publishing step — no rebuild needed.
+   4. Save this file. That's the entire publishing step. No rebuild needed.
 
    HOW TO ADD A NEW ARTICLE
    1. Duplicate articles/template.html, rename it to a short-slug.html
@@ -38,7 +38,7 @@ const VIDEOS = [
     title: "Can NY Police Search Your Phone Without a Warrant?",
     category: "Rights & Process",
     format: "Short",
-    description: "Riley v. California settled it in 2014 — here's what that actually means at a traffic stop.",
+    description: "Riley v. California settled it in 2014: here's what that actually means at a traffic stop.",
     youtubeId: "H6cLZtvvHSg",
     published: true
   },
@@ -46,7 +46,7 @@ const VIDEOS = [
     title: "NY's Clean Slate Act Explained: When Does YOUR Record Actually Seal?",
     category: "System",
     format: "Short",
-    description: "Automatic sealing started in November 2024 — the waiting periods and exclusions that decide if you qualify.",
+    description: "Automatic sealing started in November 2024: the waiting periods and exclusions that decide if you qualify.",
     youtubeId: "",
     published: false
   },
@@ -62,7 +62,7 @@ const VIDEOS = [
     title: "What Actually Happens After an Arrest in New York State (Step-by-Step Guide)",
     category: "Rights & Process",
     format: "Long-form",
-    description: "From arrest and booking through arraignment, discovery, and sentencing — the full process in plain language.",
+    description: "From arrest and booking through arraignment, discovery, and sentencing: the full process in plain language.",
     youtubeId: "",
     published: false
   },
@@ -78,7 +78,7 @@ const VIDEOS = [
     title: "How Restorative Justice Diversion Programs Work in NY Courts",
     category: "Restorative Justice",
     format: "Short",
-    description: "How a case gets paused or resolved outside standard prosecution — and why it varies by county.",
+    description: "How a case gets paused or resolved outside standard prosecution, and why it varies by county.",
     youtubeId: "",
     published: false
   },
@@ -102,12 +102,12 @@ const VIDEOS = [
     title: "If ICE Detains Someone in New York, Do This First",
     category: "Political / News",
     format: "Short",
-    description: "Immigration detention runs on different rules than a criminal arrest — including a free NY-funded legal resource.",
+    description: "Immigration detention runs on different rules than a criminal arrest, including a free NY-funded legal resource.",
     youtubeId: "",
     published: false
   },
   {
-    title: "What Is \"Raise the Age\" in New York — And Why It Matters for Teen Arrests",
+    title: "What Is \"Raise the Age\" in New York: And Why It Matters for Teen Arrests",
     category: "System",
     format: "Short",
     description: "Why most 16 and 17 year olds no longer go straight into adult criminal court.",
@@ -126,7 +126,7 @@ const VIDEOS = [
     title: "Restorative Justice in New York: The Real Alternatives to Incarceration",
     category: "Restorative Justice",
     format: "Long-form",
-    description: "Beyond 'lock them up' or 'let them off easy' — the actual mechanisms running in NY courtrooms right now.",
+    description: "Beyond 'lock them up' or 'let them off easy': the actual mechanisms running in NY courtrooms right now.",
     youtubeId: "",
     published: false
   }
@@ -159,14 +159,14 @@ const ARTICLES = [
     title: "The Hours Before You Get a Lawyer: New York's Right-to-Counsel Gap",
     category: "Access to Justice",
     date: "2026-07-27",
-    excerpt: "New York guarantees a lawyer at arraignment — not before it. What the Hurrell-Harring settlement actually fixed, and what still happens in the hours before that first court appearance."
+    excerpt: "New York guarantees a lawyer at arraignment, not before it. What the Hurrell-Harring settlement actually fixed, and what still happens in the hours before that first court appearance."
   },
   {
     slug: "public-defender-caseload-crisis-ny",
     title: "Why Your Public Defender Might Be Carrying 100+ Cases (And What NY Law Says About It)",
     category: "Access to Justice",
     date: "2026-07-27",
-    excerpt: "New York's own standards cap public defenders at roughly 300 weighted cases a year — and many offices still can't meet that. Here's what the numbers mean, county by county."
+    excerpt: "New York's own standards cap public defenders at roughly 300 weighted cases a year, and many offices still can't meet that. Here's what the numbers mean, county by county."
   },
   {
     slug: "what-the-system-doesnt-tell-you",
@@ -184,24 +184,24 @@ const ARTICLES = [
   },
   {
     slug: "nyc-restorative-justice-funding-2026",
-    title: "NYC Just Put $6.5 Million Behind Restorative Justice — Here's What That Actually Funds",
+    title: "NYC Just Put $6.5 Million Behind Restorative Justice: Here's What That Actually Funds",
     category: "Restorative Justice",
     date: "2026-07-26",
-    excerpt: "16 organizations, real circles for real people — students, domestic violence survivors, people in addiction recovery, teens arrested on gun charges. This isn't theory anymore."
+    excerpt: "16 organizations, real circles for real people: students, domestic violence survivors, people in addiction recovery, teens arrested on gun charges. This isn't theory anymore."
   },
   {
     slug: "just-arrested-what-youre-facing",
     title: "You've Just Been Arrested in New York: What You're Actually Facing, and the Question That Changes Everything",
     category: "Restorative Justice",
     date: "2026-07-26",
-    excerpt: "What the first hours and days after an arrest actually look like, and the one question about restorative justice that has to be asked before a plea — not after."
+    excerpt: "What the first hours and days after an arrest actually look like, and the one question about restorative justice that has to be asked before a plea, not after."
   },
   {
     slug: "after-an-arrest-in-new-york",
     title: "What Actually Happens After an Arrest in New York State",
     category: "Rights & Process",
     date: "2026-07-19",
-    excerpt: "From the moment of arrest to arraignment, discovery, and sentencing — the full process explained in plain language, so you're not learning these terms for the first time in a courtroom hallway."
+    excerpt: "From the moment of arrest to arraignment, discovery, and sentencing: the full process explained in plain language, so you're not learning these terms for the first time in a courtroom hallway."
   },
   {
     slug: "clean-slate-act-explained",
@@ -215,6 +215,6 @@ const ARTICLES = [
     title: "Restorative Justice in New York: The Real Alternatives to Incarceration",
     category: "Restorative Justice",
     date: "2026-07-19",
-    excerpt: "Beyond the two-camp framing of 'lock them up' or 'let them off easy' — victim-offender dialogue, diversion programs, and community-based alternatives actually running in New York right now."
+    excerpt: "Beyond the two-camp framing of 'lock them up' or 'let them off easy': victim-offender dialogue, diversion programs, and community-based alternatives actually running in New York right now."
   }
 ];

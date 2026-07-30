@@ -1,4 +1,4 @@
-/* Case Analytica — shared render logic. Requires data.js loaded first. */
+/* Case Analytica: shared render logic. Requires data.js loaded first. */
 
 function escapeHtml(str) {
   const div = document.createElement("div");
