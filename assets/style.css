@@ -203,3 +203,20 @@ footer.site-footer nav{display:flex; gap:16px; flex-wrap:wrap;}
 footer.site-footer nav a{font-size:13.5px; color:var(--ink-soft);}
 
 .overflow-x{overflow-x:auto;}
+
+/* Floating "Free Guide" tab, fixed to the right edge on every page */
+.guide-fab{
+  position:fixed; right:0; top:50%; transform:translateY(-50%); z-index:15;
+  display:flex; align-items:center; gap:8px; background:var(--accent); color:#fff !important;
+  text-decoration:none !important; padding:13px 18px 13px 15px; border-radius:8px 0 0 8px;
+  box-shadow:-2px 4px 16px rgba(0,0,0,.2); font-size:14px; font-weight:600; line-height:1;
+}
+.guide-fab:hover{filter:brightness(1.06);}
+.guide-fab-icon{font-size:18px;}
+@media (max-width:640px){
+  .guide-fab{
+    top:auto; bottom:18px; transform:none; padding:12px 14px; border-radius:24px 0 0 24px;
+  }
+  .guide-fab-text{display:none;}
+  .guide-fab-icon{font-size:20px;}
+}
