@@ -134,6 +134,48 @@ const VIDEOS = [
 
 const ARTICLES = [
   {
+    slug: "what-is-an-acd-in-new-york",
+    title: "What Is an ACD in New York? Adjournment in Contemplation of Dismissal, Explained",
+    category: "Restorative Justice",
+    date: "2026-07-30",
+    excerpt: "An ACD isn't a diversion program by name, but it works like one: complete a clean adjournment period and the case is dismissed and sealed. Here's when it applies and why it's not automatic."
+  },
+  {
+    slug: "pleading-guilty-immigration-consequences-ny",
+    title: "Will Pleading Guilty Affect Your Immigration Status in New York?",
+    category: "Rights & Process",
+    date: "2026-07-30",
+    excerpt: "New York law requires a judge to read a warning about deportation before a felony plea. It's a formality, not an explanation. Here's what that warning actually means."
+  },
+  {
+    slug: "cost-of-a-criminal-defense-lawyer-ny",
+    title: "How Much Does a Criminal Defense Lawyer Actually Cost in New York?",
+    category: "Access to Justice",
+    date: "2026-07-30",
+    excerpt: "Retainers, flat fees, hourly rates: what actually drives the price of private counsel in New York, and where that leaves you if a full-time attorney isn't in the budget."
+  },
+  {
+    slug: "how-bail-works-in-ny-after-reform",
+    title: "How Bail Actually Gets Set in New York After Bail Reform",
+    category: "System",
+    date: "2026-07-30",
+    excerpt: "Bail reform didn't eliminate cash bail, it narrowed it. What changed in 2019, what got added back in 2020 and 2022, and the question to ask about why bail was set the way it was."
+  },
+  {
+    slug: "does-a-conviction-show-on-background-check-ny",
+    title: "Does a Conviction Actually Show Up on a Background Check in New York?",
+    category: "System",
+    date: "2026-07-30",
+    excerpt: "The direct answer, and how it connects to the Clean Slate Act's sealing timeline, so a job application doesn't feel like a second sentence."
+  },
+  {
+    slug: "quick-answers-just-arrested-ny",
+    title: "Quick Answers: Just Been Arrested in New York (FAQ)",
+    category: "Rights & Process",
+    date: "2026-07-30",
+    excerpt: "Direct answers to the questions people actually search in the first hours after an arrest, each linked to the full explanation."
+  },
+  {
     slug: "the-bet-every-plea-deal-is-making",
     title: "The Bet Every Plea Deal Is Making",
     category: "Restorative Justice",
