@@ -19,6 +19,14 @@
 
 const VIDEOS = [
   {
+    title: "The Bet Every Plea Deal Is Making",
+    category: "Restorative Justice",
+    format: "Short",
+    description: "A plea offer is priced on a guess about what you won't do. Here's the bet baked into every deal, and the question that tells you if it's a safe one.",
+    youtubeId: "",
+    published: false
+  },
+  {
     title: "The Question Before You Plead Guilty",
     category: "Restorative Justice",
     format: "Short",
@@ -125,6 +133,13 @@ const VIDEOS = [
 ];
 
 const ARTICLES = [
+  {
+    slug: "the-bet-every-plea-deal-is-making",
+    title: "The Bet Every Plea Deal Is Making",
+    category: "Restorative Justice",
+    date: "2026-07-30",
+    excerpt: "A plea offer isn't a neutral number. It's a bet that you and your attorney won't take the case to trial. Here's how to tell if that bet is a safe one."
+  },
   {
     slug: "the-question-before-you-plead-guilty",
     title: "The Question Before You Plead Guilty",
