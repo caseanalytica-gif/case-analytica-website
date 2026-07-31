@@ -150,6 +150,20 @@ const VIDEOS = [
 
 const ARTICLES = [
   {
+    slug: "youthful-offender-status-vs-raise-the-age-ny",
+    title: "Youthful Offender Status vs. Raise the Age in New York: They're Not the Same Thing",
+    category: "System",
+    date: "2026-07-31",
+    excerpt: "Raise the Age decides which court hears a teenager's case. Youthful Offender status under CPL Article 720 decides what happens to the record afterward. Confusing the two costs people a sealed record they were entitled to ask for."
+  },
+  {
+    slug: "judicial-diversion-program-ny-felony-drug-cases",
+    title: "What Is Judicial Diversion in New York? Felony Drug Cases and CPL Article 216",
+    category: "Restorative Justice",
+    date: "2026-07-31",
+    excerpt: "Judicial diversion under CPL Article 216 lets a judge send an eligible felony drug defendant to treatment instead of prison, even over a prosecutor's objection. Here's who qualifies and the exact question to ask."
+  },
+  {
     slug: "certificate-of-relief-from-disabilities-ny",
     title: "Certificate of Relief from Disabilities in New York: How to Get Your Rights Back After a Conviction",
     category: "Access to Justice",
