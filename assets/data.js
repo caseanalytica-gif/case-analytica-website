@@ -115,6 +115,22 @@ const VIDEOS = [
     published: false
   },
   {
+    title: "The Certificate Most People Never Ask For After a NY Conviction",
+    category: "System",
+    format: "Short",
+    description: "A conviction can keep blocking jobs and licenses long after the sentence is over. Here's the Certificate of Relief from Disabilities, and why it has to be requested at sentencing.",
+    youtubeId: "",
+    published: false
+  },
+  {
+    title: "Order of Protection in New York: What It Actually Restricts (Know Before You Break It)",
+    category: "Rights & Process",
+    format: "Short",
+    description: "A criminal court order of protection isn't the same thing as a Family Court order, and violating it is its own separate crime.",
+    youtubeId: "",
+    published: false
+  },
+  {
     title: "How to Support a Loved One Incarcerated in NY (Visits, Mail, Commissary Explained)",
     category: "Rights & Process",
     format: "Short",
@@ -133,6 +149,20 @@ const VIDEOS = [
 ];
 
 const ARTICLES = [
+  {
+    slug: "certificate-of-relief-from-disabilities-ny",
+    title: "Certificate of Relief from Disabilities in New York: How to Get Your Rights Back After a Conviction",
+    category: "Access to Justice",
+    date: "2026-07-31",
+    excerpt: "A conviction can block a job, a license, even housing, long after the sentence is served. A Certificate of Relief from Disabilities doesn't erase the conviction. It removes the legal barrier anyway. Here's who qualifies and how to ask for one."
+  },
+  {
+    slug: "order-of-protection-criminal-court-ny",
+    title: "How a Criminal Court Order of Protection Actually Works in New York",
+    category: "Rights & Process",
+    date: "2026-07-31",
+    excerpt: "An order of protection issued in a criminal case isn't the same thing as one from Family Court, and violating it is its own separate crime. Here's how it gets issued, how long it lasts, and what happens if it's broken."
+  },
   {
     slug: "what-is-an-acd-in-new-york",
     title: "What Is an ACD in New York? Adjournment in Contemplation of Dismissal, Explained",
