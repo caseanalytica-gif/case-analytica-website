@@ -50,6 +50,17 @@
   }
   .btn-row{display:flex; gap:12px; flex-wrap:wrap;}
   .honor-note{font-size:13px; color:var(--ink-soft); margin-top:14px; font-style:italic;}
+  .guide-download-form{margin-top:18px;}
+  .guide-download-label{display:block; font-size:13.5px; color:var(--ink-soft); margin-bottom:8px;}
+  .guide-download-row{display:flex; gap:8px; flex-wrap:wrap;}
+  .guide-download-row input[type="email"]{
+    flex:1 1 200px; padding:10px 12px; border:1px solid var(--line); border-radius:8px;
+    font-size:14px; font-family:inherit; background:var(--paper-raised); color:var(--ink);
+  }
+  .hp-field{position:absolute; left:-9999px; width:1px; height:1px; opacity:0;}
+  .guide-download-status{font-size:13.5px; margin-top:10px; min-height:1.2em;}
+  .guide-download-status.error{color:#b3261e;}
+  .guide-download-status.success{color:#1b6e3c;}
 </style>
 </head>
 <body>
@@ -102,9 +113,19 @@
         </div>
         <div class="btn-row">
           <a class="btn" href="https://paypal.me/DeanMustaphalli" target="_blank" rel="noopener">♥ Chip in $15</a>
-          <a class="btn btn-outline" href="assets/guide/case-analytica-guide.pdf" target="_blank" rel="noopener">Download the guide (PDF)</a>
         </div>
-        <p class="honor-note">This is an honor-system ask, not a paywall. If $15 isn't in reach right now, download it anyway. Nobody is turned away from this information over money.</p>
+
+        <form id="guide-download-form" class="guide-download-form" novalidate>
+          <label for="guide-email" class="guide-download-label">Get the download link by email, so we can let you know when new guides and articles go up:</label>
+          <div class="guide-download-row">
+            <input type="email" id="guide-email" name="email" placeholder="you@email.com" required autocomplete="email">
+            <input type="text" name="hp" id="guide-hp" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <button type="submit" class="btn btn-outline">Email Me the Guide</button>
+          </div>
+          <p id="guide-download-status" class="guide-download-status" role="status"></p>
+        </form>
+
+        <p class="honor-note">Prefer to skip this? <a href="assets/guide/case-analytica-guide.pdf" target="_blank" rel="noopener">Download the guide directly</a>, no email needed. This is an honor-system ask, not a paywall. If $15 isn't in reach right now, download it anyway. Nobody is turned away from this information over money.</p>
       </div>
     </div>
 
@@ -155,5 +176,72 @@
 </footer>
 
 <script src="assets/analytics.js"></script>
+<script>
+(function(){
+  // Set this after deploying Website/email-capture-sheets (see its SETUP.md).
+  var SHEETS_ENDPOINT_URL = "https://script.google.com/macros/s/AKfycbwMJ_UafMQSCAVnecDSK3ZkuRYk3kYTxEmhmMOXYIFRsbklakn6O6rsI6qsR12wvkdJcg/exec";
+  var PDF_HREF = "assets/guide/case-analytica-guide.pdf";
+
+  var form = document.getElementById('guide-download-form');
+  if (!form) return;
+  var status = document.getElementById('guide-download-status');
+  var emailInput = document.getElementById('guide-email');
+  var hpInput = document.getElementById('guide-hp');
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var email = emailInput.value.trim();
+    status.textContent = '';
+    status.className = 'guide-download-status';
+
+    if (!email) {
+      status.textContent = 'Enter an email address, or use the direct download link below.';
+      status.className = 'guide-download-status error';
+      return;
+    }
+
+    if (SHEETS_ENDPOINT_URL.indexOf('REPLACE_WITH_YOUR_APPS_SCRIPT_URL') !== -1) {
+      status.textContent = 'Email capture isn\'t connected yet. Use the direct download link below for now.';
+      status.className = 'guide-download-status error';
+      return;
+    }
+
+    var submitBtn = form.querySelector('button[type="submit"]');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+
+    // Content-Type is deliberately text/plain, not application/json: this
+    // avoids a CORS preflight request, which Google Apps Script web apps
+    // don't handle cleanly. Apps Script still parses the body as JSON.
+    fetch(SHEETS_ENDPOINT_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify({ email: email, hp: hpInput.value, source: 'guide-download' })
+    })
+    .then(function(res){
+      return res.json().then(function(data){ return { ok: res.ok, data: data }; });
+    })
+    .then(function(result){
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Email Me the Guide';
+      if (result.ok && result.data && result.data.ok) {
+        status.textContent = "You're on the list. Opening the guide now.";
+        status.className = 'guide-download-status success';
+        window.open(PDF_HREF, '_blank');
+        form.reset();
+      } else {
+        status.textContent = (result.data && result.data.error) || 'Something went wrong. Use the direct download link below instead.';
+        status.className = 'guide-download-status error';
+      }
+    })
+    .catch(function(){
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Email Me the Guide';
+      status.textContent = 'Could not reach the server. Use the direct download link below instead.';
+      status.className = 'guide-download-status error';
+    });
+  });
+})();
+</script>
 </body>
 </html>
