@@ -27,6 +27,22 @@ const VIDEOS = [
     published: false
   },
   {
+    title: "Project Reset in New York: How a Desk Appearance Ticket Can Avoid a Criminal Record",
+    category: "Restorative Justice",
+    format: "Short",
+    description: "Project Reset lets people arrested in NYC for a low-level misdemeanor avoid prosecution entirely by completing a short community program, but only if they find out about it before their court date.",
+    youtubeId: "",
+    published: false
+  },
+  {
+    title: "How Long Can New York Take You to Trial? CPL 30.30 Speedy Trial Rules Explained",
+    category: "Rights & Process",
+    format: "Short",
+    description: "CPL 30.30 doesn't guarantee a trial by a deadline, it sets a clock for when prosecutors have to say they're ready, and that clock has more exceptions than most people realize.",
+    youtubeId: "",
+    published: false
+  },
+  {
     title: "The Question Before You Plead Guilty",
     category: "Restorative Justice",
     format: "Short",
@@ -149,6 +165,20 @@ const VIDEOS = [
 ];
 
 const ARTICLES = [
+  {
+    slug: "project-reset-desk-appearance-ticket-ny",
+    title: "What Is Project Reset in New York? How a Desk Appearance Ticket Can Avoid a Criminal Record",
+    category: "Restorative Justice",
+    date: "2026-08-01",
+    excerpt: "Project Reset lets people arrested in New York City for a low-level misdemeanor avoid prosecution entirely, but only if the person holding the Desk Appearance Ticket finds out about it before the court date. Here's how it actually works, and the exact question to ask."
+  },
+  {
+    slug: "cpl-30-30-speedy-trial-ny-explained",
+    title: "How Long Can New York Take You to Trial? CPL 30.30 Speedy Trial Rules Explained",
+    category: "Rights & Process",
+    date: "2026-08-01",
+    excerpt: "CPL 30.30 doesn't promise a trial by a deadline. It sets a clock for when prosecutors have to say they're ready. Here's what the clock actually measures, what stops it, and the question to ask your attorney about it."
+  },
   {
     slug: "youthful-offender-status-vs-raise-the-age-ny",
     title: "Youthful Offender Status vs. Raise the Age in New York: They're Not the Same Thing",
