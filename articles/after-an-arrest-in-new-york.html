@@ -68,6 +68,13 @@
     <p class="eyebrow">Rights &amp; Process · <a href="../articles.html">← All articles</a></p>
     <h1 class="serif">What Actually Happens After an Arrest in New York State</h1>
     <div class="article-meta"><span>By Dean Mustaphalli</span><span>·</span><span>2026-07-19</span></div>
+    <div class="share-row" aria-label="Share this article">
+      <span class="share-label">Share</span>
+      <a class="share-btn" id="share-x" href="#" target="_blank" rel="noopener">X</a>
+      <a class="share-btn" id="share-fb" href="#" target="_blank" rel="noopener">Facebook</a>
+      <button class="share-btn" id="share-copy" type="button">Copy link</button>
+      <span id="share-copy-status" class="share-copy-status"></span>
+    </div>
   </div>
 </div>
 
@@ -113,6 +120,24 @@
 
 <section>
   <div class="narrow">
+    <div class="donate-prompt">
+      <p><strong>This article is free, and always will be.</strong> If it helped you or someone you love, Case Analytica runs on reader support.</p>
+      <div class="btn-row">
+        <a class="btn" href="https://paypal.me/DeanMustaphalli" target="_blank" rel="noopener">♥ Chip In</a>
+        <details class="zelle-pop">
+          <summary>Zelle ▾</summary>
+          <div class="zelle-card">
+            <img src="../assets/icons/zelle-qr.png" alt="Zelle QR code" width="200" height="260" loading="lazy">
+            <p>Scan in your banking app to send with Zelle</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="narrow">
     <div class="intake-band" style="display:block;">
       <h3 class="serif">Going through this right now?</h3>
       <p style="margin-bottom:16px;">Book a free intake call and we'll help you map out exactly where the case is and what comes next.</p>
@@ -153,5 +178,25 @@
 </footer>
 
 <script src="../assets/analytics.js"></script>
+<script>
+(function(){
+  var canonical = document.querySelector('link[rel="canonical"]');
+  if (!canonical) return;
+  var url = encodeURIComponent(canonical.href);
+  var title = encodeURIComponent(document.title.replace(/: Case Analytica$/, ''));
+  var x = document.getElementById('share-x');
+  var fb = document.getElementById('share-fb');
+  var copyBtn = document.getElementById('share-copy');
+  if (x) x.href = 'https://twitter.com/intent/tweet?text=' + title + '&url=' + url;
+  if (fb) fb.href = 'https://www.facebook.com/sharer/sharer.php?u=' + url;
+  if (copyBtn) copyBtn.addEventListener('click', function(){
+    navigator.clipboard.writeText(canonical.href).then(function(){
+      var s = document.getElementById('share-copy-status');
+      if (s) { s.textContent = 'Copied!'; setTimeout(function(){ s.textContent = ''; }, 2000); }
+    });
+  });
+})();
+</script>
+
 </body>
 </html>

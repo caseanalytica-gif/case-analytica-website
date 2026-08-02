@@ -166,6 +166,20 @@ const VIDEOS = [
 
 const ARTICLES = [
   {
+    slug: "bail-source-hearing-ny-explained",
+    title: "Your Bail Is $100. Why Are You Still in Jail? What a Bail Source Hearing Actually Does",
+    category: "Rights & Process",
+    date: "2026-08-01",
+    excerpt: "A low bail number isn't the same as being free to go. Here's how a bail source hearing under CPL 520.10 can keep someone in jail for a week or two on bail that was never the real barrier, and the exact question to ask about it."
+  },
+  {
+    slug: "cpl-160-59-sealing-vs-expungement-ny",
+    title: "Can You Actually Expunge a Criminal Record in New York? What CPL 160.59 Sealing Really Does",
+    category: "Access to Justice",
+    date: "2026-08-01",
+    excerpt: "New York doesn't expunge convictions, no matter what that search brings up. Under CPL 160.59, a conviction can be sealed after ten years, but only if you ask, only if it qualifies, and only if the paperwork is filed correctly. Here's what the motion actually requires."
+  },
+  {
     slug: "project-reset-desk-appearance-ticket-ny",
     title: "What Is Project Reset in New York? How a Desk Appearance Ticket Can Avoid a Criminal Record",
     category: "Restorative Justice",

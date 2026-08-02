@@ -16,7 +16,7 @@
 <link rel="icon" type="image/png" sizes="16x16" href="../assets/icons/favicon-16.png">
 <link rel="apple-touch-icon" href="../assets/icons/apple-touch-icon.png">
 <title>Why Your Public Defender Might Be Carrying 100+ Cases: Case Analytica</title>
-<meta name="description" content="New York's own caseload standards cap public defenders at roughly 300 weighted cases a year, and many offices still can't meet that. Here's what the numbers mean and why they vary so much by county.">
+<meta name="description" content="New York's own caseload standards cap public defenders at roughly 300 weighted cases a year, and many offices still can't meet that standard.">
 <link rel="stylesheet" href="../assets/style.css">
 <link rel="canonical" href="https://www.caseanalytica.com/articles/public-defender-caseload-crisis-ny.html">
 <meta property="og:type" content="article">
@@ -80,6 +80,13 @@
     <p class="eyebrow">Access to Justice · <a href="../articles.html">← All articles</a></p>
     <h1 class="serif">Why Your Public Defender Might Be Carrying 100+ Cases (And What NY Law Says About It)</h1>
     <div class="article-meta"><span>By Dean Mustaphalli</span><span>·</span><span>2026-07-27</span></div>
+    <div class="share-row" aria-label="Share this article">
+      <span class="share-label">Share</span>
+      <a class="share-btn" id="share-x" href="#" target="_blank" rel="noopener">X</a>
+      <a class="share-btn" id="share-fb" href="#" target="_blank" rel="noopener">Facebook</a>
+      <button class="share-btn" id="share-copy" type="button">Copy link</button>
+      <span id="share-copy-status" class="share-copy-status"></span>
+    </div>
   </div>
 </div>
 
@@ -132,6 +139,24 @@
 
 <section>
   <div class="narrow">
+    <div class="donate-prompt">
+      <p><strong>This article is free, and always will be.</strong> If it helped you or someone you love, Case Analytica runs on reader support.</p>
+      <div class="btn-row">
+        <a class="btn" href="https://paypal.me/DeanMustaphalli" target="_blank" rel="noopener">♥ Chip In</a>
+        <details class="zelle-pop">
+          <summary>Zelle ▾</summary>
+          <div class="zelle-card">
+            <img src="../assets/icons/zelle-qr.png" alt="Zelle QR code" width="200" height="260" loading="lazy">
+            <p>Scan in your banking app to send with Zelle</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="narrow">
     <div class="intake-band" style="display:block;">
       <h3 class="serif">Not sure how much attention your case is getting?</h3>
       <p style="margin-bottom:16px;">Book a free intake call: we'll help you think through the right questions to ask your assigned attorney and what to do if you need more support.</p>
@@ -172,5 +197,25 @@
 </footer>
 
 <script src="../assets/analytics.js"></script>
+<script>
+(function(){
+  var canonical = document.querySelector('link[rel="canonical"]');
+  if (!canonical) return;
+  var url = encodeURIComponent(canonical.href);
+  var title = encodeURIComponent(document.title.replace(/: Case Analytica$/, ''));
+  var x = document.getElementById('share-x');
+  var fb = document.getElementById('share-fb');
+  var copyBtn = document.getElementById('share-copy');
+  if (x) x.href = 'https://twitter.com/intent/tweet?text=' + title + '&url=' + url;
+  if (fb) fb.href = 'https://www.facebook.com/sharer/sharer.php?u=' + url;
+  if (copyBtn) copyBtn.addEventListener('click', function(){
+    navigator.clipboard.writeText(canonical.href).then(function(){
+      var s = document.getElementById('share-copy-status');
+      if (s) { s.textContent = 'Copied!'; setTimeout(function(){ s.textContent = ''; }, 2000); }
+    });
+  });
+})();
+</script>
+
 </body>
 </html>

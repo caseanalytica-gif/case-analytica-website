@@ -164,6 +164,17 @@ section{padding:64px 0;}
 .article-header{padding:56px 0 32px; border-bottom:1px solid var(--line);}
 .article-header h1{font-size:clamp(28px,4vw,38px); margin:12px 0 14px; text-wrap:balance;}
 .article-meta{display:flex; gap:14px; align-items:center; flex-wrap:wrap; font-size:13.5px; color:var(--ink-soft);}
+
+.share-row{display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-top:16px;}
+.share-label{font-size:12.5px; color:var(--ink-soft); text-transform:uppercase; letter-spacing:.06em;}
+.share-btn{
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; font-size:12px; font-weight:600;
+  padding:6px 12px; border-radius:16px; border:1px solid var(--line); color:var(--ink-soft) !important;
+  text-decoration:none !important; background:none; cursor:pointer; letter-spacing:.02em;
+}
+.share-btn:hover{border-color:var(--accent); color:var(--accent) !important;}
+.share-copy-status{font-size:12px; color:var(--accent);}
+
 .article-body{padding:40px 0; font-size:17px;}
 .article-body h2{font-size:22px; margin:36px 0 12px;}
 .article-body p{margin:0 0 18px;}
@@ -188,6 +199,14 @@ section{padding:64px 0;}
 .intake-band h3{margin:0 0 6px; font-size:20px; color:#f2f1ec;}
 .intake-band p{margin:0; color:#c9cdd2; max-width:48ch;}
 .intake-band a.btn{background:var(--btn-fill);}
+
+.donate-prompt{
+  border:1px solid var(--accent); background:var(--accent-soft); border-radius:12px;
+  padding:20px 24px; margin:0 0 40px; display:flex; align-items:center; justify-content:space-between;
+  gap:20px; flex-wrap:wrap;
+}
+.donate-prompt p{margin:0; font-size:15px; color:var(--ink);}
+.donate-prompt .btn-row{display:flex; gap:10px; flex-wrap:wrap; align-items:center;}
 
 footer.site-footer{border-top:1px solid var(--line); padding:40px 0; margin-top:40px;}
 footer.site-footer .foot-grid{display:flex; justify-content:space-between; align-items:flex-start; gap:24px; flex-wrap:wrap;}

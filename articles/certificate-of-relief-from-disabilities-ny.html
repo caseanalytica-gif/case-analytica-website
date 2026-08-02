@@ -16,7 +16,7 @@
 <link rel="icon" type="image/png" sizes="16x16" href="../assets/icons/favicon-16.png">
 <link rel="apple-touch-icon" href="../assets/icons/apple-touch-icon.png">
 <title>Certificate of Relief from Disabilities in New York: How to Get Your Rights Back After a Conviction: Case Analytica</title>
-<meta name="description" content="A conviction can block a job, a license, even housing, long after the sentence is served. A Certificate of Relief from Disabilities doesn't erase the conviction. It removes the legal barrier anyway. Here's who qualifies and how to ask for one.">
+<meta name="description" content="A conviction can block a job or license long after the sentence is served. A Certificate of Relief from Disabilities doesn't erase it, but removes the legal barrier anyway.">
 <link rel="stylesheet" href="../assets/style.css">
 <link rel="canonical" href="https://www.caseanalytica.com/articles/certificate-of-relief-from-disabilities-ny.html">
 <script type="application/ld+json">
@@ -24,7 +24,7 @@
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": "Certificate of Relief from Disabilities in New York: How to Get Your Rights Back After a Conviction",
-  "description": "A conviction can block a job, a license, even housing, long after the sentence is served. A Certificate of Relief from Disabilities doesn't erase the conviction. It removes the legal barrier anyway. Here's who qualifies and how to ask for one.",
+  "description": "A conviction can block a job or license long after the sentence is served. A Certificate of Relief from Disabilities doesn't erase it, but removes the legal barrier anyway.",
   "datePublished": "2026-07-31",
   "author": { "@type": "Person", "name": "Dean Mustaphalli" },
   "publisher": {
@@ -68,6 +68,13 @@
     <p class="eyebrow">Access to Justice · <a href="../articles.html">← All articles</a></p>
     <h1 class="serif">Certificate of Relief from Disabilities in New York: How to Get Your Rights Back After a Conviction</h1>
     <div class="article-meta"><span>By Dean Mustaphalli</span><span>·</span><span>2026-07-31</span></div>
+    <div class="share-row" aria-label="Share this article">
+      <span class="share-label">Share</span>
+      <a class="share-btn" id="share-x" href="#" target="_blank" rel="noopener">X</a>
+      <a class="share-btn" id="share-fb" href="#" target="_blank" rel="noopener">Facebook</a>
+      <button class="share-btn" id="share-copy" type="button">Copy link</button>
+      <span id="share-copy-status" class="share-copy-status"></span>
+    </div>
   </div>
 </div>
 
@@ -76,7 +83,7 @@
 
     <p>A sentence ends. The conviction doesn't. Long after someone finishes probation or walks out of prison, that conviction can still block a job application, an occupational license, even a public housing application, and almost nobody tells them there's a specific legal tool built to remove that block without erasing the conviction itself.</p>
 
-    <p>It's called a Certificate of Relief from Disabilities, and most people never hear the phrase until it's too late to matter for the opportunity they just lost. It's a different tool than sealing under the <a href="clean-slate-act-explained.html">Clean Slate Act</a>, and it applies even when a record isn't eligible for sealing yet.</p>
+    <p>It's called a Certificate of Relief from Disabilities, and most people never hear the phrase until it's too late to matter for the opportunity they just lost. It's a different tool than sealing under the <a href="clean-slate-act-explained.html">Clean Slate Act</a> or the older, motion-based <a href="cpl-160-59-sealing-vs-expungement-ny.html">CPL 160.59 sealing route</a>, and it applies even when a record isn't eligible for sealing yet.</p>
 
     <h2>What it actually removes</h2>
     <p>New York <a href="https://www.nysenate.gov/legislation/laws/COR/A23" target="_blank" rel="noopener">Correction Law Article 23</a> authorizes courts and the state Department of Corrections and Community Supervision (DOCCS) to issue a Certificate of Relief from Disabilities. The certificate doesn't seal or vacate a conviction. It removes what the law calls a "disability," meaning a legal bar or forfeiture triggered automatically by a conviction, most commonly the ones that block employment and occupational licensing.</p>
@@ -107,6 +114,24 @@
 
   </div>
 </div>
+
+<section>
+  <div class="narrow">
+    <div class="donate-prompt">
+      <p><strong>This article is free, and always will be.</strong> If it helped you or someone you love, Case Analytica runs on reader support.</p>
+      <div class="btn-row">
+        <a class="btn" href="https://paypal.me/DeanMustaphalli" target="_blank" rel="noopener">♥ Chip In</a>
+        <details class="zelle-pop">
+          <summary>Zelle ▾</summary>
+          <div class="zelle-card">
+            <img src="../assets/icons/zelle-qr.png" alt="Zelle QR code" width="200" height="260" loading="lazy">
+            <p>Scan in your banking app to send with Zelle</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section>
   <div class="narrow">
@@ -150,5 +175,25 @@
 </footer>
 
 <script src="../assets/analytics.js"></script>
+<script>
+(function(){
+  var canonical = document.querySelector('link[rel="canonical"]');
+  if (!canonical) return;
+  var url = encodeURIComponent(canonical.href);
+  var title = encodeURIComponent(document.title.replace(/: Case Analytica$/, ''));
+  var x = document.getElementById('share-x');
+  var fb = document.getElementById('share-fb');
+  var copyBtn = document.getElementById('share-copy');
+  if (x) x.href = 'https://twitter.com/intent/tweet?text=' + title + '&url=' + url;
+  if (fb) fb.href = 'https://www.facebook.com/sharer/sharer.php?u=' + url;
+  if (copyBtn) copyBtn.addEventListener('click', function(){
+    navigator.clipboard.writeText(canonical.href).then(function(){
+      var s = document.getElementById('share-copy-status');
+      if (s) { s.textContent = 'Copied!'; setTimeout(function(){ s.textContent = ''; }, 2000); }
+    });
+  });
+})();
+</script>
+
 </body>
 </html>
