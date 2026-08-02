@@ -84,6 +84,7 @@
       <span class="share-label">Share</span>
       <a class="share-btn" id="share-x" href="#" target="_blank" rel="noopener">X</a>
       <a class="share-btn" id="share-fb" href="#" target="_blank" rel="noopener">Facebook</a>
+      <a class="share-btn" id="share-li" href="#" target="_blank" rel="noopener">LinkedIn</a>
       <button class="share-btn" id="share-copy" type="button">Copy link</button>
       <span id="share-copy-status" class="share-copy-status"></span>
     </div>
@@ -208,6 +209,8 @@
   var copyBtn = document.getElementById('share-copy');
   if (x) x.href = 'https://twitter.com/intent/tweet?text=' + title + '&url=' + url;
   if (fb) fb.href = 'https://www.facebook.com/sharer/sharer.php?u=' + url;
+  var li = document.getElementById('share-li');
+  if (li) li.href = 'https://www.linkedin.com/sharing/share-offsite/?url=' + url;
   if (copyBtn) copyBtn.addEventListener('click', function(){
     navigator.clipboard.writeText(canonical.href).then(function(){
       var s = document.getElementById('share-copy-status');
