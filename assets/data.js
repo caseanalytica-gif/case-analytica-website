@@ -166,6 +166,20 @@ const VIDEOS = [
 
 const ARTICLES = [
   {
+    slug: "why-innocent-people-plead-guilty-ny",
+    title: "Why Do Innocent People Plead Guilty? The Trial Penalty Behind New York's Guilty-Plea Rate",
+    category: "Restorative Justice",
+    date: "2026-08-02",
+    excerpt: "Nationally, 97 percent of felony convictions in large urban courts come from a guilty plea, not a trial. Here's the pressure that pushes innocent people into that number, and what New York law does and doesn't do about it."
+  },
+  {
+    slug: "discovery-platform-access-logs-work-product-ny",
+    title: "Is the DA Watching When You Open Your Case File? Discovery Platforms and Work Product in NY",
+    category: "Rights & Process",
+    date: "2026-08-02",
+    excerpt: "Digital evidence platforms log every time a defense file gets opened. That access log can say more about defense strategy than the DA is supposed to see, and New York's work-product rule under CPL 245.65 was written before anyone thought to ask about it."
+  },
+  {
     slug: "bail-source-hearing-ny-explained",
     title: "Your Bail Is $100. Why Are You Still in Jail? What a Bail Source Hearing Actually Does",
     category: "Rights & Process",
