@@ -19,6 +19,22 @@
 
 const VIDEOS = [
   {
+    title: "What Happens If You Miss a Court Date in New York? The 30-Day Rule Nobody Explains",
+    category: "System",
+    format: "Short",
+    description: "A missed court date and an active bench warrant are not the same emergency. New York's bail jumping law only becomes a separate charge if you don't turn yourself in within a specific statutory window.",
+    youtubeId: "",
+    published: false
+  },
+  {
+    title: "Can NYPD Stop and Frisk You Without a Reason? CPL 140.50 and Floyd v. City of New York Explained",
+    category: "Rights & Process",
+    format: "Short",
+    description: "Reasonable suspicion is a specific legal standard, not a phrase that excuses any stop. Here's what CPL 140.50 authorizes and what a 2013 federal ruling found NYPD was doing instead.",
+    youtubeId: "",
+    published: false
+  },
+  {
     title: "The Bet Every Plea Deal Is Making",
     category: "Restorative Justice",
     format: "Short",
@@ -165,6 +181,20 @@ const VIDEOS = [
 ];
 
 const ARTICLES = [
+  {
+    slug: "missed-court-date-bench-warrant-ny",
+    title: "What Happens If You Miss a Court Date in New York? Bench Warrants and the 30-Day Window",
+    category: "System",
+    date: "2026-08-03",
+    excerpt: "A missed court date and an active bench warrant are not the same emergency. Here's what CPL 530.70 actually authorizes, and the statutory 30-day window that decides whether you're also charged with bail jumping."
+  },
+  {
+    slug: "stop-and-frisk-cpl-140-50-ny",
+    title: "Can NYPD Stop and Frisk You Without a Reason? CPL 140.50 and Floyd v. City of New York",
+    category: "Rights & Process",
+    date: "2026-08-03",
+    excerpt: "Reasonable suspicion is a legal standard with an actual definition, not a phrase that excuses any stop. Here's what CPL 140.50 authorizes, what Floyd v. City of New York found NYPD was doing instead, and what to say during a stop."
+  },
   {
     slug: "why-innocent-people-plead-guilty-ny",
     title: "Why Do Innocent People Plead Guilty? The Trial Penalty Behind New York's Guilty-Plea Rate",
