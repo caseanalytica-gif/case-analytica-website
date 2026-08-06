@@ -19,6 +19,22 @@
 
 const VIDEOS = [
   {
+    title: "Police Can Take Your Cash Without Charging You: Civil Asset Forfeiture in New York Explained",
+    category: "Rights & Process",
+    format: "Short",
+    description: "New York can seize cash, cars, and homes through a civil lawsuit that runs separately from any criminal case, and doesn't require a conviction to keep the property.",
+    youtubeId: "",
+    published: false
+  },
+  {
+    title: "Your Old Marijuana Conviction May Already Be Expunged in New York (MRTA Explained)",
+    category: "System",
+    format: "Short",
+    description: "New York automatically expunged a specific list of marijuana convictions starting in 2021, with no filing, no fee, and no notice sent to the people it affects.",
+    youtubeId: "",
+    published: false
+  },
+  {
     title: "What Happens If You Miss a Court Date in New York? The 30-Day Rule Nobody Explains",
     category: "System",
     format: "Short",
@@ -181,6 +197,20 @@ const VIDEOS = [
 ];
 
 const ARTICLES = [
+  {
+    slug: "civil-asset-forfeiture-cplr-13a-ny",
+    title: "Police Can Take Your Cash Before You're Ever Charged: Civil Asset Forfeiture Under CPLR Article 13-A",
+    category: "Rights & Process",
+    date: "2026-08-06",
+    excerpt: "New York can seize your cash, your car, or your house without a conviction, sometimes without an arrest. Here's what CPLR Article 13-A actually allows, and the exact question to ask if it happens to you."
+  },
+  {
+    slug: "mrta-marijuana-expungement-ny",
+    title: "Your Old Marijuana Conviction May Already Be Expunged in New York: What the MRTA Actually Cleared",
+    category: "Access to Justice",
+    date: "2026-08-06",
+    excerpt: "New York automatically expunged hundreds of thousands of marijuana convictions under the MRTA, no filing and no fee required. Here's exactly which charges qualify, and what to do if yours doesn't."
+  },
   {
     slug: "missed-court-date-bench-warrant-ny",
     title: "What Happens If You Miss a Court Date in New York? Bench Warrants and the 30-Day Window",
