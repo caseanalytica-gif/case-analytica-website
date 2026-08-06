@@ -198,6 +198,13 @@ const VIDEOS = [
 
 const ARTICLES = [
   {
+    slug: "parole-hearing-preparation-ny",
+    title: "A Parole Hearing in New York Can Last Twenty Minutes: How to Actually Prepare for One",
+    category: "Rights & Process",
+    date: "2026-08-06",
+    excerpt: "A NY parole hearing usually runs ten to twenty minutes. Here's what the Board actually evaluates, how to build a release plan that holds up, and what to say and never say in the room."
+  },
+  {
     slug: "civil-asset-forfeiture-cplr-13a-ny",
     title: "Police Can Take Your Cash Before You're Ever Charged: Civil Asset Forfeiture Under CPLR Article 13-A",
     category: "Rights & Process",
