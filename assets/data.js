@@ -19,6 +19,22 @@
 
 const VIDEOS = [
   {
+    title: "Can You Plead Guilty in New York Without Admitting You Did It? The Alford Plea Explained",
+    category: "Restorative Justice",
+    format: "Short",
+    description: "New York allows a guilty plea without an admission of guilt, called an Alford plea, but courts have ruled it can still be held against you years later at parole.",
+    youtubeId: "",
+    published: false
+  },
+  {
+    title: "New York Can Only Hold You 120 Hours on a Felony Complaint: CPL 180.80 Explained",
+    category: "Rights & Process",
+    format: "Short",
+    description: "CPL 180.80 requires New York to release someone held on a felony complaint after 120 or 144 hours with no indictment or hearing, but only if someone actually files for it.",
+    youtubeId: "",
+    published: false
+  },
+  {
     title: "Police Can Take Your Cash Without Charging You: Civil Asset Forfeiture in New York Explained",
     category: "Rights & Process",
     format: "Short",
@@ -197,6 +213,20 @@ const VIDEOS = [
 ];
 
 const ARTICLES = [
+  {
+    slug: "alford-plea-new-york-explained",
+    title: "Can You Plead Guilty in New York Without Admitting You Did It? The Alford Plea Explained",
+    category: "Restorative Justice",
+    date: "2026-08-07",
+    excerpt: "New York allows a guilty plea without an admission of guilt, called an Alford plea. New York's own courts have ruled it can still be held against you years later, at a parole hearing."
+  },
+  {
+    slug: "cpl-180-80-release-from-custody-ny",
+    title: "How Long Can New York Hold You on a Felony Complaint? CPL 180.80's 120-Hour Rule",
+    category: "Rights & Process",
+    date: "2026-08-07",
+    excerpt: "CPL 180.80 says New York must release you on your own recognizance after 120 or 144 hours on a felony complaint with no indictment or hearing. It only works if someone actually applies for it."
+  },
   {
     slug: "parole-hearing-preparation-ny",
     title: "A Parole Hearing in New York Can Last Twenty Minutes: How to Actually Prepare for One",
