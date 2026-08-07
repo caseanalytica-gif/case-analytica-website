@@ -214,6 +214,13 @@ const VIDEOS = [
 
 const ARTICLES = [
   {
+    slug: "rikers-island-cost-per-person-ny",
+    title: "What Rikers Island Actually Costs, Per Person, Per Year",
+    category: "System",
+    date: "2026-08-07",
+    excerpt: "New York City spent $507,000 per incarcerated person in 2023, and most of the people held at Rikers Island haven't been convicted of anything. Here's what the city's own numbers show."
+  },
+  {
     slug: "alford-plea-new-york-explained",
     title: "Can You Plead Guilty in New York Without Admitting You Did It? The Alford Plea Explained",
     category: "Restorative Justice",
