@@ -1,4 +1,4 @@
-New York automatically expunged hundreds of thousands of marijuana convictions starting in 2021. No filing, no fee, and nobody ever got a letter telling them it happened.
+Marijuana expungement in New York happened automatically for hundreds of thousands of people starting in 2021. No filing, no fee, and nobody ever got a letter telling them it happened.
 
 https://www.caseanalytica.com/articles/mrta-marijuana-expungement-ny.html
 

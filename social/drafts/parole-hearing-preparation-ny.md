@@ -1,4 +1,4 @@
-A New York parole hearing usually lasts ten to twenty minutes. Years of a person's life come down to a conversation that short.
+Parole hearing preparation in New York matters for one blunt reason: the hearing itself usually lasts ten to twenty minutes. Years of a person's life come down to a conversation that short.
 
 https://www.caseanalytica.com/articles/parole-hearing-preparation-ny.html
 

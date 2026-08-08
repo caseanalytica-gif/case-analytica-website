@@ -1,4 +1,4 @@
-"If I take this deal without admitting the facts, will that absence follow me later, at a parole hearing or anywhere else?" New York's highest court has already answered that. It's yes.
+Alford plea in New York: pleading guilty without admitting the facts does not make those facts go away. New York's highest court has already ruled that the absence follows you, into a parole hearing, into anywhere else that asks.
 
 https://www.caseanalytica.com/articles/alford-plea-new-york-explained.html
 

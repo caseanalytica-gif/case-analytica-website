@@ -1,4 +1,4 @@
-New York law says you can only be held 120 hours on a felony complaint with no indictment. The clock doesn't enforce itself. Someone has to actually file for it.
+CPL 180.80 in New York: you can only be held 120 hours on a felony complaint with no indictment. The clock doesn't enforce itself though. Someone has to actually file for it.
 
 https://www.caseanalytica.com/articles/cpl-180-80-release-from-custody-ny.html
 

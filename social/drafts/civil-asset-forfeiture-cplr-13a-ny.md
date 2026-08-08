@@ -1,4 +1,4 @@
-Your cash and your criminal case are two separate proceedings, running on two different sets of rules. New York doesn't need to convict you of anything to keep the money.
+Civil asset forfeiture in New York: your cash and your criminal case are not the same proceeding. They run on two different sets of rules, and the state doesn't need to convict you of anything to keep the money.
 
 https://www.caseanalytica.com/articles/civil-asset-forfeiture-cplr-13a-ny.html
 

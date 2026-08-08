@@ -1,4 +1,4 @@
-If pretrial detention isn't reducing crime, and it costs more than half a million dollars a person a year, what is that money actually buying?
+Rikers Island costs more than half a million dollars a year for every person held there. If pretrial detention isn't reducing crime, what is that money actually buying?
 
 https://www.caseanalytica.com/articles/rikers-island-cost-per-person-ny.html
 
