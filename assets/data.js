@@ -19,6 +19,22 @@
 
 const VIDEOS = [
   {
+    title: "What Is Your Right to a Speedy Trial in New York? CPL 30.20 and the Test Courts Actually Use",
+    category: "Rights & Process",
+    format: "Short",
+    description: "New York guarantees a speedy trial under CPL 30.20, but there's no fixed number of days attached to it, unlike the separate statutory CPL 30.30 clock. Here's the five-factor test courts actually use.",
+    youtubeId: "",
+    published: false
+  },
+  {
+    title: "What Happens If You Violate Probation in New York? CPL 410.70 Explained",
+    category: "Rights & Process",
+    format: "Short",
+    description: "New York's probation violation hearing runs on a lower burden of proof than the case that put you on probation, with no jury and a judge deciding alone.",
+    youtubeId: "",
+    published: false
+  },
+  {
     title: "Can You Plead Guilty in New York Without Admitting You Did It? The Alford Plea Explained",
     category: "Restorative Justice",
     format: "Short",
@@ -213,6 +229,20 @@ const VIDEOS = [
 ];
 
 const ARTICLES = [
+  {
+    slug: "right-to-speedy-trial-cpl-30-20-ny",
+    title: "What Is Your Right to a Speedy Trial in New York? CPL 30.20 and the Test Courts Actually Use",
+    category: "Rights & Process",
+    date: "2026-08-08",
+    excerpt: "New York guarantees a speedy trial under CPL 30.20 and Civil Rights Law 12, but there's no fixed number of days attached to it. Here's the five-factor balancing test courts actually apply, and how it's different from the CPL 30.30 deadline."
+  },
+  {
+    slug: "violation-of-probation-cpl-410-70-ny",
+    title: "What Happens If You Violate Probation in New York? CPL 410.70 Explained",
+    category: "Rights & Process",
+    date: "2026-08-08",
+    excerpt: "Probation ends the case, until it doesn't. CPL 410.70 lets a judge revoke probation and impose the original sentence on a lower burden of proof, with no jury. Here's how the hearing actually works."
+  },
   {
     slug: "rikers-island-cost-per-person-ny",
     title: "What Rikers Island Actually Costs, Per Person, Per Year",
