@@ -230,6 +230,20 @@ const VIDEOS = [
 
 const ARTICLES = [
   {
+    slug: "why-rikers-island-should-close-ny",
+    title: "Why Rikers Island Should Close, and What Could Actually Replace It",
+    category: "System",
+    date: "2026-08-13",
+    excerpt: "Rikers costs roughly $1,389 a day per person, the borough jails meant to replace it are up to five years behind schedule, and they still won't have enough beds. Here's the closure case, and what already keeps people showing up to court for a fraction of the cost."
+  },
+  {
+    slug: "rikers-detention-plea-leverage-ny",
+    title: "How Holding Someone at Rikers Becomes Leverage for a Plea",
+    category: "Restorative Justice",
+    date: "2026-08-13",
+    excerpt: "Research reviewed by the Vera Institute found pretrial detention makes people up to 46 percent more likely to plead guilty. Here's how a bed at Rikers turns into bargaining leverage, and what happens to that leverage if the jail population shrinks."
+  },
+  {
     slug: "right-to-speedy-trial-cpl-30-20-ny",
     title: "What Is Your Right to a Speedy Trial in New York? CPL 30.20 and the Test Courts Actually Use",
     category: "Rights & Process",
