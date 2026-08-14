@@ -19,6 +19,22 @@
 
 const VIDEOS = [
   {
+    title: "NYC Landlords Can't Screen You Out for a Criminal Record First Anymore: The Fair Chance for Housing Act Explained",
+    category: "Access to Justice",
+    format: "Short",
+    description: "Since January 2025, most NYC landlords can't ask about or run a criminal background check until after a conditional offer, and can only count convictions inside a specific lookback window.",
+    youtubeId: "",
+    published: false
+  },
+  {
+    title: "New York Suspended Its Own Solitary Confinement Law. Here's What the HALT Act Still Says",
+    category: "System",
+    format: "Short",
+    description: "New York's HALT Act caps solitary confinement at 15 consecutive days. In February 2025 the state suspended that cap in its own prisons, and a court fight over the suspension is still open.",
+    youtubeId: "",
+    published: false
+  },
+  {
     title: "What Is Your Right to a Speedy Trial in New York? CPL 30.20 and the Test Courts Actually Use",
     category: "Rights & Process",
     format: "Short",
@@ -229,6 +245,20 @@ const VIDEOS = [
 ];
 
 const ARTICLES = [
+  {
+    slug: "fair-chance-for-housing-act-nyc-explained",
+    title: "New York City Landlords Can't Screen You Out for a Criminal Record First Anymore: The Fair Chance for Housing Act Explained",
+    category: "Access to Justice",
+    date: "2026-08-14",
+    excerpt: "Since January 2025, most NYC landlords can't ask about or run a criminal background check until after a conditional offer, and can only count convictions inside a specific lookback window. Here's what the Fair Chance for Housing Act actually restricts."
+  },
+  {
+    slug: "halt-act-solitary-confinement-suspended-ny",
+    title: "New York Suspended Its Own Solitary Confinement Law. Here's What the HALT Act Still Says",
+    category: "System",
+    date: "2026-08-14",
+    excerpt: "New York capped solitary confinement at 15 consecutive days under the HALT Act. In February 2025, the state suspended it anyway, and a court fight over that suspension, Smalls v. Martuscello, is still open."
+  },
   {
     slug: "why-rikers-island-should-close-ny",
     title: "Why Rikers Island Should Close, and What Could Actually Replace It",
