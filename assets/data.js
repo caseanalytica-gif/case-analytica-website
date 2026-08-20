@@ -247,10 +247,10 @@ const VIDEOS = [
 const ARTICLES = [
   {
     slug: "closing-rikers-root-cause-prevention-ny",
-    title: "Closing Rikers Island: How Root-Cause Prevention and Community Reinvestment Create Real Safety",
+    title: "Root-Cause Prevention Is the Part of Closing Rikers Nobody Budgets For",
     category: "System",
     date: "2026-08-20",
-    excerpt: "Real safety comes from addressing root causes: supportive housing, mental health care, therapeutic programs. Closing Rikers and reinvesting $14B annually in communities prevents crime more effectively than incarceration—and the research proves it."
+    excerpt: "Advocates say closing Rikers means treating housing and mental health needs instead of jailing them. The city already spends $507,000 a year per person there, and 87 percent of them haven't been convicted. Here's what the prevention argument rests on, and where the evidence is thinner than the slogan."
   },
   {
     slug: "fair-chance-for-housing-act-nyc-explained",
