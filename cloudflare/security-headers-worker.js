@@ -13,8 +13,11 @@ const CSP = [
   "img-src 'self' data: https:",
   "font-src 'self' data:",
   "connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://www.googletagmanager.com",
-  // YouTube embeds (videos.html, articles).
-  "frame-src https://www.youtube.com",
+  // YouTube embeds (videos.html, articles), plus the Tally intake form on
+  // about.html. Note Tally's own embed *script* stays blocked by script-src
+  // above, which is why the form is embedded as a plain iframe, not their
+  // JS widget.
+  "frame-src https://www.youtube.com https://tally.so",
   // Nobody should be able to iframe this site (belt-and-suspenders with X-Frame-Options below).
   "frame-ancestors 'none'",
   "base-uri 'self'",
