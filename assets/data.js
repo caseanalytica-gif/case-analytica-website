@@ -246,6 +246,13 @@ const VIDEOS = [
 
 const ARTICLES = [
   {
+    slug: "closing-rikers-root-cause-prevention-ny",
+    title: "Closing Rikers Island: How Root-Cause Prevention and Community Reinvestment Create Real Safety",
+    category: "System",
+    date: "2026-08-20",
+    excerpt: "Real safety comes from addressing root causes: supportive housing, mental health care, therapeutic programs. Closing Rikers and reinvesting $14B annually in communities prevents crime more effectively than incarceration—and the research proves it."
+  },
+  {
     slug: "fair-chance-for-housing-act-nyc-explained",
     title: "New York City Landlords Can't Screen You Out for a Criminal Record First Anymore: The Fair Chance for Housing Act Explained",
     category: "Access to Justice",
