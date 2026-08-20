@@ -7,6 +7,20 @@ function escapeHtml(str) {
 }
 
 function videoCardHtml(v) {
+  // Self-hosted video: plays inline, so the card is not a link (no nested controls).
+  if (v.published && v.videoFile) {
+    const poster = v.poster ? ` poster="${escapeHtml(v.poster)}"` : "";
+    return `
+      <div class="card">
+        <video class="thumb-video" controls preload="none" playsinline${poster}
+               src="${escapeHtml(v.videoFile)}"></video>
+        <div class="body">
+          <span class="cat">${escapeHtml(v.category)}</span>
+          <h3>${escapeHtml(v.title)}</h3>
+          <p>${escapeHtml(v.description)}</p>
+        </div>
+      </div>`;
+  }
   const thumb = v.published && v.youtubeId
     ? `<div class="thumb" style="background-image:url('https://i.ytimg.com/vi/${escapeHtml(v.youtubeId)}/hqdefault.jpg')"><span class="fmt-badge">${escapeHtml(v.format)}</span></div>`
     : `<div class="thumb placeholder"><span>COMING SOON</span><span class="fmt-badge">${escapeHtml(v.format)}</span></div>`;

@@ -138,6 +138,11 @@ section{padding:64px 0;}
   display:flex; align-items:center; justify-content:center;
 }
 .card .thumb.placeholder{color:var(--ink-soft); font-size:13px; font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;}
+/* Self-hosted video card. Vertical shorts letterbox cleanly; landscape does too. */
+.card .thumb-video{
+  display:block; width:100%; aspect-ratio:9/16; max-height:560px;
+  background:#000; object-fit:contain;
+}
 .card .thumb .fmt-badge{
   position:absolute; bottom:8px; left:8px; background:rgba(0,0,0,.65); color:#fff; font-size:10.5px;
   padding:2px 7px; border-radius:3px; font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;

@@ -4,7 +4,12 @@
   2. Replace everything in [BRACKETS] below.
   3. Write the body inside <div class="article-body">...</div> using <p>, <h2>, <ul> as needed.
   4. Add a matching entry to ../assets/data.js under ARTICLES with the same "slug".
-  5. Save. Done. No build step.
+  5. Build the 2400x1254 social card at ../assets/social/[SLUG]-og.png and fill in
+     the SOCIAL PREVIEW block below. Skipping it means no image on LinkedIn.
+  6. Add a <url> entry to ../sitemap.xml.
+  7. Bump the ?v= stamp on assets/data.js in index.html, articles.html and
+     videos.html, or the new article won't show in the list for up to 4 hours.
+  8. Save. Done. No build step.
 -->
 <!doctype html>
 <html lang="en">
@@ -17,6 +22,41 @@
 <title>[ARTICLE TITLE]: Case Analytica</title>
 <meta name="description" content="[ONE-SENTENCE SUMMARY FOR SEARCH ENGINES]">
 <link rel="stylesheet" href="../assets/style.css">
+
+<!--
+  SOCIAL PREVIEW: do not skip this block. Without it, LinkedIn and Facebook
+  show a bare link with no image, and they CACHE that result for about a week,
+  so it cannot be fixed by re-posting. Replace [SLUG] and the two text fields.
+  The OG card belongs at assets/social/[SLUG]-og.png, sized 2400x1254.
+-->
+<link rel="canonical" href="https://www.caseanalytica.com/articles/[SLUG].html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[ARTICLE TITLE, NO ': Case Analytica' SUFFIX]">
+<meta property="og:description" content="[ONE-SENTENCE SUMMARY FOR SEARCH ENGINES]">
+<meta property="og:url" content="https://www.caseanalytica.com/articles/[SLUG].html">
+<meta property="og:image" content="https://www.caseanalytica.com/assets/social/[SLUG]-og.png">
+<meta property="og:image:width" content="2400">
+<meta property="og:image:height" content="1254">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="[ARTICLE TITLE, NO ': Case Analytica' SUFFIX]">
+<meta name="twitter:description" content="[ONE-SENTENCE SUMMARY FOR SEARCH ENGINES]">
+<meta name="twitter:image" content="https://www.caseanalytica.com/assets/social/[SLUG]-og.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "[ARTICLE TITLE, NO ': Case Analytica' SUFFIX]",
+  "description": "[ONE-SENTENCE SUMMARY FOR SEARCH ENGINES]",
+  "datePublished": "[YYYY-MM-DD]",
+  "author": { "@type": "Person", "name": "Dean Mustaphalli", "url": "https://www.caseanalytica.com/about.html" },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Case Analytica",
+    "logo": { "@type": "ImageObject", "url": "https://www.caseanalytica.com/assets/icons/icon-512.png" }
+  },
+  "mainEntityOfPage": "https://www.caseanalytica.com/articles/[SLUG].html"
+}
+</script>
 </head>
 <body>
 

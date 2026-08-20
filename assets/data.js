@@ -32,7 +32,9 @@ const VIDEOS = [
     format: "Short",
     description: "New York's HALT Act caps solitary confinement at 15 consecutive days. In February 2025 the state suspended that cap in its own prisons, and a court fight over the suspension is still open.",
     youtubeId: "",
-    published: false
+    videoFile: "assets/video/halt-act-solitary-confinement-suspended-ny.mp4",
+    poster: "assets/video/halt-act-solitary-confinement-suspended-ny-poster.jpg",
+    published: true
   },
   {
     title: "What Is Your Right to a Speedy Trial in New York? CPL 30.20 and the Test Courts Actually Use",
