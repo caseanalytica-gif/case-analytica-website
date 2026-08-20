@@ -7,7 +7,10 @@
 const CSP = [
   "default-src 'self'",
   // Inline <script> (GTM init) and Google Tag Manager/Analytics are used site-wide.
-  "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com",
+  // static.cloudflareinsights.com: Cloudflare injects its Web Analytics beacon
+  // automatically on proxied requests. Without it listed here that script is
+  // blocked on every page and the analytics silently collect nothing.
+  "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://static.cloudflareinsights.com",
   // Inline style="" attributes are used throughout the site's markup.
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: https:",
