@@ -343,3 +343,14 @@ footer.site-footer nav a{font-size:13.5px; color:var(--ink-soft);}
   }
   .ws-field, .ws-group{break-inside:avoid; margin-bottom:10pt !important;}
 }
+
+/* Worksheet: the optional "send it in" block. Visually separated so it reads as
+   a choice rather than the expected next step -- the page's promise is that
+   nothing is transmitted unless the reader decides to. */
+.ws-send{
+  margin:36px 0 8px; padding:22px 24px; border:1px solid var(--line);
+  border-radius:8px; background:var(--paper-raised);
+}
+.ws-send h2{font-size:19px; margin:0 0 8px;}
+.ws-send p{font-size:15px; color:var(--ink-soft); margin:0 0 10px;}
+.ws-send .ws-actions{margin-top:16px;}

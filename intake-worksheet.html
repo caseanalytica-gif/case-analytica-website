@@ -17,7 +17,7 @@
 <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
 <title>Case Worksheet: Get Your Facts in One Place: Case Analytica</title>
 <meta name="description" content="A worksheet for organizing the facts of a New York criminal case before you talk to an attorney. Fill it in on your phone or print it. Nothing you type is sent anywhere.">
-<link rel="stylesheet" href="assets/style.css?v=20260820c">
+<link rel="stylesheet" href="assets/style.css?v=20260820d">
 <link rel="canonical" href="https://www.caseanalytica.com/intake-worksheet.html">
 </head>
 <body>
@@ -200,8 +200,17 @@
       <p>Diversion and restorative justice options usually have to be raised by someone, and that someone is often the family. <a href="restorative-justice.html">The exact questions to ask, in order</a> and <a href="checklist.html">the printable checklist by case stage</a> are both worth having with you.</p>
     </div>
 
+    <div class="ws-send no-print">
+      <h2 style="margin-top:0;">Want to send this in?</h2>
+      <p>You don't have to. If you'd rather just bring it to the call, skip this.</p>
+      <p>This opens your own email app with the answers written out. <strong>Nothing sends until you press send</strong> — you'll see the whole message first, and you can edit or delete any of it.</p>
+      <div class="ws-actions">
+        <button type="button" class="btn" id="ws-email">Open this in my email app</button>
+      </div>
+    </div>
+
     <div class="ws-actions no-print">
-      <button type="button" class="btn" id="ws-print">Print or save as PDF</button>
+      <button type="button" class="btn btn-outline" id="ws-print">Print or save as PDF</button>
       <button type="button" class="btn btn-outline" id="ws-clear">Clear the worksheet</button>
     </div>
     <p class="ws-status no-print" id="ws-status" role="status" aria-live="polite"></p>
@@ -317,6 +326,62 @@
   document.getElementById("ws-print").addEventListener("click", function () {
     form.querySelectorAll("textarea").forEach(grow);
     window.print();
+  });
+
+  // Compose a mailto: with the answers laid out. Deliberately NOT a form POST:
+  // the person sees the whole message in their own mail app and presses send
+  // themselves, so nothing leaves the device without them looking at it.
+  var LABELS = [
+    ["f-name", "Name"], ["f-dob", "Date of birth"], ["f-rel", "Relationship to them"],
+    ["stage", "Stage of case"], ["custody", "In custody"],
+    ["f-bail", "Bail set"], ["f-facility", "Held at"],
+    ["f-county", "County"], ["f-court", "Courthouse"],
+    ["f-date", "Next court date"], ["f-part", "Part / room"], ["f-docket", "Docket / indictment no."],
+    ["f-charges", "Charges as written"],
+    ["counsel", "Representation"], ["f-atty", "Attorney"], ["f-atty-contact", "Attorney contact"],
+    ["f-question", "What they want to understand"], ["f-asked", "Already asked / what was said"],
+  ];
+  var STAGE_TEXT = {
+    "arrested-not-arraigned": "Arrested, hasn't seen a judge yet",
+    "arraigned": "Arraigned, has a next court date",
+    "dat": "Desk Appearance Ticket",
+    "indicted": "Indicted, case in Supreme Court",
+    "probation-parole": "On probation or parole",
+    "sentenced": "Already sentenced",
+    "unsure": "Not sure",
+    "held": "Being held", "released": "Released",
+    "public-defender": "Public defender / assigned counsel",
+    "private": "Private attorney", "none": "Nobody yet",
+  };
+
+  document.getElementById("ws-email").addEventListener("click", function () {
+    var d = read(), lines = [], filled = 0;
+    LABELS.forEach(function (pair) {
+      var v = (d[pair[0]] || "").trim();
+      if (!v) return;
+      filled++;
+      v = STAGE_TEXT[v] || v;
+      // Indent multi-line answers (the charge list) so they stay readable.
+      if (v.indexOf("\n") !== -1) v = "\n  " + v.split("\n").join("\n  ");
+      lines.push(pair[1] + ": " + v);
+    });
+
+    if (!filled) {
+      status.textContent = "Fill something in first, then this will have something to send.";
+      return;
+    }
+
+    var who = (d["f-name"] || "").trim();
+    var county = (d["f-county"] || "").trim();
+    var subject = "Intake worksheet" + (who ? " - " + who : "") + (county ? " (" + county + ")" : "");
+    var body = lines.join("\n") +
+      "\n\n---\nSent from the case worksheet at caseanalytica.com/intake-worksheet.html\n" +
+      "General information only, not a privileged communication.";
+
+    window.location.href = "mailto:caseanalytica@gmail.com" +
+      "?subject=" + encodeURIComponent(subject) +
+      "&body=" + encodeURIComponent(body);
+    status.textContent = "Opening your email app. Nothing sends until you press send there.";
   });
 
   document.getElementById("ws-clear").addEventListener("click", function () {
