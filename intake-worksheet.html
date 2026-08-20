@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-035TDMG4Y0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-035TDMG4Y0');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16.png">
+<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+<title>Case Worksheet: Get Your Facts in One Place: Case Analytica</title>
+<meta name="description" content="A worksheet for organizing the facts of a New York criminal case before you talk to an attorney. Fill it in on your phone or print it. Nothing you type is sent anywhere.">
+<link rel="stylesheet" href="assets/style.css?v=20260820c">
+<link rel="canonical" href="https://www.caseanalytica.com/intake-worksheet.html">
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="wrap nav-inner">
+    <a href="index.html" class="wordmark">Case<span>Analytica</span></a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+    <label for="nav-toggle" class="nav-toggle-btn" aria-label="Menu">☰</label>
+    <nav class="links">
+      <a href="index.html">Home</a>
+      <a href="restorative-justice.html">Restorative Justice</a>
+      <a href="videos.html">Videos</a>
+      <a href="articles.html">Articles</a>
+      <a href="case-navigation.html">Case Navigation</a>
+      <a href="guide.html">Guide</a>
+      <a href="about.html">About</a>
+      <a class="btn" href="about.html#intake">Book a Free Intake Call</a>
+    </nav>
+  </div>
+</header>
+
+<a href="guide.html" class="guide-fab no-print" aria-label="Get the free guide">
+  <span class="guide-fab-icon">📘</span>
+  <span class="guide-fab-text">Free Guide</span>
+</a>
+
+<main>
+
+<div class="article-header">
+  <div class="narrow">
+    <p class="eyebrow">Worksheet</p>
+    <h1 class="serif">Get your facts in one place</h1>
+    <p style="font-size:17px;color:var(--ink-soft);margin:14px 0 0;">Fill this in on your phone, or print it and write on it. It's for organizing what you already know before you talk to an attorney or book a call.</p>
+  </div>
+</div>
+
+<div class="article-body">
+  <div class="narrow">
+
+    <div class="callout">
+      <p class="k">Nothing here is sent anywhere</p>
+      <p>This worksheet has no send button and no submit button. What you type is saved on this device only, so you can close the page and come back to it. <strong>Do not write down what happened.</strong> Stick to what's on the paperwork: names, dates, charges as they're written, court and part. The account of events belongs in a conversation with a licensed attorney, not on a phone or a piece of paper.</p>
+      <p>Using a borrowed or shared phone? Use <strong>Clear the worksheet</strong> at the bottom when you're done.</p>
+    </div>
+
+    <h2>Who this is about</h2>
+
+    <div class="ws-row">
+      <div class="ws-field">
+        <label for="f-name">Full legal name</label>
+        <span class="ws-hint">As it appears on the court paperwork</span>
+        <input class="ws-input" type="text" id="f-name" autocomplete="off">
+      </div>
+      <div class="ws-field">
+        <label for="f-dob">Date of birth</label>
+        <span class="ws-hint">Used to look up a case</span>
+        <input class="ws-input" type="text" id="f-dob" inputmode="numeric" placeholder="MM/DD/YYYY" autocomplete="off">
+      </div>
+    </div>
+
+    <div class="ws-field">
+      <label for="f-rel">Your relationship to them</label>
+      <input class="ws-input" type="text" id="f-rel" placeholder="Self, parent, spouse, sibling, friend…" autocomplete="off">
+    </div>
+
+    <h2>Where the case is right now</h2>
+
+    <fieldset class="ws-group">
+      <legend class="ws-legend">Pick the closest one</legend>
+      <label class="ws-choice"><input type="radio" name="stage" value="arrested-not-arraigned"> Arrested, hasn't seen a judge yet</label>
+      <label class="ws-choice"><input type="radio" name="stage" value="arraigned"> Arraigned, has a next court date</label>
+      <label class="ws-choice"><input type="radio" name="stage" value="dat"> Got a Desk Appearance Ticket to come back later</label>
+      <label class="ws-choice"><input type="radio" name="stage" value="indicted"> Indicted, case is in Supreme Court</label>
+      <label class="ws-choice"><input type="radio" name="stage" value="probation-parole"> On probation or parole</label>
+      <label class="ws-choice"><input type="radio" name="stage" value="sentenced"> Already sentenced</label>
+      <label class="ws-choice"><input type="radio" name="stage" value="unsure"> Not sure</label>
+    </fieldset>
+
+    <fieldset class="ws-group">
+      <legend class="ws-legend">Are they in custody?</legend>
+      <label class="ws-choice"><input type="radio" name="custody" value="held"> Being held</label>
+      <label class="ws-choice"><input type="radio" name="custody" value="released"> Released</label>
+      <label class="ws-choice"><input type="radio" name="custody" value="unsure"> Don't know</label>
+    </fieldset>
+
+    <div class="ws-row">
+      <div class="ws-field">
+        <label for="f-bail">Bail amount, if any was set</label>
+        <input class="ws-input" type="text" id="f-bail" autocomplete="off">
+      </div>
+      <div class="ws-field">
+        <label for="f-facility">If held, where</label>
+        <span class="ws-hint">Facility or precinct, if you know it</span>
+        <input class="ws-input" type="text" id="f-facility" autocomplete="off">
+      </div>
+    </div>
+
+    <h2>Court</h2>
+
+    <div class="ws-row">
+      <div class="ws-field">
+        <label for="f-county">County</label>
+        <select class="ws-select" id="f-county">
+          <option value="">Select…</option>
+          <option>Bronx</option><option>Kings (Brooklyn)</option><option>New York (Manhattan)</option>
+          <option>Queens</option><option>Richmond (Staten Island)</option>
+          <option>Nassau</option><option>Suffolk</option><option>Westchester</option>
+          <option>Rockland</option><option>Orange</option><option>Dutchess</option>
+          <option>Other / not sure</option>
+        </select>
+      </div>
+      <div class="ws-field">
+        <label for="f-court">Courthouse address, if known</label>
+        <input class="ws-input" type="text" id="f-court" autocomplete="off">
+      </div>
+    </div>
+
+    <div class="ws-row">
+      <div class="ws-field">
+        <label for="f-date">Next court date</label>
+        <input class="ws-input" type="text" id="f-date" placeholder="MM/DD/YYYY" inputmode="numeric" autocomplete="off">
+      </div>
+      <div class="ws-field">
+        <label for="f-part">Part / room number</label>
+        <input class="ws-input" type="text" id="f-part" autocomplete="off">
+      </div>
+    </div>
+
+    <div class="ws-field">
+      <label for="f-docket">Docket or indictment number</label>
+      <span class="ws-hint">On the top of the paperwork. This is how anyone looks the case up.</span>
+      <input class="ws-input" type="text" id="f-docket" autocomplete="off">
+    </div>
+
+    <h2>Charges</h2>
+
+    <div class="ws-field">
+      <label for="f-charges">Copy the charges exactly as they're written</label>
+      <span class="ws-hint">One per line, with the section number if it's listed, e.g. "PL 155.25 Petit Larceny." Copy them, don't summarize them, and don't add anything about what happened.</span>
+      <textarea class="ws-textarea" id="f-charges" rows="4"></textarea>
+    </div>
+
+    <h2>Representation</h2>
+
+    <fieldset class="ws-group">
+      <legend class="ws-legend">Who's representing them?</legend>
+      <label class="ws-choice"><input type="radio" name="counsel" value="public-defender"> Public defender / assigned counsel</label>
+      <label class="ws-choice"><input type="radio" name="counsel" value="private"> Private attorney</label>
+      <label class="ws-choice"><input type="radio" name="counsel" value="none"> Nobody yet</label>
+      <label class="ws-choice"><input type="radio" name="counsel" value="unsure"> Don't know</label>
+    </fieldset>
+
+    <div class="ws-row">
+      <div class="ws-field">
+        <label for="f-atty">Attorney's name</label>
+        <input class="ws-input" type="text" id="f-atty" autocomplete="off">
+      </div>
+      <div class="ws-field">
+        <label for="f-atty-contact">Their phone or email</label>
+        <input class="ws-input" type="text" id="f-atty-contact" autocomplete="off">
+      </div>
+    </div>
+
+    <h2>What you're trying to find out</h2>
+
+    <div class="ws-field">
+      <label for="f-question">The question you most want answered</label>
+      <span class="ws-hint">What you want to understand about the process, not an account of events.</span>
+      <textarea class="ws-textarea" id="f-question" rows="3"></textarea>
+    </div>
+
+    <div class="ws-field">
+      <label for="f-asked">Anything you've already asked the attorney, and what they said</label>
+      <textarea class="ws-textarea" id="f-asked" rows="3"></textarea>
+    </div>
+
+    <div class="callout">
+      <p class="k">Before the next court date</p>
+      <p>Diversion and restorative justice options usually have to be raised by someone, and that someone is often the family. <a href="restorative-justice.html">The exact questions to ask, in order</a> and <a href="checklist.html">the printable checklist by case stage</a> are both worth having with you.</p>
+    </div>
+
+    <div class="ws-actions no-print">
+      <button type="button" class="btn" id="ws-print">Print or save as PDF</button>
+      <button type="button" class="btn btn-outline" id="ws-clear">Clear the worksheet</button>
+    </div>
+    <p class="ws-status no-print" id="ws-status" role="status" aria-live="polite"></p>
+
+  </div>
+</div>
+
+<section class="no-print">
+  <div class="narrow">
+    <div class="intake-band" style="display:block;">
+      <h3 class="serif">Want to talk it through?</h3>
+      <p style="margin-bottom:16px;">Book a free intake call. Having this worksheet filled in first makes the conversation a lot more useful.</p>
+      <a class="btn" href="about.html#intake">Book a free intake call</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap foot-grid">
+    <div>
+      <p><strong>Case Analytica</strong>: general information about the New York State justice system, not legal advice for your specific case. Always confirm specifics with a licensed attorney.</p>
+    </div>
+    <div class="foot-right">
+      <div class="donate-group">
+        <a class="donate-btn" href="https://paypal.me/DeanMustaphalli" target="_blank" rel="noopener">♥ Donate</a>
+        <a class="donate-btn" href="https://buy.stripe.com/8x2fZa9NF2paefUd7J6kg00" target="_blank" rel="noopener"> Apple/Google Pay</a>
+        <details class="zelle-pop">
+          <summary>Zelle ▾</summary>
+          <div class="zelle-card">
+            <img src="assets/icons/zelle-qr.png" alt="Zelle QR code" width="200" height="260" loading="lazy">
+            <p>Scan in your banking app, or send to:</p>
+            <button type="button" class="zelle-email-btn" onclick="var b=this,t='dsminsagency@gmail.com';function done(){b.textContent='Copied ✓';setTimeout(function(){b.textContent=t;},1500);} function fb(){try{var ta=document.createElement('textarea');ta.value=t;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.focus();ta.select();document.execCommand('copy');document.body.removeChild(ta);done();}catch(e){}} if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done).catch(fb);}else{fb();}">dsminsagency@gmail.com</button>
+          </div>
+        </details>
+      </div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="restorative-justice.html">Restorative Justice</a>
+        <a href="videos.html">Videos</a>
+        <a href="articles.html">Articles</a>
+        <a href="case-navigation.html">Case Navigation</a>
+        <a href="guide.html">Guide</a>
+        <a href="about.html">About</a>
+      <a href="https://www.facebook.com/profile.php?id=61593408088467" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://www.tiktok.com/@case.analytica" target="_blank" rel="noopener">TikTok</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var KEY = "ca-intake-worksheet-v1";
+  var form = document.querySelector(".article-body");
+  var status = document.getElementById("ws-status");
+  var fields = form.querySelectorAll("input[type=text], textarea, select, input[type=radio]");
+
+  // Textareas must grow to fit their content. A textarea prints only what fits
+  // inside its box: anything scrolled out of view is silently dropped from the
+  // printed page, which on a worksheet means losing the charges.
+  function grow(el) {
+    if (el.tagName !== "TEXTAREA") return;
+    el.style.height = "auto";
+    el.style.height = el.scrollHeight + "px";
+  }
+
+  function read() {
+    var data = {};
+    fields.forEach(function (el) {
+      if (el.type === "radio") { if (el.checked) data[el.name] = el.value; }
+      else if (el.id) { data[el.id] = el.value; }
+    });
+    return data;
+  }
+
+  function restore() {
+    var raw;
+    try { raw = localStorage.getItem(KEY); } catch (e) { return false; }
+    if (!raw) return false;
+    var data;
+    try { data = JSON.parse(raw); } catch (e) { return false; }
+    fields.forEach(function (el) {
+      if (el.type === "radio") { if (data[el.name] === el.value) el.checked = true; }
+      else if (el.id && typeof data[el.id] === "string") { el.value = data[el.id]; grow(el); }
+    });
+    return true;
+  }
+
+  var t;
+  function save() {
+    clearTimeout(t);
+    t = setTimeout(function () {
+      try {
+        localStorage.setItem(KEY, JSON.stringify(read()));
+        status.textContent = "Saved on this device ✓";
+      } catch (e) {
+        // Private browsing on iOS can refuse writes. Say so rather than
+        // letting someone fill three screens and lose all of it.
+        status.textContent = "This browser won't let the page save. Print before you close it.";
+      }
+    }, 400);
+  }
+
+  fields.forEach(function (el) {
+    el.addEventListener("input", function () { grow(el); save(); });
+    el.addEventListener("change", save);
+  });
+
+  if (restore()) status.textContent = "Restored what you filled in earlier.";
+
+  document.getElementById("ws-print").addEventListener("click", function () {
+    form.querySelectorAll("textarea").forEach(grow);
+    window.print();
+  });
+
+  document.getElementById("ws-clear").addEventListener("click", function () {
+    if (!confirm("Erase everything on this worksheet? This cannot be undone.")) return;
+    fields.forEach(function (el) {
+      if (el.type === "radio") el.checked = false; else el.value = "";
+      grow(el);
+    });
+    try { localStorage.removeItem(KEY); } catch (e) {}
+    status.textContent = "Cleared.";
+  });
+})();
+</script>
+
+</body>
+</html>
