@@ -17,7 +17,7 @@
 <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
 <title>Case Worksheet: Get Your Facts in One Place: Case Analytica</title>
 <meta name="description" content="A worksheet for organizing the facts of a New York criminal case before you talk to an attorney. Fill it in on your phone or print it. It saves on your device and sends nothing unless you choose to.">
-<link rel="stylesheet" href="assets/style.css?v=20260820f">
+<link rel="stylesheet" href="assets/style.css?v=20260820g">
 <link rel="canonical" href="https://www.caseanalytica.com/intake-worksheet.html">
 </head>
 <body>
@@ -203,11 +203,13 @@
 
     <div class="ws-send no-print">
       <h2 style="margin-top:0;">Want to send this in?</h2>
-      <p>You don't have to. If you'd rather just bring it to the call, skip this.</p>
-      <p>This opens your own email app with the answers written out. <strong>Nothing sends until you press send</strong> — you'll see the whole message first, and you can edit or delete any of it.</p>
+      <p>You don't have to. If you'd rather just bring it to the call or print it, skip this.</p>
+      <p>Sending it means Dean can look at it before you talk, so the call starts further along. <strong>Only what you typed above gets sent</strong>, nothing else about you or your phone.</p>
       <div class="ws-actions">
-        <button type="button" class="btn" id="ws-email">Open this in my email app</button>
+        <button type="button" class="btn" id="ws-send">Send it to Case Analytica</button>
+        <button type="button" class="btn btn-outline" id="ws-email">Use my own email app instead</button>
       </div>
+      <p class="ws-send-note" id="ws-send-note"></p>
     </div>
 
     <div class="ws-actions no-print">
@@ -355,34 +357,85 @@
     "private": "Private attorney", "none": "Nobody yet",
   };
 
-  document.getElementById("ws-email").addEventListener("click", function () {
+  // Web3Forms access key. Public by design -- it only says "deliver to this
+  // inbox", it does not read anything. Submissions go to caseanalytica@gmail.com.
+  var ACCESS_KEY = "2d63ab4f-11f5-4c8e-9300-fdab926ae80b";
+
+  // Build the same laid-out text used for both the direct send and the mailto,
+  // so what lands in the inbox reads identically either way.
+  function compose() {
     var d = read(), lines = [], filled = 0;
     LABELS.forEach(function (pair) {
       var v = (d[pair[0]] || "").trim();
       if (!v) return;
       filled++;
       v = STAGE_TEXT[v] || v;
-      // Indent multi-line answers (the charge list) so they stay readable.
       if (v.indexOf("\n") !== -1) v = "\n  " + v.split("\n").join("\n  ");
       lines.push(pair[1] + ": " + v);
     });
-
-    if (!filled) {
-      status.textContent = "Fill something in first, then this will have something to send.";
-      return;
-    }
-
     var who = (d["f-name"] || "").trim();
     var county = (d["f-county"] || "").trim();
-    var subject = "Intake worksheet" + (who ? " - " + who : "") + (county ? " (" + county + ")" : "");
-    var body = lines.join("\n") +
-      "\n\n---\nSent from the case worksheet at caseanalytica.com/intake-worksheet.html\n" +
-      "General information only, not a privileged communication.";
+    return {
+      filled: filled,
+      subject: "Intake worksheet" + (who ? " - " + who : "") + (county ? " (" + county + ")" : ""),
+      body: lines.join("\n") +
+        "\n\n---\nSent from the case worksheet at caseanalytica.com/intake-worksheet.html\n" +
+        "General information only, not a privileged communication.",
+    };
+  }
 
+  var note = document.getElementById("ws-send-note");
+  var sendBtn = document.getElementById("ws-send");
+
+  sendBtn.addEventListener("click", function () {
+    var m = compose();
+    if (!m.filled) {
+      note.className = "ws-send-note err";
+      note.textContent = "Fill something in first, then there's something to send.";
+      return;
+    }
+    sendBtn.disabled = true;
+    note.className = "ws-send-note";
+    note.textContent = "Sending…";
+
+    fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify({
+        access_key: ACCESS_KEY,
+        subject: m.subject,
+        from_name: "Case Analytica worksheet",
+        message: m.body,
+      }),
+    })
+      .then(function (r) { return r.json(); })
+      .then(function (j) {
+        if (!j.success) throw new Error(j.message || "rejected");
+        note.className = "ws-send-note ok";
+        note.textContent = "Sent. Dean will get back to you. You can still print this or keep it on your phone.";
+        sendBtn.textContent = "Sent ✓";
+      })
+      .catch(function () {
+        // No signal, blocked request, service down -- never strand them. The
+        // email route still works and their answers are still on the device.
+        sendBtn.disabled = false;
+        note.className = "ws-send-note err";
+        note.textContent = "That didn't go through. Nothing was lost, it's all still here. Try \"Use my own email app instead\", or print it and bring it with you.";
+      });
+  });
+
+  document.getElementById("ws-email").addEventListener("click", function () {
+    var m = compose();
+    if (!m.filled) {
+      note.className = "ws-send-note err";
+      note.textContent = "Fill something in first, then there's something to send.";
+      return;
+    }
     window.location.href = "mailto:caseanalytica@gmail.com" +
-      "?subject=" + encodeURIComponent(subject) +
-      "&body=" + encodeURIComponent(body);
-    status.textContent = "Opening your email app. Nothing sends until you press send there.";
+      "?subject=" + encodeURIComponent(m.subject) +
+      "&body=" + encodeURIComponent(m.body);
+    note.className = "ws-send-note";
+    note.textContent = "Opening your email app. Nothing sends until you press send there.";
   });
 
   document.getElementById("ws-clear").addEventListener("click", function () {

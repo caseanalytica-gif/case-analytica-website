@@ -354,3 +354,8 @@ footer.site-footer nav a{font-size:13.5px; color:var(--ink-soft);}
 .ws-send h2{font-size:19px; margin:0 0 8px;}
 .ws-send p{font-size:15px; color:var(--ink-soft); margin:0 0 10px;}
 .ws-send .ws-actions{margin-top:16px;}
+
+/* Worksheet send: result messaging */
+.ws-send-note{font-size:14.5px; margin:14px 0 0; color:var(--ink-soft); min-height:1.2em;}
+.ws-send-note.ok{color:var(--pillar); font-weight:600;}
+.ws-send-note.err{color:var(--accent); font-weight:600;}

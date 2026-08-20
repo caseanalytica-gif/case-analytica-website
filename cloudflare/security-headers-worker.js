@@ -12,7 +12,10 @@ const CSP = [
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: https:",
   "font-src 'self' data:",
-  "connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://www.googletagmanager.com",
+  // api.web3forms.com: the case worksheet posts the intake summary there and it
+  // is relayed to caseanalytica@gmail.com. Without this the fetch is blocked and
+  // the send button fails silently.
+  "connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://www.googletagmanager.com https://api.web3forms.com",
   // YouTube embeds (videos.html, articles), plus the Tally intake form on
   // about.html. Note Tally's own embed *script* stays blocked by script-src
   // above, which is why the form is embedded as a plain iframe, not their
