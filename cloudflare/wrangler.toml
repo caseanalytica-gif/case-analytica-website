@@ -1,0 +1,30 @@
+# Deploy config for the security-headers Worker.
+#
+# Why this exists: the Worker was previously only editable by pasting code into
+# the Cloudflare dashboard. That editor is a cross-origin iframe, nothing tracked
+# what was actually deployed, and the live copy had already drifted from the repo
+# (the deployed version had every explanatory comment stripped out).
+#
+# With this file, the repo is the source of truth and deploying is one command.
+#
+#   cd Website/cloudflare
+#   npx wrangler login     # once, opens a browser to authorize your account
+#   npx wrangler deploy
+#
+# Verify it landed:
+#   curl -sI https://www.caseanalytica.com/about.html | grep -o "frame-src[^;]*;"
+#
+# account_id is an identifier, not a secret, and cannot be used without auth.
+
+name = "young-mountaincase-analytica-security-headers"
+main = "security-headers-worker.js"
+account_id = "b223cbe41a1f64d358c713a7259888df"
+compatibility_date = "2026-08-20"
+
+# Both routes must stay listed. Dropping one here and deploying would remove it
+# from the Worker, and that hostname would start serving with no security
+# headers at all.
+routes = [
+  { pattern = "caseanalytica.com/*", zone_name = "caseanalytica.com" },
+  { pattern = "www.caseanalytica.com/*", zone_name = "caseanalytica.com" },
+]

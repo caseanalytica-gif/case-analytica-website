@@ -138,6 +138,11 @@ section{padding:64px 0;}
   display:flex; align-items:center; justify-content:center;
 }
 .card .thumb.placeholder{color:var(--ink-soft); font-size:13px; font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;}
+/* Self-hosted video card. Vertical shorts letterbox cleanly; landscape does too. */
+.card .thumb-video{
+  display:block; width:100%; aspect-ratio:9/16; max-height:560px;
+  background:#000; object-fit:contain;
+}
 .card .thumb .fmt-badge{
   position:absolute; bottom:8px; left:8px; background:rgba(0,0,0,.65); color:#fff; font-size:10.5px;
   padding:2px 7px; border-radius:3px; font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
@@ -264,3 +269,93 @@ footer.site-footer nav a{font-size:13.5px; color:var(--ink-soft);}
   .guide-fab-text{display:none;}
   .guide-fab-icon{font-size:20px;}
 }
+
+/* ==========================================================================
+   Fillable worksheet controls
+   16px minimum on every input: below that, iOS Safari zooms the page on focus
+   and the reader has to pinch back out on every field.
+   ========================================================================== */
+.ws-field{margin:0 0 20px;}
+.ws-field > label,
+.ws-legend{
+  display:block; font-size:14px; font-weight:600; color:var(--ink);
+  margin:0 0 6px; line-height:1.4;
+}
+.ws-hint{display:block; font-size:13.5px; color:var(--ink-soft); margin:0 0 8px; font-weight:400;}
+.ws-input, .ws-select, .ws-textarea{
+  width:100%; font:inherit; font-size:16px; line-height:1.5; color:var(--ink);
+  background:var(--paper-raised); border:1px solid var(--line); border-radius:6px;
+  padding:12px 14px; min-height:48px; -webkit-appearance:none; appearance:none;
+}
+.ws-select{
+  background-image:linear-gradient(45deg,transparent 50%,var(--ink-soft) 50%),
+                   linear-gradient(135deg,var(--ink-soft) 50%,transparent 50%);
+  background-position:calc(100% - 20px) calc(50% + 2px), calc(100% - 15px) calc(50% + 2px);
+  background-size:5px 5px,5px 5px; background-repeat:no-repeat; padding-right:44px;
+}
+.ws-textarea{resize:vertical; overflow:hidden;}
+.ws-input:focus, .ws-select:focus, .ws-textarea:focus{
+  outline:2px solid var(--focus); outline-offset:1px; border-color:var(--focus);
+}
+.ws-group{border:0; margin:0 0 20px; padding:0;}
+.ws-choice{
+  display:flex; align-items:flex-start; gap:12px; padding:12px 14px; margin:0 0 8px;
+  border:1px solid var(--line); border-radius:6px; background:var(--paper-raised);
+  font-size:16px; line-height:1.45; cursor:pointer; min-height:48px;
+}
+.ws-choice input{width:22px; height:22px; margin:1px 0 0; flex:none; accent-color:var(--pillar);}
+.ws-row{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+@media (max-width:560px){ .ws-row{grid-template-columns:1fr;} }
+.ws-actions{display:flex; gap:12px; flex-wrap:wrap; margin:28px 0 0;}
+.ws-status{font-size:13.5px; color:var(--ink-soft); margin:14px 0 0; min-height:1.4em;}
+
+/* ==========================================================================
+   Print. Applies site-wide, so checklist.html finally prints properly too.
+   ========================================================================== */
+@media print{
+  /* chrome that should never reach paper */
+  header.site-nav, footer.site-footer, .guide-fab,
+  .intake-band, .donate-group, .ws-actions, .ws-status, .no-print{display:none !important;}
+
+  html, body{background:#fff !important; color:#000 !important;}
+  body{font-size:11.5pt; line-height:1.45;}
+  .wrap, .narrow{max-width:100%; padding:0;}
+  section, .article-body, .article-header{padding:0 !important; border:0 !important;}
+  a{color:#000 !important; text-decoration:underline;}
+  h1{font-size:20pt;} h2{font-size:14pt; margin-top:18pt;} h3{font-size:12pt;}
+  h1, h2, h3{break-after:avoid;}
+  .callout{border:1px solid #999 !important; background:#fff !important; padding:10pt !important;}
+  .callout .k{color:#000 !important;}
+
+  /* flatten form controls into printed rules, and force checked states to ink */
+  .ws-input, .ws-select, .ws-textarea{
+    border:0 !important; border-bottom:1px solid #000 !important; border-radius:0 !important;
+    background:#fff !important; color:#000 !important; padding:2pt 0 !important;
+    min-height:0 !important; font-size:11.5pt !important;
+  }
+  .ws-choice{
+    border:0 !important; background:#fff !important; padding:1pt 0 !important;
+    min-height:0 !important; break-inside:avoid;
+  }
+  .ws-choice input{width:11pt; height:11pt;}
+  input, select, textarea{
+    -webkit-print-color-adjust:exact !important; print-color-adjust:exact !important;
+  }
+  .ws-field, .ws-group{break-inside:avoid; margin-bottom:10pt !important;}
+}
+
+/* Worksheet: the optional "send it in" block. Visually separated so it reads as
+   a choice rather than the expected next step -- the page's promise is that
+   nothing is transmitted unless the reader decides to. */
+.ws-send{
+  margin:36px 0 8px; padding:22px 24px; border:1px solid var(--line);
+  border-radius:8px; background:var(--paper-raised);
+}
+.ws-send h2{font-size:19px; margin:0 0 8px;}
+.ws-send p{font-size:15px; color:var(--ink-soft); margin:0 0 10px;}
+.ws-send .ws-actions{margin-top:16px;}
+
+/* Worksheet send: result messaging */
+.ws-send-note{font-size:14.5px; margin:14px 0 0; color:var(--ink-soft); min-height:1.2em;}
+.ws-send-note.ok{color:var(--pillar); font-weight:600;}
+.ws-send-note.err{color:var(--accent); font-weight:600;}

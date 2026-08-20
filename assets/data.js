@@ -32,7 +32,9 @@ const VIDEOS = [
     format: "Short",
     description: "New York's HALT Act caps solitary confinement at 15 consecutive days. In February 2025 the state suspended that cap in its own prisons, and a court fight over the suspension is still open.",
     youtubeId: "",
-    published: false
+    videoFile: "assets/video/halt-act-solitary-confinement-suspended-ny.mp4",
+    poster: "assets/video/halt-act-solitary-confinement-suspended-ny-poster.jpg",
+    published: true
   },
   {
     title: "What Is Your Right to a Speedy Trial in New York? CPL 30.20 and the Test Courts Actually Use",
@@ -245,6 +247,118 @@ const VIDEOS = [
 ];
 
 const ARTICLES = [
+  {
+    slug: "protect-our-courts-act-ny-explained",
+    title: "The Protect Our Courts Act: Why ICE Needs a Judicial Warrant to Arrest You at a NY Courthouse",
+    category: "Rights & Process",
+    date: "2026-08-19",
+    excerpt: "New York's Protect Our Courts Act bars civil arrests at state courthouses unless a judge, not an ICE supervisor, signed the warrant. A federal judge upheld the law in November 2025. Here's what it actually covers."
+  },
+  {
+    slug: "medical-parole-terminally-ill-ny",
+    title: "Medical Parole in New York: How a Terminally Ill or Debilitated Person Can Actually Get Out",
+    category: "Rights & Process",
+    date: "2026-08-19",
+    excerpt: "New York lets DOCCS and the Parole Board release a terminally ill or severely debilitated incarcerated person under Executive Law 259-r and 259-s. A family member can request it directly, but most requests never make it to a hearing."
+  },
+  {
+    slug: "extreme-risk-protection-order-ny-explained",
+    title: "New York Can Take Your Guns Without a Criminal Charge: The Red Flag Law Explained",
+    category: "Rights & Process",
+    date: "2026-08-15",
+    excerpt: "New York's red flag law lets a court order guns removed through a civil case, not a criminal one, often before the person involved has spoken to a lawyer. Here's what CPLR Article 63-A actually allows."
+  },
+  {
+    slug: "motion-to-suppress-evidence-ny-explained",
+    title: "Can Evidence Get Thrown Out Before Trial? What a Suppression Hearing in New York Actually Does",
+    category: "Rights & Process",
+    date: "2026-08-15",
+    excerpt: "A Mapp, Huntley, or Dunaway motion can get illegally obtained evidence thrown out before a plea is ever discussed. Here's what CPL 710.20 actually lets a defendant challenge."
+  },
+  {
+    slug: "violation-of-parole-executive-law-259-i-ny",
+    title: "What Happens If You Violate Parole in New York? Executive Law \u00a7 259-i Explained",
+    category: "Rights & Process",
+    date: "2026-08-14",
+    excerpt: "Parole violation runs on a different law than probation violation, with its own hearings, deadlines, and burden of proof. Here's what Executive Law 259-i actually requires before parole can be revoked."
+  },
+  {
+    slug: "cpl-160-50-sealing-favorable-termination-ny",
+    title: "Your Case Was Dismissed. Was Your Arrest Record Sealed? CPL 160.50 Explained",
+    category: "Access to Justice",
+    date: "2026-08-14",
+    excerpt: "New York automatically seals your arrest record after a dismissal, acquittal, or other favorable result under CPL 160.50, no petition required. Here's what actually gets sealed, and who can still see it."
+  },
+  {
+    slug: "correction-law-article-23-a-employment-ny",
+    title: "Can a New York Employer Reject You Because of a Conviction? What Correction Law Article 23-A Actually Requires",
+    category: "Access to Justice",
+    date: "2026-08-13",
+    excerpt: "A conviction on a background check is not, by itself, a legal reason to turn someone away from a job in New York. Correction Law Article 23-A requires an individualized analysis first. Here's what the law actually requires, and the factors that decide it."
+  },
+  {
+    slug: "cpl-730-competency-to-stand-trial-ny",
+    title: "Found Unfit to Stand Trial in New York? What CPL Article 730 Actually Allows",
+    category: "Rights & Process",
+    date: "2026-08-13",
+    excerpt: "A finding of unfit to proceed under CPL Article 730 doesn't end a case, it pauses it. New York can hold someone in psychiatric custody for up to two-thirds of the maximum sentence the top charge carries. Here's how the process actually works."
+  },
+  {
+    slug: "cpl-440-10-motion-to-vacate-conviction-ny",
+    title: "Is the Case Really Over Once You're Convicted? What CPL 440.10 Actually Lets You Do in New York",
+    category: "Access to Justice",
+    date: "2026-08-03",
+    excerpt: "A conviction isn't always the end of the road. CPL 440.10 lets a New York court vacate a judgment for reasons that never made it onto the record, but it comes with procedural traps that can shut the door for good if you miss them."
+  },
+  {
+    slug: "grand-jury-testify-cpl-190-50-ny",
+    title: "Can You Testify Before Your Own Grand Jury in New York? What CPL 190.50 Actually Requires",
+    category: "Rights & Process",
+    date: "2026-08-02",
+    excerpt: "New York gives you the right to testify before the grand jury deciding your own case, but only if you ask in writing before an indictment is filed. Here's how CPL 190.50 actually works, and the deadline that erases the right if you miss it."
+  },
+  {
+    slug: "right-to-testify-grand-jury-cpl-190-50-ny",
+    title: "Do You Have the Right to Testify Before the Grand Jury in New York? CPL 190.50 Explained",
+    category: "Rights & Process",
+    date: "2026-08-02",
+    excerpt: "There is no constitutional right to testify before a New York grand jury. There is a statutory one, under CPL 190.50, and it disappears fast if nobody files the notice in time."
+  },
+  {
+    slug: "domestic-violence-survivors-justice-act-ny",
+    title: "What Is the Domestic Violence Survivors Justice Act in New York? Penal Law 60.12 Explained",
+    category: "Restorative Justice",
+    date: "2026-08-02",
+    excerpt: "Penal Law 60.12 lets a judge hand down a lighter sentence when abuse was a significant reason someone ended up charged. In April 2026, New York's highest court ruled a prosecutor can't make you sign away the hearing that proves it."
+  },
+  {
+    slug: "dvsja-penal-law-60-12-domestic-violence-survivors-ny",
+    title: "The Domestic Violence Survivors Justice Act in New York: What Penal Law 60.12 Actually Does",
+    category: "Restorative Justice",
+    date: "2026-08-02",
+    excerpt: "Penal Law 60.12 lets a judge hand down a shorter sentence to a domestic violence survivor whose abuse drove the offense. A prosecutor cannot make you waive that hearing to get a plea deal, the Court of Appeals said so in April 2026."
+  },
+  {
+    slug: "bronx-criminal-court-logistics",
+    title: "Bronx Criminal Court: Which Building, Which Train, What to Expect",
+    category: "Rights & Process",
+    date: "2026-08-20",
+    excerpt: "\"Bronx Criminal Court\" is two different buildings a block and a half apart, 215 and 265 East 161st Street, and both go by that name. How to find out which one you need before you travel, plus arraignment hours that run to 1:00 a.m. seven days a week."
+  },
+  {
+    slug: "queens-criminal-court-logistics",
+    title: "Queens Criminal Court: Getting There, Getting In, and the 11 p.m. Cutoff",
+    category: "Rights & Process",
+    date: "2026-08-20",
+    excerpt: "Queens arraignments stop at 11:00 p.m., not 1:00 a.m. like the Bronx, and people assume every borough runs the same hours. Where the Kew Gardens courthouse is, how to get in, and which clerk windows close early."
+  },
+  {
+    slug: "closing-rikers-root-cause-prevention-ny",
+    title: "Root-Cause Prevention Is the Part of Closing Rikers Nobody Budgets For",
+    category: "System",
+    date: "2026-08-20",
+    excerpt: "Advocates say closing Rikers means treating housing and mental health needs instead of jailing them. The city already spends $507,000 a year per person there, and 87 percent of them haven't been convicted. Here's what the prevention argument rests on, and where the evidence is thinner than the slogan."
+  },
   {
     slug: "fair-chance-for-housing-act-nyc-explained",
     title: "New York City Landlords Can't Screen You Out for a Criminal Record First Anymore: The Fair Chance for Housing Act Explained",
