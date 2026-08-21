@@ -1,0 +1,86 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<title>Case Analytica OG card template</title>
+<!--
+  Social card template — 2400x1254, matching assets/social/*.png
+
+  To make a new card:
+    1. Edit the four content slots marked CONTENT below.
+    2. Render it:
+
+       "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
+         --headless --disable-gpu --hide-scrollbars \
+         --force-device-scale-factor=1 --window-size=2400,1254 \
+         --screenshot="assets/social/<slug>-og.png" \
+         "file://$PWD/tools/og-card.html"
+
+    3. Point the article's og:image and twitter:image at that filename.
+
+  Keep the headline to two lines — it is a punchy rewrite, not the full
+  article title. Palette and type match assets/style.css.
+-->
+<style>
+  :root{
+    --bg:#0f121a; --gold:#c6a068; --cream:#f5f3ee; --panel:#1a1f2e; --muted:#969eaa;
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+    --mono:"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{width:2400px;height:1254px;}
+  body{
+    background:var(--bg); color:var(--cream);
+    font-family:var(--serif);
+    padding:132px 142px 108px;
+    display:flex; flex-direction:column;
+    -webkit-font-smoothing:antialiased;
+  }
+  .eyebrow{
+    font-family:var(--mono); font-size:30px; letter-spacing:.14em;
+    color:var(--gold); text-transform:uppercase;
+    display:flex; align-items:center; gap:26px;
+  }
+  .dot{width:15px;height:15px;border-radius:50%;background:var(--gold);flex:none;}
+  h1{
+    font-family:var(--serif); font-weight:700; font-size:118px; line-height:1.13;
+    letter-spacing:-.01em; color:var(--cream); margin-top:58px; max-width:2000px;
+  }
+  .panel{
+    margin-top:74px; background:var(--panel); border-left:11px solid var(--gold);
+    padding:46px 58px 50px;
+  }
+  .panel .label{
+    font-family:var(--mono); font-size:27px; letter-spacing:.13em;
+    color:var(--gold); text-transform:uppercase;
+  }
+  .figure{display:flex; align-items:baseline; gap:38px; margin-top:26px;}
+  .figure .num{font-size:96px; font-weight:700; line-height:1; color:var(--cream);}
+  .figure .qual{font-size:50px; font-style:italic; color:var(--cream); opacity:.92;}
+  .note{font-size:40px; font-style:italic; color:var(--muted); margin-top:20px; line-height:1.35;}
+  .spacer{flex:1;}
+  hr{border:0; border-top:1px solid rgba(245,243,238,.16);}
+  footer{display:flex; justify-content:space-between; align-items:center; padding-top:42px;}
+  .wordmark{font-size:52px; font-weight:700; letter-spacing:-.005em;}
+  .wordmark .a{color:var(--gold);}
+  .cta{font-family:var(--mono); font-size:32px; letter-spacing:.06em; color:var(--gold);}
+</style></head>
+<body>
+  <!-- CONTENT: category / jurisdiction -->
+  <div class="eyebrow"><span class="dot"></span><span>Rights &amp; Process &nbsp;·&nbsp; New York State</span></div>
+
+  <!-- CONTENT: headline, two lines max -->
+  <h1>What Happens Between Arrest and Arraignment in NYC</h1>
+
+  <div class="panel">
+    <!-- CONTENT: stat label / figure / qualifier / note -->
+    <div class="label">Held on a felony complaint</div>
+    <div class="figure"><span class="num">120 hrs</span><span class="qual">then release is required</span></div>
+    <div class="note">CPL 180.80. But the clock only helps if someone actually applies for it.</div>
+  </div>
+
+  <div class="spacer"></div>
+  <hr>
+  <footer>
+    <div class="wordmark">Case<span class="a">Analytica</span></div>
+    <div class="cta">Read the full article &nbsp;→&nbsp; caseanalytica.com</div>
+  </footer>
+</body></html>
