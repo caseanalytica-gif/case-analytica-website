@@ -248,6 +248,13 @@ const VIDEOS = [
 
 const ARTICLES = [
   {
+    slug: "queens-chain-snatching-arrest-process-ny",
+    title: "What Happens After an Arrest in NYC: A Queens Chain-Snatching Case Shows the Timeline From Custody to Arraignment",
+    category: "Rights & Process",
+    date: "2026-08-21",
+    excerpt: "A Queens chain-snatching case involving a 16-year-old shows how booking, arraignment, bail, and diversion actually work after an NYC arrest, and where Raise the Age changes the sequence."
+  },
+  {
     slug: "protect-our-courts-act-ny-explained",
     title: "The Protect Our Courts Act: Why ICE Needs a Judicial Warrant to Arrest You at a NY Courthouse",
     category: "Rights & Process",
