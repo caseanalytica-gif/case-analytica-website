@@ -248,6 +248,13 @@ const VIDEOS = [
 
 const ARTICLES = [
   {
+    slug: "jesus-acosta-murder-arrest-process-ny",
+    title: "What Happens After a Murder Arrest in New York: The Jesus Acosta Case and the Limits of Diversion",
+    category: "Rights & Process",
+    date: "2026-09-01",
+    excerpt: "Jesus Acosta's arrest and arraignment on murder charges in the Bronx and Brooklyn shows how central booking, arraignment, bail, and parole holds actually work, and why New York's diversion programs don't reach a case like this one."
+  },
+  {
     slug: "queens-chain-snatching-arrest-process-ny",
     title: "What Happens After an Arrest in NYC: A Queens Chain-Snatching Case Shows the Timeline From Custody to Arraignment",
     category: "Rights & Process",
