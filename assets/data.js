@@ -145,8 +145,8 @@ const VIDEOS = [
     category: "System",
     format: "Short",
     description: "Automatic sealing started in November 2024: the waiting periods and exclusions that decide if you qualify.",
-    youtubeId: "",
-    published: false
+    youtubeId: "2F6b0N3_06c",
+    published: true
   },
   {
     title: "Restorative Justice vs. Prison: What's the Real Difference?",
