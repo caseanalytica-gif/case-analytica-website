@@ -19,6 +19,22 @@
 
 const VIDEOS = [
   {
+    title: "The Clean Slate Act New York Almost Passed vs. the One Hochul Signed",
+    category: "System",
+    format: "Short",
+    description: "Clean Slate's waiting periods and Class A felony exclusion were negotiated into the bill before it passed, not added after. New York also has until November 2027 to actually build the system that seals a record.",
+    youtubeId: "",
+    published: false
+  },
+  {
+    title: "New York Led the Nation in Reincarcerating People for Breaking Parole Rules",
+    category: "System",
+    format: "Short",
+    description: "In 2018, New York sent nearly 5,800 people back to prison for a technical parole violation, not a new crime. Here's what the 2021 Less Is More Act changed, and what the data since shows.",
+    youtubeId: "",
+    published: false
+  },
+  {
     title: "NYC Landlords Can't Screen You Out for a Criminal Record First Anymore: The Fair Chance for Housing Act Explained",
     category: "Access to Justice",
     format: "Short",
@@ -247,6 +263,20 @@ const VIDEOS = [
 ];
 
 const ARTICLES = [
+  {
+    slug: "clean-slate-act-negotiated-version-recidivism-cost-ny",
+    title: "The Clean Slate Act New York Almost Passed vs. the One Hochul Signed",
+    category: "System",
+    date: "2026-09-02",
+    excerpt: "Clean Slate wasn't watered down by a backroom amendment. It was negotiated down before it passed, and New York has until 2027 to actually build the system that seals a record. Here's what every year of that gap costs."
+  },
+  {
+    slug: "less-is-more-act-parole-technical-violations-ny",
+    title: "New York Led the Nation in Reincarcerating People for Breaking Parole Rules. What Less Is More Actually Changed",
+    category: "System",
+    date: "2026-09-02",
+    excerpt: "In 2018, New York sent thousands of people back to prison for missing a curfew or an appointment, not a new crime. Here's what the Less Is More Act changed, and what the data since shows about whether it worked."
+  },
   {
     slug: "jesus-acosta-murder-arrest-process-ny",
     title: "What Happens After a Murder Arrest in New York: The Jesus Acosta Case and the Limits of Diversion",
