@@ -40,6 +40,32 @@ https://www.caseanalytica.com/articles/clean-slate-implementation-funding-gap-ny
 
 ---
 
+## Short version — LinkedIn
+
+Your record can qualify for Clean Slate sealing and still sit there unsealed.
+
+Roughly 5 million New York records are eligible for automatic sealing by November 16, 2027. In 2025 budget testimony, the agencies building that system told lawmakers they weren't asking for more money or more staff. As of that March, the courts hadn't sent DCJS a single record to seal.
+
+Worth someone checking on well before 2027.
+
+https://www.caseanalytica.com/articles/clean-slate-implementation-funding-gap-ny.html
+
+#CleanSlate #NewYorkLaw #Reentry #CaseAnalytica
+
+---
+
+## Short version — Facebook
+
+If you're waiting on Clean Slate to seal your record, here's the part that doesn't get said out loud.
+
+About 5 million records qualify. But the state gave itself until November 16, 2027 to build the system that does the sealing, and in 2025 the agencies building it told lawmakers they didn't need more money to get there. As of that March, the courts hadn't sent DCJS a single record.
+
+Until it's sealed, it still shows up on a background check.
+
+https://www.caseanalytica.com/articles/clean-slate-implementation-funding-gap-ny.html
+
+---
+
 ## How the graphic attaches, per platform
 
 **LinkedIn — do NOT upload the PNG.** Paste the bare URL on its own line and let LinkedIn

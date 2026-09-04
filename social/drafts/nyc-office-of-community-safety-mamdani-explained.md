@@ -42,6 +42,30 @@ https://www.caseanalytica.com/articles/nyc-office-of-community-safety-mamdani-ex
 
 ---
 
+## Short version — LinkedIn
+
+A campaign promise about community safety became a real office with real money six months ago.
+
+Executive Order No. 15 created NYC's Mayor's Office of Community Safety in March 2026: $260 million, five existing city offices pulled under one roof, and a mandate to send trained responders instead of only police. Since then, $4.8M to expand violence interruption into three more precincts and $4.3M for hospital-based intervention.
+
+The model has evidence from this city's own streets. Homicides fell 18% in neighborhoods running Cure Violence programs while comparable neighborhoods without it saw them climb 69%.
+
+https://www.caseanalytica.com/articles/nyc-office-of-community-safety-mamdani-explained.html
+
+#CommunitySafety #NYC #GunViolencePrevention #CaseAnalytica
+
+---
+
+## Short version — Facebook
+
+Six months ago New York City built an office around a simple idea: when someone is in a mental health crisis, or a block is grieving after a shooting, the first response doesn't have to be a person with a gun and a badge.
+
+$260 million and five city offices under one roof. After 12-year-old Jacob Freytes was killed by a stray bullet in the Bronx in July, that office had outreach teams canvassing against retaliation and violence interrupters at a community parade the next day.
+
+https://www.caseanalytica.com/articles/nyc-office-of-community-safety-mamdani-explained.html
+
+---
+
 ## How the graphic attaches, per platform
 
 **LinkedIn — do NOT upload the PNG.** Paste the bare URL on its own line and let LinkedIn
