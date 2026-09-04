@@ -19,6 +19,22 @@
 
 const VIDEOS = [
   {
+    title: "New York Says It Doesn't Need More Money to Seal Your Clean Slate Record",
+    category: "System",
+    format: "Short",
+    description: "In 2025 budget testimony, the agencies building New York's Clean Slate record-sealing system said they didn't need extra money or staff, and DCJS admitted it hadn't received a single record to seal yet.",
+    youtubeId: "",
+    published: false
+  },
+  {
+    title: "NYC's Office of Community Safety: Mamdani's Campaign Promise Starts Becoming Real",
+    category: "System",
+    format: "Short",
+    description: "Mayor Mamdani promised a $1.1 billion Department of Community Safety. Six months into the smaller office he actually built, here's the real money and the real response already reaching Black and Brown New Yorkers.",
+    youtubeId: "",
+    published: false
+  },
+  {
     title: "The Clean Slate Act New York Almost Passed vs. the One Hochul Signed",
     category: "System",
     format: "Short",
@@ -263,6 +279,20 @@ const VIDEOS = [
 ];
 
 const ARTICLES = [
+  {
+    slug: "clean-slate-implementation-funding-gap-ny",
+    title: "New York Says It Doesn't Need More Money to Seal Your Clean Slate Record",
+    category: "System",
+    date: "2026-09-04",
+    excerpt: "State agencies told lawmakers in 2025 they weren't asking for extra funding or staff to build the Clean Slate sealing system, and the court system hadn't sent DCJS a single record yet. Here's what that testimony means for the wait, and why it's really a jobs and housing question."
+  },
+  {
+    slug: "nyc-office-of-community-safety-mamdani-explained",
+    title: "NYC's Office of Community Safety: Mamdani's Campaign Promise Starts Becoming Real",
+    category: "System",
+    date: "2026-09-04",
+    excerpt: "Mayor Mamdani ran on sending care, not just police, to mental health crises and gun violence in the neighborhoods hit hardest by both. Six months into the Office of Community Safety, here's the real money and the real response already reaching Black and Brown New Yorkers."
+  },
   {
     slug: "clean-slate-act-negotiated-version-recidivism-cost-ny",
     title: "The Clean Slate Act New York Almost Passed vs. the One Hochul Signed",
