@@ -459,3 +459,26 @@ footer.site-footer nav a{font-size:13.5px; color:var(--ink-soft);}
 .ws-send-note{font-size:14.5px; margin:14px 0 0; color:var(--ink-soft); min-height:1.2em;}
 .ws-send-note.ok{color:var(--pillar); font-weight:600;}
 .ws-send-note.err{color:var(--accent); font-weight:600;}
+
+/* --------------------------------------------------------------------------
+   Hero headline rotator.
+   Before site.js runs, .rot-line is a plain block and the single authored
+   phrase sits in normal flow -- so with JS off, or with reduced motion, the
+   headline is simply static. Everything below is scoped under .rot-stack,
+   which only exists once the script has built it.
+   -------------------------------------------------------------------------- */
+.hero-rotator .rot-stack{display:block; position:relative;}
+.hero-rotator .rot-stack .rot-line{
+  position:absolute; top:0; left:0; right:0;
+  opacity:0; transform:translateY(.38em);
+  transition:opacity .5s ease, transform .6s cubic-bezier(.22,.61,.36,1);
+  will-change:opacity, transform;
+}
+.hero-rotator .rot-stack .rot-line.is-active{opacity:1; transform:none;}
+.hero-rotator .rot-stack .rot-line.is-leaving{opacity:0; transform:translateY(-.34em);}
+
+/* Belt and braces: if the media query flips after load, kill the movement
+   even though the script also bails out on it. */
+@media (prefers-reduced-motion: reduce){
+  .hero-rotator .rot-stack .rot-line{transition:none;}
+}

@@ -68,7 +68,16 @@
 <section class="hero">
   <div class="wrap">
     <p class="eyebrow">New York State · Restorative Justice · Justice System</p>
-    <h1 class="serif">Restorative justice exists in New York. Nobody offers it.</h1>
+    <h1 class="serif hero-rotator"><span class="rot-line">Restorative justice exists in New York. Nobody offers it.</span></h1>
+    <!-- Decorative additional headlines. The <h1> above is the real one; these
+         are cloned in by initHeroRotator() and marked aria-hidden. Edit freely,
+         add or remove <span class="rot-line"> entries -- the rotator sizes
+         itself to whichever phrase is tallest. -->
+    <template id="hero-rotator-lines">
+      <span class="rot-line">Your record can be sealed. Nobody tells you when.</span>
+      <span class="rot-line">Diversion is an option. You have to ask for it.</span>
+      <span class="rot-line">A judge can revisit your sentence. Almost nobody applies.</span>
+    </template>
     <p class="lede">Diversion and restorative justice are real options here. They are not offered automatically, and a busy public defender or private attorney can forget to raise them unless someone asks. This is what most families never get told at arraignment, in plain language, for anyone reading this at 2am because someone they love is in it right now.</p>
     <div class="cta-row">
       <a class="btn" href="restorative-justice.html">Read this first: restorative justice options</a>
@@ -210,8 +219,9 @@
 </footer>
 
 <script src="assets/data.js?v=20260901c"></script>
-<script src="assets/site.js?v=20260820i"></script>
+<script src="assets/site.js?v=20260905a"></script>
 <script>
+  initHeroRotator();
   renderVideoGrid("home-video-grid", VIDEOS.slice(0, 3));
   renderArticleGrid("home-article-grid", ARTICLES.slice(0, 3));
 </script>
