@@ -17,7 +17,7 @@
 <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
 <title>Case Analytica: Understanding the NYS Justice System</title>
 <meta name="description" content="Plain-language explainers on the New York State penal system and restorative justice, plus case navigation for families facing it right now.">
-<link rel="stylesheet" href="assets/style.css?v=20260905a">
+<link rel="stylesheet" href="assets/style.css?v=20260905k">
 <link rel="canonical" href="https://www.caseanalytica.com/">
 <script type="application/ld+json">
 {
@@ -44,17 +44,32 @@
   <div class="wrap nav-inner">
     <a href="index.html" class="wordmark">Case<span>Analytica</span></a>
     <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
-    <label for="nav-toggle" class="nav-toggle-btn" aria-label="Menu">☰</label>
     <nav class="links">
-      <a href="index.html" class="current">Home</a>
-      <a href="restorative-justice.html">Restorative Justice</a>
-      <a href="videos.html">Videos</a>
-      <a href="articles.html">Articles</a>
-      <a href="case-navigation.html">Case Navigation</a>
-      <a href="guide.html">Guide</a>
-      <a href="about.html">About</a>
+      <details class="navgroup">
+        <summary>What we do</summary>
+        <div class="navmenu">
+          <a href="restorative-justice.html">Restorative Justice</a>
+          <a href="articles.html">Articles</a>
+          <a href="videos.html">Videos</a>
+          <a href="case-navigation.html">Case Navigation</a>
+          <a href="help-after-an-arrest-ny.html">Just been arrested</a>
+        </div>
+      </details>
+      <a href="about.html">Who we are</a>
+      <details class="navgroup">
+        <summary>Get involved</summary>
+        <div class="navmenu">
+          <a href="about.html#intake">Book a free intake call</a>
+          <a href="intake-worksheet.html">Case worksheet</a>
+          <a href="guide.html">The free guide</a>
+          <a href="checklist.html">Printable checklist</a>
+          <a href="index.html#donate">Donate</a>
+        </div>
+      </details>
       <a class="btn" href="about.html#intake">Book a Free Intake Call</a>
     </nav>
+    <a class="btn btn-donate" href="index.html#donate">Donate</a>
+    <label for="nav-toggle" class="nav-toggle-btn" aria-label="Menu">☰</label>
   </div>
 </header>
 
@@ -68,41 +83,60 @@
 <section class="hero">
   <div class="wrap">
     <p class="eyebrow">New York State · Restorative Justice · Justice System</p>
-    <h1 class="serif hero-rotator"><span class="rot-line">Restorative justice exists in New York. Nobody offers it.</span></h1>
+    <h1 class="serif hero-rotator hero-cc"><span class="rot-line">How to <span class="cc-key">find your loved one</span> if they are taken away.</span></h1>
     <!-- Decorative additional headlines. The <h1> above is the real one; these
          are cloned in by initHeroRotator() and marked aria-hidden. Edit freely,
          add or remove <span class="rot-line"> entries -- the rotator sizes
-         itself to whichever phrase is tallest. -->
+         itself to whichever phrase is tallest. Wrap the part of each sentence
+         that matters most in <span class="cc-key">: the words arrive one at a
+         time like a caption, then the rule is drawn under that phrase. -->
     <template id="hero-rotator-lines">
-      <span class="rot-line">Your record can be sealed. Nobody tells you when.</span>
-      <span class="rot-line">Diversion is an option. You have to ask for it.</span>
-      <span class="rot-line">A judge can revisit your sentence. Almost nobody applies.</span>
+      <span class="rot-line">How to <span class="cc-key">request a welfare check</span>.</span>
+      <span class="rot-line">Should you ever <span class="cc-key">call the prison</span>?</span>
+      <span class="rot-line">What to do if you <span class="cc-key">suspect abuse</span> is occurring?</span>
+      <span class="rot-line"><span class="cc-key">Prisoner's rights</span>.</span>
+      <span class="rot-line">What your loved one needs the most from the <span class="cc-key">commissary</span>.</span>
+      <span class="rot-line">What your loved one needs most in <span class="cc-key">packages that you send</span>.</span>
+      <span class="rot-line">Where to turn when <span class="cc-key">his income is gone</span>.</span>
+      <span class="rot-line">How to get <span class="cc-key">emergency assistance</span>.</span>
+      <span class="rot-line">How to apply for <span class="cc-key">food stamps</span>.</span>
+      <span class="rot-line"><span class="cc-key">Crisis hotlines</span>.</span>
+      <span class="rot-line">How to file a <span class="cc-key">complaint with OSI</span>.</span>
+      <span class="rot-line">Denied appeal? Almost all bypass <span class="cc-key">laws written to grant you parole</span>.</span>
+      <span class="rot-line">What is a <span class="cc-key">parole packet</span>, and how it can help you with your appeal.</span>
+      <span class="rot-line">Example of a <span class="cc-key">parole packet</span>.</span>
+      <span class="rot-line">Are your letters <span class="cc-key">read before they reach</span> your loved one?</span>
+      <span class="rot-line">Is prison <span class="cc-key">as bad as it is depicted</span> in the movies?</span>
     </template>
-    <p class="lede">Diversion and restorative justice are real options here. They are not offered automatically, and a busy public defender or private attorney can forget to raise them unless someone asks. This is what most families never get told at arraignment, in plain language, for anyone reading this at 2am because someone they love is in it right now.</p>
+    <p class="lede">Diversion and restorative justice are real options in New York, and nobody offers them unless someone asks. This is what families don't get told at arraignment, in plain language, for anyone reading it at 2am because someone they love is in it right now.</p>
     <div class="cta-row">
       <a class="btn" href="restorative-justice.html">Read this first: restorative justice options</a>
       <a class="btn btn-outline" href="about.html#intake">Book a free intake call</a>
     </div>
-    <p style="margin:18px 0 0;"><a href="help-after-an-arrest-ny.html" style="font-weight:600;">→ Just been arrested, or is someone you love in it right now? Start here.</a></p>
-    <p style="margin:8px 0 0;"><a href="articles/two-failures-after-a-nys-arrest.html" style="font-weight:600;">→ New series: the information and representation gaps after a NY arrest: start with the overview</a></p>
+    <p class="hero-more"><a href="help-after-an-arrest-ny.html">Just been arrested, or is someone you love in it right now? Start here →</a></p>
   </div>
 </section>
 
-<section>
-  <div class="wrap">
-    <div class="intake-band" style="display:block;background:var(--pillar-deep);">
-      <h2 class="serif">You can't negotiate for an option nobody told you existed.</h2>
-      <p style="max-width:64ch;color:#f2f1ec;">Restorative justice, victim-offender dialogue, and diversion programs can resolve a case without a standard conviction, but only if someone asks for them before a plea is entered. Don't just trust your lawyer to remember. Know the exact questions to ask.</p>
-      <p style="margin-top:16px;"><a class="btn" href="restorative-justice.html" style="background:#fff;color:#1b2430 !important;">See the questions to ask your attorney →</a></p>
-    </div>
-  </div>
-</section>
-
-<section>
+<section id="who-we-are">
   <div class="wrap">
     <div class="section-head">
-      <h2 class="serif">What we cover</h2>
-      <p>Restorative justice comes first because it's the thing most people never hear about until it's too late to ask.</p>
+      <p class="eyebrow">Who we are</p>
+      <h2 class="serif">Everyone arrested deserves to know restorative justice is on the table, not just whoever thinks to ask.</h2>
+    </div>
+    <div class="who-grid">
+      <p>Case Analytica is Dean Mustaphalli. Before any of this, I spent years in finance, working at a top-tier Wall Street firm and later running my own investment fund. That career ended with a felony conviction, and I served time in New York State prison.</p>
+      <p>While I was incarcerated, I ran a transition program: helping other men get through their programs, prepare for parole board hearings, and work on their appeals in the law library. I won my own parole board appeal and came home almost three years ago. Everything on this site comes from that experience: not a law degree, but years spent on the inside of a system most people only ever read about.</p>
+    </div>
+    <p style="margin-top:22px;"><a href="about.html">Read the longer version, and what this is not &rarr;</a></p>
+  </div>
+</section>
+
+<section id="what-we-do">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">What we do</p>
+      <h2 class="serif">You can't negotiate for an option nobody told you existed.</h2>
+      <p>Restorative justice, victim-offender dialogue, and diversion programs can resolve a case without a standard conviction, but only if someone asks for them before a plea is entered. Don't just trust your lawyer to remember. Know the exact questions to ask.</p>
     </div>
     <div class="pillar-grid">
       <div class="pillar-card" style="border-color:var(--pillar);">
@@ -126,6 +160,7 @@
         <p>When national news breaks, here's what it actually means if it touches someone in New York.</p>
       </div>
     </div>
+    <p style="margin-top:24px;"><a class="btn" href="restorative-justice.html">See the questions to ask your attorney →</a></p>
   </div>
 </section>
 
@@ -136,6 +171,7 @@
       <p>New explainers post several times a week.</p>
     </div>
     <div class="card-grid" id="home-video-grid"></div>
+    <details class="coming-soon" id="home-video-upcoming" hidden></details>
     <p style="margin-top:20px;"><a href="videos.html">See all videos →</a></p>
   </div>
 </section>
@@ -151,33 +187,40 @@
   </div>
 </section>
 
-<section>
+<section id="get-involved">
   <div class="wrap">
-    <div class="intake-band">
-      <div>
+    <div class="section-head">
+      <p class="eyebrow">Get involved</p>
+      <h2 class="serif">Learn it. Ask for it. Help keep it free.</h2>
+      <p>Three ways in, depending on where you are right now.</p>
+    </div>
+
+    <div class="involve-grid">
+      <div class="involve-card">
         <h3 class="serif">Facing a case right now?</h3>
         <p>The videos are free education. If you or someone you love needs help figuring out what's actually happening with a case, book a free intake call and we'll help you map out next steps.</p>
+        <p class="involve-do"><a class="btn" href="about.html#intake">Book a free intake call</a></p>
       </div>
-      <a class="btn" href="about.html#intake">Book a free intake call</a>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="donate-prompt">
-      <p><strong>Everything on this site is free, and always will be.</strong> Articles, videos, the guide, the checklist, none of it is behind a paywall. If Case Analytica has helped you or someone you love, it runs on reader support.</p>
-      <div class="btn-row">
-        <a class="btn" href="https://paypal.me/DeanMustaphalli" target="_blank" rel="noopener">♥ Chip In</a>
-        <a class="btn" href="https://buy.stripe.com/8x2fZa9NF2paefUd7J6kg00" target="_blank" rel="noopener"> Apple Pay / Google Pay</a>
-        <details class="zelle-pop">
-          <summary>Zelle ▾</summary>
-          <div class="zelle-card">
-            <img src="assets/icons/zelle-qr.png" alt="Zelle QR code" width="200" height="260" loading="lazy">
-            <p>Scan in your banking app, or send to:</p>
-            <button type="button" class="zelle-email-btn" onclick="var b=this,t='dsminsagency@gmail.com';function done(){b.textContent='Copied \u2713';setTimeout(function(){b.textContent=t;},1500);} function fb(){try{var ta=document.createElement('textarea');ta.value=t;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.focus();ta.select();document.execCommand('copy');document.body.removeChild(ta);done();}catch(e){}} if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done).catch(fb);}else{fb();}">dsminsagency@gmail.com</button>
-          </div>
-        </details>
+      <div class="involve-card">
+        <h3 class="serif">Want to be ready before the next court date?</h3>
+        <p>The guide and the printable checklist carry the exact questions to ask an attorney, in order, by case stage. Free, no email required, made to be handed to someone else.</p>
+        <p class="involve-do"><a class="btn btn-outline" href="guide.html">Get the free guide</a> <a class="btn btn-outline" href="checklist.html">Get the checklist</a></p>
+      </div>
+      <div class="involve-card" id="donate">
+        <h3 class="serif">Chip in</h3>
+        <p><strong>Everything on this site is free, and always will be.</strong> Articles, videos, the guide, the checklist, none of it is behind a paywall. If Case Analytica has helped you or someone you love, it runs on reader support.</p>
+        <div class="btn-row involve-do">
+          <a class="btn" href="https://paypal.me/DeanMustaphalli" target="_blank" rel="noopener">&hearts; Chip In</a>
+          <a class="btn btn-outline" href="https://buy.stripe.com/8x2fZa9NF2paefUd7J6kg00" target="_blank" rel="noopener">Apple Pay / Google Pay</a>
+          <details class="zelle-pop">
+            <summary>Zelle &#9662;</summary>
+            <div class="zelle-card">
+              <img src="assets/icons/zelle-qr.png" alt="Zelle QR code" width="200" height="260" loading="lazy">
+              <p>Scan in your banking app, or send to:</p>
+              <button type="button" class="zelle-email-btn" onclick="var b=this,t='dsminsagency@gmail.com';function done(){b.textContent='Copied \u2713';setTimeout(function(){b.textContent=t;},1500);} function fb(){try{var ta=document.createElement('textarea');ta.value=t;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.focus();ta.select();document.execCommand('copy');document.body.removeChild(ta);done();}catch(e){}} if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done).catch(fb);}else{fb();}">dsminsagency@gmail.com</button>
+            </div>
+          </details>
+        </div>
       </div>
     </div>
   </div>
@@ -219,11 +262,14 @@
 </footer>
 
 <script src="assets/data.js?v=20260901c"></script>
-<script src="assets/site.js?v=20260905a"></script>
+<script src="assets/site.js?v=20260905k"></script>
 <script>
   initHeroRotator();
-  renderVideoGrid("home-video-grid", VIDEOS.slice(0, 3));
-  renderArticleGrid("home-article-grid", ARTICLES.slice(0, 3));
+  // Only videos that are shot and uploaded go on the front page; the rest sit
+  // behind the disclosure underneath.
+  renderVideoGrid("home-video-grid", VIDEOS.filter(isVideoLive).slice(0, 3), { compact: true });
+  renderUpcomingVideos("home-video-upcoming", VIDEOS.filter(v => !isVideoLive(v)));
+  renderArticleGrid("home-article-grid", ARTICLES.slice(0, 3), { compact: true });
 </script>
 <script src="assets/analytics.js"></script>
 </body>
