@@ -19,6 +19,22 @@
 
 const VIDEOS = [
   {
+    title: "New York Knows Clean Slate's Sealing System Has a Bug. The Fix Is Stuck in Committee",
+    category: "System",
+    format: "Short",
+    description: "New York's own court technology division says the Clean Slate Act can't process cases with more than one conviction on the same docket. The fix bill, S6492, has been stuck in committee since March 2025.",
+    youtubeId: "",
+    published: false
+  },
+  {
+    title: "New York's Second Look Act Just Cleared Its First Committee Vote",
+    category: "System",
+    format: "Short",
+    description: "S158 would let someone who served at least ten years ask a different judge for a sentence reduction. It passed the Senate Codes Committee 9-4 in May 2026, the furthest it's gotten since 2021.",
+    youtubeId: "",
+    published: false
+  },
+  {
     title: "New York Says It Doesn't Need More Money to Seal Your Clean Slate Record",
     category: "System",
     format: "Short",
@@ -279,6 +295,20 @@ const VIDEOS = [
 ];
 
 const ARTICLES = [
+  {
+    slug: "clean-slate-sealing-bug-s6492-stuck-in-committee-ny",
+    title: "The Bill Fixing Clean Slate's Sealing Bug Has Sat in Committee Since March 2025",
+    category: "System",
+    date: "2026-09-05",
+    excerpt: "New York's own court technology division says the Clean Slate Act's sealing language can't process cases with more than one conviction on the same docket. The bill meant to fix it has sat in committee for over a year, while the November 2027 sealing deadline keeps getting closer."
+  },
+  {
+    slug: "second-look-act-ny-resentencing-explained",
+    title: "New York's Second Look Act Clears First Committee Vote in 2026",
+    category: "Rights & Process",
+    date: "2026-09-05",
+    excerpt: "S158 would let someone who served at least ten years ask a different judge to reduce their sentence. It passed the Senate Codes Committee 9-4 in May 2026, the furthest it's gotten since first introduced in 2021. Here's what the bill actually requires."
+  },
   {
     slug: "clean-slate-implementation-funding-gap-ny",
     title: "New York Says It Doesn't Need More Money to Seal Your Clean Slate Record",
