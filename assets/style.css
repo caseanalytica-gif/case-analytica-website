@@ -1,40 +1,73 @@
 /* Case Analytica — shared design system */
 
+/* --------------------------------------------------------------------------
+   Bridge palette: Case Analytica's bronze/teal warmth + Vera's depth.
+   Ground colours stay on our side (cool slate, not purple); accents move
+   toward Vera's saturation. Gold #C6A068 is retained deliberately -- it is
+   the accent already baked into every OG social card, so the cards stay
+   on-brand without being regenerated.
+   Every pair below is >=4.5:1 (AA); most are >=7:1 (AAA).
+   -------------------------------------------------------------------------- */
 :root{
-  --ink:#1b2430;
-  --ink-soft:#4b5563;
-  --paper:#eef1ef;
-  --paper-raised:#ffffff;
-  --line:#ccd2d0;
-  --accent:#8f5a1e;
-  --accent-soft:#f1e4d2;
-  --pillar:#3c6e71;
-  --pillar-soft:#e2edec;
+  --ink:#16203A;          /* 15.1:1 on paper */
+  --ink-soft:#4A5568;     /*  7.0:1 on paper */
+  --paper:#FAF7F2;
+  --paper-raised:#FFFFFF;
+  --line:#E4E0D8;
+  --accent:#B14A30;       /* rust: bronze #8f5a1e -> Vera coral #EF4136 */
+  --accent-soft:#F7EDE7;
+  --accent-ink:#8F3A24;   /* rust dark enough to sit on --accent-soft */
+  --pillar:#2A6467;       /* our teal, deepened */
+  --pillar-soft:#E3EFEE;
+  /* Fixed in both themes, like --btn-fill. Any panel that puts cream text on a
+     teal ground must use this, never --pillar: --pillar goes light in dark mode
+     (it is a link colour there) and cream on it drops to 1.5:1. */
+  --pillar-deep:#23575A;
   --focus:#2f6fed;
   --nav-h:64px;
-  --btn-fill:#8f5a1e; /* fixed, not theme-flipping: solid fill behind white button text needs ~5:1 contrast in both themes */
+  --btn-fill:#B14A30;     /* fixed in both themes: white text needs 5.4:1 */
+
+  /* Indigo ground -- hero, section bands, dark inset panels */
+  --ground:#141B33;
+  --ground-raised:#1E2745;
+  --ground-ink:#F5F2EC;   /* 15.2:1 */
+  --ground-muted:#A9B0C8; /*  7.9:1 */
+  --ground-rule:#2B3558;
+  --seafoam:#9BE8D8;      /* 12.1:1 on ground */
+  --gold:#C6A068;         /*  7.0:1 on ground */
+
+  --display:"Fraunces","Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+  --sans:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
 }
 @media (prefers-color-scheme: dark){
-  :root{
-    --ink:#eef1ef; --ink-soft:#aab2b8; --paper:#14181d; --paper-raised:#1c2128;
-    --line:#2c343b; --accent:#d8ad6c; --accent-soft:#3a2e1c; --pillar:#7cb3b6; --pillar-soft:#1c2c2c;
+  :root:not([data-theme="light"]){
+    --ink:#EDF0F4; --ink-soft:#A6AEC0; --paper:#12151F; --paper-raised:#1A1F2E;
+    --line:#2A3142; --accent:#E8785A; --accent-soft:#2E2016; --accent-ink:#E8785A;
+    --pillar:#8FD9CB; --pillar-soft:#17282A;
+    --ground:#1B2242; --ground-raised:#26305A;
   }
 }
 :root[data-theme="dark"]{
-  --ink:#eef1ef; --ink-soft:#aab2b8; --paper:#14181d; --paper-raised:#1c2128;
-  --line:#2c343b; --accent:#d8ad6c; --accent-soft:#3a2e1c; --pillar:#7cb3b6; --pillar-soft:#1c2c2c;
+  --ink:#EDF0F4; --ink-soft:#A6AEC0; --paper:#12151F; --paper-raised:#1A1F2E;
+  --line:#2A3142; --accent:#E8785A; --accent-soft:#2E2016; --accent-ink:#E8785A;
+  --pillar:#8FD9CB; --pillar-soft:#17282A;
+  --ground:#1B2242; --ground-raised:#26305A;
 }
 :root[data-theme="light"]{
-  --ink:#1b2430; --ink-soft:#4b5563; --paper:#eef1ef; --paper-raised:#ffffff;
-  --line:#ccd2d0; --accent:#8f5a1e; --accent-soft:#f1e4d2; --pillar:#3c6e71; --pillar-soft:#e2edec;
+  --ink:#16203A; --ink-soft:#4A5568; --paper:#FAF7F2; --paper-raised:#FFFFFF;
+  --line:#E4E0D8; --accent:#B14A30; --accent-soft:#F7EDE7; --accent-ink:#8F3A24;
+  --pillar:#2A6467; --pillar-soft:#E3EFEE;
+  --ground:#141B33; --ground-raised:#1E2745;
 }
 
 *{box-sizing:border-box;}
 html{scroll-behavior:smooth;}
 body{
   margin:0; background:var(--paper); color:var(--ink);
-  font-family:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+  font-family:var(--sans);
   line-height:1.6;
+  -webkit-font-smoothing:antialiased;
 }
 a{color:var(--pillar); text-decoration:none;}
 a:hover{text-decoration:underline;}
@@ -42,8 +75,12 @@ a:focus-visible, button:focus-visible{outline:2px solid var(--focus); outline-of
 img{max-width:100%; display:block;}
 ::selection{background:var(--accent-soft);}
 
-.serif{font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;}
-.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;}
+.serif{font-family:var(--display);}
+.mono{font-family:var(--mono);}
+/* Display type carries the redesign. Fraunces loads with font-display:swap and
+   falls back to the old Iowan/Georgia stack, so nothing shifts if it never
+   arrives. Body copy stays on system fonts -- one webfont request, not two. */
+h1,h2,h3,.wordmark{font-family:var(--display); letter-spacing:-.018em;}
 
 .eyebrow{
   font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
@@ -59,13 +96,13 @@ header.site-nav{
   max-width:1080px; margin:0 auto; height:var(--nav-h); padding:0 24px;
   display:flex; align-items:center; justify-content:space-between; gap:20px;
 }
-.wordmark{font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif; font-size:20px; font-weight:600; color:var(--ink);}
+.wordmark{font-size:21px; font-weight:700; color:var(--ink);}
 .wordmark span{color:var(--accent);}
 nav.links{display:flex; align-items:center; gap:22px;}
 nav.links a{color:var(--ink); font-size:14.5px;}
 nav.links a.current{color:var(--pillar); font-weight:600;}
 .btn{
-  display:inline-block; font-size:14px; font-weight:600; padding:9px 16px; border-radius:5px;
+  display:inline-block; font-size:14px; font-weight:700; padding:11px 18px; border-radius:2px;
   background:var(--btn-fill); color:#fff !important; text-decoration:none !important; white-space:nowrap;
 }
 .btn:hover{filter:brightness(1.08);}
@@ -100,21 +137,41 @@ nav.links a.current{color:var(--pillar); font-weight:600;}
 .narrow{max-width:720px; margin:0 auto; padding:0 24px;}
 section{padding:64px 0;}
 .section-head{margin-bottom:32px;}
-.section-head h2{font-size:28px; margin:0 0 6px; text-wrap:balance;}
+.section-head h2{font-size:clamp(26px,3.2vw,38px); margin:0 0 8px; text-wrap:balance; line-height:1.12;}
 .section-head p{color:var(--ink-soft); margin:0; max-width:60ch;}
 
-/* Hero */
-.hero{padding:88px 0 64px; border-bottom:1px solid var(--line);}
-.hero h1{font-size:clamp(32px,5vw,48px); margin:0 0 16px; text-wrap:balance; line-height:1.15;}
-.hero p.lede{font-size:18px; color:var(--ink-soft); max-width:56ch; margin:0 0 28px;}
+/* Hero -- sits on the indigo ground, not on paper */
+.hero{
+  padding:92px 0 84px; border-bottom:0; position:relative; overflow:hidden;
+  background:var(--ground); color:var(--ground-ink);
+}
+/* Vera's thin vertical column rules. Decorative only, so it is pointer- and
+   screen-reader-inert and drops out entirely at phone widths. */
+.hero::after{
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background:repeating-linear-gradient(90deg,
+    transparent 0, transparent calc(25% - 1px),
+    var(--ground-rule) calc(25% - 1px), var(--ground-rule) 25%);
+}
+.hero > .wrap, .hero > .narrow{position:relative; z-index:1;}
+.hero .eyebrow{color:var(--seafoam);}
+.hero h1{
+  font-size:clamp(36px,6.2vw,76px); margin:0 0 24px; line-height:1.05;
+  letter-spacing:-.022em; text-wrap:balance; color:var(--ground-ink); max-width:17ch;
+}
+.hero p.lede{font-size:19px; color:var(--ground-muted); max-width:54ch; margin:0 0 30px;}
 .hero .cta-row{display:flex; gap:12px; flex-wrap:wrap;}
+.hero a{color:var(--seafoam);}
+.hero .btn{background:var(--btn-fill); color:#fff !important;}
+.hero .btn-outline{background:transparent; color:var(--ground-ink) !important; border-color:rgba(245,242,236,.45);}
+@media (max-width:640px){ .hero{padding:60px 0 56px;} .hero::after{display:none;} }
 
 /* Pillar cards */
 .pillar-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:16px;}
 @media (max-width:860px){ .pillar-grid{grid-template-columns:repeat(2,1fr);} }
 @media (max-width:520px){ .pillar-grid{grid-template-columns:1fr;} }
 .pillar-card{
-  background:var(--paper-raised); border:1px solid var(--line); border-radius:8px; padding:20px;
+  background:var(--paper-raised); border:1px solid var(--line); border-radius:2px; padding:22px;
 }
 .pillar-card .tag{
   font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; font-size:10.5px; letter-spacing:.08em;
@@ -130,7 +187,7 @@ section{padding:64px 0;}
 @media (max-width:600px){ .card-grid{grid-template-columns:1fr;} }
 
 .card{
-  background:var(--paper-raised); border:1px solid var(--line); border-radius:8px; overflow:hidden;
+  background:var(--paper-raised); border:1px solid var(--line); border-radius:2px; overflow:hidden;
   display:flex; flex-direction:column;
 }
 .card .thumb{
@@ -167,7 +224,7 @@ section{padding:64px 0;}
 
 /* Article body typography */
 .article-header{padding:56px 0 32px; border-bottom:1px solid var(--line);}
-.article-header h1{font-size:clamp(28px,4vw,38px); margin:12px 0 14px; text-wrap:balance;}
+.article-header h1{font-size:clamp(30px,4.6vw,50px); margin:14px 0 16px; text-wrap:balance; line-height:1.08;}
 .article-meta{display:flex; gap:14px; align-items:center; flex-wrap:wrap; font-size:13.5px; color:var(--ink-soft);}
 
 .share-row{display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-top:16px;}
@@ -187,23 +244,40 @@ section{padding:64px 0;}
 .article-body li{margin-bottom:6px;}
 
 .callout{
-  border-left:3px solid var(--accent); background:var(--accent-soft); padding:16px 20px;
-  border-radius:0 6px 6px 0; margin:28px 0; font-size:14.5px;
+  border-left:4px solid var(--accent); background:var(--accent-soft); padding:18px 22px;
+  border-radius:0 2px 2px 0; margin:28px 0; font-size:14.5px;
 }
 .callout .k{
-  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; font-size:11px; letter-spacing:.08em;
-  text-transform:uppercase; color:var(--accent); font-weight:600; margin:0 0 6px;
+  font-family:var(--mono); font-size:11px; letter-spacing:.08em;
+  text-transform:uppercase; color:var(--accent-ink); font-weight:700; margin:0 0 6px;
 }
 .callout p{margin:0;}
 
-/* Intake CTA banner — deliberately fixed dark-on-light-text treatment in both themes, not tied to the flipping ink/paper tokens */
+/* Intake CTA banner. Deliberately dark in both themes -- it now shares the
+   hero's indigo ground instead of carrying its own one-off slate. */
 .intake-band{
-  background:#1b2430; color:#f2f1ec; border-radius:10px; padding:36px 32px;
+  background:var(--ground); color:var(--ground-ink); border-radius:2px; padding:38px 34px;
+  border-left:4px solid var(--accent);
   display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap;
 }
-.intake-band h3{margin:0 0 6px; font-size:20px; color:#f2f1ec;}
-.intake-band p{margin:0; color:#c9cdd2; max-width:48ch;}
+.intake-band h3{margin:0 0 6px; font-size:22px; color:var(--ground-ink);}
+.intake-band p{margin:0; color:var(--ground-muted); max-width:48ch;}
 .intake-band a.btn{background:var(--btn-fill);}
+
+/* Shared dark inset panel. Replaces the hand-rolled #14181d stat blocks that
+   two articles were carrying inline. */
+.ground-panel{
+  background:var(--ground); color:var(--ground-ink); border-radius:2px;
+  padding:38px 34px 28px; margin:0 0 8px;
+}
+.ground-panel .k{font-family:var(--mono); font-size:11px; letter-spacing:.08em;
+  text-transform:uppercase; color:var(--ground-muted); margin:0 0 8px;}
+.ground-panel .stat{font-family:var(--display); font-size:30px; color:var(--gold); margin:0;}
+.ground-panel .cite{display:flex; justify-content:space-between; align-items:center;
+  border-top:1px solid var(--ground-rule); padding-top:16px; font-size:13px;
+  color:var(--ground-muted); flex-wrap:wrap; gap:8px;}
+.ground-panel .cell{flex:1 1 200px; background:var(--ground-raised);
+  border:1px solid var(--ground-rule); border-radius:2px; padding:16px 18px;}
 
 .donate-prompt{
   border:1px solid var(--accent); background:var(--accent-soft); border-radius:12px;
@@ -316,6 +390,10 @@ footer.site-footer nav a{font-size:13.5px; color:var(--ink-soft);}
   /* chrome that should never reach paper */
   header.site-nav, footer.site-footer, .guide-fab,
   .intake-band, .donate-group, .ws-actions, .ws-status, .no-print{display:none !important;}
+  .hero{background:#fff !important; color:#000 !important; padding:0 !important;}
+  .hero::after{display:none !important;}
+  .ground-panel{background:#fff !important; color:#000 !important; border:1px solid #999 !important;}
+  .ground-panel .stat{color:#000 !important;}
 
   html, body{background:#fff !important; color:#000 !important;}
   body{font-size:11.5pt; line-height:1.45;}
