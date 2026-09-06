@@ -46,176 +46,46 @@ function videoCardHtml(v, opts) {
 }
 
 /* ---------------------------------------------------------------------------
-   Article thumbnails: the case document.
+   Article thumbnails.
 
-   A sheet of paper on a desk, a folder behind it, and a stamp across it. The
-   stamp is the article -- SEALED, DENIED, DISMISSED, VACATED -- so the mark
-   says what the piece is about instead of decorating around it.
+   Nothing is drawn any more. Each card tries real images in order and takes the
+   first that loads:
 
-   Drawn rather than photographed, for the same reasons as before: there are 66
-   of these with more arriving most days, and the stock-photo version of this
-   scene is somebody else's licence and somebody else's desk. A photograph still
-   wins whenever there is one -- drop assets/photos/<slug>.jpg in and it takes
-   over. This is what stands in until then.
+     1. `image` on the article in data.js   -- a specific photo, shareable
+                                               between articles
+     2. assets/photos/<slug>.jpg            -- drop-in per article, no editing
+     3. assets/social/thumbs/<slug>.jpg     -- the article's own social card,
+                                               resized for display
 
-   Stamp wording comes from `stamp` on the article if it's set, otherwise from
-   the slug, otherwise from the category. Green reads as an outcome that helped,
-   rust as one that didn't, gold as neither.
+   If none of them exist the card simply has no picture, which is what it looked
+   like before any of this and is better than a placeholder.
+
+   The social cards are the stand-in until real photographs arrive. They are
+   display copies, not the originals: the full cards run to 713KB each because
+   they are built at 2400x1254 for LinkedIn, and shipping those to a phone to
+   show them 300px wide would cost 10MB a page.
    --------------------------------------------------------------------------- */
-
-const THUMB_INK = {
-  ground:"#141B33", raised:"#1E2745", desk:"#0F1528",
-  folder:"#C9A97A", folderDark:"#A98A5E",
-  sheet:"#F7F4EE", sheetEdge:"#DAD5C9", rule:"#C9C3B6", ruleDark:"#8A8578",
-  gold:"#C6A068", green:"#3E8E6E", rust:"#B14A30"
-};
-
-// Ordered: first match wins, so put the specific ahead of the general.
-const STAMP_RULES = [
-  [/clean-slate|sealing|sealed|160-50|160-59|expungement|mrta|background-check/, "SEALED",       "green"],
-  [/parole-board|parole-hearing|denial|denied|racial-disparity/,                 "DENIED",       "rust"],
-  [/what-is-an-acd|acd-|dismiss/,                                                "DISMISSED",    "green"],
-  [/440-10|vacate|unjust-conviction|compensation/,                               "VACATED",      "green"],
-  [/second-look|resentenc|dvsja|60-12|medical-parole|shock-incarceration/,       "RESENTENCED",  "green"],
-  [/30-30|30-20|speedy-trial/,                                                   "SPEEDY TRIAL", "gold"],
-  [/bail|180-80|release|desk-appearance|project-reset/,                          "RELEASED",     "green"],
-  [/restorative|diversion|mental-health-court|veterans-treatment|judicial-diversion/, "DIVERTED", "green"],
-  [/violation|vop|410-70|259-i|post-release-supervision/,                        "VIOLATION",   "rust"],
-  [/suppress|stop-and-frisk|140-50|phone-search|warrant/,                        "SUPPRESSED",  "green"],
-  [/grand-jury|190-50|testify/,                                                  "TESTIMONY",   "gold"],
-  [/order-of-protection|extreme-risk|erpo/,                                      "ORDER",       "rust"],
-  [/forfeiture|13-a|seiz/,                                                       "SEIZED",      "rust"],
-  [/730|competency/,                                                             "730 EXAM",    "gold"],
-  [/solitary|halt-act|rikers|jail|incarcerat/,                                   "CUSTODY",     "rust"],
-  [/housing|fair-chance/,                                                        "HOUSING",     "green"],
-  [/employment|23-a|certificate-of-relief/,                                      "RELIEF",      "green"],
-  [/youthful-offender|raise-the-age/,                                            "Y.O.",        "green"],
-  [/immigration|deport|protect-our-courts/,                                      "NOTICE",      "rust"],
-  [/counsel|public-defender|right-to-counsel|cost-of-a-criminal/,                "COUNSEL",     "gold"],
-  [/discovery|work-product/,                                                     "DISCLOSURE",  "gold"],
-  [/plea|guilty/,                                                                "PLEA",        "rust"],
-  [/language-access|interpreter/,                                                "ACCESS",      "gold"],
-  [/arrest|arraign|court-logistics|navigation/,                                  "PENDING",     "gold"]
-];
-
-const STAMP_BY_CATEGORY = {
-  "Restorative Justice": ["DIVERTED", "green"],
-  "Rights & Process":    ["ON RECORD", "gold"],
-  "System":              ["PENDING", "gold"],
-  "Access to Justice":   ["ACCESS", "gold"],
-  "Political / News":    ["FILED", "gold"]
-};
-
-/* Plenty of these pieces are about a remedy that ISN'T working -- the sealing
-   bug stuck in committee, the funding that never came, the appeal nobody wins.
-   A green SEALED on those would tell the reader the opposite of the article. So
-   when the slug or headline says the thing failed, green drops back to gold:
-   still the right subject, no claim about the outcome. */
-const STAMP_SETBACK = /stuck|\bbug\b|gap\b|fail|crisis|disparit|watered-down|almost-passed|doesn-?t|didn-?t|never|denied|denial|backlog|delay|unmet|shortfall|no-money|not-need/;
-
-function stampFor(a) {
-  const hay = ((a.slug || "") + " " + (a.title || "")).toLowerCase();
-  for (const [re, word, tone] of STAMP_RULES) {
-    if (re.test(hay)) {
-      return [word, tone === "green" && STAMP_SETBACK.test(hay) ? "gold" : tone];
-    }
+function articleThumbSources(a) {
+  const list = [];
+  if (a.image) list.push(a.image);
+  if (a.slug) {
+    list.push("assets/photos/" + a.slug + ".jpg");
+    list.push("assets/social/thumbs/" + a.slug + ".jpg");
   }
-  return STAMP_BY_CATEGORY[a.category] || ["ON FILE", "gold"];
+  return list;
 }
 
-function articleThumbSvg(a) {
-  const rand = seededRandom(slugSeed(a.slug || a.title || ""));
-  const pair = a.stamp ? [String(a.stamp).toUpperCase(), a.stampTone || "gold"] : stampFor(a);
-  const word = pair[0];
-  const ink = THUMB_INK[pair[1]] || THUMB_INK.gold;
-
-  // Small seeded variation so a wall of these doesn't look rubber-stamped
-  // (which, given the subject, would be a bit on the nose).
-  const tilt   = (-6 + rand() * 4).toFixed(1);        // the sheet
-  const sTilt  = (-11 + rand() * 8).toFixed(1);       // the stamp
-  const sx     = 128 + Math.round(rand() * 26);
-  const sy     = 104 + Math.round(rand() * 10);
-  const lines  = 3 + Math.round(rand());
-  const P = THUMB_INK;
-
-  const ruled = [];
-  for (let i = 0; i < lines; i++) {
-    const w = 96 - Math.round(rand() * 34);
-    ruled.push(`<rect x="78" y="${72 + i * 11}" width="${w}" height="4" rx="2" fill="${P.rule}"/>`);
-  }
-
-  return `<svg class="thumb-art" viewBox="0 0 320 180" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
-  <rect width="320" height="180" fill="${P.ground}"/>
-  <polygon points="0,124 320,86 320,180 0,180" fill="${P.desk}"/>
-
-  <g transform="rotate(${(Number(tilt) + 5).toFixed(1)} 160 96)">
-    <rect x="82" y="34" width="184" height="132" rx="3" fill="${P.folderDark}"/>
-    <rect x="82" y="26" width="66" height="14" rx="3" fill="${P.folder}"/>
-    <rect x="76" y="38" width="190" height="130" rx="3" fill="${P.folder}"/>
-  </g>
-
-  <g transform="rotate(${tilt} 160 96)">
-    <rect x="60" y="20" width="196" height="148" rx="2" fill="${P.sheetEdge}"/>
-    <rect x="58" y="18" width="196" height="148" rx="2" fill="${P.sheet}"/>
-    <rect x="58" y="18" width="6" height="148" fill="${ink}"/>
-    <rect x="78" y="36" width="118" height="8" rx="2" fill="${P.ruleDark}"/>
-    <rect x="78" y="52" width="76" height="5" rx="2" fill="${P.rule}"/>
-    ${ruled.join("")}
-  </g>
-
-  <g transform="rotate(${sTilt} ${sx} ${sy})" opacity="0.92">
-    <rect x="${sx - 76}" y="${sy - 21}" width="152" height="42" rx="4"
-          fill="none" stroke="${ink}" stroke-width="4"/>
-    <text x="${sx}" y="${sy + 7}" text-anchor="middle" textLength="126" lengthAdjust="spacingAndGlyphs"
-          font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace"
-          font-size="23" font-weight="700" letter-spacing="1" fill="${ink}">${escapeHtml(word)}</text>
-  </g>
-</svg>`;
-}
-
-// FNV-1a. Any stable hash would do; this one is four lines and has no collisions
-// across the current slugs.
-function slugSeed(slug) {
-  let h = 2166136261;
-  for (let i = 0; i < slug.length; i++) {
-    h ^= slug.charCodeAt(i);
-    h = Math.imul(h, 16777619);
-  }
-  return h >>> 0;
-}
-
-// xorshift32. Deterministic, so a given article's mark never changes.
-function seededRandom(seed) {
-  let x = seed || 1;
-  return function () {
-    x ^= x << 13; x >>>= 0;
-    x ^= x >>> 17;
-    x ^= x << 5;  x >>>= 0;
-    return x / 4294967296;
-  };
-}
-
-/* An article shows a photograph as soon as one exists and the generated mark
-   until then, so the grid is never half-empty while the library fills in.
-
-   The whole publishing step is dropping a file into assets/photos/ named after
-   the article's slug -- clean-slate-act-explained.jpg for
-   articles/clean-slate-act-explained.html. Nothing to edit. The <img> is
-   layered over the mark; if the file isn't there the browser errors, the <img>
-   removes itself and the mark shows through, so a missing photo costs one small
-   404 and nothing else.
-
-   Optional overrides in data.js, per article:
-     image        a different path (use this for .png/.webp, or a shared photo)
-     imageAlt     what the photo shows, for screen readers and when it fails
-     imageCredit  photographer or source; most licences require a visible one
-   ------------------------------------------------------------------------- */
 function articleThumbHtml(a) {
-  const src = a.image || `assets/photos/${a.slug}.jpg`;
-  const credit = a.imageCredit ? `<span class="thumb-credit">${escapeHtml(a.imageCredit)}</span>` : "";
-  return `<div class="thumb thumb-figure">${articleThumbSvg(a)}` +
-    `<img class="thumb-photo-img" src="${escapeHtml(src)}" alt="${escapeHtml(a.imageAlt || "")}" ` +
-    `loading="lazy" decoding="async">${credit}</div>`;
+  const srcs = articleThumbSources(a);
+  if (!srcs.length) return "";
+  const credit = a.imageCredit
+    ? `<span class="thumb-credit">${escapeHtml(a.imageCredit)}</span>`
+    : "";
+  return `<div class="thumb thumb-figure">` +
+    `<img class="thumb-photo-img" src="${escapeHtml(srcs[0])}" ` +
+    `data-fallbacks="${escapeHtml(srcs.slice(1).join("|"))}" ` +
+    `alt="${escapeHtml(a.imageAlt || "")}" loading="lazy" decoding="async">` +
+    `${credit}</div>`;
 }
 
 /* Handlers are attached here rather than written inline, so this keeps working
@@ -223,15 +93,24 @@ function articleThumbHtml(a) {
 function attachThumbPhotos(root) {
   root.querySelectorAll("img.thumb-photo-img").forEach(img => {
     const fig = img.closest(".thumb-figure");
+
+    function next() {
+      const queue = (img.dataset.fallbacks || "").split("|").filter(Boolean);
+      if (!queue.length) {
+        // Nothing left to try: drop the picture area entirely rather than
+        // leaving an empty box above the headline.
+        if (fig) fig.remove(); else img.remove();
+        return;
+      }
+      img.dataset.fallbacks = queue.slice(1).join("|");
+      img.src = queue[0];
+    }
+
     img.addEventListener("load", () => { if (fig) fig.classList.add("has-photo"); });
-    img.addEventListener("error", () => {
-      if (fig) fig.classList.remove("has-photo");
-      img.remove();
-    });
-    // A cached 404 can have finished before this ran.
+    img.addEventListener("error", next);
     if (img.complete) {
       if (img.naturalWidth > 0) { if (fig) fig.classList.add("has-photo"); }
-      else { if (fig) fig.classList.remove("has-photo"); img.remove(); }
+      else next();
     }
   });
 }

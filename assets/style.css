@@ -312,15 +312,15 @@ section{padding:64px 0;}
 
 /* Generated article mark. Stays on the indigo ground in both colour schemes --
    a grid of these should read as one steady rhythm, not a wall of pictures. */
-/* The photograph sits over the generated mark. If the file isn't there yet the
-   <img> removes itself and the mark below shows through. */
+/* Article picture. The <img> walks a list of candidate sources and removes the
+   whole block if none of them load, so a card without a picture is a card
+   without a picture -- never an empty grey box. */
 .card .thumb-figure{background:var(--ground); padding:0; overflow:hidden;}
-.card .thumb-figure svg.thumb-art{display:block; width:100%; height:100%;}
 .card .thumb-figure img.thumb-photo-img{
-  position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+  display:block; width:100%; height:100%; object-fit:cover;
 }
-/* Most photo licences want a visible credit; it has to survive a dark image,
-   and it only makes sense once the photo has actually loaded. */
+/* Most photo licences want a visible credit, and it has to survive a dark
+   image. Only shown once something has actually loaded. */
 .card .thumb-credit{
   display:none; position:absolute; bottom:0; right:0; max-width:100%; padding:3px 7px;
   background:rgba(10,14,28,.72); color:#F5F2EC; font-family:var(--mono);
