@@ -160,17 +160,25 @@ nav.links .navmenu a:hover{background:var(--pillar-soft); color:var(--pillar);}
 
 /* Mobile nav: checkbox-driven dropdown, no JS required */
 .nav-toggle-input{display:none;}
+/* Bars plus the word, the way Vera labels theirs: at phone widths the three
+   headings are behind this, and an unlabelled icon doesn't say so. */
 .nav-toggle-btn{
-  display:none; cursor:pointer; font-size:22px; line-height:1; color:var(--ink);
+  display:none; cursor:pointer; line-height:1; color:var(--ink);
   padding:8px; margin:-8px -8px -8px 0; user-select:none;
+  align-items:center; gap:7px;
+  /* This is the only way into the nav on a phone, so it gets a full 44px
+     touch target rather than the ~35px the text alone would give it. */
+  min-height:44px;
 }
+.nav-toggle-btn .nav-toggle-bars{font-size:22px;}
+.nav-toggle-btn .nav-toggle-text{font-size:14.5px; font-weight:600;}
 /* Vera's header is Menu / logo / Donate at every width, and that is the shape
    that actually fits: eight links plus two buttons only clear 1080px, and
    between there and the old 640px breakpoint the bar ran off the right edge. With
    the three grouped headings it needs only ~790px, so it collapses below 820. */
 @media (max-width:820px){
   .nav-inner{position:relative; gap:12px;}
-  .nav-toggle-btn{display:block; order:3;}
+  .nav-toggle-btn{display:flex; order:3;}
   nav.links{
     display:none; position:absolute; top:100%; left:0; right:0;
     flex-direction:column; align-items:stretch; gap:0;
@@ -218,6 +226,17 @@ nav.links .navmenu a:hover{background:var(--pillar-soft); color:var(--pillar);}
 
 @media (max-width:400px){
   .nav-inner > .btn-donate{padding:9px 12px; font-size:13px;}
+}
+/* Narrowest phones (320px). The word "Menu" is worth ~45px, so everything else
+   in the bar gives a little back rather than the label being dropped -- an
+   unlabelled icon is exactly what it was there to fix. */
+@media (max-width:380px){
+  .nav-inner{padding:0 14px; gap:8px;}
+  .wordmark{font-size:18px;}
+  .nav-inner > .btn-donate{padding:8px 10px; font-size:12.5px;}
+  .nav-toggle-btn{gap:5px; padding:8px 0; margin-right:0;}
+  .nav-toggle-btn .nav-toggle-bars{font-size:19px;}
+  .nav-toggle-btn .nav-toggle-text{font-size:13.5px;}
 }
 
 /* Header donate button. Vera puts theirs last and in a different colour from
