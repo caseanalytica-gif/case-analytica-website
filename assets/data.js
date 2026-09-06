@@ -497,6 +497,8 @@ const ARTICLES = [
   },
   {
     slug: "rikers-detention-plea-leverage-ny",
+    image: "assets/photos/rikers-corridor.jpg",
+    imageAlt: "A corrections officer carrying a ring of keys stands in an empty jail corridor, barred gates closed at the far end.",
     title: "How Holding Someone at Rikers Becomes Leverage for a Plea",
     category: "Restorative Justice",
     date: "2026-08-13",
