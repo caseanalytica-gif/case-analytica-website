@@ -324,7 +324,9 @@ section{padding:64px 0;}
 .card .thumb-credit{
   display:none; position:absolute; bottom:0; right:0; max-width:100%; padding:3px 7px;
   background:rgba(10,14,28,.72); color:#F5F2EC; font-family:var(--mono);
-  font-size:9.5px; letter-spacing:.03em; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+  font-size:9.5px; line-height:1.35; letter-spacing:.03em; text-align:right;
+  /* Wraps rather than truncating: a credit cut off mid-name isn't a credit. */
+  white-space:normal; overflow-wrap:break-word;
 }
 .card .thumb-figure.has-photo .thumb-credit{display:block;}
 /* Without an excerpt the headline is what has to push the date to the bottom. */
