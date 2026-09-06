@@ -1,0 +1,2 @@
+# macOS drops these in every folder it opens; matches at any depth.
+.DS_Store
