@@ -1,2 +1,7 @@
 # macOS drops these in every folder it opens; matches at any depth.
 .DS_Store
+
+# iCloud Drive artifacts: AppleDouble sidecars and not-yet-downloaded
+# placeholders. This repo lives in iCloud, so both can appear.
+._*
+*.icloud
