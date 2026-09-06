@@ -46,29 +46,132 @@ function videoCardHtml(v, opts) {
 }
 
 /* ---------------------------------------------------------------------------
-   Article thumbnails.
+   Article thumbnails: the case document.
 
-   Vera uses flat geometric artwork rather than photography, and that is the
-   right call here for reasons beyond style: there is no honest stock photo of
-   somebody's brother in a cell, and the ones that exist are all somebody else's
-   worst day sold by the download. There are also 66 articles here with more
-   arriving most days, so hand-made art per piece would stop happening by week
-   three.
+   A sheet of paper on a desk, a folder behind it, and a stamp across it. The
+   stamp is the article -- SEALED, DENIED, DISMISSED, VACATED -- so the mark
+   says what the piece is about instead of decorating around it.
 
-   So each card's mark is generated from the article itself. The category picks
-   the motif -- what the shape is actually saying -- and a hash of the slug picks
-   the proportions, the counts and the accent. Same article, same mark, every
-   time, on every device, with no image files to draw, name or ship.
+   Drawn rather than photographed, for the same reasons as before: there are 66
+   of these with more arriving most days, and the stock-photo version of this
+   scene is somebody else's licence and somebody else's desk. A photograph still
+   wins whenever there is one -- drop assets/photos/<slug>.jpg in and it takes
+   over. This is what stands in until then.
 
-   The marks stay on the indigo ground in both colour schemes, exactly as Vera's
-   do: it gives a grid of cards one steady rhythm instead of a wall of competing
-   pictures.
+   Stamp wording comes from `stamp` on the article if it's set, otherwise from
+   the slug, otherwise from the category. Green reads as an outcome that helped,
+   rust as one that didn't, gold as neither.
    --------------------------------------------------------------------------- */
 
 const THUMB_INK = {
-  ground:"#141B33", raised:"#1E2745", rule:"#2B3558",
-  sea:"#9BE8D8", gold:"#C6A068", rust:"#B14A30", cream:"#F5F2EC"
+  ground:"#141B33", raised:"#1E2745", desk:"#0F1528",
+  folder:"#C9A97A", folderDark:"#A98A5E",
+  sheet:"#F7F4EE", sheetEdge:"#DAD5C9", rule:"#C9C3B6", ruleDark:"#8A8578",
+  gold:"#C6A068", green:"#3E8E6E", rust:"#B14A30"
 };
+
+// Ordered: first match wins, so put the specific ahead of the general.
+const STAMP_RULES = [
+  [/clean-slate|sealing|sealed|160-50|160-59|expungement|mrta|background-check/, "SEALED",       "green"],
+  [/parole-board|parole-hearing|denial|denied|racial-disparity/,                 "DENIED",       "rust"],
+  [/what-is-an-acd|acd-|dismiss/,                                                "DISMISSED",    "green"],
+  [/440-10|vacate|unjust-conviction|compensation/,                               "VACATED",      "green"],
+  [/second-look|resentenc|dvsja|60-12|medical-parole|shock-incarceration/,       "RESENTENCED",  "green"],
+  [/30-30|30-20|speedy-trial/,                                                   "SPEEDY TRIAL", "gold"],
+  [/bail|180-80|release|desk-appearance|project-reset/,                          "RELEASED",     "green"],
+  [/restorative|diversion|mental-health-court|veterans-treatment|judicial-diversion/, "DIVERTED", "green"],
+  [/violation|vop|410-70|259-i|post-release-supervision/,                        "VIOLATION",   "rust"],
+  [/suppress|stop-and-frisk|140-50|phone-search|warrant/,                        "SUPPRESSED",  "green"],
+  [/grand-jury|190-50|testify/,                                                  "TESTIMONY",   "gold"],
+  [/order-of-protection|extreme-risk|erpo/,                                      "ORDER",       "rust"],
+  [/forfeiture|13-a|seiz/,                                                       "SEIZED",      "rust"],
+  [/730|competency/,                                                             "730 EXAM",    "gold"],
+  [/solitary|halt-act|rikers|jail|incarcerat/,                                   "CUSTODY",     "rust"],
+  [/housing|fair-chance/,                                                        "HOUSING",     "green"],
+  [/employment|23-a|certificate-of-relief/,                                      "RELIEF",      "green"],
+  [/youthful-offender|raise-the-age/,                                            "Y.O.",        "green"],
+  [/immigration|deport|protect-our-courts/,                                      "NOTICE",      "rust"],
+  [/counsel|public-defender|right-to-counsel|cost-of-a-criminal/,                "COUNSEL",     "gold"],
+  [/discovery|work-product/,                                                     "DISCLOSURE",  "gold"],
+  [/plea|guilty/,                                                                "PLEA",        "rust"],
+  [/language-access|interpreter/,                                                "ACCESS",      "gold"],
+  [/arrest|arraign|court-logistics|navigation/,                                  "PENDING",     "gold"]
+];
+
+const STAMP_BY_CATEGORY = {
+  "Restorative Justice": ["DIVERTED", "green"],
+  "Rights & Process":    ["ON RECORD", "gold"],
+  "System":              ["PENDING", "gold"],
+  "Access to Justice":   ["ACCESS", "gold"],
+  "Political / News":    ["FILED", "gold"]
+};
+
+/* Plenty of these pieces are about a remedy that ISN'T working -- the sealing
+   bug stuck in committee, the funding that never came, the appeal nobody wins.
+   A green SEALED on those would tell the reader the opposite of the article. So
+   when the slug or headline says the thing failed, green drops back to gold:
+   still the right subject, no claim about the outcome. */
+const STAMP_SETBACK = /stuck|\bbug\b|gap\b|fail|crisis|disparit|watered-down|almost-passed|doesn-?t|didn-?t|never|denied|denial|backlog|delay|unmet|shortfall|no-money|not-need/;
+
+function stampFor(a) {
+  const hay = ((a.slug || "") + " " + (a.title || "")).toLowerCase();
+  for (const [re, word, tone] of STAMP_RULES) {
+    if (re.test(hay)) {
+      return [word, tone === "green" && STAMP_SETBACK.test(hay) ? "gold" : tone];
+    }
+  }
+  return STAMP_BY_CATEGORY[a.category] || ["ON FILE", "gold"];
+}
+
+function articleThumbSvg(a) {
+  const rand = seededRandom(slugSeed(a.slug || a.title || ""));
+  const pair = a.stamp ? [String(a.stamp).toUpperCase(), a.stampTone || "gold"] : stampFor(a);
+  const word = pair[0];
+  const ink = THUMB_INK[pair[1]] || THUMB_INK.gold;
+
+  // Small seeded variation so a wall of these doesn't look rubber-stamped
+  // (which, given the subject, would be a bit on the nose).
+  const tilt   = (-6 + rand() * 4).toFixed(1);        // the sheet
+  const sTilt  = (-11 + rand() * 8).toFixed(1);       // the stamp
+  const sx     = 128 + Math.round(rand() * 26);
+  const sy     = 104 + Math.round(rand() * 10);
+  const lines  = 3 + Math.round(rand());
+  const P = THUMB_INK;
+
+  const ruled = [];
+  for (let i = 0; i < lines; i++) {
+    const w = 96 - Math.round(rand() * 34);
+    ruled.push(`<rect x="78" y="${72 + i * 11}" width="${w}" height="4" rx="2" fill="${P.rule}"/>`);
+  }
+
+  return `<svg class="thumb-art" viewBox="0 0 320 180" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+  <rect width="320" height="180" fill="${P.ground}"/>
+  <polygon points="0,124 320,86 320,180 0,180" fill="${P.desk}"/>
+
+  <g transform="rotate(${(Number(tilt) + 5).toFixed(1)} 160 96)">
+    <rect x="82" y="34" width="184" height="132" rx="3" fill="${P.folderDark}"/>
+    <rect x="82" y="26" width="66" height="14" rx="3" fill="${P.folder}"/>
+    <rect x="76" y="38" width="190" height="130" rx="3" fill="${P.folder}"/>
+  </g>
+
+  <g transform="rotate(${tilt} 160 96)">
+    <rect x="60" y="20" width="196" height="148" rx="2" fill="${P.sheetEdge}"/>
+    <rect x="58" y="18" width="196" height="148" rx="2" fill="${P.sheet}"/>
+    <rect x="58" y="18" width="6" height="148" fill="${ink}"/>
+    <rect x="78" y="36" width="118" height="8" rx="2" fill="${P.ruleDark}"/>
+    <rect x="78" y="52" width="76" height="5" rx="2" fill="${P.rule}"/>
+    ${ruled.join("")}
+  </g>
+
+  <g transform="rotate(${sTilt} ${sx} ${sy})" opacity="0.92">
+    <rect x="${sx - 76}" y="${sy - 21}" width="152" height="42" rx="4"
+          fill="none" stroke="${ink}" stroke-width="4"/>
+    <text x="${sx}" y="${sy + 7}" text-anchor="middle" textLength="126" lengthAdjust="spacingAndGlyphs"
+          font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace"
+          font-size="23" font-weight="700" letter-spacing="1" fill="${ink}">${escapeHtml(word)}</text>
+  </g>
+</svg>`;
+}
 
 // FNV-1a. Any stable hash would do; this one is four lines and has no collisions
 // across the current slugs.
@@ -92,130 +195,6 @@ function seededRandom(seed) {
   };
 }
 
-/* Each motif is drawn into a 320x180 box and returns SVG element strings.
-   They are deliberately different silhouettes, not one shape recoloured: at
-   thumbnail size the outline is the only thing that survives. */
-
-// Two halves of one diamond, brought back together with the seam still showing.
-function motifRestorative(r, acc) {
-  const cy = 90;
-  const s = 50 + Math.round(r() * 24);
-  const w = Math.round(s * 1.05);
-  const cx = 148 + Math.round(r() * 34);
-  const gap = 5;
-  const echo = acc === THUMB_INK.gold ? THUMB_INK.sea : THUMB_INK.gold;
-  const d = 12 + Math.round(r() * 8);
-  const ox = r() < 0.5 ? 44 : 278;
-  const oy = r() < 0.5 ? 40 : 142;
-  return [
-    `<polygon points="${cx - gap},${cy - s} ${cx - gap},${cy + s} ${cx - gap - w},${cy}" fill="${acc}"/>`,
-    `<polygon points="${cx + gap},${cy - s} ${cx + gap},${cy + s} ${cx + gap + w},${cy}" fill="${THUMB_INK.cream}"/>`,
-    `<polygon points="${ox},${oy - d} ${ox + d},${oy} ${ox},${oy + d} ${ox - d},${oy}" fill="${echo}"/>`
-  ];
-}
-
-// A staircase of stages, one of them marked, under a line it never reaches.
-function motifProcess(r, acc) {
-  const n = 4 + Math.round(r());
-  const w = 320 / n;
-  const flip = r() < 0.45;
-  const mark = Math.floor(r() * n);
-  const hs = [];
-  for (let i = 0; i < n; i++) hs.push(Math.round(180 * (0.18 + 0.125 * i) + r() * 12));
-  if (flip) hs.reverse();
-  const crest = 180 - Math.max.apply(null, hs);
-  const out = [`<rect x="0" y="${Math.max(14, crest - 30)}" width="320" height="3" fill="${THUMB_INK.cream}" opacity="0.75"/>`];
-  for (let i = 0; i < n; i++) {
-    out.push(`<rect x="${Math.round(i * w)}" y="${180 - hs[i]}" width="${Math.ceil(w) + 1}" height="${hs[i]}" fill="${i === mark ? acc : THUMB_INK.rule}"/>`);
-  }
-  return out;
-}
-
-// A records grid: the institution as a filing system, a few cells pulled out.
-function motifSystem(r, acc) {
-  const cols = 7 + Math.round(r() * 2);
-  const rows = 3 + Math.round(r());
-  const pad = 16, gap = 6;
-  const cw = (320 - pad * 2 - gap * (cols - 1)) / cols;
-  const ch = (180 - pad * 2 - gap * (rows - 1)) / rows;
-  const total = cols * rows;
-  const hits = new Set();
-  const want = 3 + Math.floor(r() * 3);
-  for (let guard = 0; hits.size < want && guard < 60; guard++) hits.add(Math.floor(r() * total));
-  const out = [];
-  for (let i = 0; i < total; i++) {
-    const x = pad + (i % cols) * (cw + gap);
-    const y = pad + Math.floor(i / cols) * (ch + gap);
-    const fill = hits.has(i) ? (i % 3 === 0 ? THUMB_INK.cream : acc) : THUMB_INK.rule;
-    out.push(`<rect x="${x.toFixed(1)}" y="${y.toFixed(1)}" width="${cw.toFixed(1)}" height="${ch.toFixed(1)}" fill="${fill}"/>`);
-  }
-  return out;
-}
-
-// Two banks, the gap between them, and how far the bridge actually gets.
-function motifAccess(r, acc) {
-  const cw = 30 + Math.round(r() * 18);
-  const top = 34 + Math.round(r() * 20);
-  const lx = 30 + Math.round(r() * 14);
-  const rx = 290 - Math.round(r() * 14) - cw;
-  const gap = rx - (lx + cw);
-  const reach = 0.3 + r() * 0.42;
-  const deck = top + 14 + Math.round(r() * 22);
-  return [
-    `<rect x="${lx}" y="${top}" width="${cw}" height="${180 - top}" fill="${THUMB_INK.cream}"/>`,
-    `<rect x="${rx}" y="${top}" width="${cw}" height="${180 - top}" fill="${THUMB_INK.cream}"/>`,
-    `<rect x="${lx + cw}" y="${deck}" width="${Math.round(gap * reach)}" height="14" fill="${acc}"/>`,
-    `<rect x="${rx - Math.round(gap * 0.14)}" y="${deck}" width="${Math.round(gap * 0.14)}" height="14" fill="${THUMB_INK.cream}" opacity="0.3"/>`
-  ];
-}
-
-// Arcs going out from a corner: something breaks, and it reaches New York.
-function motifNews(r, acc) {
-  const left = r() < 0.5;
-  const ox = left ? 0 : 320, oy = 180;
-  const sweep = left ? 1 : 0;
-  const out = [`<circle cx="${ox}" cy="${oy}" r="${14 + Math.round(r() * 8)}" fill="${acc}"/>`];
-  const band = [THUMB_INK.cream, acc, THUMB_INK.sea, THUMB_INK.gold];
-  const n = 3 + Math.round(r());
-  let rad = 48;
-  for (let i = 0; i < n; i++) {
-    rad += 30 + Math.round(r() * 12);
-    const end = left ? `${ox + rad},${oy}` : `${ox - rad},${oy}`;
-    out.push(
-      `<path d="M ${ox},${oy - rad} A ${rad},${rad} 0 0 ${sweep} ${end}" fill="none" ` +
-      `stroke="${band[(i + 1) % band.length]}" stroke-width="${7 + Math.round(r() * 5)}" ` +
-      `opacity="${(0.95 - i * 0.15).toFixed(2)}"/>`
-    );
-  }
-  return out;
-}
-
-const THUMB_MOTIFS = {
-  "Restorative Justice": motifRestorative,
-  "Rights & Process": motifProcess,
-  "System": motifSystem,
-  "Access to Justice": motifAccess,
-  "Political / News": motifNews
-};
-
-function articleThumbSvg(a) {
-  const rand = seededRandom(slugSeed(a.slug || a.title || ""));
-  const acc = [THUMB_INK.sea, THUMB_INK.gold, THUMB_INK.rust][Math.floor(rand() * 3)];
-  // A single large diagonal behind the motif, so the set reads as one family.
-  const wedge = rand() < 0.5
-    ? `<polygon points="0,0 320,0 0,180" fill="${THUMB_INK.raised}"/>`
-    : `<polygon points="320,0 320,180 0,180" fill="${THUMB_INK.raised}"/>`;
-  const motif = (THUMB_MOTIFS[a.category] || motifSystem)(rand, acc);
-  // Decorative: the card's category, headline and date already say everything
-  // this shape is saying, so it stays out of the accessibility tree entirely.
-  return `<svg class="thumb-art" viewBox="0 0 320 180" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">` +
-    `<rect width="320" height="180" fill="${THUMB_INK.ground}"/>${wedge}${motif.join("")}</svg>`;
-}
-
-/* `compact` drops the excerpt, leaving label / headline / date over the mark --
-   the shape Vera's news cards use. The home page runs compact; the full
-   Articles index keeps the excerpts, because that page is for choosing between
-   sixty of them. */
 /* An article shows a photograph as soon as one exists and the generated mark
    until then, so the grid is never half-empty while the library fills in.
 
