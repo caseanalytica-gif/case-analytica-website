@@ -1,29 +1,39 @@
 # Parole board racial disparity in NY release rates
 
 **Article:** https://www.caseanalytica.com/articles/parole-board-racial-disparity-release-rates-ny.html
-**Graphic:** assets/social/parole-board-racial-disparity-release-rates-ny-og.png (2400x1254, live and returning 200)
+**Graphic (this is what the link card pulls in — do not upload it):**
+https://www.caseanalytica.com/assets/social/parole-board-racial-disparity-release-rates-ny-og.png
+(2400x1254, verified live 200 on 2026-09-10)
 **Published:** 2026-09-02
 
 ---
 
 ## Short description (the line that goes above the post)
 
-**LinkedIn — pick one:**
+**LinkedIn — use this one:**
 
-1. Everyone in that parole waiting room already knew who was going home. The data says they were right.
-2. New York's parole board is 33% less likely to release a person of color. The gap is widening, not closing.
-3. Thirty-eight years inside. Four denials. He says he could read the room before anyone spoke.
+Everyone in that parole waiting room already knew who was going home. The data says they were right.
 
-**Facebook — pick one:**
+Alternates if you want a different angle:
 
-1. Everyone in that waiting room already knew who was going home. A new report says they were right.
-2. Two people, comparable records, different outcomes. New York's own parole data shows the pattern.
+- New York's parole board is 33% less likely to release a person of color. The gap is widening, not closing.
+- Thirty-eight years inside. Four denials. He says he could read the room before anyone spoke.
+
+**Facebook — use this one:**
+
+Everyone in that waiting room already knew who was going home. A new report says they were right.
+
+Alternates if you want a different angle:
+
+- Two people, comparable records, different outcomes. New York's own parole data shows the pattern.
 
 ---
 
 ## LinkedIn
 
-*(Hook goes here, then the body below.)*
+**Everyone in that parole waiting room already knew who was going home. The data says they were right.**
+
+---
 
 Jose Saldaña sat in front of New York's Board of Parole four times. Thirty-eight years inside before he got out in 2018. His description of the waiting room is that you look around, you count the three to five white guys in there with you, and everybody has the same thought at the same time.
 
@@ -47,7 +57,9 @@ https://www.caseanalytica.com/articles/parole-board-racial-disparity-release-rat
 
 ## Facebook
 
-*(Hook goes here, then the body below.)*
+**Everyone in that waiting room already knew who was going home. A new report says they were right.**
+
+---
 
 Jose Saldaña went in front of New York's parole board four times before they let him out. Thirty-eight years. He describes sitting in the waiting room with twenty other people, looking at the handful of white men in the room, and everyone silently doing the same math about who was going home.
 
@@ -75,8 +87,8 @@ photo is not.
 Only upload the PNG manually if you want it bigger in-feed, and accept the image itself
 won't be a link.
 
-**Instagram / X** — upload assets/social/parole-board-racial-disparity-release-rates-ny-og.png
-directly, since a bare link doesn't render a card there.
+**Instagram / X** — upload the PNG directly (https://www.caseanalytica.com/assets/social/parole-board-racial-disparity-release-rates-ny-og.png)
+since a bare link doesn't render a card there.
 
 If a preview ever comes back blank or stale, append ?v=2 to the article URL to force a
 refetch. Verified 2026-09-10: og:image returns 200, image/png, 212,282 bytes.

@@ -1,29 +1,39 @@
 # Clean Slate coalition implementation advocacy gap
 
 **Article:** https://www.caseanalytica.com/articles/clean-slate-coalition-implementation-advocacy-gap-ny.html
-**Graphic:** assets/social/clean-slate-coalition-implementation-advocacy-gap-ny-og.png (2400x1254, live and returning 200)
+**Graphic (this is what the link card pulls in — do not upload it):**
+https://www.caseanalytica.com/assets/social/clean-slate-coalition-implementation-advocacy-gap-ny-og.png
+(2400x1254, verified live 200 on 2026-09-10)
 **Published:** 2026-09-04
 
 ---
 
 ## Short description (the line that goes above the post)
 
-**LinkedIn — pick one:**
+**LinkedIn — use this one:**
 
-1. New York passed Clean Slate three years ago. At the last public count, the courts hadn't sent the state a single record to seal.
-2. The coalition that won Clean Slate has moved on to other bills. The law still isn't doing what it was built to do.
-3. It passed with unions, four DAs, and JPMorgan behind it. Now nobody's publicly pushing to finish it.
+New York passed Clean Slate three years ago. At the last public count, the courts hadn't sent the state a single record to seal.
 
-**Facebook — pick one:**
+Alternates if you want a different angle:
 
-1. New York's Clean Slate Act was supposed to seal old records automatically. Almost three years in, the count is still zero.
-2. The law passed in 2023. The system that actually seals your record still isn't built.
+- The coalition that won Clean Slate has moved on to other bills. The law still isn't doing what it was built to do.
+- It passed with unions, four DAs, and JPMorgan behind it. Now nobody's publicly pushing to finish it.
+
+**Facebook — use this one:**
+
+New York's Clean Slate Act was supposed to seal old records automatically. Almost three years in, the count is still zero.
+
+Alternates if you want a different angle:
+
+- The law passed in 2023. The system that actually seals your record still isn't built.
 
 ---
 
 ## LinkedIn
 
-*(Hook goes here, then the body below.)*
+**New York passed Clean Slate three years ago. At the last public count, the courts hadn't sent the state a single record to seal.**
+
+---
 
 It took four years and a genuinely unusual coalition to get Clean Slate signed: directly impacted organizers, the Center for Community Alternatives, Legal Aid, Legal Action Center, Brooklyn Defender Services, Community Service Society, JPMorganChase, the Business Council of New York State, labor unions, and eventually four district attorneys. Hochul signed it in November 2023. The Brennan Center published a case study on how they pulled it off.
 
@@ -45,7 +55,9 @@ https://www.caseanalytica.com/articles/clean-slate-coalition-implementation-advo
 
 ## Facebook
 
-*(Hook goes here, then the body below.)*
+**New York's Clean Slate Act was supposed to seal old records automatically. Almost three years in, the count is still zero.**
+
+---
 
 New York's Clean Slate Act was signed in November 2023. It's supposed to seal old conviction records automatically. As of the most recent public reporting, the courts hadn't sent the state a single record to seal yet.
 
@@ -69,8 +81,8 @@ the clickable preview card from og:image. An uploaded photo isn't a link.
 **Facebook — same approach.** Bare URL gives you the clickable card. Upload the PNG manually
 only if you want it larger in-feed, knowing the image itself won't link.
 
-**Instagram / X** — upload
-assets/social/clean-slate-coalition-implementation-advocacy-gap-ny-og.png directly.
+**Instagram / X** — upload the PNG directly:
+https://www.caseanalytica.com/assets/social/clean-slate-coalition-implementation-advocacy-gap-ny-og.png
 
 If a preview comes back blank or stale, append ?v=2 to the article URL to force a refetch.
 Verified 2026-09-10: og:image returns 200, image/png, 215,694 bytes.
