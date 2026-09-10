@@ -6,11 +6,26 @@
 
 ---
 
+## Short description (the line that goes above the post)
+
+**LinkedIn — pick one:**
+
+1. New York passed Clean Slate three years ago. At the last public count, the courts hadn't sent the state a single record to seal.
+2. The coalition that won Clean Slate has moved on to other bills. The law still isn't doing what it was built to do.
+3. It passed with unions, four DAs, and JPMorgan behind it. Now nobody's publicly pushing to finish it.
+
+**Facebook — pick one:**
+
+1. New York's Clean Slate Act was supposed to seal old records automatically. Almost three years in, the count is still zero.
+2. The law passed in 2023. The system that actually seals your record still isn't built.
+
+---
+
 ## LinkedIn
 
-New York passed Clean Slate almost three years ago. At the last public count, the courts had sent the state zero records to seal.
+*(Hook goes here, then the body below.)*
 
-It took four years and a genuinely unusual coalition to get that bill signed: directly impacted organizers, the Center for Community Alternatives, Legal Aid, Legal Action Center, Brooklyn Defender Services, Community Service Society, JPMorganChase, the Business Council of New York State, labor unions, and eventually four district attorneys. Hochul signed it in November 2023. The Brennan Center published a case study on how they pulled it off.
+It took four years and a genuinely unusual coalition to get Clean Slate signed: directly impacted organizers, the Center for Community Alternatives, Legal Aid, Legal Action Center, Brooklyn Defender Services, Community Service Society, JPMorganChase, the Business Council of New York State, labor unions, and eventually four district attorneys. Hochul signed it in November 2023. The Brennan Center published a case study on how they pulled it off.
 
 The state then gave itself until November 16, 2027 to build the system that actually seals a record automatically. At a March 2025 budget hearing, the Division of Criminal Justice Services said the Office of Court Administration had not yet sent it a single record.
 
@@ -29,6 +44,8 @@ https://www.caseanalytica.com/articles/clean-slate-coalition-implementation-advo
 ---
 
 ## Facebook
+
+*(Hook goes here, then the body below.)*
 
 New York's Clean Slate Act was signed in November 2023. It's supposed to seal old conviction records automatically. As of the most recent public reporting, the courts hadn't sent the state a single record to seal yet.
 

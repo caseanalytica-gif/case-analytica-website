@@ -6,11 +6,26 @@
 
 ---
 
+## Short description (the line that goes above the post)
+
+**LinkedIn — pick one:**
+
+1. Everyone in that parole waiting room already knew who was going home. The data says they were right.
+2. New York's parole board is 33% less likely to release a person of color. The gap is widening, not closing.
+3. Thirty-eight years inside. Four denials. He says he could read the room before anyone spoke.
+
+**Facebook — pick one:**
+
+1. Everyone in that waiting room already knew who was going home. A new report says they were right.
+2. Two people, comparable records, different outcomes. New York's own parole data shows the pattern.
+
+---
+
 ## LinkedIn
 
-Jose Saldaña says everyone in that parole waiting room already knew who had the better odds. The data says they were right.
+*(Hook goes here, then the body below.)*
 
-He sat in front of New York's Board of Parole four times. Thirty-eight years inside before he got out in 2018. His description of the waiting room is that you look around, you count the three to five white guys in there with you, and everybody has the same thought at the same time.
+Jose Saldaña sat in front of New York's Board of Parole four times. Thirty-eight years inside before he got out in 2018. His description of the waiting room is that you look around, you count the three to five white guys in there with you, and everybody has the same thought at the same time.
 
 NYU School of Law's Center on Race, Inequality, and the Law put numbers to it, using parole board data obtained from the Vera Institute. Across 2022 through March 2025, the Board released people of color at a rate about 33 percent lower than white applicants. In the 2016 to 2021 window, that gap was 18.8 percent. It has widened, and the report says the timing coincides with Governor Hochul's time in office.
 
@@ -31,6 +46,8 @@ https://www.caseanalytica.com/articles/parole-board-racial-disparity-release-rat
 ---
 
 ## Facebook
+
+*(Hook goes here, then the body below.)*
 
 Jose Saldaña went in front of New York's parole board four times before they let him out. Thirty-eight years. He describes sitting in the waiting room with twenty other people, looking at the handful of white men in the room, and everyone silently doing the same math about who was going home.
 
