@@ -19,6 +19,22 @@
 
 const VIDEOS = [
   {
+    title: "New York's Parole Board Is Less Likely to Release You If You're Not White. Here's the Data.",
+    category: "Rights & Process",
+    format: "Short",
+    description: "A 2024 NYU Center on Race, Inequality and the Law report found New York's Parole Board about 32 percent less likely to release a person of color than a white person from 2022-2024, a gap 71 percent wider than the prior six years.",
+    youtubeId: "",
+    published: false
+  },
+  {
+    title: "The Coalition That Passed Clean Slate Isn't Fighting to Finish It",
+    category: "System",
+    format: "Short",
+    description: "The same coalition that spent four years passing New York's Clean Slate Act has moved its public campaigns to other bills, while the state still hadn't sealed a single record as of the most recent public hearing.",
+    youtubeId: "",
+    published: false
+  },
+  {
     title: "New York Knows Clean Slate's Sealing System Has a Bug. The Fix Is Stuck in Committee",
     category: "System",
     format: "Short",
@@ -295,6 +311,20 @@ const VIDEOS = [
 ];
 
 const ARTICLES = [
+  {
+    slug: "parole-board-racial-disparity-release-rates-ny",
+    title: "New York's Parole Board Is 33% Less Likely to Release a Person of Color: The Data Behind the Gap",
+    category: "Rights & Process",
+    date: "2026-09-02",
+    excerpt: "A New York University report found the state's parole board releases people of color at a rate 33 percent lower than white applicants, and the gap has widened under Governor Hochul. Here's what the data shows."
+  },
+  {
+    slug: "clean-slate-coalition-implementation-advocacy-gap-ny",
+    title: "The Coalition That Won Clean Slate Isn't Publicly Fighting to Finish It",
+    category: "System",
+    date: "2026-09-04",
+    excerpt: "The groups that spent four years passing New York's Clean Slate Act have moved their public campaigns to other bills. Here's what their own 2026 priorities say, and what's at stake if implementation pressure doesn't pick back up."
+  },
   {
     slug: "clean-slate-sealing-bug-s6492-stuck-in-committee-ny",
     image: "assets/photos/clean-slate-act-signing.jpg",
