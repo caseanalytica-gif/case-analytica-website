@@ -18,9 +18,6 @@
 <title>Three Cases, One Pattern: What the Clancy Trial Reveals About Who Gets Believed (Case Analytica)</title>
 <meta name="description" content="A Massachusetts mistrial, a media investigation into the one Black juror, and New York's parole data describe the same sorting mechanism: whose account of themselves the justice system chooses to believe.">
 <link rel="stylesheet" href="../assets/style.css?v=20260906f">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,500&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
 <link rel="canonical" href="https://www.caseanalytica.com/articles/three-cases-one-pattern.html">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Three Cases, One Pattern: What the Clancy Trial Reveals About Who Gets Believed">
@@ -106,7 +103,7 @@
   .tcop{
     background:var(--paper);
     color:var(--ink);
-    font-family:'Public Sans', ui-sans-serif, system-ui, sans-serif;
+    font-family:var(--sans);
     padding-inline:20px;
     padding-block:0 64px;
   }
@@ -123,7 +120,7 @@
     display:flex;
     align-items:center;
     gap:10px;
-    font-family:'IBM Plex Mono', monospace;
+    font-family:var(--mono);
     font-size:12px;
     letter-spacing:.12em;
     text-transform:uppercase;
@@ -135,7 +132,7 @@
     width:22px;height:1px;background:var(--gold);
   }
   .tcop h1.headline{
-    font-family:'Newsreader', Georgia, serif;
+    font-family:var(--display);
     font-weight:600;
     font-size:clamp(2rem, 5vw, 3.1rem);
     line-height:1.08;
@@ -145,7 +142,7 @@
     color:var(--ink);
   }
   .tcop .dek{
-    font-family:'Newsreader', Georgia, serif;
+    font-family:var(--display);
     font-style:italic;
     font-size:1.2rem;
     line-height:1.45;
@@ -157,7 +154,7 @@
     display:flex;
     flex-wrap:wrap;
     gap:6px 18px;
-    font-family:'IBM Plex Mono', monospace;
+    font-family:var(--mono);
     font-size:12.5px;
     color:var(--ink-faint);
   }
@@ -167,7 +164,7 @@
 
   .tcop .section{padding-block:38px 6px;}
   .tcop .section h2{
-    font-family:'Newsreader', Georgia, serif;
+    font-family:var(--display);
     font-weight:600;
     font-size:1.55rem;
     line-height:1.25;
@@ -179,7 +176,7 @@
   }
   .tcop .section-label{
     display:block;
-    font-family:'IBM Plex Mono', monospace;
+    font-family:var(--mono);
     font-size:11px;
     letter-spacing:.1em;
     text-transform:uppercase;
@@ -205,7 +202,7 @@
     margin:22px 0;
     padding:4px 0 4px 20px;
     border-left:3px solid var(--gold);
-    font-family:'Newsreader', Georgia, serif;
+    font-family:var(--display);
     font-style:italic;
     font-size:1.16rem;
     line-height:1.5;
@@ -215,7 +212,7 @@
   .tcop blockquote cite{
     display:block;
     margin-top:8px;
-    font-family:'IBM Plex Mono', monospace;
+    font-family:var(--mono);
     font-style:normal;
     font-size:12px;
     color:var(--ink-faint);
@@ -238,7 +235,7 @@
     padding:9px 14px;
     background:var(--navy);
     color:#eef3f8;
-    font-family:'IBM Plex Mono', monospace;
+    font-family:var(--mono);
     font-size:11.5px;
     letter-spacing:.06em;
     text-transform:uppercase;
@@ -286,7 +283,7 @@
   .tcop .docket > div + div{border-left:1px solid var(--rule);}
   @media (max-width:480px){ .tcop .docket > div + div{border-left:none; border-top:1px solid var(--rule);} }
   .tcop .docket h3{
-    font-family:'IBM Plex Mono', monospace;
+    font-family:var(--mono);
     font-size:11px;
     letter-spacing:.08em;
     text-transform:uppercase;
@@ -295,7 +292,7 @@
   }
   .tcop .docket dl{margin:0;}
   .tcop .docket dt{
-    font-family:'IBM Plex Mono', monospace;
+    font-family:var(--mono);
     font-size:10.5px;
     text-transform:uppercase;
     letter-spacing:.05em;
@@ -326,7 +323,7 @@
     padding:16px 14px;
   }
   .tcop .stat .num{
-    font-family:'IBM Plex Mono', monospace;
+    font-family:var(--mono);
     font-variant-numeric:tabular-nums;
     font-size:1.65rem;
     font-weight:600;
@@ -350,7 +347,7 @@
     box-shadow:var(--shadow);
   }
   .tcop .chart-wrap h4{
-    font-family:'IBM Plex Mono', monospace;
+    font-family:var(--mono);
     font-size:11px;
     letter-spacing:.06em;
     text-transform:uppercase;
@@ -361,7 +358,7 @@
   .tcop .legend{
     display:flex;
     gap:18px;
-    font-family:'IBM Plex Mono', monospace;
+    font-family:var(--mono);
     font-size:11.5px;
     color:var(--ink-soft);
     margin:10px 0 16px;
@@ -370,7 +367,7 @@
   .tcop .swatch{width:10px;height:10px;border-radius:2px;display:inline-block;}
 
   .tcop .pattern-close{
-    font-family:'Newsreader', Georgia, serif;
+    font-family:var(--display);
     font-size:1.22rem;
     line-height:1.55;
     color:var(--navy-ink);
@@ -396,7 +393,7 @@
     padding-top:22px;
   }
   .tcop footer.sources h2{
-    font-family:'IBM Plex Mono', monospace;
+    font-family:var(--mono);
     font-size:12px;
     letter-spacing:.1em;
     text-transform:uppercase;
@@ -425,7 +422,7 @@
   .tcop footer.sources li::before{
     content:"["counter(src)"]";
     position:absolute; left:0; top:0;
-    font-family:'IBM Plex Mono', monospace;
+    font-family:var(--mono);
     color:var(--ink-faint);
     font-size:12px;
   }
@@ -620,7 +617,7 @@
       <svg viewBox="0 0 620 190" width="100%" role="img" aria-labelledby="chartTitle">
         <title id="chartTitle">Bar chart comparing NYS parole release rates for white applicants versus applicants of color, for two periods: 2016–2021 and 2022–early 2024</title>
         <!-- gridlines -->
-        <g font-family="IBM Plex Mono, monospace" font-size="10" fill="var(--ink-faint)">
+        <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10" fill="var(--ink-faint)">
           <line x1="60" y1="20" x2="60" y2="150" stroke="var(--rule)" stroke-width="1"/>
           <line x1="60" y1="150" x2="600" y2="150" stroke="var(--rule)" stroke-width="1"/>
           <text x="52" y="24" text-anchor="end" fill="var(--ink-faint)">50%</text>
@@ -632,16 +629,16 @@
         <!-- bars: scale 130px = 50% -> 2.6px per percentage point; y = 150 - value*2.6 -->
         <rect x="140" y="41.8" width="30" height="108.2" fill="var(--gold)"/>
         <rect x="176" y="63.7" width="30" height="86.3" fill="var(--navy)"/>
-        <text x="173" y="168" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">2016–2024</text>
+        <text x="173" y="168" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" fill="var(--ink-soft)">2016–2024</text>
 
         <rect x="380" y="32.7" width="30" height="117.3" fill="var(--gold)"/>
         <rect x="416" y="65.2" width="30" height="84.8" fill="var(--navy)"/>
-        <text x="413" y="168" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">2022–2024</text>
+        <text x="413" y="168" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" fill="var(--ink-soft)">2022–2024</text>
 
-        <text x="155" y="35.8" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" font-weight="600" fill="var(--ink)">41.6%</text>
-        <text x="191" y="57.7" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" font-weight="600" fill="var(--ink)">33.2%</text>
-        <text x="395" y="26.7" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" font-weight="600" fill="var(--ink)">45.1%</text>
-        <text x="431" y="59.2" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" font-weight="600" fill="var(--ink)">32.6%</text>
+        <text x="155" y="35.8" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" font-weight="600" fill="var(--ink)">41.6%</text>
+        <text x="191" y="57.7" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" font-weight="600" fill="var(--ink)">33.2%</text>
+        <text x="395" y="26.7" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" font-weight="600" fill="var(--ink)">45.1%</text>
+        <text x="431" y="59.2" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" font-weight="600" fill="var(--ink)">32.6%</text>
       </svg>
       <div class="legend">
         <span><i class="swatch" style="background:var(--gold)"></i>White applicants</span>
