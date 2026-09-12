@@ -1,0 +1,768 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-035TDMG4Y0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-035TDMG4Y0');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/icons/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../assets/icons/favicon-16.png">
+<link rel="apple-touch-icon" href="../assets/icons/apple-touch-icon.png">
+<title>Three Cases, One Pattern: What the Clancy Trial Reveals About Who Gets Believed (Case Analytica)</title>
+<meta name="description" content="A Massachusetts mistrial, a media investigation into the one Black juror, and New York's parole data describe the same sorting mechanism: whose account of themselves the justice system chooses to believe.">
+<link rel="stylesheet" href="../assets/style.css?v=20260906f">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,500&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="canonical" href="https://www.caseanalytica.com/articles/three-cases-one-pattern.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Three Cases, One Pattern: What the Clancy Trial Reveals About Who Gets Believed">
+<meta property="og:description" content="A Massachusetts mistrial, a media investigation into the one Black juror, and New York's parole data describe the same sorting mechanism: whose account of themselves the justice system chooses to believe.">
+<meta property="og:url" content="https://www.caseanalytica.com/articles/three-cases-one-pattern.html">
+<meta property="og:site_name" content="Case Analytica">
+<meta property="og:image" content="https://www.caseanalytica.com/assets/social/three-cases-one-pattern-og.png">
+<meta property="og:image:width" content="2400">
+<meta property="og:image:height" content="1254">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Three Cases, One Pattern: What the Clancy Trial Reveals About Who Gets Believed">
+<meta name="twitter:description" content="A Massachusetts mistrial, a media investigation into the one Black juror, and New York's parole data describe the same sorting mechanism: whose account of themselves the justice system chooses to believe.">
+<meta name="twitter:image" content="https://www.caseanalytica.com/assets/social/three-cases-one-pattern-og.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Three Cases, One Pattern: What the Clancy Trial Reveals About Who Gets Believed",
+  "description": "A Massachusetts mistrial, a media investigation into the one Black juror, and New York's parole data describe the same sorting mechanism: whose account of themselves the justice system chooses to believe.",
+  "datePublished": "2026-09-12",
+  "author": { "@type": "Person", "name": "Dean Mustaphalli", "url": "https://www.caseanalytica.com/about.html" },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Case Analytica",
+    "logo": { "@type": "ImageObject", "url": "https://www.caseanalytica.com/assets/icons/icon-512.png" }
+  },
+  "mainEntityOfPage": "https://www.caseanalytica.com/articles/three-cases-one-pattern.html"
+}
+</script>
+<style>
+
+  
+
+  .tcop{
+    --paper:#eef1ef;
+    --paper-raised:#ffffff;
+    --ink:#13202c;
+    --ink-soft:#4d5c67;
+    --ink-faint:#7c8a92;
+    --rule:#ccd3d0;
+    --navy:#1c3350;
+    --navy-ink:#0f1b2b;
+    --gold:#a5772c;
+    --gold-soft:#e7d3ae;
+    --signal:#933524;
+    --signal-soft:#f1ddd6;
+    --shadow: 0 1px 2px rgba(15,27,43,.06), 0 8px 24px rgba(15,27,43,.06);
+  }
+  @media (prefers-color-scheme: dark){
+    .tcop{
+      --paper:#11161a;
+      --paper-raised:#1a2126;
+      --ink:#e7ebec;
+      --ink-soft:#a7b2b8;
+      --ink-faint:#76838a;
+      --rule:#303a40;
+      --navy:#89a8c9;
+      --navy-ink:#cfe0ef;
+      --gold:#d9ae6d;
+      --gold-soft:#40331d;
+      --signal:#e0937c;
+      --signal-soft:#3a221c;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.35);
+    }
+  }
+  :root[data-theme="dark"] .tcop{
+    --paper:#11161a;
+    --paper-raised:#1a2126;
+    --ink:#e7ebec;
+    --ink-soft:#a7b2b8;
+    --ink-faint:#76838a;
+    --rule:#303a40;
+    --navy:#89a8c9;
+    --navy-ink:#cfe0ef;
+    --gold:#d9ae6d;
+    --gold-soft:#40331d;
+    --signal:#e0937c;
+    --signal-soft:#3a221c;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.35);
+  }
+
+  .tcop *{box-sizing:border-box;}
+  .tcop{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Public Sans', ui-sans-serif, system-ui, sans-serif;
+    padding-inline:20px;
+    padding-block:0 64px;
+  }
+  .tcop a{color:var(--navy);}
+  .tcop a:hover{color:var(--gold);}
+
+  .tcop .masthead{
+    max-width:760px;
+    margin:0 auto;
+    padding-block:28px 18px;
+    border-bottom:1px solid var(--rule);
+  }
+  .tcop .kicker{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin-bottom:16px;
+  }
+  .tcop .kicker::before{
+    content:"";
+    width:22px;height:1px;background:var(--gold);
+  }
+  .tcop h1.headline{
+    font-family:'Newsreader', Georgia, serif;
+    font-weight:600;
+    font-size:clamp(2rem, 5vw, 3.1rem);
+    line-height:1.08;
+    letter-spacing:-.01em;
+    text-wrap:balance;
+    margin:0 0 14px;
+    color:var(--ink);
+  }
+  .tcop .dek{
+    font-family:'Newsreader', Georgia, serif;
+    font-style:italic;
+    font-size:1.2rem;
+    line-height:1.45;
+    color:var(--ink-soft);
+    max-width:62ch;
+    margin:0 0 20px;
+  }
+  .tcop .byline-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px 18px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    color:var(--ink-faint);
+  }
+  .tcop .byline-row b{color:var(--ink-soft); font-weight:600;}
+
+  .tcop .tcop-main{max-width:700px; margin:0 auto;}
+
+  .tcop .section{padding-block:38px 6px;}
+  .tcop .section h2{
+    font-family:'Newsreader', Georgia, serif;
+    font-weight:600;
+    font-size:1.55rem;
+    line-height:1.25;
+    text-wrap:balance;
+    color:var(--navy-ink);
+    margin:0 0 6px;
+    border-top:1px solid var(--rule);
+    padding-top:28px;
+  }
+  .tcop .section-label{
+    display:block;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin-top:28px;
+  }
+  .tcop .section h2{margin-top:2px;}
+
+  .tcop p{
+    font-size:1.05rem;
+    line-height:1.72;
+    color:var(--ink);
+    margin:0 0 18px;
+    max-width:66ch;
+  }
+  .tcop p.lead{
+    font-size:1.14rem;
+  }
+
+  .tcop strong{color:var(--ink); font-weight:600;}
+
+  .tcop blockquote{
+    margin:22px 0;
+    padding:4px 0 4px 20px;
+    border-left:3px solid var(--gold);
+    font-family:'Newsreader', Georgia, serif;
+    font-style:italic;
+    font-size:1.16rem;
+    line-height:1.5;
+    color:var(--navy-ink);
+    max-width:60ch;
+  }
+  .tcop blockquote cite{
+    display:block;
+    margin-top:8px;
+    font-family:'IBM Plex Mono', monospace;
+    font-style:normal;
+    font-size:12px;
+    color:var(--ink-faint);
+  }
+
+  /* Exhibit frames for video/image evidence */
+  .tcop .exhibit{
+    margin:26px 0 30px;
+    background:var(--paper-raised);
+    border:1px solid var(--rule);
+    border-radius:3px;
+    box-shadow:var(--shadow);
+    overflow:hidden;
+  }
+  .tcop .exhibit-tag{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    padding:9px 14px;
+    background:var(--navy);
+    color:#eef3f8;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+  }
+  .tcop .exhibit-tag span.id{color:var(--gold-soft);}
+  .tcop .exhibit video, .tcop .exhibit img{
+    display:block;
+    width:100%;
+    max-height:560px;
+    object-fit:contain;
+    background:#000;
+  }
+  .tcop .exhibit-cap{
+    padding:11px 14px 14px;
+    font-size:13.5px;
+    line-height:1.5;
+    color:var(--ink-soft);
+  }
+  .tcop .exhibit-cap b{color:var(--ink);}
+
+  .tcop .exhibit-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+    margin:24px 0 30px;
+  }
+  @media (max-width:520px){ .tcop .exhibit-grid{grid-template-columns:1fr;} }
+  .tcop .exhibit-grid .exhibit{margin:0;}
+  .tcop .exhibit-grid img{max-height:340px;}
+
+  /* Docket comparison card */
+  .tcop .docket{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:0;
+    margin:24px 0 30px;
+    border:1px solid var(--rule);
+    border-radius:3px;
+    overflow:hidden;
+    background:var(--paper-raised);
+    box-shadow:var(--shadow);
+  }
+  @media (max-width:480px){ .tcop .docket{grid-template-columns:1fr;} }
+  .tcop .docket > div{padding:18px 18px 20px;}
+  .tcop .docket > div + div{border-left:1px solid var(--rule);}
+  @media (max-width:480px){ .tcop .docket > div + div{border-left:none; border-top:1px solid var(--rule);} }
+  .tcop .docket h3{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin:0 0 10px;
+  }
+  .tcop .docket dl{margin:0;}
+  .tcop .docket dt{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10.5px;
+    text-transform:uppercase;
+    letter-spacing:.05em;
+    color:var(--ink-faint);
+    margin-top:10px;
+  }
+  .tcop .docket dt:first-child{margin-top:0;}
+  .tcop .docket dd{
+    margin:2px 0 0;
+    font-size:14.5px;
+    color:var(--ink);
+    line-height:1.4;
+  }
+  .tcop .docket dd.emph{color:var(--signal); font-weight:600;}
+
+  /* Stat tiles */
+  .tcop .stat-row{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:12px;
+    margin:22px 0 8px;
+  }
+  @media (max-width:560px){ .tcop .stat-row{grid-template-columns:1fr 1fr;} }
+  .tcop .stat{
+    background:var(--paper-raised);
+    border:1px solid var(--rule);
+    border-radius:3px;
+    padding:16px 14px;
+  }
+  .tcop .stat .num{
+    font-family:'IBM Plex Mono', monospace;
+    font-variant-numeric:tabular-nums;
+    font-size:1.65rem;
+    font-weight:600;
+    color:var(--signal);
+    line-height:1;
+  }
+  .tcop .stat .lbl{
+    margin-top:8px;
+    font-size:12.5px;
+    line-height:1.4;
+    color:var(--ink-soft);
+  }
+
+  /* Chart */
+  .tcop .chart-wrap{
+    margin:26px 0 8px;
+    background:var(--paper-raised);
+    border:1px solid var(--rule);
+    border-radius:3px;
+    padding:20px 20px 8px;
+    box-shadow:var(--shadow);
+  }
+  .tcop .chart-wrap h4{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    color:var(--ink-faint);
+    margin:0 0 14px;
+    font-weight:500;
+  }
+  .tcop .legend{
+    display:flex;
+    gap:18px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px;
+    color:var(--ink-soft);
+    margin:10px 0 16px;
+  }
+  .tcop .legend span{display:inline-flex; align-items:center; gap:6px;}
+  .tcop .swatch{width:10px;height:10px;border-radius:2px;display:inline-block;}
+
+  .tcop .pattern-close{
+    font-family:'Newsreader', Georgia, serif;
+    font-size:1.22rem;
+    line-height:1.55;
+    color:var(--navy-ink);
+    max-width:62ch;
+    margin:8px 0 22px;
+  }
+
+  .tcop .caveat{
+    background:var(--gold-soft);
+    border:1px solid var(--rule);
+    border-left:3px solid var(--gold);
+    border-radius:3px;
+    padding:16px 18px;
+    margin:20px 0 10px;
+  }
+  .tcop .caveat p{margin:0 0 10px; font-size:.98rem; color:var(--ink);}
+  .tcop .caveat p:last-child{margin-bottom:0;}
+
+  .tcop footer.sources{
+    max-width:700px;
+    margin:44px auto 0;
+    border-top:1px solid var(--rule);
+    padding-top:22px;
+  }
+  .tcop footer.sources h2{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--ink-faint);
+    font-weight:500;
+    margin:0 0 14px;
+    border:none;
+    padding:0;
+  }
+  .tcop footer.sources ol{
+    margin:0; padding-left:0;
+    list-style:none;
+    counter-reset:src;
+    display:flex;
+    flex-direction:column;
+    gap:9px;
+  }
+  .tcop footer.sources li{
+    counter-increment:src;
+    font-size:13px;
+    line-height:1.5;
+    color:var(--ink-soft);
+    padding-left:26px;
+    position:relative;
+  }
+  .tcop footer.sources li::before{
+    content:"["counter(src)"]";
+    position:absolute; left:0; top:0;
+    font-family:'IBM Plex Mono', monospace;
+    color:var(--ink-faint);
+    font-size:12px;
+  }
+  .tcop footer.sources a{color:var(--ink-soft); text-decoration-color:var(--rule);}
+  .tcop footer.sources a:hover{color:var(--gold);}
+
+  .tcop .endmark{
+    text-align:center;
+    margin:36px 0 0;
+    color:var(--gold);
+    font-size:18px;
+    letter-spacing:.3em;
+  }
+
+</style>
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="wrap nav-inner">
+    <a href="../index.html" class="wordmark">Case<span>Analytica</span></a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+    <nav class="links">
+      <details class="navgroup is-current">
+        <summary>What we do</summary>
+        <div class="navmenu">
+          <a href="../restorative-justice.html">Restorative Justice</a>
+          <a href="../articles.html" class="current">Articles</a>
+          <a href="../videos.html">Videos</a>
+          <a href="../case-navigation.html">Case Navigation</a>
+          <a href="../help-after-an-arrest-ny.html">Just been arrested</a>
+        </div>
+      </details>
+      <a href="../about.html">Who we are</a>
+      <details class="navgroup">
+        <summary>Get involved</summary>
+        <div class="navmenu">
+          <a href="../about.html#intake">Book a free intake call</a>
+          <a href="../intake-worksheet.html">Case worksheet</a>
+          <a href="../guide.html">The free guide</a>
+          <a href="../checklist.html">Printable checklist</a>
+          <a href="../index.html#donate">Donate</a>
+        </div>
+      </details>
+      <a class="btn" href="../about.html#intake">Book a Free Intake Call</a>
+    </nav>
+    <a class="btn btn-donate" href="../index.html#donate">Donate</a>
+    <label for="nav-toggle" class="nav-toggle-btn"><span class="nav-toggle-bars" aria-hidden="true">☰</span><span class="nav-toggle-text">Menu</span></label>
+  </div>
+</header>
+
+<a href="../guide.html" class="guide-fab" aria-label="Get the free guide">
+  <span class="guide-fab-icon">📘</span>
+  <span class="guide-fab-text">Free Guide</span>
+</a>
+
+<main>
+
+<div class="narrow" style="padding-top:18px">
+  <p class="eyebrow">System &middot; <a href="../articles.html">&larr; All articles</a></p>
+</div>
+
+<article class="tcop">
+<header class="masthead">
+  <div class="kicker">Case Analytica &nbsp;·&nbsp; Analysis</div>
+  <h1 class="headline">Three Cases, One Pattern</h1>
+  <p class="dek">What the Lindsay Clancy trial and the two videos documenting it actually reveal about whose account of themselves the justice system chooses to believe.</p>
+  <div class="byline-row">
+    <span><b>Filed</b> Sept. 12, 2026</span>
+    <span><b>Jurisdiction</b> Plymouth County, MA &amp; New York State</span>
+    <span><b>Sources</b> 18, linked below</span>
+  </div>
+</header>
+
+<div class="tcop-main">
+
+  <div class="section">
+    <p class="lead">On September 4, 2026, a Massachusetts judge declared a mistrial in the case of Lindsay Clancy, the Duxbury mother who admitted to strangling her three young children (Cora, 5, Dawson, 3, and Callan, 8 months) in January 2023. Clancy never denied killing her children; her defense rested entirely on a claim that severe postpartum psychosis left her not criminally responsible, and under Massachusetts' McHoul standard, prosecutors, not the defense, bore the burden of proving she was sane, a notably defendant-favorable rule (<a href="https://www.wbur.org/news/2026/09/01/massachusetts-lindsay-clancy-insanity-defense-criminal-liability" target="_blank" rel="noopener">WBUR</a>). After six days of deliberation, the jury deadlocked 11–1 in favor of finding her not guilty by reason of insanity, and the court declared a mistrial (<a href="https://www.npr.org/2026/09/04/nx-s1-5950421/lindsay-clancy-trial-verdict-mistrial" target="_blank" rel="noopener">NPR</a>; <a href="https://www.cnn.com/2026/09/04/us/live-news/lindsay-clancy-trial" target="_blank" rel="noopener">CNN</a>).</p>
+
+    <p>Coverage from PBS, NPR, and MSNBC framed the killings less as a triple homicide than as a window into "a broken postpartum mental health system" (<a href="https://www.pbs.org/newshour/nation/what-the-lindsay-clancy-trial-reveals-about-a-broken-postpartum-mental-health-system" target="_blank" rel="noopener">PBS NewsHour</a>). A CBC piece was headlined simply that she "has so many supporters" (<a href="https://www.cbc.ca/news/world/lindsay-clancy-trial-support-9.7322441" target="_blank" rel="noopener">CBC</a>). Her husband, Patrick Clancy (the father of the children she killed), publicly asked the community to "find it deep within yourselves to forgive Lindsay, as I have" days after their deaths (<a href="https://abc7ny.com/post/patrick-clancy-lindsay-asks-forgiveness/12751519/" target="_blank" rel="noopener">ABC7 NY</a>). Rather than jail, Clancy has spent the years since 2023 in psychiatric hospital custody, arraigned remotely from a hospital bed rather than led into a courtroom in restraints (<a href="https://www.cbsnews.com/news/lindsay-clancy-mistrial-what-happens-next/" target="_blank" rel="noopener">CBS News</a>). None of this means she has escaped accountability: a mistrial is not an acquittal, and a retrial is expected. But the posture around her, institutionally and culturally, has been one of grief and forgiveness rather than presumed dangerousness.</p>
+  </div>
+
+  <div class="section">
+    <span class="section-label">Exhibit A &nbsp;·&nbsp; Source Video</span>
+    <h2>The same judge ruled the opposite way for a Black mother</h2>
+    <p>A TikTok video circulating the same week lays out the comparison in stark terms: the judge presiding over Clancy's trial also presided, four years earlier, over the trial of a Brockton mother, and ruled oppositely on the one piece of evidence that decided both cases.</p>
+
+    <figure class="exhibit">
+      <div class="exhibit-tag"><span>Exhibit A &nbsp;·&nbsp; TikTok, @iamcoachleon2</span><span class="id">00:52</span></div>
+      <video controls preload="metadata" poster="../assets/photos/three-cases/v1_titlecard.jpg">
+        <source src="../assets/videos/three-cases-video1-two-cases.mp4" type="video/mp4">
+      </video>
+      <div class="exhibit-cap"><b>"Two Cases. Same Judge."</b> A Plymouth Superior Court comparison of the Clancy and Sanders cases, as circulated publicly on TikTok, Sept. 12, 2026.</div>
+    </figure>
+
+    <p>Plymouth Superior Court's Judge William F. Sullivan (the judge presiding over Clancy's trial) also presided over the 2022 trial of <b>Latarsha Sanders</b>, a Black mother from Brockton convicted of stabbing her two sons, 8-year-old Edson Brito and 5-year-old La'Son Brito, to death in February 2018. Both women raised a mental illness defense. Both cases were prosecuted by the same office, Plymouth County DA Timothy Cruz's. The outcomes diverged sharply on exactly the evidence that mattered most.</p>
+
+    <div class="docket">
+      <div>
+        <h3>Commonwealth v. Clancy</h3>
+        <dl>
+          <dt>Location</dt><dd>Duxbury, MA</dd>
+          <dt>Date</dt><dd>Jan. 24, 2023</dd>
+          <dt>Method</dt><dd>Strangled, 3 children</dd>
+          <dt>Defense</dt><dd>Postpartum psychosis</dd>
+          <dt>Psychiatric records</dt><dd class="emph">Admitted: jury saw them</dd>
+          <dt>Outcome</dt><dd>Mistrial, hung jury, Sept. 4, 2026</dd>
+        </dl>
+      </div>
+      <div>
+        <h3>Commonwealth v. Sanders</h3>
+        <dl>
+          <dt>Location</dt><dd>Brockton, MA</dd>
+          <dt>Date</dt><dd>Feb. 2018</dd>
+          <dt>Method</dt><dd>Stabbed, 2 sons (ages 8 &amp; 5)</dd>
+          <dt>Defense</dt><dd>Schizophrenia / psychosis</dd>
+          <dt>Psychiatric records</dt><dd class="emph">Excluded: jury never saw them</dd>
+          <dt>Outcome</dt><dd>Convicted 2022; SJC ordered retrial, Aug. 2026</dd>
+        </dl>
+      </div>
+    </div>
+
+    <div class="exhibit-grid">
+      <figure class="exhibit">
+        <div class="exhibit-tag"><span>Still &nbsp;·&nbsp; Exhibit A</span><span class="id">0:26</span></div>
+        <img src="../assets/photos/three-cases/v1_sanders_compare.jpg" alt="Two Cases Same Judge graphic showing Latarsha Sanders case details alongside Lindsay Clancy">
+        <div class="exhibit-cap">The comparison graphic, mid-video: Sanders' case details beside Clancy's, showing the same judge, same county, and opposite ruling on her mental-illness records.</div>
+      </figure>
+      <figure class="exhibit">
+        <div class="exhibit-tag"><span>Still &nbsp;·&nbsp; WBZ News</span><span class="id">0:33</span></div>
+        <img src="../assets/photos/three-cases/v1_wbz_headline.jpg" alt="Judge on the bench beneath a WBZ News chyron reading SJC orders new trial for Brockton mother">
+        <div class="exhibit-cap">"SJC orders new trial for Brockton mother convicted in 2018 murders of her two sons" (WBZ News Boston, Aug. 2026).</div>
+      </figure>
+    </div>
+
+    <p>At Clancy's trial, her psychiatric records were admitted for the jury to weigh. At Sanders' trial, Judge Sullivan excluded thousands of pages of her psychiatric records documenting schizophrenia and paranoia, keeping them from the jury entirely (<a href="https://www.nbcboston.com/news/local/brockton-latarsha-sanders-new-trial-massachusetts-supreme-judicial-court/3993229/" target="_blank" rel="noopener">NBC Boston</a>; <a href="https://www.wbur.org/news/2026/08/06/brockton-mother-murder-new-trial" target="_blank" rel="noopener">WBUR</a>). Sanders was convicted and sentenced to two consecutive life terms without parole. It took until August 6, 2026 (nearly four years, and only after Massachusetts' Supreme Judicial Court unanimously vacated her conviction) for the exclusion of that evidence to be recognized as what Justice Frank Gaziano called "prejudicial error," a violation of a state law that says a defendant's hospital and psychiatric records "shall be admissible" on exactly this question.</p>
+
+    <blockquote>"the exclusion of the defendant's relevant medical records relating to the diagnoses or treatment of mental illness constituted prejudicial error."<cite>Justice Frank Gaziano, Massachusetts SJC, Aug. 6, 2026</cite></blockquote>
+
+    <p>The legal principle that helped produce sympathy and a hung jury for Clancy, letting the jury see the mental illness evidence, is the same principle a Black woman in front of the same judge had to fight for nearly four years, from a maximum-security cell, to have recognized at all. Sanders now awaits a retrial in 2026, years after her sons' deaths, while Clancy's mental state was contested in real time, in front of a jury already inclined to give her the benefit of the doubt.</p>
+  </div>
+
+  <div class="section">
+    <span class="section-label">Exhibit B &nbsp;·&nbsp; Source Video</span>
+    <h2>The one juror who didn't go along with it, and who the press investigated</h2>
+    <p>The jury that deadlocked on Clancy was not evenly split in composition. According to juror Paula Devlin, who described the panel to CBS Mornings, eleven of the twelve jurors were white; the lone Black man on the jury was the sole holdout, the only vote against finding Clancy not guilty by reason of insanity (<a href="https://www.louderwithcrowder.com/lone-holdout-juror-on-clancy-trial-was-the-only-black-person-on-the-jury" target="_blank" rel="noopener">CBS Mornings, via Louder with Crowder</a>). Other jurors called him "arrogant"; Clancy's defense attorney, Kevin Reddington, told the press, "I hope that guy can sleep well at night," and suggested he had "whatever his agenda" was.</p>
+
+    <figure class="exhibit">
+      <div class="exhibit-tag"><span>Exhibit B &nbsp;·&nbsp; TikTok, @nbc10boston</span><span class="id">3:40</span></div>
+      <video controls preload="metadata" poster="../assets/photos/three-cases/v2_titlecard.jpg">
+        <source src="../assets/videos/three-cases-video2-holdout-juror.mp4" type="video/mp4">
+      </video>
+      <div class="exhibit-cap"><b>"New details about holdout juror in Lindsay Clancy trial"</b> NBC10 Boston, "The Investigators: Exclusive," Sept. 11, 2026.</div>
+    </figure>
+
+    <p>On September 11, 2026, NBC10 Boston's "Investigators" unit published an exclusive into that one juror's personal history, without naming him, but making him identifiable through detailed court records: a 2021 assault charge (later dismissed) for allegedly grabbing his then-wife by the throat, a restraining order his teenage nephew obtained after an alleged altercation in which the juror told him "you ruined my life" and "you've had this coming your way for a long time," and an active eviction case over more than $12,000 in unpaid rent that a landlord pursued during the trial itself (<a href="https://www.nbcboston.com/news/local/lindsay-clancy-holdout-juror-had-history-of-domestic-violence-allegations/4013408/" target="_blank" rel="noopener">NBC Boston</a>). No comparable investigation was published into the backgrounds of the eleven white jurors who voted the other way.</p>
+
+    <div class="exhibit-grid">
+      <figure class="exhibit">
+        <div class="exhibit-tag"><span>Still &nbsp;·&nbsp; Exhibit B</span><span class="id">0:20</span></div>
+        <img src="../assets/photos/three-cases/v2_silhouette.jpg" alt="Anonymized silhouette of the holdout juror in an empty jury box, with a caption about a criminal charge">
+        <div class="exhibit-cap">The juror is not named in NBC10's report, but is rendered identifiable through court-record detail.</div>
+      </figure>
+      <figure class="exhibit">
+        <div class="exhibit-tag"><span>Still &nbsp;·&nbsp; Exhibit B</span><span class="id">1:18</span></div>
+        <img src="../assets/photos/three-cases/v2_letter.jpg" alt="Handwritten letter shown as evidence in the juror's personal legal history">
+        <div class="exhibit-cap">A handwritten statement from the juror's restraining-order case, shown as evidence in the segment.</div>
+      </figure>
+    </div>
+
+    <p>That asymmetry did not go unnoticed. Commentator Shermichael Singleton asked pointedly: "Are you planning to investigate the history of the 11 White jurors, or is it just the Black guy?" Florida Governor Ron DeSantis put it more bluntly: "A man objected to allowing a woman to kill her three young kids and get away with it, so NBC is trying to smear that juror." (<a href="https://www.mediaite.com/media/news/lindsay-clancy-holdout-juror-reportedly-accused-of-assaulting-wife-and-nephew/" target="_blank" rel="noopener">Mediaite</a>) Separately, CBS host Gayle King's on-air reaction to learning the holdout was Black ("A Black man is a holdout juror? … Whoa. I have to sit with that for just a second") drew its own criticism for revealing an assumption that a lone dissenter, already being cast as "arrogant" and suspect, would default to being white (<a href="https://www.mediaite.com/media/tv/immediately-short-circuited-gayle-king-torched-online-for-shocked-reaction-to-lindsay-clancy-lone-guilty-voter-being-black/" target="_blank" rel="noopener">Mediaite</a>).</p>
+
+    <div class="caveat">
+      <p><b>To be fair to NBC10:</b> none of the underlying facts it reported have been shown to be false, and Massachusetts' own juror questionnaire does ask prospective jurors to disclose arrests, charges, and court orders, so there is a legitimate journalistic question about whether jury selection functioned properly.</p>
+      <p>What critics are objecting to is not that the facts are wrong, but that scrutiny this intense (surfacing a private citizen's divorce, a dismissed charge, and a rent dispute) was trained on the one juror whose vote broke from the group, who happened to be the panel's only Black member, while the other eleven faced no equivalent examination.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <span class="section-label">Beyond Plymouth County</span>
+    <h2>The same pattern, at scale, in New York</h2>
+    <p>Zoom out from this one courthouse and the same dynamic shows up as hard data. <a href="https://www.caseanalytica.com/articles/parole-board-racial-disparity-release-rates-ny.html" target="_blank" rel="noopener">Case Analytica has documented</a> that New York's Board of Parole releases white applicants at rates far exceeding those for applicants of color, a gap that has been widening, not closing. Because everyone in the applicant pool has already served their court-ordered minimum sentence, this gap cannot be explained by the underlying offense; it shows up in who gets believed when they say they've changed.</p>
+
+    <div class="stat-row">
+      <div class="stat"><div class="num">41.6%</div><div class="lbl">White applicants released, 2016–2024</div></div>
+      <div class="stat"><div class="num">33.2%</div><div class="lbl">Applicants of color released, 2016–2024</div></div>
+      <div class="stat"><div class="num">33%</div><div class="lbl">Less likely a person of color is released vs. a white applicant, through March 2025</div></div>
+    </div>
+
+    <div class="chart-wrap">
+      <h4>NYS Parole Board release rate, by race</h4>
+      <svg viewBox="0 0 620 190" width="100%" role="img" aria-labelledby="chartTitle">
+        <title id="chartTitle">Bar chart comparing NYS parole release rates for white applicants versus applicants of color, for two periods: 2016–2021 and 2022–early 2024</title>
+        <!-- gridlines -->
+        <g font-family="IBM Plex Mono, monospace" font-size="10" fill="var(--ink-faint)">
+          <line x1="60" y1="20" x2="60" y2="150" stroke="var(--rule)" stroke-width="1"/>
+          <line x1="60" y1="150" x2="600" y2="150" stroke="var(--rule)" stroke-width="1"/>
+          <text x="52" y="24" text-anchor="end" fill="var(--ink-faint)">50%</text>
+          <text x="52" y="87" text-anchor="end" fill="var(--ink-faint)">25%</text>
+          <text x="52" y="153" text-anchor="end" fill="var(--ink-faint)">0%</text>
+          <line x1="60" y1="20" x2="600" y2="20" stroke="var(--rule)" stroke-width="1" stroke-dasharray="2,3"/>
+          <line x1="60" y1="85" x2="600" y2="85" stroke="var(--rule)" stroke-width="1" stroke-dasharray="2,3"/>
+        </g>
+        <!-- bars: scale 130px = 50% -> 2.6px per percentage point; y = 150 - value*2.6 -->
+        <rect x="140" y="41.8" width="30" height="108.2" fill="var(--gold)"/>
+        <rect x="176" y="63.7" width="30" height="86.3" fill="var(--navy)"/>
+        <text x="173" y="168" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">2016–2024</text>
+
+        <rect x="380" y="32.7" width="30" height="117.3" fill="var(--gold)"/>
+        <rect x="416" y="65.2" width="30" height="84.8" fill="var(--navy)"/>
+        <text x="413" y="168" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">2022–2024</text>
+
+        <text x="155" y="35.8" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" font-weight="600" fill="var(--ink)">41.6%</text>
+        <text x="191" y="57.7" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" font-weight="600" fill="var(--ink)">33.2%</text>
+        <text x="395" y="26.7" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" font-weight="600" fill="var(--ink)">45.1%</text>
+        <text x="431" y="59.2" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" font-weight="600" fill="var(--ink)">32.6%</text>
+      </svg>
+      <div class="legend">
+        <span><i class="swatch" style="background:var(--gold)"></i>White applicants</span>
+        <span><i class="swatch" style="background:var(--navy)"></i>Applicants of color</span>
+      </div>
+    </div>
+    <p style="font-size:12px;color:var(--ink-faint);margin-top:-4px;">Source: NYU School of Law Center on Race, Inequality, and the Law &amp; Parole Preparation Project, <a href="https://www.law.nyu.edu/sites/default/files/Freedom%20Delayed,%20Justice%20Denied_%20Increasing%20Racial%20Disparities%20in%20New%20York%20State%E2%80%99s%20Parole%20Release%20Decisions.pdf" target="_blank" rel="noopener">"Freedom Delayed, Justice Denied"</a> (2024); confirmed in <a href="https://www.wxxinews.org/new-york-public-news-network/2025-05-28/report-finds-worsening-racial-disparities-in-new-york-parole-process" target="_blank" rel="noopener">WXXI</a> reporting through March 2025.</p>
+
+    <p>Jose Saldaña was denied parole four times despite earning a college degree and running restorative-justice programs from inside prison, the Board repeatedly falling back on boilerplate language about the "nature of the crime" rather than the person he had become (<a href="https://boltsmag.org/new-york-parole-board-murky-decisions/" target="_blank" rel="noopener">Bolts</a>). Researchers estimate that if applicants of color had been released at the same rate as white applicants, between 3,650 and 4,150 more people would have gone home between 2016 and 2025.</p>
+  </div>
+
+  <div class="section">
+    <span class="section-label">Synthesis</span>
+    <h2>The pattern underneath all three</h2>
+    <p class="pattern-close">Put side by side, these three moments describe the same underlying sorting mechanism. A white woman who killed her children gets her psychiatric evidence in front of the jury and a sympathetic hung jury; a Black woman in the identical courtroom, in front of the identical judge, had that same category of evidence kept from her jury and needed a nearly four-year appeal to undo it. A jury leaning toward forgiveness for that white defendant included one dissenting voice for accountability. That voice, the panel's only Black member, became the sole subject of a media investigation into his personal life, while the eleven who agreed with the sympathetic outcome did not. And at the level of an entire state system, New York's parole board extends the credibility of "he's changed, he's earned release" to white applicants at a rate that is now a third higher than it extends to applicants of color, systematically, year after year.</p>
+
+    <div class="caveat">
+      <p>None of these three things proves the others: they come from different states and institutions, and involve different kinds of decisions. A jury verdict, a judge's evidentiary ruling, a news outlet's editorial choices, and a parole board's release rate are not interchangeable. Clancy has not been convicted of anything and may yet be. NBC10's report contained facts that, on their own, a news organization could defend reporting. And postpartum psychosis is a real, serious, under-treated condition, and sympathy for someone experiencing it is not itself wrong.</p>
+      <p>But taken together, the through-line is hard to miss: forgiveness, the benefit of the doubt, and freedom from scrutiny flow more easily toward white defendants and white jurors than toward Black ones facing comparable facts. When a Black person disrupts that flow, the scrutiny withheld from everyone around him gets trained on him alone. That is the same mechanism New York's parole data shows operating at scale: the outcome hinges less on any one villain's biased call than on whose account of themselves gets believed, and whose doesn't.</p>
+    </div>
+  </div>
+
+</div>
+
+<footer class="sources">
+  <h2>Case Docket: Sources</h2>
+  <ol>
+    <li><a href="https://www.caseanalytica.com/articles/parole-board-racial-disparity-release-rates-ny.html" target="_blank" rel="noopener">Case Analytica: "NY Parole Board Racial Disparity: Release Rates"</a></li>
+    <li><a href="https://www.npr.org/2026/09/04/nx-s1-5950421/lindsay-clancy-trial-verdict-mistrial" target="_blank" rel="noopener">NPR: "With jury deadlocked, judge declares a mistrial in Lindsay Clancy's murder case"</a></li>
+    <li><a href="https://www.cnn.com/2026/09/04/us/live-news/lindsay-clancy-trial" target="_blank" rel="noopener">CNN: "Lindsay Clancy trial live coverage"</a></li>
+    <li><a href="https://www.wbur.org/news/2026/09/01/massachusetts-lindsay-clancy-insanity-defense-criminal-liability" target="_blank" rel="noopener">WBUR: "Massachusetts insanity defense explainer"</a></li>
+    <li><a href="https://www.pbs.org/newshour/nation/what-the-lindsay-clancy-trial-reveals-about-a-broken-postpartum-mental-health-system" target="_blank" rel="noopener">PBS NewsHour: "What the Lindsay Clancy trial reveals about a broken postpartum mental health system"</a></li>
+    <li><a href="https://www.cbc.ca/news/world/lindsay-clancy-trial-support-9.7322441" target="_blank" rel="noopener">CBC: "so many supporters"</a></li>
+    <li><a href="https://abc7ny.com/post/patrick-clancy-lindsay-asks-forgiveness/12751519/" target="_blank" rel="noopener">ABC7 NY: "Patrick Clancy asks for forgiveness"</a></li>
+    <li><a href="https://www.cbsnews.com/news/lindsay-clancy-mistrial-what-happens-next/" target="_blank" rel="noopener">CBS News: "what happens next after the mistrial"</a></li>
+    <li><a href="https://www.nbcboston.com/news/local/brockton-latarsha-sanders-new-trial-massachusetts-supreme-judicial-court/3993229/" target="_blank" rel="noopener">NBC Boston: "Sanders granted new trial, 'Clancy parallels'"</a></li>
+    <li><a href="https://www.wbur.org/news/2026/08/06/brockton-mother-murder-new-trial" target="_blank" rel="noopener">WBUR: "SJC orders new trial for Brockton mother"</a></li>
+    <li><a href="https://www.nbcboston.com/news/local/lindsay-clancy-holdout-juror-had-history-of-domestic-violence-allegations/4013408/" target="_blank" rel="noopener">NBC Boston: "holdout juror's domestic violence allegations"</a></li>
+    <li><a href="https://www.mediaite.com/media/news/lindsay-clancy-holdout-juror-reportedly-accused-of-assaulting-wife-and-nephew/" target="_blank" rel="noopener">Mediaite: "juror accused of assaulting wife and nephew; DeSantis, Singleton reaction"</a></li>
+    <li><a href="https://www.mediaite.com/media/tv/immediately-short-circuited-gayle-king-torched-online-for-shocked-reaction-to-lindsay-clancy-lone-guilty-voter-being-black/" target="_blank" rel="noopener">Mediaite: "Gayle King criticized over reaction to Black holdout juror"</a></li>
+    <li><a href="https://www.louderwithcrowder.com/lone-holdout-juror-on-clancy-trial-was-the-only-black-person-on-the-jury" target="_blank" rel="noopener">Louder with Crowder, citing CBS Mornings juror Paula Devlin: "jury racial composition"</a></li>
+    <li><a href="https://www.law.nyu.edu/sites/default/files/Freedom%20Delayed,%20Justice%20Denied_%20Increasing%20Racial%20Disparities%20in%20New%20York%20State%E2%80%99s%20Parole%20Release%20Decisions.pdf" target="_blank" rel="noopener">NYU School of Law: "Freedom Delayed, Justice Denied" (PDF)</a></li>
+    <li><a href="https://www.thecity.nyc/2024/11/11/widening-racial-disparity-nys-parole-report/" target="_blank" rel="noopener">THE CITY: "widening racial disparity in NYS parole"</a></li>
+    <li><a href="https://www.wxxinews.org/new-york-public-news-network/2025-05-28/report-finds-worsening-racial-disparities-in-new-york-parole-process" target="_blank" rel="noopener">WXXI/NY Public News Network: "worsening racial disparities report"</a></li>
+    <li><a href="https://boltsmag.org/new-york-parole-board-murky-decisions/" target="_blank" rel="noopener">Bolts Magazine: "New York parole board's murky decisions"</a></li>
+  </ol>
+  <div class="endmark">·&nbsp;&nbsp;·&nbsp;&nbsp;·</div>
+</footer>
+</article>
+
+<section>
+  <div class="narrow">
+    <div class="share-row">
+      <span class="share-label">Share:</span>
+      <a class="share-btn" id="share-x" href="#" target="_blank" rel="noopener">X</a>
+      <a class="share-btn" id="share-fb" href="#" target="_blank" rel="noopener">Facebook</a>
+      <a class="share-btn" id="share-li" href="#" target="_blank" rel="noopener">LinkedIn</a>
+      <button class="share-btn" id="share-copy" type="button">Copy link</button>
+      <span id="share-copy-status" class="share-copy-status"></span>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap foot-grid">
+    <div>
+      <p><strong>Case Analytica</strong>: general information about the New York State justice system, not legal advice for your specific case. Always confirm specifics with a licensed attorney.</p>
+    </div>
+    <div class="foot-right">
+      <div class="donate-group">
+        <a class="donate-btn" href="https://paypal.me/DeanMustaphalli" target="_blank" rel="noopener">♥ Donate</a>
+        <a class="donate-btn" href="https://buy.stripe.com/8x2fZa9NF2paefUd7J6kg00" target="_blank" rel="noopener"> Apple/Google Pay</a>
+        <details class="zelle-pop">
+          <summary>Zelle ▾</summary>
+          <div class="zelle-card">
+            <img src="../assets/icons/zelle-qr.png" alt="Zelle QR code" width="200" height="260" loading="lazy">
+            <p>Scan in your banking app, or send to:</p>
+            <button type="button" class="zelle-email-btn" onclick="var b=this,t='dsminsagency@gmail.com';function done(){b.textContent='Copied ✓';setTimeout(function(){b.textContent=t;},1500);} function fb(){try{var ta=document.createElement('textarea');ta.value=t;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.focus();ta.select();document.execCommand('copy');document.body.removeChild(ta);done();}catch(e){}} if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done).catch(fb);}else{fb();}">dsminsagency@gmail.com</button>
+          </div>
+        </details>
+      </div>
+      <nav>
+        <a href="../index.html">Home</a>
+        <a href="../restorative-justice.html">Restorative Justice</a>
+        <a href="../videos.html">Videos</a>
+        <a href="../articles.html">Articles</a>
+        <a href="../case-navigation.html">Case Navigation</a>
+        <a href="../guide.html">Guide</a>
+        <a href="../about.html">About</a>
+      <a href="https://www.facebook.com/profile.php?id=61593408088467" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://www.tiktok.com/@case.analytica" target="_blank" rel="noopener">TikTok</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/analytics.js"></script>
+<script>
+(function(){
+  var canonical = document.querySelector('link[rel="canonical"]');
+  if (!canonical) return;
+  var url = encodeURIComponent(canonical.href);
+  var title = encodeURIComponent(document.title.replace(/: Case Analytica$/, ''));
+  var x = document.getElementById('share-x');
+  var fb = document.getElementById('share-fb');
+  var copyBtn = document.getElementById('share-copy');
+  if (x) x.href = 'https://twitter.com/intent/tweet?text=' + title + '&url=' + url;
+  if (fb) fb.href = 'https://www.facebook.com/sharer/sharer.php?u=' + url;
+  var li = document.getElementById('share-li');
+  if (li) li.href = 'https://www.linkedin.com/sharing/share-offsite/?url=' + url;
+  if (copyBtn) copyBtn.addEventListener('click', function(){
+    navigator.clipboard.writeText(canonical.href).then(function(){
+      var s = document.getElementById('share-copy-status');
+      if (s) { s.textContent = 'Copied!'; setTimeout(function(){ s.textContent = ''; }, 2000); }
+    });
+  });
+})();
+</script>
+
+
+</body>
+</html>

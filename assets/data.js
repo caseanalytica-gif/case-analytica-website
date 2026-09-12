@@ -312,6 +312,13 @@ const VIDEOS = [
 
 const ARTICLES = [
   {
+    slug: "three-cases-one-pattern",
+    title: "Three Cases, One Pattern: What the Clancy Trial Reveals About Who Gets Believed",
+    category: "System",
+    date: "2026-09-12",
+    excerpt: "A Massachusetts mistrial, a media investigation into the one Black juror, and New York's parole data describe the same sorting mechanism: whose account of themselves the justice system chooses to believe."
+  },
+  {
     slug: "parole-board-racial-disparity-release-rates-ny",
     title: "New York's Parole Board Is 33% Less Likely to Release a Person of Color: The Data Behind the Gap",
     category: "Rights & Process",
