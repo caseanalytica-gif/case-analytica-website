@@ -1,17 +1,9 @@
 # Three Cases, One Pattern
 
-## The only link that goes in the post
-
-    https://www.caseanalytica.com/articles/three-cases-one-pattern.html
-
-Paste that one line and nothing else. The card builds itself from it.
-
-**Do not paste the graphic URL into a post.** It is listed here for reference
-only — it is what the crawler pulls in on its own after it reads the article
-page. A bare .png has no OG tags, so posting it directly gives a dead card that
-links to an image instead of the article:
-`assets/social/three-cases-one-pattern-og.png` (2400x1254, verified live 200 on 2026-09-13)
-
+**Article:** https://www.caseanalytica.com/articles/three-cases-one-pattern.html
+**Graphic (this is what the link card pulls in — do not upload it):**
+https://www.caseanalytica.com/assets/social/three-cases-one-pattern-og.png
+(2400x1254, verified live 200 on 2026-09-13)
 **Published:** 2026-09-12
 
 ---
@@ -83,8 +75,26 @@ https://www.caseanalytica.com/articles/three-cases-one-pattern.html
 
 ---
 
-## Posting notes
+## How the graphic attaches, per platform
 
-- Paste the **bare URL** into the composer and let the card generate. Do **not** click the photo icon or upload the PNG — an uploaded photo can't link out.
-- og:image verified 200 before this draft was written, so the card should pull the right graphic on first scrape. No `?v=2` needed unless you posted this URL earlier today.
-- The article discusses the holdout juror's personal history because NBC10 published it. I've deliberately kept that out of both posts — it's the weakest ground to argue from on social, and it means amplifying a private person's dismissed charge and eviction to a new audience.
+**LinkedIn — do NOT upload the PNG.** Paste the bare URL on its own line so LinkedIn builds
+the clickable preview card from og:image. An uploaded photo isn't a link.
+
+**Facebook — same approach.** Bare URL gives you the clickable card. Upload the PNG manually
+only if you want it larger in-feed, knowing the image itself won't link.
+
+**Instagram / X** — upload the PNG directly:
+https://www.caseanalytica.com/assets/social/three-cases-one-pattern-og.png
+
+If a preview comes back blank or stale, append ?v=2 to the article URL to force a refetch.
+Verified 2026-09-13: og:image returns 200, image/png, 178,164 bytes.
+
+---
+
+## Note on tone
+
+The article covers the holdout juror's personal history because NBC10 published it, and the
+piece is critical of that reporting. Both posts above leave it out on purpose: repeating a
+private person's dismissed charge and eviction to a new audience does the same thing the
+article objects to, and it's the weakest ground to argue from in a feed. The judge/evidence
+comparison and the parole numbers carry the argument without it. Worth keeping if you edit.
