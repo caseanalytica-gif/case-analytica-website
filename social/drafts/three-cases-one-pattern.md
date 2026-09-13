@@ -1,9 +1,17 @@
 # Three Cases, One Pattern
 
-**Article:** https://www.caseanalytica.com/articles/three-cases-one-pattern.html
-**Graphic (this is what the link card pulls in — do not upload it):**
-https://www.caseanalytica.com/assets/social/three-cases-one-pattern-og.png
-(2400x1254, verified live 200 on 2026-09-12)
+## The only link that goes in the post
+
+    https://www.caseanalytica.com/articles/three-cases-one-pattern.html
+
+Paste that one line and nothing else. The card builds itself from it.
+
+**Do not paste the graphic URL into a post.** It is listed here for reference
+only — it is what the crawler pulls in on its own after it reads the article
+page. A bare .png has no OG tags, so posting it directly gives a dead card that
+links to an image instead of the article:
+`assets/social/three-cases-one-pattern-og.png` (2400x1254, verified live 200 on 2026-09-13)
+
 **Published:** 2026-09-12
 
 ---
