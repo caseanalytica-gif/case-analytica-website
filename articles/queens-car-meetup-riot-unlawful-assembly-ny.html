@@ -128,7 +128,23 @@
   <div class="narrow">
 
     <p class="mono" style="font-size:12px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-soft); margin:0 0 10px;">NYPD's own clip of the incident, released the day of arrest</p>
-    <blockquote class="twitter-tweet" data-dnt="true"><p lang="en" dir="ltr">This is Asil Assaidi, who the NYPD arrested and charged for his role in Saturday&#39;s dangerous car meet-up.<br><br>This type of chaos has no place in our city, and we&#39;ll continue to crackdown on anyone who engages in this reckless behavior.</p>&mdash; NYPD NEWS (@NYPDnews) <a href="https://twitter.com/NYPDnews/status/2047344486406119644?ref_src=twsrc%5Etfw">April 23, 2026</a></blockquote>
+    <!-- X post embedded as a plain iframe, not X's widgets.js. The site CSP blocks
+         third-party scripts (same reason the Tally form is a plain iframe), so the
+         widget script never runs and the tweet never renders. Tweet.html needs only
+         frame-src. Height is set by the postMessage listener at the foot of this file;
+         the inline value below is the pre-resize fallback. -->
+    <div style="max-width:550px; margin:0 auto;">
+      <iframe id="nypd-post" src="https://platform.twitter.com/embed/Tweet.html?id=2047344486406119644&amp;dnt=true&amp;theme=dark&amp;width=550"
+              title="NYPD News post identifying the driver charged in the April 2026 Maspeth car meetup"
+              scrolling="no" frameborder="0" allowfullscreen
+              style="width:100%; height:720px; border:0; display:block;"></iframe>
+      <noscript>
+        <blockquote style="margin:0; padding:16px 20px; border-left:3px solid var(--gold); background:var(--panel, transparent);">
+          <p style="margin:0 0 10px;">This is Asil Assaidi, who the NYPD arrested and charged for his role in Saturday&#39;s dangerous car meet-up. This type of chaos has no place in our city, and we&#39;ll continue to crackdown on anyone who engages in this reckless behavior.</p>
+          <p style="margin:0; font-size:13px;">&mdash; NYPD NEWS (@NYPDnews), <a href="https://x.com/NYPDnews/status/2047344486406119644" target="_blank" rel="noopener">April 23, 2026</a></p>
+        </blockquote>
+      </noscript>
+    </div>
     <p style="font-size:13px; color:var(--ink-soft); margin:8px 0 32px;">Video and caption: <a href="https://x.com/NYPDnews/status/2047344486406119644" target="_blank" rel="noopener">NYPD's official X account</a>, posted the morning of the arrest. Embedded directly from NYPD's own post; Case Analytica has not altered or re-hosted the footage.</p>
 
     <div class="hero-card ground-panel">
@@ -241,7 +257,22 @@
 </footer>
 
 <script src="../assets/analytics.js"></script>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<script>
+// X's Tweet.html iframe reports its rendered height by postMessage. widgets.js
+// normally applies it; this site can't load widgets.js (CSP blocks third-party
+// scripts), so apply it here. Inline scripts are permitted by script-src.
+(function(){
+  var frame = document.getElementById('nypd-post');
+  if (!frame) return;
+  window.addEventListener('message', function(e){
+    if (e.origin !== 'https://platform.twitter.com') return;
+    var d = e.data && e.data['twttr.embed'];
+    if (!d || d.method !== 'twttr.private.resize') return;
+    var p = d.params && d.params[0];
+    if (p && p.height) frame.style.height = p.height + 'px';
+  });
+})();
+</script>
 <script>
 (function(){
   var canonical = document.querySelector('link[rel="canonical"]');

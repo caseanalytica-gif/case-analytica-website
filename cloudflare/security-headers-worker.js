@@ -23,7 +23,11 @@ const CSP = [
   // about.html. Note Tally's own embed *script* stays blocked by script-src
   // above, which is why the form is embedded as a plain iframe, not their
   // JS widget.
-  "frame-src https://www.youtube.com https://tally.so",
+  // platform.twitter.com: the NYPD post embedded in the Queens car-meetup article.
+  // Embedded as a plain Tweet.html iframe rather than X's widgets.js, for the same
+  // reason as Tally above — the widget script stays blocked by script-src, so only
+  // frame-src is opened here and no third-party JS runs on the page.
+  "frame-src https://www.youtube.com https://tally.so https://platform.twitter.com",
   // Nobody should be able to iframe this site (belt-and-suspenders with X-Frame-Options below).
   "frame-ancestors 'none'",
   "base-uri 'self'",
