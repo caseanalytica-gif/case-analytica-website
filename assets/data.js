@@ -312,6 +312,13 @@ const VIDEOS = [
 
 const ARTICLES = [
   {
+    slug: "queens-car-meetup-riot-unlawful-assembly-ny",
+    title: "A Queens Car Meetup Ended in a Ring of Fire. One Driver Now Faces Up to Seven Years",
+    category: "Rights & Process",
+    date: "2026-09-14",
+    excerpt: "A Maspeth car meetup that ended with a ring of fire and a cracked patrol windshield left one driver facing six charges, up to seven years in prison, and no cash bail. Here's what New York's riot and unlawful assembly laws actually require."
+  },
+  {
     slug: "three-cases-one-pattern",
     title: "Three Cases, One Pattern: What the Clancy Trial Reveals About Who Gets Believed",
     category: "System",
