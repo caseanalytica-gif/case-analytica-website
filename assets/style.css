@@ -62,13 +62,26 @@
   --sans:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
   --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
 }
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    --ink:#EDF0F4; --ink-soft:#A6AEC0; --paper:#12151F; --paper-raised:#1A1F2E;
-    --line:#2A3142; --accent:#E8785A; --accent-soft:#2E2016; --accent-ink:#E8785A;
-    --pillar:#8FD9CB; --pillar-soft:#17282A;
-    --ground:#1B2242; --ground-raised:#26305A;
-  }
+/* The site is dark on every device, not only where the OS asks for dark. It used
+   to key off `prefers-color-scheme`, which meant a phone in light mode got the
+   light palette while a desktop in dark mode got the dark one — the same article
+   wearing two different faces depending on who opened it.
+
+   The light palette above is deliberately left intact as the base, because the
+   dark set below only redefines twelve variables. Everything it does not touch
+   (--gold, --seafoam, --focus, --btn-fill, --pillar-deep, --ground-ink,
+   --ground-muted, --ground-rule) keeps the audited contrast values defined above.
+
+   `[data-theme="light"]` further down still wins — same specificity, later in the
+   file — so the light theme stays reachable if a toggle is ever added. To go back
+   to following the device, wrap this block in @media (prefers-color-scheme: dark)
+   again. */
+:root:not([data-theme="light"]){
+  color-scheme: dark;
+  --ink:#EDF0F4; --ink-soft:#A6AEC0; --paper:#12151F; --paper-raised:#1A1F2E;
+  --line:#2A3142; --accent:#E8785A; --accent-soft:#2E2016; --accent-ink:#E8785A;
+  --pillar:#8FD9CB; --pillar-soft:#17282A;
+  --ground:#1B2242; --ground-raised:#26305A;
 }
 :root[data-theme="dark"]{
   --ink:#EDF0F4; --ink-soft:#A6AEC0; --paper:#12151F; --paper-raised:#1A1F2E;
@@ -77,6 +90,7 @@
   --ground:#1B2242; --ground-raised:#26305A;
 }
 :root[data-theme="light"]{
+  color-scheme: light;
   --ink:#16203A; --ink-soft:#4A5568; --paper:#FAF7F2; --paper-raised:#FFFFFF;
   --line:#E4E0D8; --accent:#B14A30; --accent-soft:#F7EDE7; --accent-ink:#8F3A24;
   --pillar:#2A6467; --pillar-soft:#E3EFEE;
