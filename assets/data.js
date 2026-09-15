@@ -475,13 +475,6 @@ const ARTICLES = [
     excerpt: "A conviction isn't always the end of the road. CPL 440.10 lets a New York court vacate a judgment for reasons that never made it onto the record, but it comes with procedural traps that can shut the door for good if you miss them."
   },
   {
-    slug: "grand-jury-testify-cpl-190-50-ny",
-    title: "Can You Testify Before Your Own Grand Jury in New York? What CPL 190.50 Actually Requires",
-    category: "Rights & Process",
-    date: "2026-08-02",
-    excerpt: "New York gives you the right to testify before the grand jury deciding your own case, but only if you ask in writing before an indictment is filed. Here's how CPL 190.50 actually works, and the deadline that erases the right if you miss it."
-  },
-  {
     slug: "right-to-testify-grand-jury-cpl-190-50-ny",
     title: "Do You Have the Right to Testify Before the Grand Jury in New York? CPL 190.50 Explained",
     category: "Rights & Process",
@@ -494,13 +487,6 @@ const ARTICLES = [
     category: "Restorative Justice",
     date: "2026-08-02",
     excerpt: "Penal Law 60.12 lets a judge hand down a lighter sentence when abuse was a significant reason someone ended up charged. In April 2026, New York's highest court ruled a prosecutor can't make you sign away the hearing that proves it."
-  },
-  {
-    slug: "dvsja-penal-law-60-12-domestic-violence-survivors-ny",
-    title: "The Domestic Violence Survivors Justice Act in New York: What Penal Law 60.12 Actually Does",
-    category: "Restorative Justice",
-    date: "2026-08-02",
-    excerpt: "Penal Law 60.12 lets a judge hand down a shorter sentence to a domestic violence survivor whose abuse drove the offense. A prosecutor cannot make you waive that hearing to get a plea deal, the Court of Appeals said so in April 2026."
   },
   {
     slug: "bronx-criminal-court-logistics",
