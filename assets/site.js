@@ -156,6 +156,9 @@ function renderUpcomingVideos(targetId, list) {
 function renderArticleGrid(targetId, list, opts) {
   const el = document.getElementById(targetId);
   if (!el) return;
+  // Cards are pre-rendered into the HTML by tools/prerender.py so crawlers see
+  // real <a> links. Keep that markup; just wire up the thumbnail fallbacks.
+  if (el.dataset.prerendered === "1") { attachThumbPhotos(el); return; }
   el.innerHTML = list.map(a => articleCardHtml(a, opts)).join("");
   attachThumbPhotos(el);
 }

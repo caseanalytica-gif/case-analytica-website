@@ -1,6 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://www.caseanalytica.com/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.caseanalytica.com/articles.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.caseanalytica.com/about.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.caseanalytica.com/videos.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.caseanalytica.com/restorative-justice.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.caseanalytica.com/help-after-an-arrest-ny.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.caseanalytica.com/checklist.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.caseanalytica.com/intake-worksheet.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.caseanalytica.com/articles/eec-parole-board-interview-strategy-ny.html</loc>
     <lastmod>2026-09-15</lastmod>
     <changefreq>monthly</changefreq>
@@ -20,13 +60,13 @@
   </url>
   <url>
     <loc>https://www.caseanalytica.com/articles/parole-board-racial-disparity-release-rates-ny.html</loc>
-    <lastmod>2026-09-10</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.caseanalytica.com/articles/clean-slate-coalition-implementation-advocacy-gap-ny.html</loc>
-    <lastmod>2026-09-10</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -157,12 +197,6 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.caseanalytica.com/intake-worksheet.html</loc>
-    <lastmod>2026-08-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://www.caseanalytica.com/articles/bronx-criminal-court-logistics.html</loc>
     <lastmod>2026-08-20</lastmod>
     <changefreq>monthly</changefreq>
@@ -253,12 +287,6 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.caseanalytica.com/help-after-an-arrest-ny.html</loc>
-    <lastmod>2026-08-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
     <loc>https://www.caseanalytica.com/articles/missed-court-date-bench-warrant-ny.html</loc>
     <lastmod>2026-08-03</lastmod>
     <changefreq>monthly</changefreq>
@@ -271,13 +299,19 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.caseanalytica.com/articles/bail-source-hearing-ny-explained.html</loc>
-    <lastmod>2026-08-01</lastmod>
+    <loc>https://www.caseanalytica.com/articles/why-innocent-people-plead-guilty-ny.html</loc>
+    <lastmod>2026-08-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.caseanalytica.com/checklist.html</loc>
+    <loc>https://www.caseanalytica.com/articles/discovery-platform-access-logs-work-product-ny.html</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.caseanalytica.com/articles/bail-source-hearing-ny-explained.html</loc>
     <lastmod>2026-08-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -301,6 +335,18 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://www.caseanalytica.com/articles/youthful-offender-status-vs-raise-the-age-ny.html</loc>
+    <lastmod>2026-07-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.caseanalytica.com/articles/judicial-diversion-program-ny-felony-drug-cases.html</loc>
+    <lastmod>2026-07-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://www.caseanalytica.com/articles/certificate-of-relief-from-disabilities-ny.html</loc>
     <lastmod>2026-07-31</lastmod>
     <changefreq>monthly</changefreq>
@@ -313,40 +359,52 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://www.caseanalytica.com/articles/what-is-an-acd-in-new-york.html</loc>
+    <lastmod>2026-07-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.caseanalytica.com/articles/pleading-guilty-immigration-consequences-ny.html</loc>
+    <lastmod>2026-07-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.caseanalytica.com/articles/cost-of-a-criminal-defense-lawyer-ny.html</loc>
+    <lastmod>2026-07-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.caseanalytica.com/articles/how-bail-works-in-ny-after-reform.html</loc>
+    <lastmod>2026-07-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.caseanalytica.com/articles/does-a-conviction-show-on-background-check-ny.html</loc>
+    <lastmod>2026-07-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.caseanalytica.com/articles/quick-answers-just-arrested-ny.html</loc>
+    <lastmod>2026-07-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.caseanalytica.com/articles/the-bet-every-plea-deal-is-making.html</loc>
+    <lastmod>2026-07-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://www.caseanalytica.com/articles/the-question-before-you-plead-guilty.html</loc>
     <lastmod>2026-07-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.caseanalytica.com/</loc>
-    <lastmod>2026-08-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://www.caseanalytica.com/restorative-justice.html</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.caseanalytica.com/videos.html</loc>
-    <lastmod>2026-07-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.caseanalytica.com/articles.html</loc>
-    <lastmod>2026-08-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.caseanalytica.com/about.html</loc>
-    <lastmod>2026-07-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.caseanalytica.com/articles/two-failures-after-a-nys-arrest.html</loc>
@@ -386,26 +444,26 @@
   </url>
   <url>
     <loc>https://www.caseanalytica.com/articles/just-arrested-what-youre-facing.html</loc>
-    <lastmod>2026-07-27</lastmod>
+    <lastmod>2026-07-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.caseanalytica.com/articles/after-an-arrest-in-new-york.html</loc>
-    <lastmod>2026-07-27</lastmod>
+    <lastmod>2026-07-19</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.caseanalytica.com/articles/clean-slate-act-explained.html</loc>
     <lastmod>2026-07-19</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.caseanalytica.com/articles/restorative-justice-alternatives.html</loc>
-    <lastmod>2026-07-27</lastmod>
+    <lastmod>2026-07-19</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
 </urlset>
