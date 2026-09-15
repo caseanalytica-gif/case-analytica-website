@@ -312,6 +312,13 @@ const VIDEOS = [
 
 const ARTICLES = [
   {
+    slug: "eec-parole-board-interview-strategy-ny",
+    title: "Two Questions on the Record: How an EEC Actually Holds Up in a New York Parole Interview",
+    category: "Rights & Process",
+    date: "2026-09-15",
+    excerpt: "New York's Earned Eligibility Certificate is supposed to make release the default. One client was denied and told, off the record, that his mother's criminal history made him unsafe for the community. Two short, statute-anchored questions changed what happened at his next interview."
+  },
+  {
     slug: "queens-car-meetup-riot-unlawful-assembly-ny",
     title: "A Queens Car Meetup Ended in a Ring of Fire. One Driver Now Faces Up to Seven Years",
     category: "Rights & Process",
