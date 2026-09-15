@@ -3,7 +3,7 @@
 **Article:** https://www.caseanalytica.com/articles/eec-parole-board-interview-strategy-ny.html
 **Graphic (this is what the link card pulls in — do not upload it):**
 https://www.caseanalytica.com/assets/social/eec-parole-board-interview-strategy-ny-og.png
-(2400x1254, verified live 200 on 2026-09-15)
+(2400x1254, short URL caseanalytica.com/eec printed on the card, verified live 200 on 2026-09-15)
 **Published:** 2026-09-15
 
 ---
@@ -103,6 +103,10 @@ only if you want it larger in-feed, knowing the image itself won't link.
 
 **Instagram / X** — upload the PNG directly:
 https://www.caseanalytica.com/assets/social/eec-parole-board-interview-strategy-ny-og.png
+
+The card has `caseanalytica.com/eec` printed in the bottom-right, so when it's uploaded as a
+plain photo the reader can still type their way to the article. That short URL redirects to
+the full slug. It is not a clickable hyperlink inside the image, because no image format has one.
 
 If a preview comes back blank or stale, append ?v=2 to the article URL to force a refetch.
 Verified 2026-09-15: og:image returns 200, image/png, 124,154 bytes.
