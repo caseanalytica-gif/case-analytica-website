@@ -62,7 +62,10 @@
     --font-mono:var(--mono);
   }
 
-  @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .tqotr {
+  /* The site is dark on every device (assets/style.css), not only where the OS
+     asks for dark. This has to match, or the article renders light inside a dark
+     shell on any light-mode device. Light stays reachable via [data-theme="light"]. */
+  :root:not([data-theme="light"]) .tqotr {
 
       --bg:#14171A;
       --surface:#1C2023;
@@ -74,8 +77,6 @@
       --accent-ink:#F3B9BC;
       --accent-soft:#332022;
       --line:#2C3130;
-    }
-
   }
 :root[data-theme="dark"] .tqotr {
 
@@ -169,7 +170,9 @@ outline:2px solid var(--accent); outline-offset:2px;}
 .tqotr .meta span b {
 color:var(--ink-soft); font-weight:500;}
 .tqotr section {
-margin-bottom:44px;}
+/* assets/style.css:264 sets a global `section{padding:64px 0}` that leaks into these
+   nested sections, adding 128px of dead space per section on top of this margin. */
+padding:0; margin-bottom:44px;}
 .tqotr .secnum {
 
     font-family:var(--font-mono);
