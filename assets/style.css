@@ -715,8 +715,9 @@ footer.site-footer nav a{font-size:13.5px; color:var(--ink-soft);}
    piece already makes inline into one checkable block, so a reader or a
    reporter can verify the article without hunting links out of the prose.
    Tokens only, so dark mode is inherited rather than redeclared. */
+.sources-section{padding-top:0;}
 .article-sources{
-  border-top:1px solid var(--line); padding-top:22px; margin-top:34px;
+  border-top:1px solid var(--line); padding-top:22px; margin-top:0;
 }
 .article-sources h2{
   font-family:var(--mono); font-size:11px; letter-spacing:.08em;
