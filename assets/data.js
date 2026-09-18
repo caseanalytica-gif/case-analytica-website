@@ -341,6 +341,9 @@ const ARTICLES = [
   },
   {
     slug: "clean-slate-coalition-implementation-advocacy-gap-ny",
+    image: "assets/photos/clean-slate-act-signing.jpg",
+    imageAlt: "Governor Hochul signs the Clean Slate Act at a table, with legislators and advocates standing behind her.",
+    imageCredit: "Office of Governor Kathy Hochul",
     title: "The Coalition That Won Clean Slate Isn't Publicly Fighting to Finish It",
     category: "System",
     date: "2026-09-04",
@@ -473,6 +476,13 @@ const ARTICLES = [
     category: "Access to Justice",
     date: "2026-08-03",
     excerpt: "A conviction isn't always the end of the road. CPL 440.10 lets a New York court vacate a judgment for reasons that never made it onto the record, but it comes with procedural traps that can shut the door for good if you miss them."
+  },
+  {
+    slug: "conditional-discharge-vs-probation-ny",
+    title: "Conditional Discharge vs. Probation in New York: What You're Actually Agreeing To",
+    category: "Rights & Process",
+    date: "2026-08-03",
+    excerpt: "Both let you avoid prison. Only one puts a probation officer in your life for years. Here's what Penal Law 65.05 and 65.00 actually require, and the question to ask before you agree to either."
   },
   {
     slug: "right-to-testify-grand-jury-cpl-190-50-ny",
