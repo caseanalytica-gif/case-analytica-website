@@ -710,3 +710,19 @@ footer.site-footer nav a{font-size:13.5px; color:var(--ink-soft);}
   .hero-rotator .rot-stack .rot-line.is-active .cc-w{opacity:1; transform:none;}
   .hero-rotator .rot-stack .rot-line.is-active .cc-key{background-size:100% .07em;}
 }
+
+/* Sources list at the foot of an article. Collects every external citation the
+   piece already makes inline into one checkable block, so a reader or a
+   reporter can verify the article without hunting links out of the prose.
+   Tokens only, so dark mode is inherited rather than redeclared. */
+.article-sources{
+  border-top:1px solid var(--line); padding-top:22px; margin-top:34px;
+}
+.article-sources h2{
+  font-family:var(--mono); font-size:11px; letter-spacing:.08em;
+  text-transform:uppercase; color:var(--ink-soft); font-weight:700; margin:0 0 12px;
+}
+.article-sources ol{margin:0; padding-left:1.4em; font-size:14px; color:var(--ink-soft);}
+.article-sources li{margin:0 0 7px; line-height:1.55;}
+.article-sources a{color:var(--ink);}
+.article-sources .pub{color:var(--ink-soft);}
