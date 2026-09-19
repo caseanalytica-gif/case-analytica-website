@@ -782,3 +782,19 @@ footer.site-footer nav a{font-size:13.5px; color:var(--ink-soft);}
 .qi-stage li a:hover{text-decoration:underline;}
 .qi-src{display:block; font-size:12.5px; color:var(--ink-soft); margin-top:2px;}
 @media print{ .question-index{display:none;} }
+
+/* Glossary. A definition list, not cards: this is a lookup page, so the job is
+   to let someone scan for a term and read one paragraph. */
+.glossary{margin:0;}
+.gl-item{border-top:1px solid var(--line); padding:18px 0;}
+.gl-item:first-child{border-top:none;}
+.glossary dt{
+  font-family:var(--display); font-size:19px; font-weight:600; color:var(--ink); margin:0 0 6px;
+}
+.glossary dd{margin:0; color:var(--ink-soft); font-size:15.5px; line-height:1.6;}
+.gl-links{
+  display:block; margin-top:7px; font-family:var(--mono); font-size:11px;
+  letter-spacing:.04em; text-transform:uppercase;
+}
+.gl-links a{color:var(--accent-ink);}
+.gl-foot{margin:28px 0 0; color:var(--ink-soft); font-size:14.5px;}

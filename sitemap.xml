@@ -46,6 +46,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.caseanalytica.com/glossary.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.caseanalytica.com/articles/eec-parole-board-interview-strategy-ny.html</loc>
     <lastmod>2026-09-15</lastmod>
     <changefreq>monthly</changefreq>
