@@ -28,6 +28,7 @@ STATIC_PAGES = [
     ("videos.html", "0.7"), ("restorative-justice.html", "0.7"),
     ("help-after-an-arrest-ny.html", "0.8"), ("checklist.html", "0.7"),
     ("intake-worksheet.html", "0.7"),
+    ("methodology.html", "0.7"),
 ]
 BEGIN = "<!-- prerender:begin -->"
 END = "<!-- prerender:end -->"
