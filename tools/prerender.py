@@ -187,6 +187,71 @@ def sitemap(articles, tracked):
             '%s</urlset>\n' % body)
 
 
+
+# --- Closing questions -> checklist.html -------------------------------------
+# Every article's "exact question to ask" closer is tagged with a data-stage.
+# This collects them so checklist.html's index cannot drift from the articles
+# the way a hand-maintained list does.
+QSTAGES = ["Right after arrest", "At the courthouse", "Arraignment and bail",
+           "Getting a lawyer", "Before any plea", "Discovery and pretrial motions",
+           "Trial rights and the clock", "Sentencing", "In custody",
+           "Parole and supervision", "Immigration",
+           "After the case: records, jobs, housing"]
+QBEGIN = "<!-- prerender:questions:begin -->"
+QEND = "<!-- prerender:questions:end -->"
+LABEL_RE = re.compile(
+    r'<(?:h2|p class="k")[^>]*data-stage="([^"]+)"[^>]*>.*?</(?:h2|p)>(.{0,1800})', re.S)
+QUOTE_RE = re.compile(r'<em>\s*(?:&quot;|")(.+?)(?:&quot;|")\s*</em>', re.S)
+
+
+def collect_questions(articles, root):
+    """(stage, question, [(slug, title), ...]) for every tagged closer."""
+    found = []
+    for a in articles:
+        path = os.path.join(root, "articles", a["slug"] + ".html")
+        if not os.path.exists(path):
+            continue
+        with open(path, encoding="utf-8") as fh:
+            doc = fh.read()
+        m = LABEL_RE.search(doc)
+        if not m:
+            continue
+        q = QUOTE_RE.search(m.group(2))
+        if not q:
+            continue
+        text = re.sub(r"<[^>]+>", "", q.group(1)).strip()
+        found.append((m.group(1), text, a["slug"], a["title"]))
+
+    # Near-duplicates: several articles land on the same question. Merge them
+    # into one entry that lists every article it came from.
+    merged = {}
+    for stage, text, slug, title in found:
+        # Key on the question alone, not the stage: the same question is asked
+        # by articles sitting at different points in a case, and listing it
+        # twice reads as padding. First stage seen wins.
+        key = re.sub(r"[^a-z0-9]", "", text.lower())
+        merged.setdefault(key, [stage, text, []])[2].append((slug, title))
+    rows = list(merged.values())
+    rows.sort(key=lambda r: (QSTAGES.index(r[0]) if r[0] in QSTAGES else 99, r[1]))
+    return rows
+
+
+def questions_html(rows):
+    out = []
+    for stage in QSTAGES:
+        items = [r for r in rows if r[0] == stage]
+        if not items:
+            continue
+        lis = []
+        for _, text, srcs in items:
+            links = ", ".join('<a href="articles/%s.html">%s</a>' % (s, e(t))
+                              for s, t in srcs)
+            lis.append('        <li>&ldquo;%s&rdquo;<span class="qi-src">%s</span></li>'
+                       % (e(text), links))
+        out.append('      <div class="qi-stage">\n        <h3>%s</h3>\n        <ul>\n%s\n'
+                   "        </ul>\n      </div>" % (e(stage), "\n".join(lis)))
+    return "\n".join(out)
+
 def main():
     check = "--check" in sys.argv
     os.chdir(ROOT)
@@ -204,6 +269,17 @@ def main():
     doc = open("articles.html", encoding="utf-8").read()
     writes["articles.html"] = fill_container(
         doc, "article-grid", "".join(card_html(a) for a in live))
+
+    # checklist.html: the generated index of every closing question
+    cpath = os.path.join(ROOT, "checklist.html")
+    with open(cpath, encoding="utf-8") as fh:
+        cdoc = fh.read()
+    if QBEGIN in cdoc:
+        rows = collect_questions(live, ROOT)
+        body = QBEGIN + "\n" + questions_html(rows) + "\n    " + QEND
+        writes["checklist.html"] = re.sub(
+            re.escape(QBEGIN) + r".*?" + re.escape(QEND),
+            lambda _: body, cdoc, count=1, flags=re.S)
 
     doc = open("index.html", encoding="utf-8").read()
     writes["index.html"] = fill_container(
