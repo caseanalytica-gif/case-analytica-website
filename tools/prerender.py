@@ -21,7 +21,7 @@ import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE = "https://www.caseanalytica.com"
-FIELDS = ("slug", "title", "category", "date", "excerpt",
+FIELDS = ("slug", "title", "category", "stage", "date", "excerpt",
           "image", "imageAlt", "imageCredit")
 STATIC_PAGES = [
     ("", "1.0"), ("articles.html", "0.9"), ("about.html", "0.7"),
@@ -30,6 +30,18 @@ STATIC_PAGES = [
     ("intake-worksheet.html", "0.7"),
     ("methodology.html", "0.7"),
     ("glossary.html", "0.7"),
+    ("stages/index.html", "0.8"),
+    ("stages/arrest.html", "0.8"),
+    ("stages/court.html", "0.8"),
+    ("stages/bail.html", "0.8"),
+    ("stages/counsel.html", "0.8"),
+    ("stages/plea.html", "0.8"),
+    ("stages/pretrial.html", "0.8"),
+    ("stages/sentencing.html", "0.8"),
+    ("stages/custody.html", "0.8"),
+    ("stages/parole.html", "0.8"),
+    ("stages/records.html", "0.8"),
+    ("stages/system.html", "0.8"),
 ]
 BEGIN = "<!-- prerender:begin -->"
 END = "<!-- prerender:end -->"
@@ -253,6 +265,57 @@ def questions_html(rows):
                    "        </ul>\n      </div>" % (e(stage), "\n".join(lis)))
     return "\n".join(out)
 
+
+# --- Stage hubs -------------------------------------------------------------
+# One page per stage of a case, generated from the `stage` field on each
+# article in data.js. The intro copy is authored; the article lists are not,
+# so a new article appears in its hub the moment it is registered.
+HUBS = [
+    ("arrest", "Arrest and the first 24 hours"),
+    ("court", "Getting through court"),
+    ("bail", "Arraignment, bail and release"),
+    ("counsel", "Getting a lawyer"),
+    ("plea", "Plea and diversion"),
+    ("pretrial", "Discovery, motions and trial rights"),
+    ("sentencing", "Sentencing"),
+    ("custody", "Jail and prison conditions"),
+    ("parole", "Parole and supervision"),
+    ("records", "Records, reentry and rights restoration"),
+    ("system", "How the system works, and doesn't"),
+]
+HUB_BEGIN = "<!-- prerender:hub:begin -->"
+HUB_END = "<!-- prerender:hub:end -->"
+
+
+def hub_body(key, articles):
+    """Card grid for one stage, newest first."""
+    items = [a for a in articles if a.get("stage") == key]
+    items.sort(key=lambda a: a.get("date") or "", reverse=True)
+    if not items:
+        return "", 0
+    cards = "".join(card_html(a, prefix="../") for a in items)
+    return '<div class="card-grid">%s</div>' % cards, len(items)
+
+
+def write_hubs(articles, root, writes):
+    for key, label in HUBS:
+        path = os.path.join(root, "stages", key + ".html")
+        if not os.path.exists(path):
+            continue
+        with open(path, encoding="utf-8") as fh:
+            doc = fh.read()
+        if HUB_BEGIN not in doc:
+            continue
+        body, n = hub_body(key, articles)
+        block = HUB_BEGIN + "\n" + body + "\n    " + HUB_END
+        new = re.sub(re.escape(HUB_BEGIN) + r".*?" + re.escape(HUB_END),
+                     lambda _: block, doc, count=1, flags=re.S)
+        new = re.sub(r'<span class="hub-count">[^<]*</span>',
+                     '<span class="hub-count">%d article%s</span>' % (n, "" if n == 1 else "s"),
+                     new, count=1)
+        if new != doc:
+            writes["stages/" + key + ".html"] = new
+
 def main():
     check = "--check" in sys.argv
     os.chdir(ROOT)
@@ -270,6 +333,8 @@ def main():
     doc = open("articles.html", encoding="utf-8").read()
     writes["articles.html"] = fill_container(
         doc, "article-grid", "".join(card_html(a) for a in live))
+
+    write_hubs(live, ROOT, writes)
 
     # checklist.html: the generated index of every closing question
     cpath = os.path.join(ROOT, "checklist.html")

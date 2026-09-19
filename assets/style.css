@@ -798,3 +798,19 @@ footer.site-footer nav a{font-size:13.5px; color:var(--ink-soft);}
 }
 .gl-links a{color:var(--accent-ink);}
 .gl-foot{margin:28px 0 0; color:var(--ink-soft); font-size:14.5px;}
+
+/* Stage hubs: the site organised by where someone is in a case. */
+.hub-meta{margin:0 0 4px;}
+.hub-count{
+  font-family:var(--mono); font-size:11px; letter-spacing:.06em;
+  text-transform:uppercase; color:var(--ink-soft);
+}
+.hub-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:16px;}
+.hub-card{
+  display:block; text-decoration:none; color:inherit;
+  border:1px solid var(--line); border-radius:2px; padding:20px 22px;
+  background:var(--paper-raised);
+}
+.hub-card:hover{border-color:var(--accent);}
+.hub-card h3{margin:0 0 8px; font-size:17px; color:var(--ink);}
+.hub-card p{margin:0; font-size:14px; color:var(--ink-soft); line-height:1.5;}
