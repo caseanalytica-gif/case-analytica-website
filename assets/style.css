@@ -853,3 +853,13 @@ footer.site-footer nav a{font-size:13.5px; color:var(--ink-soft);}
 .tier-cta{margin:14px 0 0; font-size:14.5px;}
 .tier-cta a{color:var(--accent-ink); font-weight:600; text-decoration:none;}
 .tier-cta a:hover{text-decoration:underline;}
+/* Sits under the opening callout on each borough court guide. Someone who
+   landed on the wrong borough should find the right one before reading on. */
+.borough-switch{
+  font-size:14.5px; color:var(--ink-soft); margin:0 0 22px;
+  padding-left:14px; border-left:2px solid var(--line);
+}
+.court-hub-note{
+  font-size:15px; color:var(--ink-soft); border-left:2px solid var(--accent);
+  padding-left:14px; margin:0 0 24px;
+}
