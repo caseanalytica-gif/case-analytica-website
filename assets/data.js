@@ -312,6 +312,22 @@ const VIDEOS = [
 
 const ARTICLES = [
   {
+    slug: "staten-island-criminal-court-logistics",
+    title: "Staten Island Criminal Court Has No Night Arraignments. Here Is What That Means",
+    category: "Rights & Process",
+    stage: "court",
+    date: "2026-09-19",
+    excerpt: "Every other borough arraigns until 11 p.m. or 1 a.m. Staten Island stops at 5 p.m. on weekdays and 1 p.m. on weekends. An evening arrest there means a night in custody, and the 24-hour rule does not change the courthouse hours."
+  },
+  {
+    slug: "brooklyn-criminal-court-logistics",
+    title: "Brooklyn Criminal Court: Which Train Actually Goes There, and What to Expect",
+    category: "Rights & Process",
+    stage: "court",
+    date: "2026-09-19",
+    excerpt: "Brooklyn Criminal Court is 120 Schermerhorn Street. The court system's own directions tell you to take the M train. The M does not stop there, and the N only runs there late nights. Here is what actually does, plus the hours that matter."
+  },
+  {
     slug: "eec-parole-board-interview-strategy-ny",
     title: "Two Questions on the Record: How an EEC Actually Holds Up in a New York Parole Interview",
     category: "Rights & Process",
