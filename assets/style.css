@@ -298,7 +298,13 @@ section{padding:64px 0;}
 @media (max-width:520px){ .pillar-grid{grid-template-columns:1fr;} }
 .pillar-card{
   background:var(--paper-raised); border:1px solid var(--line); border-radius:2px; padding:22px;
+  /* These are links, not decoration. On a phone each one fills most of the
+     screen, so a card that does nothing when tapped reads as a broken page. */
+  display:block; text-decoration:none; color:inherit;
+  transition:border-color .12s ease;
 }
+.pillar-card:hover,.pillar-card:focus-visible{border-color:var(--accent);}
+.pillar-card h3::after{content:" \2192"; color:var(--accent); font-weight:400;}
 .pillar-card .tag{
   font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; font-size:10.5px; letter-spacing:.08em;
   text-transform:uppercase; color:var(--pillar); background:var(--pillar-soft); display:inline-block;

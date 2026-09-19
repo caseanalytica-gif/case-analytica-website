@@ -405,6 +405,10 @@ function initArticleFilters() {
     '</div><p class="filter-count" id="article-count" aria-live="polite"></p>';
   host.hidden = false;
 
+  // A ?cat= param lets other pages deep-link into a filtered view, which is
+  // how the homepage pillar cards land somewhere useful.
+  const wanted = new URLSearchParams(location.search).get("cat");
+
   const chips = document.getElementById("article-chips");
   const input = document.getElementById("article-search");
   const count = document.getElementById("article-count");
@@ -446,5 +450,14 @@ function initArticleFilters() {
     apply();
   });
   input.addEventListener("input", apply);
+
+  if (wanted) {
+    const match = cats.find(c => c.toLowerCase() === wanted.toLowerCase());
+    if (match) {
+      cat = match;
+      chips.querySelectorAll(".chip").forEach(c =>
+        c.classList.toggle("active", c.dataset.cat === match));
+    }
+  }
   apply();
 }
