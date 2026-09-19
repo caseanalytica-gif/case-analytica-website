@@ -313,6 +313,14 @@ const VIDEOS = [
 
 const ARTICLES = [
   {
+    slug: "manhattan-criminal-court-logistics",
+    title: "Manhattan Criminal Court: Which Building, Which Train, What to Expect",
+    category: "Rights & Process",
+    stage: "court",
+    date: "2026-09-19",
+    excerpt: "Manhattan runs criminal parts out of two buildings four miles apart: 100 Centre Street and the Midtown Community Justice Center on West 54th. Being told the wrong one is how a court date goes wrong before it starts. Plus the subway listing to ignore."
+  },
+  {
     slug: "staten-island-criminal-court-logistics",
     title: "Staten Island Criminal Court Has No Night Arraignments. Here Is What That Means",
     category: "Rights & Process",
