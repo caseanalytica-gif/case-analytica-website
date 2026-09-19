@@ -364,3 +364,87 @@ function initHeroRotator() {
 
   show();
 }
+
+/* ---------------------------------------------------------------------------
+   Article search + category filter (articles.html).
+
+   Works on the DOM, not on the ARTICLES array. The cards are pre-rendered by
+   tools/prerender.py so crawlers see real <a> links, and renderArticleGrid()
+   deliberately leaves that markup alone. Re-rendering here would throw that
+   away, so this shows and hides the cards that are already on the page.
+
+   The controls are injected rather than authored into articles.html: with JS
+   off the container stays hidden and the full grid is still there.
+--------------------------------------------------------------------------- */
+function initArticleFilters() {
+  const host = document.getElementById("article-filter");
+  const grid = document.getElementById("article-grid");
+  if (!host || !grid) return;
+
+  const cards = Array.from(grid.querySelectorAll("a.card"));
+  if (cards.length < 2) return;
+
+  // Category comes off the card itself, so this stays correct even if the
+  // grid is regenerated with different content.
+  const items = cards.map(el => ({
+    el,
+    cat: (el.querySelector(".cat")?.textContent || "").trim(),
+    text: ((el.querySelector("h3")?.textContent || "") + " " +
+           (el.querySelector("p")?.textContent || "")).toLowerCase()
+  }));
+
+  const cats = ["All", ...Array.from(new Set(items.map(i => i.cat).filter(Boolean))).sort()];
+  host.innerHTML =
+    '<label class="sr-only" for="article-search">Search articles</label>' +
+    '<input type="search" id="article-search" autocomplete="off" ' +
+    'placeholder="Search ' + cards.length + ' articles">' +
+    '<div class="chips" id="article-chips">' +
+    cats.map((c, i) =>
+      '<button type="button" class="chip' + (i === 0 ? " active" : "") +
+      '" data-cat="' + escapeHtml(c) + '">' + escapeHtml(c) + "</button>").join("") +
+    '</div><p class="filter-count" id="article-count" aria-live="polite"></p>';
+  host.hidden = false;
+
+  const chips = document.getElementById("article-chips");
+  const input = document.getElementById("article-search");
+  const count = document.getElementById("article-count");
+  let empty = null;
+  let cat = "All";
+
+  function apply() {
+    const q = input.value.trim().toLowerCase();
+    let shown = 0;
+    items.forEach(i => {
+      const ok = (cat === "All" || i.cat === cat) && (!q || i.text.indexOf(q) !== -1);
+      i.el.hidden = !ok;
+      if (ok) shown++;
+    });
+
+    if (!empty) {
+      empty = document.createElement("p");
+      empty.className = "filter-empty";
+      grid.insertAdjacentElement("afterend", empty);
+    }
+    empty.hidden = shown !== 0;
+    if (!shown) {
+      empty.textContent = q
+        ? 'Nothing matches "' + q + '"' + (cat === "All" ? "" : " in " + cat) + ". Try a shorter word, or a different category."
+        : "No articles in " + cat + " yet.";
+    }
+
+    count.textContent = shown === items.length
+      ? "Showing all " + items.length + " articles"
+      : "Showing " + shown + " of " + items.length;
+  }
+
+  chips.addEventListener("click", e => {
+    const btn = e.target.closest(".chip");
+    if (!btn) return;
+    chips.querySelectorAll(".chip").forEach(c => c.classList.remove("active"));
+    btn.classList.add("active");
+    cat = btn.dataset.cat;
+    apply();
+  });
+  input.addEventListener("input", apply);
+  apply();
+}

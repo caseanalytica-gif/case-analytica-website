@@ -736,3 +736,31 @@ footer.site-footer nav a{font-size:13.5px; color:var(--ink-soft);}
   font-family:var(--mono); font-size:11px; letter-spacing:.04em;
   color:var(--ink-soft); margin:8px 0 0;
 }
+
+/* Article search and category filter on articles.html. The controls are built
+   by JS and stay hidden until then, so a reader without JS sees the full
+   pre-rendered grid rather than a row of dead inputs. */
+.article-filter{margin:0 0 22px;}
+.article-filter[hidden]{display:none;}
+#article-search{
+  width:100%; max-width:420px; padding:10px 13px; font-size:15px;
+  font-family:var(--sans); color:var(--ink);
+  background:var(--paper-raised); border:1px solid var(--line); border-radius:2px;
+  margin:0 0 14px;
+}
+#article-search:focus{outline:2px solid var(--accent); outline-offset:1px;}
+#article-search::placeholder{color:var(--ink-soft);}
+.filter-count{
+  font-family:var(--mono); font-size:11px; letter-spacing:.04em;
+  color:var(--ink-soft); margin:4px 0 0;
+}
+.filter-empty{
+  border-left:4px solid var(--line); padding:14px 18px;
+  color:var(--ink-soft); font-size:14.5px; margin:0;
+}
+
+/* Visually hidden, still read by screen readers. */
+.sr-only{
+  position:absolute; width:1px; height:1px; padding:0; margin:-1px;
+  overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
+}
