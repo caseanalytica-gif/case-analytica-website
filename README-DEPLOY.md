@@ -72,6 +72,47 @@ and replace the `href` with your booking link. That single line change updates
 the button everywhere it appears (it's the same button referenced from every
 page's nav).
 
+## Adding the missing security headers (securityheaders.com grade)
+
+The site is hosted on **GitHub Pages** (see `.github/workflows/deploy-pages.yml`
+and the `CNAME` file). GitHub Pages serves static files only — it has no way
+to set custom HTTP response headers, so `Content-Security-Policy`,
+`X-Frame-Options`, `X-Content-Type-Options`, `Referrer-Policy`, and
+`Permissions-Policy` can't be added directly, which is why a scan like
+securityheaders.com grades the site F. This isn't fixable by editing HTML
+(a `<meta>` tag doesn't count for most of these) — it needs something in
+front of GitHub Pages that can inject headers. The fix here: put the domain
+on Cloudflare's free plan and run a small Worker that adds the headers to
+every response, while GitHub Pages keeps serving the actual site unchanged.
+
+The Worker code is already written: `cloudflare/security-headers-worker.js`.
+One-time setup (all done in the Cloudflare/GoDaddy dashboards, ~15-30 min
+including DNS propagation):
+
+1. Sign up free at **cloudflare.com** → **Add a site** → enter `caseanalytica.com`.
+   Choose the **Free** plan. Cloudflare scans the existing DNS records
+   (the `www` CNAME and the apex `A` record) — just confirm them as shown.
+2. Cloudflare gives you two nameservers (something like `xxx.ns.cloudflare.com`).
+   Go to **GoDaddy → DNS Management → Nameservers → Change** and replace the
+   current `ns23`/`ns24.domaincontrol.com` pair with Cloudflare's two.
+   Propagation is usually under an hour, sometimes up to 24h; Cloudflare
+   emails you when the site is active.
+3. In Cloudflare, **DNS** tab: make sure the `www` (and apex, if used) records
+   show the **orange cloud** (Proxied), not grey (DNS only) — the Worker only
+   sees traffic that's proxied through Cloudflare.
+4. **SSL/TLS** tab → set encryption mode to **Full** (not "Flexible" — Flexible
+   causes a redirect loop with GitHub Pages, which already forces HTTPS).
+5. **Workers & Pages → Create → Create Worker**. Name it e.g.
+   `case-analytica-security-headers`, delete the default code, paste in the
+   contents of `cloudflare/security-headers-worker.js`, and **Deploy**.
+6. Back on the Worker's page → **Triggers → Add Route**. Route pattern:
+   `www.caseanalytica.com/*` (add `caseanalytica.com/*` too if the apex domain
+   is also live). Zone: caseanalytica.com.
+7. Re-run the scan at securityheaders.com — should jump from F to A/A+.
+
+Nothing about the GitHub repo, the Actions workflow, or how you publish pages
+changes — Cloudflare just sits in front and stamps headers on the way out.
+
 ## Design system
 
 All colors, type, and spacing live in `assets/style.css` as CSS custom
