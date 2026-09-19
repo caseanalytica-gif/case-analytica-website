@@ -303,8 +303,11 @@ section{padding:64px 0;}
   display:block; text-decoration:none; color:inherit;
   transition:border-color .12s ease;
 }
-.pillar-card:hover,.pillar-card:focus-visible{border-color:var(--accent);}
-.pillar-card h3::after{content:" \2192"; color:var(--accent); font-weight:400;}
+/* Only an anchor gets the affordance. restorative-justice.html uses
+   .pillar-card for three explanatory blocks that are not links, and an arrow
+   on those would promise a tap that does nothing. */
+a.pillar-card:hover,a.pillar-card:focus-visible{border-color:var(--accent);}
+a.pillar-card h3::after{content:" \2192"; color:var(--accent); font-weight:400;}
 .pillar-card .tag{
   font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; font-size:10.5px; letter-spacing:.08em;
   text-transform:uppercase; color:var(--pillar); background:var(--pillar-soft); display:inline-block;
@@ -847,3 +850,6 @@ footer.site-footer nav a{font-size:13.5px; color:var(--ink-soft);}
    article, since a self-hosted card cannot be wrapped in an anchor. */
 .card .body h3 a{color:inherit; text-decoration:none;}
 .card .body h3 a:hover{text-decoration:underline;}
+.tier-cta{margin:14px 0 0; font-size:14.5px;}
+.tier-cta a{color:var(--accent-ink); font-weight:600; text-decoration:none;}
+.tier-cta a:hover{text-decoration:underline;}
