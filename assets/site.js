@@ -13,6 +13,17 @@ function isVideoLive(v) {
   return !!(v.published && (v.videoFile || v.youtubeId));
 }
 
+/* A video entry may name the article that explains it (`article: "<slug>"`).
+   Where it does, the card title links there. That is the only route from a
+   self-hosted video, which cannot be wrapped in an anchor without swallowing
+   the player's own controls. */
+function titleHtml(v) {
+  const t = escapeHtml(v.title);
+  return v.article
+    ? `<a href="articles/${escapeHtml(v.article)}.html">${t}</a>`
+    : t;
+}
+
 function videoCardHtml(v, opts) {
   const compact = !!(opts && opts.compact);
   // Self-hosted video: plays inline, so the card is not a link (no nested controls).
@@ -24,7 +35,7 @@ function videoCardHtml(v, opts) {
                src="${escapeHtml(v.videoFile)}"></video>
         <div class="body">
           <span class="cat">${escapeHtml(v.category)}</span>
-          <h3>${escapeHtml(v.title)}</h3>
+          <h3>${titleHtml(v)}</h3>
           ${compact ? "" : `<p>${escapeHtml(v.description)}</p>`}
         </div>
       </div>`;
@@ -32,16 +43,27 @@ function videoCardHtml(v, opts) {
   const thumb = v.published && v.youtubeId
     ? `<div class="thumb" style="background-image:url('https://i.ytimg.com/vi/${escapeHtml(v.youtubeId)}/hqdefault.jpg')"><span class="fmt-badge">${escapeHtml(v.format)}</span></div>`
     : `<div class="thumb placeholder"><span>COMING SOON</span><span class="fmt-badge">${escapeHtml(v.format)}</span></div>`;
-  const href = v.published && v.youtubeId ? `https://www.youtube.com/watch?v=${escapeHtml(v.youtubeId)}` : "#";
-  const target = v.published && v.youtubeId ? ' target="_blank" rel="noopener"' : "";
-  return `
-    <a class="card${compact ? " card-compact" : ""}" href="${href}"${target} style="text-decoration:none;color:inherit;">
-      ${thumb}
+  const body = `
       <div class="body">
         <span class="cat">${escapeHtml(v.category)}</span>
-        <h3>${escapeHtml(v.title)}</h3>
+        <h3>${titleHtml(v)}</h3>
         ${compact ? "" : `<p>${escapeHtml(v.description)}</p>`}
-      </div>
+      </div>`;
+
+  // An unpublished video is not a link. It used to render href="#", which on a
+  // phone means tapping a card-shaped thing and watching the page jump to the
+  // top. The COMING SOON badge already says what it is.
+  if (!(v.published && v.youtubeId)) {
+    return `
+    <div class="card${compact ? " card-compact" : ""} card-pending">
+      ${thumb}
+      ${body}
+    </div>`;
+  }
+  return `
+    <a class="card${compact ? " card-compact" : ""}" href="https://www.youtube.com/watch?v=${escapeHtml(v.youtubeId)}" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;">
+      ${thumb}
+      ${body}
     </a>`;
 }
 

@@ -838,3 +838,12 @@ footer.site-footer nav a{font-size:13.5px; color:var(--ink-soft);}
 .dir-item h3 a:hover{text-decoration:underline;}
 .dir-item p{margin:0; color:var(--ink-soft); font-size:14.5px; line-height:1.55;}
 .dir-foot{margin:28px 0 0; color:var(--ink-soft); font-size:14.5px;}
+
+/* A video that has not been published yet. It renders as a div rather than a
+   dead href="#", so it must also stop looking tappable. */
+.card-pending{cursor:default;}
+.card-pending .body h3{color:var(--ink-soft);}
+/* The title inside a video card is its own link when the entry names an
+   article, since a self-hosted card cannot be wrapped in an anchor. */
+.card .body h3 a{color:inherit; text-decoration:none;}
+.card .body h3 a:hover{text-decoration:underline;}
