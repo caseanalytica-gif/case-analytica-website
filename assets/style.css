@@ -727,3 +727,12 @@ footer.site-footer nav a{font-size:13.5px; color:var(--ink-soft);}
 .article-sources li{margin:0 0 7px; line-height:1.55;}
 .article-sources a{color:var(--ink);}
 .article-sources .pub{color:var(--ink-soft);}
+
+/* "Reflects law as of <date>" under an article byline. The date is when the
+   article's legal claims were last checked against the statute, which on a
+   piece never rechecked is simply the day it was written. Deliberately plain:
+   it is a disclosure, not a freshness badge. */
+.law-asof{
+  font-family:var(--mono); font-size:11px; letter-spacing:.04em;
+  color:var(--ink-soft); margin:8px 0 0;
+}
