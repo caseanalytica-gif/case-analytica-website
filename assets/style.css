@@ -863,3 +863,21 @@ footer.site-footer nav a{font-size:13.5px; color:var(--ink-soft);}
   font-size:15px; color:var(--ink-soft); border-left:2px solid var(--accent);
   padding-left:14px; margin:0 0 24px;
 }
+/* Citation block on the data page. */
+.cite-block{
+  font-family:var(--mono); font-size:13px; line-height:1.6; color:var(--ink-soft);
+  border-left:2px solid var(--line); padding:10px 14px; margin:0 0 8px;
+}
+/* Rows on the parole data page. Deliberately not a wide table: this has to be
+   readable on a phone, and a seven-column table is not. */
+.d-dl{margin:0 0 26px;}
+.d-dl a{font-family:var(--mono); font-size:12px; letter-spacing:.04em; color:var(--accent-ink);}
+.d-row{border-top:1px solid var(--line); padding:20px 0;}
+.d-measure{margin:0 0 4px; font-size:15px; color:var(--ink); font-weight:600;}
+.d-value{margin:0 0 12px; font-family:var(--display); font-size:30px; line-height:1; color:var(--ink);}
+.d-meta{display:grid; grid-template-columns:max-content 1fr; gap:3px 14px; margin:0; font-size:13.5px;}
+.d-meta dt{font-family:var(--mono); font-size:10.5px; letter-spacing:.07em; text-transform:uppercase; color:var(--ink-soft); padding-top:3px;}
+.d-meta dd{margin:0; color:var(--ink-soft);}
+.d-meta dd a{color:var(--ink);}
+.d-note{margin:10px 0 0; font-size:13.5px; color:var(--ink-soft); border-left:2px solid var(--line); padding-left:12px;}
+.data-pointer{font-size:14.5px; color:var(--ink-soft); border-left:2px solid var(--line); padding-left:14px; margin:0 0 24px;}

@@ -1,0 +1,79 @@
+{
+  "title": "New York Parole Data",
+  "publisher": "Case Analytica",
+  "url": "https://www.caseanalytica.com/parole-data.html",
+  "updated": "2026-09-20",
+  "note": "Every figure is stated as its source states it. Cite the source, not this file.",
+  "rows": [
+    {
+      "measure": "Parole board less likely to release a person of color than a white person",
+      "value": "33%",
+      "period": "2022 to March 2025",
+      "population": "New York State, all parole release decisions",
+      "source": "Center on Race, Inequality, and the Law at NYU, reported by WAER",
+      "url": "https://www.waer.org/2025-05-28/report-finds-worsening-racial-disparities-in-new-york-parole-process",
+      "retrieved": "2026-09-20",
+      "note": "A ratio, not a percentage-point difference. The two are separate measures and are listed separately below."
+    },
+    {
+      "measure": "Gap in release rate between people of color and white applicants",
+      "value": "32 percentage points",
+      "period": "2022 to 2025",
+      "population": "New York State, all parole release decisions",
+      "source": "Center on Race, Inequality, and the Law at NYU, reported by WAER",
+      "url": "https://www.waer.org/2025-05-28/report-finds-worsening-racial-disparities-in-new-york-parole-process",
+      "retrieved": "2026-09-20",
+      "note": "WAER states this as a percentage-point difference, distinct from the 33% ratio above."
+    },
+    {
+      "measure": "Gap in release rate between people of color and white applicants",
+      "value": "19 percentage points",
+      "period": "2016 to 2021",
+      "population": "New York State, all parole release decisions",
+      "source": "Center on Race, Inequality, and the Law at NYU, reported by WAER",
+      "url": "https://www.waer.org/2025-05-28/report-finds-worsening-racial-disparities-in-new-york-parole-process",
+      "retrieved": "2026-09-20",
+      "note": "The earlier window, for comparison with the row above. The report describes 2022 onward as the widest gap since this data began to be collected in 2016."
+    },
+    {
+      "measure": "Medical parole requests received by DOCCS",
+      "value": "1,049",
+      "period": "2020",
+      "population": "New York State prisons",
+      "source": "New York Focus, Victoria Law, April 14 2022",
+      "url": "https://nysfocus.com/2022/04/14/medical-parole-prisons-doccs",
+      "retrieved": "2026-09-20",
+      "note": "The source attributes the rise to Covid-19 in the prison system."
+    },
+    {
+      "measure": "Medical parole requests approved by DOCCS",
+      "value": "18",
+      "period": "2020",
+      "population": "New York State prisons",
+      "source": "New York Focus, Victoria Law, April 14 2022",
+      "url": "https://nysfocus.com/2022/04/14/medical-parole-prisons-doccs",
+      "retrieved": "2026-09-20",
+      "note": "Against 1,049 received in the same year. A DOCCS spokesperson told the outlet many applicants may not have been medically eligible."
+    },
+    {
+      "measure": "Medical parole applications received by DOCCS",
+      "value": "82",
+      "period": "2021",
+      "population": "New York State prisons",
+      "source": "New York Focus, Victoria Law, April 14 2022",
+      "url": "https://nysfocus.com/2022/04/14/medical-parole-prisons-doccs",
+      "retrieved": "2026-09-20",
+      "note": ""
+    },
+    {
+      "measure": "People released on medical parole",
+      "value": "10",
+      "period": "2021",
+      "population": "New York State prisons",
+      "source": "New York Focus, Victoria Law, April 14 2022",
+      "url": "https://nysfocus.com/2022/04/14/medical-parole-prisons-doccs",
+      "retrieved": "2026-09-20",
+      "note": "Of the 82 applications received that year."
+    }
+  ]
+}

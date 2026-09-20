@@ -56,6 +56,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.caseanalytica.com/parole-data.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.caseanalytica.com/stages/index.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

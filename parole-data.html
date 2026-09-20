@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-035TDMG4Y0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-035TDMG4Y0');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16.png">
+<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+<title>New York Parole Data: Methodology and Sources: Case Analytica</title>
+<meta name="description" content="A maintained record of New York parole release, denial and revocation figures, with every number traced to a named public source. Methodology, field definitions and citation format.">
+<link rel="canonical" href="https://www.caseanalytica.com/parole-data.html">
+<link rel="stylesheet" href="assets/style.css?v=20260920a">
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="wrap nav-inner">
+    <a href="index.html" class="wordmark">Case<span>Analytica</span></a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+    <nav class="links">
+      <details class="navgroup">
+        <summary>What we do</summary>
+        <div class="navmenu">
+          <a href="restorative-justice.html">Restorative Justice</a>
+          <a href="articles.html">Articles</a>
+          <a href="stages/index.html">By case stage</a>
+          <a href="videos.html">Videos</a>
+          <a href="case-navigation.html">Case Navigation</a>
+          <a href="help-after-an-arrest-ny.html">Just been arrested</a>
+          <a href="directory.html">Where to get help</a>
+        </div>
+      </details>
+      <a href="about.html" class="current">Who we are</a>
+      <details class="navgroup">
+        <summary>Get involved</summary>
+        <div class="navmenu">
+          <a href="about.html#intake">Book a free intake call</a>
+          <a href="intake-worksheet.html">Case worksheet</a>
+          <a href="guide.html">The free guide</a>
+          <a href="checklist.html">Printable checklist</a>
+          <a href="index.html#donate">Donate</a>
+        </div>
+      </details>
+      <a class="btn" href="about.html#intake">Book a Free Intake Call</a>
+    </nav>
+    <a class="btn btn-donate" href="index.html#donate">Donate</a>
+    <label for="nav-toggle" class="nav-toggle-btn"><span class="nav-toggle-bars" aria-hidden="true">☰</span><span class="nav-toggle-text">Menu</span></label>
+  </div>
+</header>
+
+<a href="guide.html" class="guide-fab" aria-label="Get the free guide">
+  <span class="guide-fab-icon">📘</span>
+  <span class="guide-fab-text">Free Guide</span>
+</a>
+
+<main>
+
+<section style="padding-top:48px;">
+  <div class="narrow">
+    <p class="eyebrow">Data</p>
+    <h1 class="serif" style="font-size:clamp(28px,4vw,38px);margin:0 0 18px;">New York parole data, and how it is kept.</h1>
+    <p style="font-size:17px;color:var(--ink-soft);margin:0 0 12px;">Numbers about parole in New York exist, but they sit scattered across reports, budget testimony and single news stories, each one a sentence inside something else. Nobody can chart them, cite them cleanly, or check this year against last year. This page is an attempt to keep them in one place, with the source attached to every figure.</p>
+    <p class="dir-caveat">This page is being built. The methodology and the field definitions below are settled and are published first on purpose, so that the record is defined before it is filled rather than after. The table is seeded next.</p>
+  </div>
+</section>
+
+<section style="padding-top:0;">
+  <div class="narrow">
+
+    <h2>Why parole</h2>
+    <p>Parole is the point in a New York case where the gap between what the statute says and what happens in the room is widest, and where the least is published. A person can hold an Earned Eligibility Certificate that creates a statutory presumption of release under <a href="https://www.nysenate.gov/legislation/laws/COR/805" target="_blank" rel="noopener">Correction Law 805</a> and still be denied in a twenty minute interview, with a written decision that never explains how the presumption was overcome. That is a measurable thing, and almost nobody measures it.</p>
+    <p>The Vera Institute maintains <a href="https://www.vera.org/new-york-state-parole-release-rates" target="_blank" rel="noopener">New York State parole release rates</a>, which is the closest existing thing to this and is a better source than anything here for statewide release percentages. This page is not trying to duplicate it. It tracks a narrower question: what the Board actually writes down, and whether the reasoning in a denial survives contact with the statute.</p>
+
+    <h2>What counts as a source</h2>
+    <p>Every figure carries a named, public, checkable source. In descending order of preference:</p>
+    <ol>
+      <li><strong>The agency's own published data.</strong> DOCCS, the Board of Parole, DCJS.</li>
+      <li><strong>Sworn testimony or a budget document.</strong> What an agency told the legislature, on the record.</li>
+      <li><strong>A named research institution's published report</strong>, with the report itself linked, not a press summary of it.</li>
+      <li><strong>A named news outlet's reporting</strong>, where the outlet obtained the figure directly.</li>
+      <li><strong>A written Board decision</strong>, quoted, where the person it concerns has agreed to it being used.</li>
+    </ol>
+    <p>What does not qualify: an aggregate with no underlying source, a number repeated between outlets with no origin, an advocacy organisation's figure that cannot be traced to its own published data, and any estimate of mine. If a number cannot be traced, it does not go in the table. It gets noted here as a gap instead, which is more useful than a plausible figure.</p>
+
+    <h2>What each field means</h2>
+    <p>Every row is one figure, not one person and not one hearing.</p>
+    <ul>
+      <li><strong>Measure.</strong> What is being counted, in plain words. "People returned to prison for a technical parole violation," not "revocation volume."</li>
+      <li><strong>Value.</strong> The figure as the source states it. Never rounded, never converted, never recalculated into a different unit.</li>
+      <li><strong>Period.</strong> The span the figure covers, as the source defines it. A calendar year and a fiscal year are different and are not silently merged.</li>
+      <li><strong>Population.</strong> Who is counted. Statewide, a single facility, one offence class, one demographic group. This is the field most often left vague elsewhere and it is where most apples-to-oranges comparisons come from.</li>
+      <li><strong>Source.</strong> The organisation and the document, linked directly to the document.</li>
+      <li><strong>Retrieved.</strong> The date the figure was read from that source. Not the date the source was published.</li>
+      <li><strong>Note.</strong> Any caveat the source itself attaches, carried over rather than dropped. If the source says its own count is provisional, the row says so.</li>
+    </ul>
+
+    <div class="callout">
+      <p class="k">Why "Retrieved" is separate from the publication date</p>
+      <p>Agencies revise figures after publishing them. A number read in March can differ from the same number read in September from the same page. Recording when it was read is what makes a disagreement between two versions traceable instead of confusing.</p>
+    </div>
+
+    <h2>How often this is updated, and what that means</h2>
+    <p>There is no fixed schedule, and claiming one would be the same dishonesty as a review date that nothing stands behind. Each row carries its own Retrieved date and that date is the only promise being made about it. A row read in 2026 and never rechecked says exactly that.</p>
+    <p>This is the same discipline the articles use. See <a href="methodology.html">how these articles are researched and sourced</a> for the reasoning.</p>
+
+    <h2>How to cite this</h2>
+    <p>Cite the underlying source, not this page. Every row links to the document the figure came from, and that document is what belongs in a filing, an article or a brief. This page is an index, and an index is not an authority.</p>
+    <p>If you need to point at the compilation itself, for example to say where you found a set of figures gathered together:</p>
+    <p class="cite-block">Case Analytica, <em>New York Parole Data</em>, caseanalytica.com/parole-data.html, retrieved [date].</p>
+
+    <h2>What this is not</h2>
+    <ul>
+      <li><strong>Not a complete picture of parole in New York.</strong> It holds what has been found and verified, which is less than what exists.</li>
+      <li><strong>Not a prediction.</strong> Nothing here estimates what a Board will do in a particular case.</li>
+      <li><strong>Not legal advice</strong>, and not a substitute for an attorney or an advocate at a hearing.</li>
+      <li><strong>Not anonymised research.</strong> Where a written Board decision is quoted, it is quoted with the agreement of the person it concerns, and identifying detail is kept out unless they have asked otherwise.</li>
+    </ul>
+
+    <h2>The data</h2>
+    <p>Seven figures, each read at its source on the date shown. Every one is stated exactly as the source states it. Where a source gives two different measures of the same thing, both are listed rather than merged.</p>
+    <p class="d-dl"><a href="assets/data/ny-parole-data.json" download>Download the data (JSON)</a></p>
+
+      <div class="d-row">
+        <p class="d-measure">Parole board less likely to release a person of color than a white person</p>
+        <p class="d-value">33%</p>
+        <dl class="d-meta">
+          <dt>Period</dt><dd>2022 to March 2025</dd>
+          <dt>Population</dt><dd>New York State, all parole release decisions</dd>
+          <dt>Source</dt><dd><a href="https://www.waer.org/2025-05-28/report-finds-worsening-racial-disparities-in-new-york-parole-process" target="_blank" rel="noopener">Center on Race, Inequality, and the Law at NYU, reported by WAER</a></dd>
+          <dt>Retrieved</dt><dd>2026-09-20</dd>
+        </dl>
+        <p class="d-note">A ratio, not a percentage-point difference. The two are separate measures and are listed separately below.</p>
+      </div>
+      <div class="d-row">
+        <p class="d-measure">Gap in release rate between people of color and white applicants</p>
+        <p class="d-value">32 percentage points</p>
+        <dl class="d-meta">
+          <dt>Period</dt><dd>2022 to 2025</dd>
+          <dt>Population</dt><dd>New York State, all parole release decisions</dd>
+          <dt>Source</dt><dd><a href="https://www.waer.org/2025-05-28/report-finds-worsening-racial-disparities-in-new-york-parole-process" target="_blank" rel="noopener">Center on Race, Inequality, and the Law at NYU, reported by WAER</a></dd>
+          <dt>Retrieved</dt><dd>2026-09-20</dd>
+        </dl>
+        <p class="d-note">WAER states this as a percentage-point difference, distinct from the 33% ratio above.</p>
+      </div>
+      <div class="d-row">
+        <p class="d-measure">Gap in release rate between people of color and white applicants</p>
+        <p class="d-value">19 percentage points</p>
+        <dl class="d-meta">
+          <dt>Period</dt><dd>2016 to 2021</dd>
+          <dt>Population</dt><dd>New York State, all parole release decisions</dd>
+          <dt>Source</dt><dd><a href="https://www.waer.org/2025-05-28/report-finds-worsening-racial-disparities-in-new-york-parole-process" target="_blank" rel="noopener">Center on Race, Inequality, and the Law at NYU, reported by WAER</a></dd>
+          <dt>Retrieved</dt><dd>2026-09-20</dd>
+        </dl>
+        <p class="d-note">The earlier window, for comparison with the row above. The report describes 2022 onward as the widest gap since this data began to be collected in 2016.</p>
+      </div>
+      <div class="d-row">
+        <p class="d-measure">Medical parole requests received by DOCCS</p>
+        <p class="d-value">1,049</p>
+        <dl class="d-meta">
+          <dt>Period</dt><dd>2020</dd>
+          <dt>Population</dt><dd>New York State prisons</dd>
+          <dt>Source</dt><dd><a href="https://nysfocus.com/2022/04/14/medical-parole-prisons-doccs" target="_blank" rel="noopener">New York Focus, Victoria Law, April 14 2022</a></dd>
+          <dt>Retrieved</dt><dd>2026-09-20</dd>
+        </dl>
+        <p class="d-note">The source attributes the rise to Covid-19 in the prison system.</p>
+      </div>
+      <div class="d-row">
+        <p class="d-measure">Medical parole requests approved by DOCCS</p>
+        <p class="d-value">18</p>
+        <dl class="d-meta">
+          <dt>Period</dt><dd>2020</dd>
+          <dt>Population</dt><dd>New York State prisons</dd>
+          <dt>Source</dt><dd><a href="https://nysfocus.com/2022/04/14/medical-parole-prisons-doccs" target="_blank" rel="noopener">New York Focus, Victoria Law, April 14 2022</a></dd>
+          <dt>Retrieved</dt><dd>2026-09-20</dd>
+        </dl>
+        <p class="d-note">Against 1,049 received in the same year. A DOCCS spokesperson told the outlet many applicants may not have been medically eligible.</p>
+      </div>
+      <div class="d-row">
+        <p class="d-measure">Medical parole applications received by DOCCS</p>
+        <p class="d-value">82</p>
+        <dl class="d-meta">
+          <dt>Period</dt><dd>2021</dd>
+          <dt>Population</dt><dd>New York State prisons</dd>
+          <dt>Source</dt><dd><a href="https://nysfocus.com/2022/04/14/medical-parole-prisons-doccs" target="_blank" rel="noopener">New York Focus, Victoria Law, April 14 2022</a></dd>
+          <dt>Retrieved</dt><dd>2026-09-20</dd>
+        </dl>
+      </div>
+      <div class="d-row">
+        <p class="d-measure">People released on medical parole</p>
+        <p class="d-value">10</p>
+        <dl class="d-meta">
+          <dt>Period</dt><dd>2021</dd>
+          <dt>Population</dt><dd>New York State prisons</dd>
+          <dt>Source</dt><dd><a href="https://nysfocus.com/2022/04/14/medical-parole-prisons-doccs" target="_blank" rel="noopener">New York Focus, Victoria Law, April 14 2022</a></dd>
+          <dt>Retrieved</dt><dd>2026-09-20</dd>
+        </dl>
+        <p class="d-note">Of the 82 applications received that year.</p>
+      </div>
+
+    <h2>Known gaps</h2>
+    <p>Figures that exist in Case Analytica's published articles but are not in the table yet, because they have not been re-read at their original source: technical parole violation returns for 2018 and their share of all parole reincarcerations, the size of the population under active parole supervision, medical parole approval rates for 2013 through 2015, and the racial disparity in New York City jail holds for technical violations. Each is cited in the relevant article. They go in once verified, not before.</p>
+    <p>Corrections are welcome and wanted. If a figure here is wrong, or its source has been revised, say so: <a href="mailto:caseanalytica@gmail.com">caseanalytica@gmail.com</a>.</p>
+
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap foot-grid">
+    <div>
+      <p><strong>Case Analytica</strong>: general information about the New York State justice system, not legal advice for your specific case. Always confirm specifics with a licensed attorney.</p>
+    </div>
+    <div class="foot-right">
+      <div class="donate-group">
+        <a class="donate-btn" href="https://paypal.me/DeanMustaphalli" target="_blank" rel="noopener">♥ Donate</a>
+        <a class="donate-btn" href="https://buy.stripe.com/8x2fZa9NF2paefUd7J6kg00" target="_blank" rel="noopener"> Apple/Google Pay</a>
+        <details class="zelle-pop">
+          <summary>Zelle ▾</summary>
+          <div class="zelle-card">
+            <img src="assets/icons/zelle-qr.png" alt="Zelle QR code" width="200" height="260" loading="lazy">
+            <p>Scan in your banking app, or send to:</p>
+            <button type="button" class="zelle-email-btn" onclick="var b=this,t='dsminsagency@gmail.com';function done(){b.textContent='Copied \u2713';setTimeout(function(){b.textContent=t;},1500);} function fb(){try{var ta=document.createElement('textarea');ta.value=t;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.focus();ta.select();document.execCommand('copy');document.body.removeChild(ta);done();}catch(e){}} if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done).catch(fb);}else{fb();}">dsminsagency@gmail.com</button>
+          </div>
+        </details>
+      </div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="restorative-justice.html">Restorative Justice</a>
+        <a href="videos.html">Videos</a>
+        <a href="articles.html">Articles</a>
+        <a href="case-navigation.html">Case Navigation</a>
+        <a href="guide.html">Guide</a>
+        <a href="about.html">About</a>
+        <a href="methodology.html">Methodology</a>
+        <a href="glossary.html">Glossary</a>
+        <a href="directory.html">Directory</a>
+        <a href="stages/index.html">By stage</a>
+      <a href="https://www.facebook.com/profile.php?id=61593408088467" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://www.tiktok.com/@case.analytica" target="_blank" rel="noopener">TikTok</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/analytics.js"></script>
+</body>
+</html>
