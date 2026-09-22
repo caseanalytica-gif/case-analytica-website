@@ -1,0 +1,5 @@
+Every deadline, every charge, every question from a judge has to pass through an interpreter first if you don't speak English fluently, and New York's own court system has been publicly honest that the interpreter workforce needed to make that happen reliably has been shrinking. Roughly 1.8 million New Yorkers have limited English proficiency and typically need an interpreter in court. Between 2019 and 2025, the state lost 66 staff interpreters in New York City alone, a 27 percent drop. What happens to your case while everyone waits for someone qualified to translate it?
+
+https://www.caseanalytica.com/articles/language-access-ny-courts.html
+
+Note: the bare URL above is intentional, for LinkedIn. Pasting the raw link on its own line lets LinkedIn auto-generate a clickable preview card. Do not attach an image to this LinkedIn post, an uploaded photo can't be a clickable link, only the bare URL creates the card. No graphic was generated for this article (no Canva tool available in this session).
