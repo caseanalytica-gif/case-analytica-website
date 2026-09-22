@@ -837,7 +837,7 @@ footer.site-footer nav a{font-size:13.5px; color:var(--ink-soft);}
 }
 .dir-item{margin:0 0 16px;}
 .dir-item h3{margin:0 0 3px; font-size:16.5px;}
-.dir-item h3 a{color:var(--ink); text-decoration:none;}
+.dir-item h3 a{color:var(--pillar); text-decoration:none;}
 .dir-item h3 a:hover{text-decoration:underline;}
 .dir-item p{margin:0; color:var(--ink-soft); font-size:14.5px; line-height:1.55;}
 .dir-foot{margin:28px 0 0; color:var(--ink-soft); font-size:14.5px;}
