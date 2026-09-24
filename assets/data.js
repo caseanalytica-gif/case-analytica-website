@@ -313,6 +313,14 @@ const VIDEOS = [
 
 const ARTICLES = [
   {
+    slug: "three-doors-one-pattern-custody-deaths-ny",
+    title: "Three Doors, One Pattern: New York Pays for Deaths in Custody After the Door Closes",
+    category: "System",
+    stage: "system",
+    date: "2026-09-24",
+    excerpt: "A 20-year-old's death behind the arraignment door in Queens, a $24 million settlement for Robert Brooks, and a one-hour webinar on housing people instead of holding them. Side by side, they show when New York actually shows up."
+  },
+  {
     slug: "manhattan-criminal-court-logistics",
     title: "Manhattan Criminal Court: Which Building, Which Train, What to Expect",
     category: "Rights & Process",
