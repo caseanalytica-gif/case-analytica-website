@@ -3,7 +3,7 @@
 **Article:** https://www.caseanalytica.com/articles/three-doors-one-pattern-custody-deaths-ny.html
 **Graphic (this is what the link card pulls in — do not upload it):**
 https://www.caseanalytica.com/assets/social/three-doors-one-pattern-custody-deaths-ny-og.png
-(2400x1254, NOT YET LIVE: verify 200 after push)
+(2400x1254, verified live 200 on 2026-09-24)
 **Published:** 2026-09-24
 
 ---
@@ -81,7 +81,7 @@ only if you want it larger in-feed, knowing the image itself won't link.
 https://www.caseanalytica.com/assets/social/three-doors-one-pattern-custody-deaths-ny-og.png
 
 If a preview comes back blank or stale, append ?v=2 to the article URL to force a refetch.
-Verified locally 2026-09-24: image/png, 173662 bytes. Live 200 check pending the push.
+Verified 2026-09-24: og:image returns 200, image/png, 173,662 bytes.
 
 ---
 
