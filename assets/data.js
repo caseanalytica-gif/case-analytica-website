@@ -313,6 +313,14 @@ const VIDEOS = [
 
 const ARTICLES = [
   {
+    slug: "court-ordered-drug-treatment-delay-doccs-ny",
+    title: "A Judge Ordered Him Into Drug Treatment. He Waited 506 Days.",
+    category: "Rights & Process",
+    stage: "sentencing",
+    date: "2026-09-25",
+    excerpt: "New York caps the reception stop at ten days for a court-ordered drug sentence, and Correction Law 867 says a judicially sentenced person shall promptly commence the program. Michael Matzell waited 506 days and won twice in court. The eligibility rule DOCCS still publishes is the one the Legislature replaced in 2009."
+  },
+  {
     slug: "three-doors-one-pattern-custody-deaths-ny",
     title: "Three Doors, One Pattern: New York Pays for Deaths in Custody After the Door Closes",
     category: "System",
