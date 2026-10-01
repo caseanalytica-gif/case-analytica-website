@@ -15,10 +15,18 @@
 <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16.png">
 <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
-<title>Case Analytica: Understanding the NYS Justice System</title>
-<meta name="description" content="Plain-language explainers on the New York State penal system and restorative justice, plus case navigation for families facing it right now.">
+<title>Case Analytica | New York Courts, Prisons and Parole</title>
+<meta name="description" content="Reporting and plain-language guides on New York's criminal courts, prisons, parole and reentry, by Dean Mustaphalli, who served time in a New York state prison.">
 <link rel="stylesheet" href="assets/style.css?v=20260920b">
 <link rel="canonical" href="https://www.caseanalytica.com/">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Case Analytica",
+  "url": "https://www.caseanalytica.com/"
+}
+</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -31,12 +39,64 @@
     "@type": "Person",
     "name": "Dean Mustaphalli"
   },
+  "sameAs": [
+    "https://www.facebook.com/profile.php?id=61593408088467",
+    "https://www.tiktok.com/@case.analytica"
+  ],
   "areaServed": {
     "@type": "State",
     "name": "New York"
   }
 }
 </script>
+<style>
+.fp{padding:28px 0 8px;}
+.fp-mast{display:flex; justify-content:space-between; align-items:baseline; gap:16px; flex-wrap:wrap; border-bottom:2px solid var(--ink); padding-bottom:12px; margin-bottom:28px;}
+.fp .fp-top.hero{padding:8px 0 18px; background:none; color:inherit; overflow:visible;}
+.fp .fp-top.hero::after{display:none;}
+.fp .fp-top h1{font-size:clamp(26px,3.4vw,38px); line-height:1.18; letter-spacing:-.014em; margin:0; max-width:26ch; color:var(--ink);}
+.fp-tag{font-size:15.5px; color:var(--ink-soft); margin:0; max-width:46em;}
+.fp-date{font-size:13.5px; color:var(--ink-soft); white-space:nowrap; margin:0;}
+.fp a{color:inherit; text-decoration:none;}
+.fp a:hover h2,.fp a:hover h3{text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:3px;}
+.fp-kicker{display:block; font-size:12.5px; font-weight:600; color:var(--accent); margin:0 0 6px;}
+.fp-by{font-size:13.5px; color:var(--ink-soft); margin:10px 0 0;}
+.fp-lead{display:grid; grid-template-columns:1.25fr 1fr; gap:28px; align-items:center; padding-bottom:28px; border-bottom:1px solid var(--line);}
+.fp-lead img{width:100%; height:auto; display:block; border-radius:4px; border:1px solid var(--line);}
+.fp-lead h2{font-size:clamp(28px,3.6vw,40px); line-height:1.1; margin:0;}
+.fp-lead .fp-dek{font-size:18px; line-height:1.5; color:var(--ink-soft); margin:14px 0 0;}
+.fp-row{display:grid; grid-template-columns:repeat(3,1fr); gap:0; padding:24px 0; border-bottom:1px solid var(--line);}
+.fp-row article{padding:0 24px; border-left:1px solid var(--line);}
+.fp-row article:first-child{padding-left:0; border-left:0;}
+.fp-row img{width:100%; height:auto; display:block; border-radius:4px; border:1px solid var(--line); margin-bottom:12px;}
+.fp-row h3{font-size:20px; line-height:1.2; margin:0;}
+.fp-row .fp-dek{font-size:15px; line-height:1.5; color:var(--ink-soft); margin:8px 0 0;}
+.fp-cols{display:grid; grid-template-columns:2fr 1fr; gap:40px; padding:28px 0 12px;}
+.fp-label{font-size:13px; font-weight:700; letter-spacing:.02em; margin:0 0 8px; padding-bottom:8px; border-bottom:1px solid var(--ink);}
+.fp-list{list-style:none; margin:0; padding:0;}
+.fp-list li{padding:14px 0; border-bottom:1px solid var(--line);}
+.fp-list h3{font-size:18px; line-height:1.3; margin:0;}
+.fp-list .fp-by{margin-top:4px;}
+.fp-more{margin:16px 0 0; font-size:15px;}
+.fp-more a{color:var(--accent); text-decoration:underline;}
+.fp-start{border:1px solid var(--line); background:var(--paper-raised); border-radius:6px; padding:20px;}
+.fp-start h2{font-size:20px; line-height:1.25; margin:0 0 6px;}
+.fp-start p{margin:0 0 10px; color:var(--ink-soft); font-size:15px;}
+.fp-start ol{margin:0; padding-left:20px;}
+.fp-start li{margin:8px 0; font-size:15.5px;}
+.fp-start li a{color:var(--accent); text-decoration:underline;}
+.fp-who{padding:28px 0; border-top:1px solid var(--line); margin-top:16px;}
+.fp-who .who-grid p{color:var(--ink-soft);}
+.fp-who a{color:var(--accent);}
+.fp-support{padding:20px 0 40px; display:flex; gap:12px 20px; align-items:center; flex-wrap:wrap;}
+.fp-support p{margin:0; color:var(--ink-soft); flex-basis:100%;}
+@media (max-width:820px){
+  .fp-lead,.fp-cols{grid-template-columns:1fr;}
+  .fp-row{grid-template-columns:1fr; gap:20px;}
+  .fp-row article{padding:0; border-left:0;}
+  .fp-lead > a:last-child{order:-1;}
+}
+</style>
 </head>
 <body>
 
@@ -75,23 +135,10 @@
   </div>
 </header>
 
-<a href="guide.html" class="guide-fab" aria-label="Get the free guide">
-  <span class="guide-fab-icon">📘</span>
-  <span class="guide-fab-text">Free Guide</span>
-</a>
-
-<main>
-
-<section class="hero">
-  <div class="wrap">
-    <p class="eyebrow">New York State · Restorative Justice · Justice System</p>
-    <h1 class="serif hero-rotator hero-cc"><span class="rot-line">How to <span class="cc-key">find your loved one</span> if they are taken away.</span></h1>
-    <!-- Decorative additional headlines. The <h1> above is the real one; these
-         are cloned in by initHeroRotator() and marked aria-hidden. Edit freely,
-         add or remove <span class="rot-line"> entries -- the rotator sizes
-         itself to whichever phrase is tallest. Wrap the part of each sentence
-         that matters most in <span class="cc-key">: the words arrive one at a
-         time like a caption, then the rule is drawn under that phrase. -->
+<main class="fp">
+<div class="wrap">
+  <div class="fp-top hero">
+    <h1 class="serif hero-rotator fp-rot"><span class="rot-line">How to <span class="cc-key">find your loved one</span> if they are taken away.</span></h1>
     <template id="hero-rotator-lines">
       <span class="rot-line">How to <span class="cc-key">request a welfare check</span>.</span>
       <span class="rot-line">Should you ever <span class="cc-key">call the prison</span>?</span>
@@ -110,118 +157,67 @@
       <span class="rot-line">Are your letters <span class="cc-key">read before they reach</span> your loved one?</span>
       <span class="rot-line">Is prison <span class="cc-key">as bad as it is depicted</span> in the movies?</span>
     </template>
-    <p class="lede">Diversion and restorative justice are real options in New York, and nobody offers them unless someone asks. This is what families don't get told at arraignment, in plain language, for anyone reading it at 2am because someone they love is in it right now.</p>
-    <div class="cta-row">
-      <a class="btn" href="restorative-justice.html">Read this first: restorative justice options</a>
-      <a class="btn btn-outline" href="about.html#intake">Book a free intake call</a>
-    </div>
-    <p class="hero-more"><a href="help-after-an-arrest-ny.html">Just been arrested, or is someone you love in it right now? Start here →</a></p>
   </div>
-</section>
+  <div class="fp-mast">
+    <p class="fp-tag">Reporting on New York's criminal courts, prisons and parole, for the families dealing with them.</p>
+    <p class="fp-date" id="fp-date"></p>
+  </div>
 
-<section id="who-we-are">
-  <div class="wrap">
-    <div class="section-head">
-      <p class="eyebrow">Who we are</p>
-      <h2 class="serif">Everyone arrested deserves to know restorative justice is on the table, not just whoever thinks to ask.</h2>
-    </div>
+  <!-- prerender:front:begin -->
+  <article class="fp-lead">
+    <a href="articles/court-ordered-drug-treatment-delay-doccs-ny.html"><span class="fp-kicker">Rights &amp; Process</span><h2 class="serif">A Judge Ordered Him Into Drug Treatment. He Waited 506 Days.</h2><p class="fp-dek">New York law gives the prison system ten days to move someone into a court-ordered drug program. When it takes longer, a lawsuit is the only thing that reliably fixes it.</p><p class="fp-by">By Dean Mustaphalli &middot; Sep 25, 2026</p></a>
+    <a href="articles/court-ordered-drug-treatment-delay-doccs-ny.html" tabindex="-1" aria-hidden="true"><img src="assets/social/court-ordered-drug-treatment-delay-doccs-ny-og.png" alt="" width="2400" height="1254"></a>
+  </article>
+
+  <div class="fp-row">
+    <article><a href="articles/three-doors-one-pattern-custody-deaths-ny.html"><span class="fp-kicker">System</span><h3>Three Doors, One Pattern: New York Pays for Deaths in Custody After the Door Closes</h3><p class="fp-dek">A 20-year-old&#x27;s death behind the arraignment door in Queens, a $24 million settlement for Robert Brooks, and a one-hour webinar on housing people instead of holding them. Side by side, they show when New York actually shows up.</p><p class="fp-by">Sep 24, 2026</p></a></article>
+    <article><a href="articles/manhattan-criminal-court-logistics.html"><span class="fp-kicker">Rights &amp; Process</span><h3>Manhattan Criminal Court: Which Building, Which Train, What to Expect</h3><p class="fp-dek">Manhattan Criminal Court is 100 Centre Street, but the court system also runs Midtown Community Justice Center on West 54th. Four miles apart. Here is how to be sure which one your date is at.</p><p class="fp-by">Sep 19, 2026</p></a></article>
+    <article><a href="articles/staten-island-criminal-court-logistics.html"><span class="fp-kicker">Rights &amp; Process</span><h3>Staten Island Criminal Court Has No Night Arraignments. Here Is What That Means</h3><p class="fp-dek">Every other borough arraigns until 11 p.m. or 1 a.m. Staten Island stops at 5 p.m. on weekdays and 1 p.m. on weekends. An evening arrest means a night in custody.</p><p class="fp-by">Sep 19, 2026</p></a></article>
+  </div>
+  <!-- prerender:front:end -->
+
+  <div class="fp-cols">
+    <section>
+      <h2 class="fp-label">More stories</h2>
+      <ul class="fp-list"><!-- prerender:front-more:begin -->
+        <li><a href="articles/brooklyn-criminal-court-logistics.html"><span class="fp-kicker">Rights &amp; Process</span><h3 class="serif">Brooklyn Criminal Court: Which Train Actually Goes There, and What to Expect</h3><p class="fp-by">Sep 19, 2026</p></a></li>
+        <li><a href="articles/eec-parole-board-interview-strategy-ny.html"><span class="fp-kicker">Rights &amp; Process</span><h3 class="serif">Two Questions on the Record: How an EEC Actually Holds Up in a New York Parole Interview</h3><p class="fp-by">Sep 15, 2026</p></a></li>
+        <li><a href="articles/queens-car-meetup-riot-unlawful-assembly-ny.html"><span class="fp-kicker">Rights &amp; Process</span><h3 class="serif">A Queens Car Meetup Ended in a Ring of Fire. One Driver Now Faces Up to Seven Years</h3><p class="fp-by">Sep 14, 2026</p></a></li>
+        <li><a href="articles/three-cases-one-pattern.html"><span class="fp-kicker">System</span><h3 class="serif">Three Cases, One Pattern: What the Clancy Trial Reveals About Who Gets Believed</h3><p class="fp-by">Sep 12, 2026</p></a></li>
+        <li><a href="articles/parole-board-racial-disparity-release-rates-ny.html"><span class="fp-kicker">Rights &amp; Process</span><h3 class="serif">New York&#x27;s Parole Board Is 33% Less Likely to Release a Person of Color: The Data Behind the Gap</h3><p class="fp-by">Sep 2, 2026</p></a></li>
+        <li><a href="articles/clean-slate-coalition-implementation-advocacy-gap-ny.html"><span class="fp-kicker">System</span><h3 class="serif">The Coalition That Won Clean Slate Isn&#x27;t Publicly Fighting to Finish It</h3><p class="fp-by">Sep 4, 2026</p></a></li>
+        <!-- prerender:front-more:end --></ul>
+      <p class="fp-more"><a href="articles.html">All articles</a></p>
+    </section>
+    <aside>
+      <div class="fp-start">
+        <h2 class="serif">If someone in your family was just arrested</h2>
+        <p>Read these three pages first.</p>
+        <ol>
+          <li><a href="help-after-an-arrest-ny.html">What happens in the first 24 hours</a></li>
+          <li><a href="stages/index.html">The stages of a case, from arrest to parole</a></li>
+          <li><a href="checklist.html">A printable list of questions to ask the lawyer</a></li>
+        </ol>
+      </div>
+    </aside>
+  </div>
+
+  <section class="fp-who">
+    <h2 class="fp-label">Who writes this</h2>
     <div class="who-grid">
       <p>Case Analytica is Dean Mustaphalli. Before any of this, I spent years in finance, working at a top-tier Wall Street firm and later running my own investment fund. That career ended with a felony conviction, and I served time in New York State prison.</p>
       <p>While I was incarcerated, I ran a transition program: helping other men get through their programs, prepare for parole board hearings, and work on their appeals in the law library. I won my own parole board appeal and came home in December 2023. Everything on this site comes from that experience: not a law degree, but years spent on the inside of a system most people only ever read about.</p>
     </div>
-    <p style="margin-top:22px;"><a href="about.html">Read the longer version, and what this is not &rarr;</a></p>
-  </div>
-</section>
+    <p style="margin-top:14px;"><a href="about.html">Read the longer version, and what this is not &rarr;</a></p>
+  </section>
 
-<section id="what-we-do">
-  <div class="wrap">
-    <div class="section-head">
-      <p class="eyebrow">What we do</p>
-      <h2 class="serif">You can't negotiate for an option nobody told you existed.</h2>
-      <p>Restorative justice, victim-offender dialogue, and diversion programs can resolve a case without a standard conviction, but only if someone asks for them before a plea is entered. Don't just trust your lawyer to remember. Know the exact questions to ask.</p>
-    </div>
-    <div class="pillar-grid">
-      <a class="pillar-card" style="border-color:var(--pillar);" href="restorative-justice.html">
-        <span class="tag">Restorative Justice</span>
-        <h3>The alternatives most people never hear about</h3>
-        <p>Diversion programs, victim-offender dialogue, and community-based alternatives actually running in NY courts, and the exact questions to ask so they don't get missed.</p>
-      </a>
-      <a class="pillar-card" href="stages/index.html">
-        <span class="tag">Rights &amp; Process</span>
-        <h3>What to do when</h3>
-        <p>From the first 24 hours after an arrest to prepping for a parole hearing: practical, step-by-step guidance.</p>
-      </a>
-      <a class="pillar-card" href="articles.html?cat=System">
-        <span class="tag">System</span>
-        <h3>How the process works</h3>
-        <p>Bail reform, discovery, the Clean Slate Act, Raise the Age: the specific NYS rules, explained without jargon.</p>
-      </a>
-      <a class="pillar-card" href="articles.html?cat=Political%20%2F%20News">
-        <span class="tag">Political / News</span>
-        <h3>The NYS angle on the headlines</h3>
-        <p>When national news breaks, here's what it actually means if it touches someone in New York.</p>
-      </a>
-    </div>
-    <p style="margin-top:24px;"><a class="btn" href="restorative-justice.html">See the questions to ask your attorney →</a></p>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="section-head">
-      <h2 class="serif">Latest videos</h2>
-      <p>New explainers post several times a week.</p>
-    </div>
-    <div class="card-grid" id="home-video-grid"></div>
-    <details class="coming-soon" id="home-video-upcoming" hidden></details>
-    <p style="margin-top:20px;"><a href="videos.html">See all videos →</a></p>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="section-head">
-      <h2 class="serif">Latest articles</h2>
-      <p>The longer, written version of the same explainers, good for sharing or re-reading.</p>
-    </div>
-    <div class="card-grid" id="home-article-grid" data-prerendered="1"><!-- prerender:begin --><a class="card card-compact" href="articles/court-ordered-drug-treatment-delay-doccs-ny.html" style="text-decoration:none;color:inherit;"><div class="body"><span class="cat">Rights &amp; Process</span><h3>A Judge Ordered Him Into Drug Treatment. He Waited 506 Days.</h3><span class="meta">2026-09-25</span></div></a><a class="card card-compact" href="articles/three-doors-one-pattern-custody-deaths-ny.html" style="text-decoration:none;color:inherit;"><div class="body"><span class="cat">System</span><h3>Three Doors, One Pattern: New York Pays for Deaths in Custody After the Door Closes</h3><span class="meta">2026-09-24</span></div></a><a class="card card-compact" href="articles/manhattan-criminal-court-logistics.html" style="text-decoration:none;color:inherit;"><div class="body"><span class="cat">Rights &amp; Process</span><h3>Manhattan Criminal Court: Which Building, Which Train, What to Expect</h3><span class="meta">2026-09-19</span></div></a><!-- prerender:end --></div>
-    <p style="margin-top:20px;"><a href="articles.html">Read all articles →</a> &nbsp;·&nbsp; <a href="checklist.html">Get the printable question checklist →</a></p>
-  </div>
-</section>
-
-<section id="get-involved">
-  <div class="wrap">
-    <div class="section-head">
-      <p class="eyebrow">Get involved</p>
-      <h2 class="serif">Learn it. Ask for it. Help keep it free.</h2>
-      <p>Three ways in, depending on where you are right now.</p>
-    </div>
-
-    <div class="involve-grid">
-      <div class="involve-card">
-        <h3 class="serif">Facing a case right now?</h3>
-        <p>The videos are free education. If you or someone you love needs help figuring out what's actually happening with a case, book a free intake call and we'll help you map out next steps.</p>
-        <p class="involve-do"><a class="btn" href="about.html#intake">Book a free intake call</a></p>
-      </div>
-      <div class="involve-card">
-        <h3 class="serif">Want to be ready before the next court date?</h3>
-        <p>The guide and the printable checklist carry the exact questions to ask an attorney, in order, by case stage. Free, no email required, made to be handed to someone else.</p>
-        <p class="involve-do"><a class="btn btn-outline" href="guide.html">Get the free guide</a> <a class="btn btn-outline" href="checklist.html">Get the checklist</a></p>
-      </div>
-      <div class="involve-card" id="donate">
-        <h3 class="serif">Chip in</h3>
-        <p><strong>Everything on this site is free, and always will be.</strong> Articles, videos, the guide, the checklist, none of it is behind a paywall. If Case Analytica has helped you or someone you love, it runs on reader support.</p>
-        <div class="btn-row involve-do">
-          <a class="btn" href="https://paypal.me/DeanMustaphalli" target="_blank" rel="noopener">&hearts; Chip In</a>
-          <a class="btn btn-outline" href="https://buy.stripe.com/8x2fZa9NF2paefUd7J6kg00" target="_blank" rel="noopener">Apple Pay / Google Pay</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
+  <section class="fp-support" id="donate">
+    <p><strong>Everything on this site is free, and always will be.</strong> If Case Analytica has helped you or someone you love, it runs on reader support.</p>
+    <a class="btn" href="https://paypal.me/DeanMustaphalli" target="_blank" rel="noopener">Donate</a>
+    <a class="btn btn-outline" href="https://buy.stripe.com/8x2fZa9NF2paefUd7J6kg00" target="_blank" rel="noopener">Apple Pay / Google Pay</a>
+  </section>
+</div>
 </main>
-
 <footer class="site-footer">
   <div class="wrap foot-grid">
     <div>
@@ -252,16 +248,9 @@
   </div>
 </footer>
 
-<script src="assets/data.js?v=20260925a"></script>
 <script src="assets/site.js?v=20260925a"></script>
-<script>
-  initHeroRotator();
-  // Only videos that are shot and uploaded go on the front page; the rest sit
-  // behind the disclosure underneath.
-  renderVideoGrid("home-video-grid", VIDEOS.filter(isVideoLive).slice(0, 3), { compact: true });
-  renderUpcomingVideos("home-video-upcoming", VIDEOS.filter(v => !isVideoLive(v)));
-  renderArticleGrid("home-article-grid", ARTICLES.slice(0, 3), { compact: true });
-</script>
+<script>initHeroRotator();
+document.getElementById("fp-date").textContent = new Date().toLocaleDateString("en-US", {weekday:"long", month:"long", day:"numeric", year:"numeric", timeZone:"America/New_York"});</script>
 <script src="assets/analytics.js"></script>
 </body>
 </html>

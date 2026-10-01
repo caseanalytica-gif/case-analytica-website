@@ -3,7 +3,7 @@
 
 Reads ARTICLES from assets/data.js (the single source of truth) and writes:
   - articles.html        #article-grid       full card grid
-  - index.html           #home-article-grid  3 compact cards
+  - index.html           front page: lead story, three below, six-headline list
   - articles/<slug>.html related-articles block before </main>
   - sitemap.xml          regenerated from ARTICLES + the static pages
 
@@ -318,6 +318,72 @@ def write_hubs(articles, root, writes):
         if new != doc:
             writes["stages/" + key + ".html"] = new
 
+# --- Front page ---------------------------------------------------------------
+# index.html is laid out like a newspaper front: one lead story, three under it,
+# six more as a headline list. The dek is the article's own meta description,
+# which is shorter than the data.js excerpt and already written to be read cold.
+# Everything outside these two marker pairs is authored.
+FRONT_BEGIN = "<!-- prerender:front:begin -->"
+FRONT_END = "<!-- prerender:front:end -->"
+MORE_BEGIN = "<!-- prerender:front-more:begin -->"
+MORE_END = "<!-- prerender:front-more:end -->"
+
+
+def nice_date(iso):
+    import datetime
+    try:
+        d = datetime.date.fromisoformat(iso)
+    except (TypeError, ValueError):
+        return e(iso)
+    return d.strftime("%b ") + str(d.day) + d.strftime(", %Y")
+
+
+def article_dek(slug, root):
+    path = os.path.join(root, "articles", slug + ".html")
+    with open(path, encoding="utf-8") as fh:
+        m = re.search(r'<meta name="description" content="([^"]*)"', fh.read())
+    return html.unescape(m.group(1)) if m else ""
+
+
+def front_html(live, root):
+    lead, row = live[0], live[1:4]
+    href = lambda a: "articles/%s.html" % e(a["slug"])
+    og = "assets/social/%s-og.png" % lead["slug"]
+    img = ('\n    <a href="%s" tabindex="-1" aria-hidden="true"><img src="%s" alt="" '
+           'width="2400" height="1254"></a>' % (href(lead), e(og))
+           if os.path.exists(os.path.join(root, og)) else "")
+    out = ('\n  <article class="fp-lead">\n    <a href="%s"><span class="fp-kicker">%s</span>'
+           '<h2 class="serif">%s</h2><p class="fp-dek">%s</p>'
+           '<p class="fp-by">By Dean Mustaphalli &middot; %s</p></a>%s\n  </article>\n'
+           % (href(lead), e(lead.get("category")), e(lead["title"]),
+              e(article_dek(lead["slug"], root)), nice_date(lead.get("date")), img))
+    out += '\n  <div class="fp-row">\n'
+    for a in row:
+        out += ('    <article><a href="%s"><span class="fp-kicker">%s</span><h3>%s</h3>'
+                '<p class="fp-dek">%s</p><p class="fp-by">%s</p></a></article>\n'
+                % (href(a), e(a.get("category")), e(a["title"]),
+                   e(article_dek(a["slug"], root)), nice_date(a.get("date"))))
+    return out + "  </div>\n  "
+
+
+def more_html(live):
+    return "".join(
+        '\n        <li><a href="articles/%s.html"><span class="fp-kicker">%s</span>'
+        '<h3 class="serif">%s</h3><p class="fp-by">%s</p></a></li>'
+        % (e(a["slug"]), e(a.get("category")), e(a["title"]), nice_date(a.get("date")))
+        for a in live[4:10]) + "\n        "
+
+
+def write_front(doc, live, root):
+    for begin, end, inner in ((FRONT_BEGIN, FRONT_END, front_html(live, root)),
+                              (MORE_BEGIN, MORE_END, more_html(live))):
+        if begin not in doc:
+            raise SystemExit("prerender: index.html is missing %s" % begin)
+        doc = re.sub(re.escape(begin) + r".*?" + re.escape(end),
+                     lambda _: begin + inner + end, doc, count=1, flags=re.S)
+    return doc
+
+
 def main():
     check = "--check" in sys.argv
     os.chdir(ROOT)
@@ -350,9 +416,7 @@ def main():
             lambda _: body, cdoc, count=1, flags=re.S)
 
     doc = open("index.html", encoding="utf-8").read()
-    writes["index.html"] = fill_container(
-        doc, "home-article-grid",
-        "".join(card_html(a, compact=True) for a in live[:3]))
+    writes["index.html"] = write_front(doc, live, ROOT)
 
     for a in live:
         path = "articles/%s.html" % a["slug"]
