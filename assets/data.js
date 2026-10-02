@@ -313,6 +313,14 @@ const VIDEOS = [
 
 const ARTICLES = [
   {
+    slug: "clean-slate-lost-earnings-20-billion-ny",
+    title: "A New Report Says Old Records Cost New Yorkers $20.9 Billion a Year. New York Already Promised to Fix Most of It.",
+    category: "System",
+    stage: "records",
+    date: "2026-10-02",
+    excerpt: "A national study puts New York's lost earnings from old arrest and conviction records at $20.9 billion a year. Most of it falls on records New York's own laws already cover: arrests sealed under CPL 160.50, and convictions the Clean Slate Act must finish sealing by November 2027."
+  },
+  {
     slug: "court-ordered-drug-treatment-delay-doccs-ny",
     title: "A Judge Ordered Him Into Drug Treatment. He Waited 506 Days.",
     category: "Rights & Process",
