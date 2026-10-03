@@ -3,7 +3,7 @@
 **Article:** https://www.caseanalytica.com/articles/parole-board-file-review-portfolio-ny.html
 **Graphic (this is what the link card pulls in — do not upload it):**
 https://www.caseanalytica.com/assets/social/parole-board-file-review-portfolio-ny-og.png
-(2400x1254, verified live 200 on @@VERIFIED@@)
+(2400x1254, verified live 200 on 2026-10-03)
 **Published:** 2026-10-03
 
 ---
@@ -83,7 +83,7 @@ only if you want it larger in-feed, knowing the image itself won't link.
 https://www.caseanalytica.com/assets/social/parole-board-file-review-portfolio-ny-og.png
 
 If a preview comes back blank or stale, append ?v=2 to the article URL to force a refetch.
-Verified @@VERIFIED@@: og:image returns 200, image/png, @@BYTES@@ bytes.
+Verified 2026-10-03: og:image returns 200, image/png, 163,868 bytes. LinkedInBot and facebookexternalhit both return the og:title, og:url and og:image set.
 
 ---
 
