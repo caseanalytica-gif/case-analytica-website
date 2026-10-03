@@ -313,6 +313,14 @@ const VIDEOS = [
 
 const ARTICLES = [
   {
+    slug: "parole-board-file-review-portfolio-ny",
+    title: "Read the Whole Parole File Before the Board Does",
+    category: "Rights & Process",
+    stage: "parole",
+    date: "2026-10-03",
+    excerpt: "The Parole Board decides from a folder, and most people walk in having seen only part of it. Build the portfolio first, learn every document in the file and its date, put those dates on the record, and know that an appeal is decided on the transcript alone."
+  },
+  {
     slug: "clean-slate-lost-earnings-20-billion-ny",
     title: "A New Report Says Old Records Cost New Yorkers $20.9 Billion a Year. New York Already Promised to Fix Most of It.",
     category: "System",

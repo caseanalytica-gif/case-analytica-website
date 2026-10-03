@@ -41,6 +41,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.caseanalytica.com/parole-file-worksheet.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.caseanalytica.com/methodology.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -119,6 +124,12 @@
     <loc>https://www.caseanalytica.com/stages/system.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.caseanalytica.com/articles/parole-board-file-review-portfolio-ny.html</loc>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.caseanalytica.com/articles/clean-slate-lost-earnings-20-billion-ny.html</loc>
