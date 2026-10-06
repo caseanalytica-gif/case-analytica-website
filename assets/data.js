@@ -313,6 +313,14 @@ const VIDEOS = [
 
 const ARTICLES = [
   {
+    slug: "nyc-jobs-center-city-jobs-criminal-record-ny",
+    title: "The Line for City Jobs Went Down the Block. What Chance Does Someone With a Record Have?",
+    category: "Rights & Process",
+    stage: "records",
+    date: "2026-10-06",
+    excerpt: "A long line formed on opening day at New York City's new jobs center. For a job seeker with a criminal record, the city's fingerprint check comes after the offer, and Clean Slate still hasn't finished sealing old convictions."
+  },
+  {
     slug: "parole-board-file-review-portfolio-ny",
     title: "Read the Whole Parole File Before the Board Does",
     category: "Rights & Process",
