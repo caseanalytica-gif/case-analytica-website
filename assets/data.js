@@ -318,7 +318,7 @@ const ARTICLES = [
     category: "Rights & Process",
     stage: "parole",
     date: "2026-10-03",
-    excerpt: "The Parole Board decides from a folder, and most people walk in having seen only part of it. Build the portfolio first, learn every document in the file and its date, put those dates on the record, and know that an appeal is decided on the transcript alone."
+    excerpt: "The Parole Board decides from a folder. Build the portfolio first, learn every document in the file and its date, and get those dates on the transcript."
   },
   {
     slug: "clean-slate-lost-earnings-20-billion-ny",
