@@ -3,7 +3,7 @@
 **Article:** https://www.caseanalytica.com/articles/nyc-jobs-center-city-jobs-criminal-record-ny.html
 **Graphic (this is what the link card pulls in, do not upload it):**
 https://www.caseanalytica.com/assets/social/nyc-jobs-center-city-jobs-criminal-record-ny-og.png
-(2400x1254, verified live 200 on PENDING)
+(2400x1254, verified live 200 on 2026-10-06)
 **Published:** 2026-10-06
 
 ---
@@ -77,7 +77,7 @@ only if you want it larger in-feed, knowing the image itself won't link.
 https://www.caseanalytica.com/assets/social/nyc-jobs-center-city-jobs-criminal-record-ny-og.png
 
 If a preview comes back blank or stale, append ?v=2 to the article URL to force a refetch.
-Verified PENDING: og:image returns 200, image/png, PENDING bytes.
+Verified 2026-10-06: og:image returns 200, image/png, 164,551 bytes.
 
 ---
 
