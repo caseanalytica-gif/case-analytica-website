@@ -90,7 +90,17 @@
 .fp-who a{color:var(--accent);}
 .fp-support{padding:20px 0 40px; display:flex; gap:12px 20px; align-items:center; flex-wrap:wrap;}
 .fp-support p{margin:0; color:var(--ink-soft); flex-basis:100%;}
+.fp-need{padding:6px 0 26px;}
+.fp-need ul{list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(3,1fr); gap:12px;}
+.fp-need li a{display:block; height:100%; padding:14px 16px; border:1px solid var(--line); border-radius:6px; background:var(--paper-raised);}
+.fp-need li a:hover{border-color:var(--accent);}
+.fp-need strong{display:block; font-size:17px; color:var(--ink);}
+.fp-need span{display:block; font-size:14px; line-height:1.4; color:var(--ink-soft); margin-top:4px;}
 @media (max-width:820px){
+  .fp-need ul{grid-template-columns:1fr 1fr; gap:8px;}
+  .fp-need li a{padding:10px 12px;}
+  .fp-need strong{font-size:16px;}
+  .fp-need span{font-size:13px;}
   .fp-lead,.fp-cols{grid-template-columns:1fr;}
   .fp-row{grid-template-columns:1fr; gap:20px;}
   .fp-row article{padding:0; border-left:0;}
@@ -158,6 +168,17 @@
       <span class="rot-line">Is prison <span class="cc-key">as bad as it is depicted</span> in the movies?</span>
     </template>
   </div>
+  <nav class="fp-need" aria-labelledby="fp-need-h">
+    <h2 class="fp-label" id="fp-need-h">What do you need help with?</h2>
+    <ul>
+      <li><a href="help-after-an-arrest-ny.html"><strong>Arrest</strong><span>What to do in the first 24 hours</span></a></li>
+      <li><a href="directory.html#find-someone"><strong>Find someone</strong><span>State prison and NYC jail lookups</span></a></li>
+      <li><a href="stages/court.html"><strong>Criminal court</strong><span>Getting through a court date</span></a></li>
+      <li><a href="stages/custody.html"><strong>Jail and prison</strong><span>Conditions and what the law allows</span></a></li>
+      <li><a href="stages/parole.html"><strong>Parole</strong><span>Getting out and staying out</span></a></li>
+      <li><a href="stages/records.html"><strong>Criminal records</strong><span>Sealing and Clean Slate</span></a></li>
+    </ul>
+  </nav>
   <div class="fp-mast">
     <p class="fp-tag">Reporting on New York's criminal courts, prisons and parole, for the families dealing with them.</p>
     <p class="fp-date" id="fp-date"></p>
@@ -237,6 +258,7 @@
         <a href="guide.html">Guide</a>
         <a href="about.html">About</a>
         <a href="methodology.html">Methodology</a>
+        <a href="methodology.html#corrections">Corrections</a>
         <a href="glossary.html">Glossary</a>
         <a href="directory.html">Directory</a>
         <a href="parole-data.html">Parole data</a>
