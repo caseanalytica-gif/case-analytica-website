@@ -18,7 +18,11 @@ const CSP = [
   // api.web3forms.com: the case worksheet posts the intake summary there and it
   // is relayed to caseanalytica@gmail.com. Without this the fetch is blocked and
   // the send button fails silently.
-  "connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://www.googletagmanager.com https://api.web3forms.com",
+  // script.google.com + script.googleusercontent.com: the email-list signup on
+  // guide.html and checklist.html posts to the Apps Script web app, which answers
+  // with a 302 to googleusercontent.com. Both hosts are needed or signups fail
+  // with "Could not reach the server".
+  "connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://www.googletagmanager.com https://api.web3forms.com https://script.google.com https://script.googleusercontent.com",
   // YouTube embeds (videos.html, articles), plus the Tally intake form on
   // about.html. Note Tally's own embed *script* stays blocked by script-src
   // above, which is why the form is embedded as a plain iframe, not their
