@@ -404,7 +404,7 @@ var APPEAL_SIGNATURE = ['Dean Mustaphalli', 'Case Analytica'];
 var APPEAL_SPONSOR_LINE = 'Case Analytica is fiscally sponsored by the Alternative Newsweekly Foundation, EIN 30-0100369. All donations are tax-deductible to the extent allowed by law.';
 
 function sendDonationAppealTest() {
-  var me = Session.getEffectiveUser().getEmail();
+  var me = 'caseanalytica@gmail.com';
   sendAppealTo(me);
   console.log('Appeal test sent to ' + me);
 }
@@ -437,7 +437,9 @@ function sendDonationAppeal() {
 }
 
 function sendAppealTo(email) {
-  var unsubUrl = buildUnsubscribeUrl(email);
+  // Run from the editor, getUrl() returns the owner-only /dev link, so point at the live web app.
+  var unsubUrl = 'https://script.google.com/macros/s/AKfycbx-cq6QGDsWt3ooU1gzGRrNVFbCuanJW58KmVP5QK5vVEQ8X4O_JjAoJmfRyEgY_oBxcg/exec' +
+    '?unsubscribe=' + encodeURIComponent(email) + '&sig=' + signEmail(email);
   var html = APPEAL_PARAGRAPHS.map(function (p) { return '<p>' + escapeHtml(p) + '</p>'; }).join('') +
     '<p><a href="' + APPEAL_DONATE_URL + '">' + APPEAL_DONATE_URL + '</a></p>' +
     '<p>' + escapeHtml(APPEAL_AFTER_LINK) + '</p>' +
