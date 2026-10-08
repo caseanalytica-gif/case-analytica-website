@@ -70,3 +70,16 @@ manual dashboard job, never part of a push.
 
 Stage your own paths and hunks. Never `git add -A` here, because the working tree
 usually holds unrelated in-progress edits.
+
+Once the push is live, ping IndexNow (Bing and the other IndexNow engines) with
+what changed:
+
+```bash
+sh tools/indexnow.sh articles/<slug>.html sitemap.xml
+```
+
+Do this for a new article and for an edit to an existing one. 200 or 202 means
+it was accepted. The key file is `295a80b0bac54428a001d9578de1549f.txt` in the
+repo root. Don't delete or rename it, or every ping will fail. Google doesn't use
+IndexNow; its equivalent is Request indexing in Search Console, which allows 10
+requests a day.
