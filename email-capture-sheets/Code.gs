@@ -379,3 +379,82 @@ function htmlPage(message) {
     '<p><a href="https://www.caseanalytica.com">caseanalytica.com</a></p></div>';
   return HtmlService.createHtmlOutput(html);
 }
+
+/* ==========================================================================
+   One-time donation appeal (approved by ANF under 3(c), 2026-10-08)
+   ==========================================================================
+   1) Run sendDonationAppealTest -- it emails only the account that owns
+      this script, so you can read it first.
+   2) Run sendDonationAppeal -- it emails every subscriber once. Each address
+      is logged in an AppealSent tab as it goes, so a second run skips
+      everyone already sent. If Google's daily mail limit stops it partway,
+      run it again tomorrow and it picks up where it left off.
+   ========================================================================== */
+
+var APPEAL_SUBJECT = 'Case Analytica needs your help to keep going';
+var APPEAL_DONATE_URL = 'https://donate.stripe.com/6oU28s2Hg2mggdyet62Ji00';
+var APPEAL_PARAGRAPHS = [
+  "Every article on Case Analytica is free. There's no paywall and no sign-up, and I check every legal claim against the statute itself before it goes up. Since July I've published 78 of them, written for people facing the New York system and the families trying to help.",
+  "I've paid for all of it myself so far. That can't last, and I'm asking for help now.",
+  'My next project: New York law says someone with an Earned Eligibility Certificate "shall be granted parole release" unless the Parole Board makes two specific findings. In six months of 2025, the Board turned down certificate holders 369 times. I want to find out whether it gave the reasons the law requires.',
+  'If this site has helped you or someone you love, please give what you can:'
+];
+var APPEAL_AFTER_LINK = "Any amount helps. If you can't give, forward this to one person who might.";
+var APPEAL_SIGNATURE = ['Dean Mustaphalli', 'Case Analytica'];
+var APPEAL_SPONSOR_LINE = 'Case Analytica is fiscally sponsored by the Alternative Newsweekly Foundation, EIN 30-0100369. All donations are tax-deductible to the extent allowed by law.';
+
+function sendDonationAppealTest() {
+  var me = Session.getEffectiveUser().getEmail();
+  sendAppealTo(me);
+  console.log('Appeal test sent to ' + me);
+}
+
+function sendDonationAppeal() {
+  var sheet = getAppealSentSheet();
+  var done = {};
+  if (sheet.getLastRow() > 1) {
+    sheet.getRange(2, 1, sheet.getLastRow() - 1, 1).getValues().forEach(function (row) {
+      done[(row[0] || '').toString().trim().toLowerCase()] = true;
+    });
+  }
+  var pending = getSubscriberEmails().filter(function (email) { return !done[email]; });
+  var sentCount = 0;
+  for (var i = 0; i < pending.length; i++) {
+    if (MailApp.getRemainingDailyQuota() < 1) {
+      console.log('Daily mail limit reached. Run sendDonationAppeal again tomorrow to finish.');
+      break;
+    }
+    try {
+      sendAppealTo(pending[i]);
+      sheet.appendRow([pending[i], new Date()]);
+      sentCount++;
+    } catch (err) {
+      console.error('Appeal send failed for ' + pending[i] + ': ' + err.message);
+    }
+  }
+  console.log('Appeal: sent ' + sentCount + ', still pending ' + (pending.length - sentCount) +
+    ', already sent before this run ' + Object.keys(done).length + '.');
+}
+
+function sendAppealTo(email) {
+  var unsubUrl = buildUnsubscribeUrl(email);
+  var html = APPEAL_PARAGRAPHS.map(function (p) { return '<p>' + escapeHtml(p) + '</p>'; }).join('') +
+    '<p><a href="' + APPEAL_DONATE_URL + '">' + APPEAL_DONATE_URL + '</a></p>' +
+    '<p>' + escapeHtml(APPEAL_AFTER_LINK) + '</p>' +
+    '<p>' + APPEAL_SIGNATURE.map(escapeHtml).join('<br>') + '</p>' +
+    '<p style="font-size:12px; color:#888;">' + escapeHtml(APPEAL_SPONSOR_LINE) + '</p>' +
+    '<p style="font-size:12px; color:#888;"><a href="' + unsubUrl + '">Unsubscribe</a> from these emails.</p>';
+  var plain = APPEAL_PARAGRAPHS.join('\n\n') + '\n\n' + APPEAL_DONATE_URL + '\n\n' + APPEAL_AFTER_LINK +
+    '\n\n' + APPEAL_SIGNATURE.join('\n') + '\n\n' + APPEAL_SPONSOR_LINE + '\n\nUnsubscribe: ' + unsubUrl;
+  MailApp.sendEmail({ to: email, subject: APPEAL_SUBJECT, body: plain, htmlBody: html, name: DIGEST_FROM_NAME });
+}
+
+function getAppealSentSheet() {
+  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var sheet = ss.getSheetByName('AppealSent');
+  if (!sheet) {
+    sheet = ss.insertSheet('AppealSent');
+    sheet.appendRow(['email', 'sent_at']);
+  }
+  return sheet;
+}
