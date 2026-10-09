@@ -313,6 +313,14 @@ const VIDEOS = [
 
 const ARTICLES = [
   {
+    slug: "nyc-city-job-vacancies-postings-clean-slate-ny",
+    title: "The City Counted 15,530 Empty Jobs. Its Job Board Listed 3,821.",
+    category: "System",
+    stage: "records",
+    date: "2026-10-09",
+    excerpt: "New York City government had 15,530 vacant positions in April. On October 6 its job board listed 3,821. For someone with a conviction record, the law meant to help is unfinished, and the state has not published how many convictions it has sealed."
+  },
+  {
     slug: "ice-shooting-marble-hill-parole-danger-standard-ny",
     title: "The NYS Parole Board Has to Explain in Writing Why Someone Is a Danger. DHS Hasn't Said Why Its ICE Officer Fired Seven Shots in Marble Hill.",
     category: "System",

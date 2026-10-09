@@ -17,6 +17,13 @@ grep -n '—' <file>
 grep -n '!' <file>
 ```
 
+## The focal point leads
+
+Every article puts its focal point in the first paragraph, in the first few lines: the fact that
+matters to the reader with a case, a record or a hearing. A caveat, a definition or a "here is
+what this article covers" paragraph never sits above it. Fix it by moving sentences the draft
+already has, never by adding a fact. For social copy, the hook carries it. (Dean, 2026-10-09.)
+
 ## The patterns to grep for, one at a time
 
 Do not eyeball this. A site-wide scan on 2026-09-20 found seven instances of a banned
