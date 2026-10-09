@@ -678,7 +678,7 @@ const ARTICLES = [
     category: "Rights & Process",
     stage: "parole",
     date: "2026-08-08",
-    excerpt: "Probation ends the case, until it doesn't. CPL 410.70 lets a judge revoke probation and impose the original sentence on a lower burden of proof, with no jury. Here's how the hearing actually works."
+    excerpt: "Probation ends the case, until it doesn't. CPL 410.70 lets a judge revoke probation and resentence you, up to what the original conviction allowed, on a lower burden of proof, with no jury. Here's how the hearing actually works."
   },
   {
     slug: "rikers-island-cost-per-person-ny",
@@ -774,7 +774,7 @@ const ARTICLES = [
     category: "Access to Justice",
     stage: "records",
     date: "2026-08-01",
-    excerpt: "New York doesn't expunge convictions, no matter what that search brings up. Under CPL 160.59, a conviction can be sealed after ten years, but only if you ask, only if it qualifies, and only if the paperwork is filed correctly. Here's what the motion actually requires."
+    excerpt: "New York expunges only certain marijuana convictions, no matter what that search brings up. Under CPL 160.59, other convictions can be sealed after ten years, but only if you ask, only if it qualifies, and only if the paperwork is filed correctly. Here's what the motion actually requires."
   },
   {
     slug: "project-reset-desk-appearance-ticket-ny",
@@ -926,7 +926,7 @@ const ARTICLES = [
     category: "Access to Justice",
     stage: "court",
     date: "2026-07-27",
-    excerpt: "About 1.8 million New Yorkers have limited English proficiency and need a court interpreter. The state's interpreter workforce has shrunk by double digits since 2019."
+    excerpt: "About 1.8 million New York City residents have limited English proficiency. The state's court interpreter workforce has shrunk by double digits since 2019."
   },
   {
     slug: "nyc-restorative-justice-funding-2026",
