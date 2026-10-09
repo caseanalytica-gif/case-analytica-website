@@ -162,6 +162,41 @@ def fill_container(doc, el_id, inner):
     return doc[:m.start()] + open_tag + BEGIN + inner + END + rest
 
 
+# Email signup above Related reading on every article. The handler is
+# assets/signup.js; it posts to the Apps Script list in email-capture-sheets/.
+# Copy went through the writer pass 2026-10-09. The guide email goes out on
+# signup, digests only on mornings a new slug publishes, so "After that" holds.
+SIGNUP_HTML = '''<section class="wrap article-signup" aria-labelledby="article-signup-h">
+  <style>
+    .article-signup{margin:2.5rem auto 0;}
+    .article-signup .box{border:1px solid var(--line);border-left:4px solid var(--accent);background:var(--paper-raised);padding:1.25rem 1.5rem;border-radius:6px;}
+    .article-signup h2{margin:0 0 .4rem;font-family:var(--display);font-size:1.35rem;color:var(--ink);}
+    .article-signup p{margin:0 0 .9rem;color:var(--ink-soft);line-height:1.5;}
+    .article-signup form{display:flex;gap:.5rem;flex-wrap:wrap;}
+    .article-signup input[type=email]{flex:1 1 220px;min-width:0;padding:.65rem .8rem;font:inherit;border:1px solid var(--line);border-radius:4px;background:var(--paper);color:var(--ink);}
+    .article-signup button{padding:.65rem 1.1rem;font:inherit;font-weight:600;border:0;border-radius:4px;background:var(--btn-fill);color:#fff;cursor:pointer;}
+    .article-signup button:disabled{opacity:.6;cursor:default;}
+    .article-signup .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;}
+    .article-signup .signup-status{margin:.6rem 0 0;font-size:.95rem;}
+    .article-signup .signup-status.success{color:var(--pillar);}
+    .article-signup .signup-status.error{color:var(--accent-ink);}
+  </style>
+  <div class="box">
+    <h2 id="article-signup-h">New articles by email</h2>
+    <p>Sign up and we'll email you the free guide, What New York Doesn't Tell You After an Arrest. After that, one email on mornings a new article goes up, never more than one a day. Every email has an unsubscribe link.</p>
+    <form id="article-signup-form" novalidate>
+      <label for="article-signup-email" class="hp">Email address</label>
+      <input id="article-signup-email" type="email" name="email" autocomplete="email" placeholder="you@example.com" aria-label="Email address" required>
+      <span class="hp" aria-hidden="true"><input type="text" name="hp" tabindex="-1" autocomplete="off"></span>
+      <button type="submit">Sign me up</button>
+    </form>
+    <p id="article-signup-status" class="signup-status" role="status" aria-live="polite"></p>
+  </div>
+  <script src="../assets/signup.js" defer></script>
+</section>
+'''
+
+
 def related_block(a, articles, n=3):
     # Walk the list from this article toward older ones, wrapping to the newest,
     # and prefer the same stage, then the same category. Taking "the newest three
@@ -179,10 +214,10 @@ def related_block(a, articles, n=3):
     if not picks:
         return ""
     cards = "".join(card_html(x, prefix="../", compact=True) for x in picks)
-    return ('\n%s\n<section class="wrap related-articles">\n'
+    return ('\n%s\n%s<section class="wrap related-articles">\n'
             '  <h2>Related reading</h2>\n'
             '  <div class="card-grid">%s</div>\n'
-            '</section>\n%s\n' % (BEGIN, cards, END))
+            '</section>\n%s\n' % (BEGIN, SIGNUP_HTML, cards, END))
 
 
 def replace_region(doc, new):

@@ -234,6 +234,34 @@
 </section>
 
 <!-- prerender:begin -->
+<section class="wrap article-signup" aria-labelledby="article-signup-h">
+  <style>
+    .article-signup{margin:2.5rem auto 0;}
+    .article-signup .box{border:1px solid var(--line);border-left:4px solid var(--accent);background:var(--paper-raised);padding:1.25rem 1.5rem;border-radius:6px;}
+    .article-signup h2{margin:0 0 .4rem;font-family:var(--display);font-size:1.35rem;color:var(--ink);}
+    .article-signup p{margin:0 0 .9rem;color:var(--ink-soft);line-height:1.5;}
+    .article-signup form{display:flex;gap:.5rem;flex-wrap:wrap;}
+    .article-signup input[type=email]{flex:1 1 220px;min-width:0;padding:.65rem .8rem;font:inherit;border:1px solid var(--line);border-radius:4px;background:var(--paper);color:var(--ink);}
+    .article-signup button{padding:.65rem 1.1rem;font:inherit;font-weight:600;border:0;border-radius:4px;background:var(--btn-fill);color:#fff;cursor:pointer;}
+    .article-signup button:disabled{opacity:.6;cursor:default;}
+    .article-signup .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;}
+    .article-signup .signup-status{margin:.6rem 0 0;font-size:.95rem;}
+    .article-signup .signup-status.success{color:var(--pillar);}
+    .article-signup .signup-status.error{color:var(--accent-ink);}
+  </style>
+  <div class="box">
+    <h2 id="article-signup-h">New articles by email</h2>
+    <p>Sign up and we'll email you the free guide, What New York Doesn't Tell You After an Arrest. After that, one email on mornings a new article goes up, never more than one a day. Every email has an unsubscribe link.</p>
+    <form id="article-signup-form" novalidate>
+      <label for="article-signup-email" class="hp">Email address</label>
+      <input id="article-signup-email" type="email" name="email" autocomplete="email" placeholder="you@example.com" aria-label="Email address" required>
+      <span class="hp" aria-hidden="true"><input type="text" name="hp" tabindex="-1" autocomplete="off"></span>
+      <button type="submit">Sign me up</button>
+    </form>
+    <p id="article-signup-status" class="signup-status" role="status" aria-live="polite"></p>
+  </div>
+  <script src="../assets/signup.js" defer></script>
+</section>
 <section class="wrap related-articles">
   <h2>Related reading</h2>
   <div class="card-grid"><a class="card card-compact" href="../articles/jesus-acosta-murder-arrest-process-ny.html" style="text-decoration:none;color:inherit;"><div class="thumb thumb-figure has-photo"><img class="thumb-photo-img" src="../assets/social/thumbs/jesus-acosta-murder-arrest-process-ny.jpg" data-fallbacks="" alt="" loading="lazy" decoding="async"></div><div class="body"><span class="cat">Rights &amp; Process</span><h3>What Happens After a Murder Arrest in New York: The Jesus Acosta Case and the Limits of Diversion</h3><span class="meta">2026-09-01</span></div></a><a class="card card-compact" href="../articles/queens-chain-snatching-arrest-process-ny.html" style="text-decoration:none;color:inherit;"><div class="thumb thumb-figure has-photo"><img class="thumb-photo-img" src="../assets/social/thumbs/queens-chain-snatching-arrest-process-ny.jpg" data-fallbacks="" alt="" loading="lazy" decoding="async"></div><div class="body"><span class="cat">Rights &amp; Process</span><h3>What Happens After an Arrest in NYC: A Queens Chain-Snatching Case Shows the Timeline From Custody to Arraignment</h3><span class="meta">2026-08-21</span></div></a><a class="card card-compact" href="../articles/extreme-risk-protection-order-ny-explained.html" style="text-decoration:none;color:inherit;"><div class="thumb thumb-figure has-photo"><img class="thumb-photo-img" src="../assets/social/thumbs/extreme-risk-protection-order-ny-explained.jpg" data-fallbacks="" alt="" loading="lazy" decoding="async"></div><div class="body"><span class="cat">Rights &amp; Process</span><h3>New York Can Take Your Guns Without a Criminal Charge: The Red Flag Law Explained</h3><span class="meta">2026-08-15</span></div></a></div>
