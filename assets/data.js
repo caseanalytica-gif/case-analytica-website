@@ -313,6 +313,14 @@ const VIDEOS = [
 
 const ARTICLES = [
   {
+    slug: "ice-shooting-marble-hill-parole-danger-standard-ny",
+    title: "The NYS Parole Board Has to Explain in Writing Why Someone Is a Danger. DHS Hasn't Said Why Its ICE Officer Fired Seven Shots in Marble Hill.",
+    category: "System",
+    stage: "parole",
+    date: "2026-10-09",
+    excerpt: "An ICE officer fired seven rounds at a car with a 5-year-old in the back seat. New York makes the Parole Board put its finding of danger in writing, in detail, and open to appeal. Here is the standard for the shooting, and who can review it."
+  },
+  {
     slug: "nyc-jobs-center-city-jobs-criminal-record-ny",
     title: "The Line for City Jobs Went Down the Block. What Chance Does Someone With a Record Have?",
     category: "Rights & Process",
