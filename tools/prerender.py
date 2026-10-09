@@ -163,11 +163,19 @@ def fill_container(doc, el_id, inner):
 
 
 def related_block(a, articles, n=3):
-    same = [x for x in articles
-            if x["slug"] != a["slug"] and x.get("category") == a.get("category")]
-    rest = [x for x in articles
-            if x["slug"] != a["slug"] and x not in same]
-    picks = (same + rest)[:n]
+    # Walk the list from this article toward older ones, wrapping to the newest,
+    # and prefer the same stage, then the same category. Taking "the newest three
+    # in the category" instead sent every link to a few recent pieces and left
+    # 64 of 80 articles with no Related reading link pointing at them (2026-10-09).
+    i = articles.index(a)
+    ring = articles[i + 1:] + articles[:i]
+    picks = []
+    for pool in ([x for x in ring if x.get("stage") == a.get("stage")],
+                 [x for x in ring if x.get("category") == a.get("category")],
+                 ring):
+        for x in pool:
+            if x not in picks and len(picks) < n:
+                picks.append(x)
     if not picks:
         return ""
     cards = "".join(card_html(x, prefix="../", compact=True) for x in picks)
@@ -423,6 +431,8 @@ def main():
     for a in live:
         path = "articles/%s.html" % a["slug"]
         doc = open(path, encoding="utf-8").read()
+        if re.search(r'<meta name="robots" content="[^"]*noindex', doc):
+            raise SystemExit("prerender: %s still has the template's noindex line" % path)
         block = related_block(a, live)
         new = replace_region(doc, block)
         if new is None:

@@ -46,7 +46,7 @@ nothing else to touch.
 
 1. Duplicate `articles/template.html`, rename it to a short slug
    (e.g. `articles/bail-reform-explained.html` — no spaces, all lowercase).
-2. Fill in the bracketed placeholders and write the body.
+2. Fill in the bracketed placeholders, delete the `noindex` line, and write the body.
 3. Open `assets/data.js`, add one object to the `ARTICLES` array with a
    matching `slug` (same name, no `.html`).
 4. Add one `<url>` entry to `sitemap.xml` (copy an existing one, swap the
