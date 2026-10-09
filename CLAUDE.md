@@ -68,8 +68,17 @@ from `.github/workflows/deploy-pages.yml`, usually live inside a minute.
 Cloudflare sits in front for security headers; DNS and TLS are a separate
 manual dashboard job, never part of a push.
 
+The workflow publishes a filtered copy, not the whole repo: every `.md` file,
+`social/`, `video-scripts/`, `linkedin-posts/`, `tools/`, `cloudflare/` and
+`email-capture-sheets/` stay in git but are not served. A new internal folder
+needs adding to the exclude list in `deploy-pages.yml`.
+
 Stage your own paths and hunks. Never `git add -A` here, because the working tree
 usually holds unrelated in-progress edits.
+
+No tool attribution in commits or PRs: no `Co-Authored-By` trailer, no
+"Generated with" line in a PR body, and no tool name as a branch prefix
+(Dean, 2026-10-09).
 
 Once the push is live, ping IndexNow (Bing and the other IndexNow engines) with
 what changed:
