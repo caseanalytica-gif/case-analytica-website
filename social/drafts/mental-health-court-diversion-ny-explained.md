@@ -3,7 +3,7 @@
 **Article:** https://www.caseanalytica.com/articles/mental-health-court-diversion-ny-explained.html
 **Graphic (this is what the link card pulls in, do not upload it):**
 https://www.caseanalytica.com/assets/social/mental-health-court-diversion-ny-explained-og.png
-(2400x1254, verified live 200 on VERIFY_DATE)
+(2400x1254, verified live 200 on 2026-10-10)
 **Published:** 2026-10-10
 
 ---
@@ -77,7 +77,7 @@ only if you want it larger in-feed, knowing the image itself won't link.
 https://www.caseanalytica.com/assets/social/mental-health-court-diversion-ny-explained-og.png
 
 If a preview comes back blank or stale, append ?v=2 to the article URL to force a refetch.
-Verified VERIFY_DATE: og:image returns 200, image/png, VERIFY_BYTES bytes.
+Verified 2026-10-10: og:image returns 200, image/png, 161933 bytes.
 
 ---
 
