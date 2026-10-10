@@ -313,6 +313,22 @@ const VIDEOS = [
 
 const ARTICLES = [
   {
+    slug: "ny-budget-diversion-funding-flat-no-mandate",
+    title: "Four State Budgets, No Diversion Mandate. Alternatives-to-Incarceration Funding Is Where It Was in 2023.",
+    category: "System",
+    stage: "system",
+    date: "2026-10-10",
+    excerpt: "New York put $31.4 million into alternatives to incarceration in 2023 and $31.42 million in 2026. None of the four budgets required any court to divert a charge to treatment. The one change to diversion law was a repealed subdivision."
+  },
+  {
+    slug: "treatment-court-expansion-act-mental-health-diversion-ny",
+    title: "Half of New York's Counties Have No Mental Health Court. The Bill to Change That Was Refiled on September 23.",
+    category: "Restorative Justice",
+    stage: "pretrial",
+    date: "2026-10-10",
+    excerpt: "Outside New York City, a case can move to a neighboring county's mental health court only if the defendant asks and both district attorneys agree. The bill to put a diversion court in every county was refiled on September 23."
+  },
+  {
     slug: "nyc-city-job-vacancies-postings-clean-slate-ny",
     title: "The City Counted 15,530 Empty Jobs. Its Job Board Listed 3,821.",
     category: "System",
