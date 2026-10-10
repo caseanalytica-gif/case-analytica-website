@@ -313,6 +313,14 @@ const VIDEOS = [
 
 const ARTICLES = [
   {
+    slug: "mental-health-court-diversion-ny-explained",
+    title: "How Mental Health Court Works in New York, and Why It Depends on Which County You're Arrested In",
+    category: "Restorative Justice",
+    stage: "plea",
+    date: "2026-10-10",
+    excerpt: "A New York mental health court usually takes a guilty plea first, then treatment, and finishing generally gets the charges reduced or dismissed. About half of the state's 62 counties have no mental health court at all."
+  },
+  {
     slug: "ny-budget-diversion-funding-flat-no-mandate",
     title: "Four State Budgets, No Diversion Mandate. Alternatives-to-Incarceration Funding Is Where It Was in 2023.",
     category: "System",
