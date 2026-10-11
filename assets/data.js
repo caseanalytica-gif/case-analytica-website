@@ -566,7 +566,7 @@ const ARTICLES = [
   },
   {
     slug: "violation-of-parole-executive-law-259-i-ny",
-    title: "What Happens If You Violate Parole in New York? Executive Law \u00a7 259-i Explained",
+    title: "What Happens If You Violate Parole in New York? Executive Law § 259-i Explained",
     category: "Rights & Process",
     stage: "parole",
     date: "2026-08-14",
