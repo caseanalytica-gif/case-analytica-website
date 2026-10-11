@@ -81,7 +81,7 @@ only if you want it larger in-feed, knowing the image itself won't link.
 https://www.caseanalytica.com/assets/social/ice-shooting-marble-hill-parole-danger-standard-ny-og.png?v=2
 
 The card was re-rendered on 2026-10-11 (old line "DHS hasn't said what was fired, or why" replaced) and the page now points at it with ?v=2, so a fresh scrape picks up the new image. If a preview still shows the old card, append ?v=2 to the article URL.
-Verified 2026-10-11: og:image returns 200, image/png, BYTES bytes.
+Verified 2026-10-11: og:image returns 200, image/png, 155337 bytes.
 
 ---
 
