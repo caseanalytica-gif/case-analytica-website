@@ -858,3 +858,17 @@ footer.site-footer nav a{font-size:13.5px; color:var(--ink-soft);}
 .d-meta dd a{color:var(--ink);}
 .d-note{margin:10px 0 0; font-size:13.5px; color:var(--ink-soft); border-left:2px solid var(--line); padding-left:12px;}
 .data-pointer{font-size:14.5px; color:var(--ink-soft); border-left:2px solid var(--line); padding-left:14px; margin:0 0 24px;}
+
+/* About section: tabs across About, How we report, Supporters, Impact, Contact & tips */
+.subnav{display:flex; flex-wrap:wrap; gap:6px 22px; border-bottom:1px solid var(--line); padding:0 0 12px; margin:0 0 32px;
+  font-family:var(--mono); font-size:12.5px; letter-spacing:.08em; text-transform:uppercase;}
+.subnav a{color:var(--ink-soft); text-decoration:none; padding-bottom:12px; margin-bottom:-13px;}
+.subnav a:hover{color:var(--ink);}
+.subnav a[aria-current]{color:var(--ink); border-bottom:3px solid var(--accent); font-weight:700;}
+.stat-row{display:grid; grid-template-columns:repeat(3,1fr); border-top:3px solid var(--ink); border-bottom:1px solid var(--line); margin:8px 0 12px;}
+.stat-row .stat{padding:18px 18px 20px 0;}
+.stat-row .stat + .stat{padding-left:18px; border-left:1px solid var(--line);}
+.stat-row .n{display:block; font-family:var(--display); font-size:48px; font-weight:700; line-height:1; color:var(--ink);}
+.stat-row .l{display:block; font-family:var(--sans); font-size:14px; line-height:1.4; color:var(--ink-soft); margin-top:8px;}
+@media (max-width:600px){ .stat-row{grid-template-columns:1fr;} .stat-row .stat + .stat{padding-left:0; border-left:0; border-top:1px solid var(--line);} }
+@media (max-width:600px){ .subnav{gap:12px 18px;} .subnav a{padding-bottom:4px; margin-bottom:0;} }

@@ -24,7 +24,8 @@ BASE = "https://www.caseanalytica.com"
 FIELDS = ("slug", "title", "category", "stage", "date", "excerpt",
           "image", "imageAlt", "imageCredit")
 STATIC_PAGES = [
-    ("", "1.0"), ("articles.html", "0.9"), ("about.html", "0.7"),
+    ("", "1.0"), ("articles.html", "0.9"), ("about.html", "0.7"), ("supporters.html", "0.6"),
+    ("impact.html", "0.6"), ("contact.html", "0.6"),
     ("videos.html", "0.7"), ("restorative-justice.html", "0.7"),
     ("help-after-an-arrest-ny.html", "0.8"), ("checklist.html", "0.7"),
     ("intake-worksheet.html", "0.7"),
