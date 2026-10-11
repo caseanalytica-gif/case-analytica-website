@@ -3,7 +3,7 @@
 
 Reads ARTICLES from assets/data.js (the single source of truth) and writes:
   - articles.html        #article-grid       full card grid
-  - index.html           front page: lead story, three below, six-headline list
+  - index.html           front page: lead story as the cover, three below, six-headline list
   - articles/<slug>.html related-articles block before </main>
   - sitemap.xml          regenerated from ARTICLES + the static pages
 
@@ -365,7 +365,8 @@ def write_hubs(articles, root, writes):
             writes["stages/" + key + ".html"] = new
 
 # --- Front page ---------------------------------------------------------------
-# index.html is laid out like a newspaper front: one lead story, three under it,
+# index.html is laid out like a newspaper front: one lead story (the photo cover
+# at the top), three under it,
 # six more as a headline list. The dek is the article's own meta description,
 # which is shorter than the data.js excerpt and already written to be read cold.
 # Everything outside these two marker pairs is authored.
@@ -373,6 +374,8 @@ FRONT_BEGIN = "<!-- prerender:front:begin -->"
 FRONT_END = "<!-- prerender:front:end -->"
 MORE_BEGIN = "<!-- prerender:front-more:begin -->"
 MORE_END = "<!-- prerender:front-more:end -->"
+COVER_BEGIN = "<!-- prerender:front-cover:begin -->"
+COVER_END = "<!-- prerender:front-cover:end -->"
 
 
 def nice_date(iso):
@@ -391,18 +394,37 @@ def article_dek(slug, root):
     return html.unescape(m.group(1)) if m else ""
 
 
+def cover_html(live, root):
+    """The lead story as a full-width cover over the courthouse photo."""
+    lead = live[0]
+    href = "articles/%s.html" % e(lead["slug"])
+    return (
+        '\n<section class="cv-cover" aria-labelledby="cv-h">\n'
+        '  <img class="cv-img" src="assets/photos/cover-100-centre-street-1600.jpg" '
+        'srcset="assets/photos/cover-100-centre-street-900.jpg 900w, '
+        'assets/photos/cover-100-centre-street-1600.jpg 1600w" sizes="100vw" '
+        'width="1600" height="719" fetchpriority="high" '
+        'alt="The Manhattan Criminal Courts Building at 100 Centre Street.">\n'
+        '  <div class="cv-shade"></div>\n'
+        '  <div class="wrap cv-inner">\n'
+        '    <span class="cv-kicker">%s</span>\n'
+        '    <h2 class="serif cv-h" id="cv-h"><a href="%s">%s</a></h2>\n'
+        '    <p class="cv-dek">%s</p>\n'
+        '    <p class="cv-go"><a href="%s">Read the story</a></p>\n'
+        '  </div>\n'
+        '  <a class="cv-help" href="help-after-an-arrest-ny.html">Was someone in your family just arrested? Start here</a>\n'
+        '  <p class="cv-credit">Photo: Kidfly182, '
+        '<a href="https://commons.wikimedia.org/wiki/File:100_Centre_Street_021.jpg" target="_blank" rel="noopener">Wikimedia Commons</a>, '
+        '<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a></p>\n'
+        '</section>\n'
+        % (e(lead.get("category")), href, e(lead["title"]),
+           e(article_dek(lead["slug"], root)), href))
+
+
 def front_html(live, root):
-    lead, row = live[0], live[1:4]
+    row = live[1:4]
     href = lambda a: "articles/%s.html" % e(a["slug"])
-    og = "assets/social/%s-og.png" % lead["slug"]
-    img = ('\n    <a href="%s" tabindex="-1" aria-hidden="true"><img src="%s" alt="" '
-           'width="2400" height="1254"></a>' % (href(lead), e(og))
-           if os.path.exists(os.path.join(root, og)) else "")
-    out = ('\n  <article class="fp-lead">\n    <a href="%s"><span class="fp-kicker">%s</span>'
-           '<h2 class="serif">%s</h2><p class="fp-dek">%s</p>'
-           '<p class="fp-by">By Dean Mustaphalli &middot; %s</p></a>%s\n  </article>\n'
-           % (href(lead), e(lead.get("category")), e(lead["title"]),
-              e(article_dek(lead["slug"], root)), nice_date(lead.get("date")), img))
+    out = ""
     out += '\n  <div class="fp-row">\n'
     for a in row:
         out += ('    <article><a href="%s"><span class="fp-kicker">%s</span><h3>%s</h3>'
@@ -421,7 +443,8 @@ def more_html(live):
 
 
 def write_front(doc, live, root):
-    for begin, end, inner in ((FRONT_BEGIN, FRONT_END, front_html(live, root)),
+    for begin, end, inner in ((COVER_BEGIN, COVER_END, cover_html(live, root)),
+                              (FRONT_BEGIN, FRONT_END, front_html(live, root)),
                               (MORE_BEGIN, MORE_END, more_html(live))):
         if begin not in doc:
             raise SystemExit("prerender: index.html is missing %s" % begin)

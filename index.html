@@ -18,7 +18,7 @@
 <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
 <title>New York Arrest, Prison &amp; Parole Reporting | Case Analytica</title>
 <meta name="description" content="Reporting and plain-language guides on New York's criminal courts, prisons, parole and reentry, by Dean Mustaphalli, who served time in a New York state prison.">
-<link rel="stylesheet" href="assets/style.css?v=20260920b">
+<link rel="stylesheet" href="assets/style.css?v=20261011b">
 <link rel="canonical" href="https://www.caseanalytica.com/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Case Analytica">
@@ -159,6 +159,20 @@
 </header>
 
 <main class="fp">
+<!-- prerender:front-cover:begin -->
+<section class="cv-cover" aria-labelledby="cv-h">
+  <img class="cv-img" src="assets/photos/cover-100-centre-street-1600.jpg" srcset="assets/photos/cover-100-centre-street-900.jpg 900w, assets/photos/cover-100-centre-street-1600.jpg 1600w" sizes="100vw" width="1600" height="719" fetchpriority="high" alt="The Manhattan Criminal Courts Building at 100 Centre Street.">
+  <div class="cv-shade"></div>
+  <div class="wrap cv-inner">
+    <span class="cv-kicker">Restorative Justice</span>
+    <h2 class="serif cv-h" id="cv-h"><a href="articles/mental-health-court-diversion-ny-explained.html">How Mental Health Court Works in New York, and Why It Depends on Which County You&#x27;re Arrested In</a></h2>
+    <p class="cv-dek">NY mental health courts usually take a guilty plea first, then treatment. About half of the 62 counties have none. How it works and what to ask.</p>
+    <p class="cv-go"><a href="articles/mental-health-court-diversion-ny-explained.html">Read the story</a></p>
+  </div>
+  <a class="cv-help" href="help-after-an-arrest-ny.html">Was someone in your family just arrested? Start here</a>
+  <p class="cv-credit">Photo: Kidfly182, <a href="https://commons.wikimedia.org/wiki/File:100_Centre_Street_021.jpg" target="_blank" rel="noopener">Wikimedia Commons</a>, <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a></p>
+</section>
+<!-- prerender:front-cover:end -->
 <div class="wrap">
   <div class="fp-top hero">
     <h1 class="serif hero-rotator fp-rot"><span class="rot-line">How to <span class="cc-key">find your loved one</span> if they are taken away.</span></h1>
@@ -192,17 +206,20 @@
       <li><a href="stages/records.html"><strong>Criminal records</strong><span>Sealing and Clean Slate</span></a></li>
     </ul>
   </nav>
+  <section class="cv-stat" aria-label="Medical parole in New York, 2020">
+    <p class="cv-reveal cv-line">In 2020, New York's prison system, DOCCS, received</p>
+    <p class="cv-reveal cv-num">1,049</p>
+    <p class="cv-reveal cv-line">requests for medical parole.</p>
+    <p class="cv-reveal cv-line cv-gap">It approved</p>
+    <p class="cv-reveal cv-num cv-accent">18</p>
+    <p class="cv-reveal cv-src">Source: <a href="https://nysfocus.com/2022/04/14/medical-parole-prisons-doccs" target="_blank" rel="noopener">New York Focus, April 14, 2022</a>. A DOCCS spokesperson told the outlet many applicants may not have been medically eligible. <a href="parole-data.html">More in the parole data</a>.</p>
+  </section>
   <div class="fp-mast">
     <p class="fp-tag">Reporting on New York's criminal courts, prisons and parole, for the families dealing with them.</p>
     <p class="fp-date" id="fp-date"></p>
   </div>
 
   <!-- prerender:front:begin -->
-  <article class="fp-lead">
-    <a href="articles/mental-health-court-diversion-ny-explained.html"><span class="fp-kicker">Restorative Justice</span><h2 class="serif">How Mental Health Court Works in New York, and Why It Depends on Which County You&#x27;re Arrested In</h2><p class="fp-dek">NY mental health courts usually take a guilty plea first, then treatment. About half of the 62 counties have none. How it works and what to ask.</p><p class="fp-by">By Dean Mustaphalli &middot; Oct 10, 2026</p></a>
-    <a href="articles/mental-health-court-diversion-ny-explained.html" tabindex="-1" aria-hidden="true"><img src="assets/social/mental-health-court-diversion-ny-explained-og.png" alt="" width="2400" height="1254"></a>
-  </article>
-
   <div class="fp-row">
     <article><a href="articles/ny-budget-diversion-funding-flat-no-mandate.html"><span class="fp-kicker">System</span><h3>Four State Budgets, No Diversion Mandate. Alternatives-to-Incarceration Funding Is Where It Was in 2023.</h3><p class="fp-dek">NY&#x27;s alternatives-to-incarceration funding was $31.4M in 2023 and $31.42M in 2026. No budget required diversion. Here is what each one did.</p><p class="fp-by">Oct 10, 2026</p></a></article>
     <article><a href="articles/treatment-court-expansion-act-mental-health-diversion-ny.html"><span class="fp-kicker">Restorative Justice</span><h3>Half of New York&#x27;s Counties Have No Mental Health Court. The Bill to Change That Was Refiled on September 23.</h3><p class="fp-dek">About half of NY&#x27;s 62 counties have no mental health court. What the transfer law allows today, and where the Treatment Court Expansion Act stands.</p><p class="fp-by">Oct 10, 2026</p></a></article>
@@ -283,6 +300,16 @@
 </footer>
 
 <script src="assets/site.js?v=20260925a"></script>
+<script>
+/* Stat lines rise in as they scroll into view. Without JS, or with reduced motion, they just show. */
+(function(){
+  var els = document.querySelectorAll('.cv-reveal');
+  if (!els.length || !('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  document.documentElement.classList.add('js-reveal');
+  var io = new IntersectionObserver(function(es){ es.forEach(function(x){ if (x.isIntersecting){ x.target.classList.add('is-in'); io.unobserve(x.target); } }); }, {threshold:.4});
+  els.forEach(function(el){ io.observe(el); });
+})();
+</script>
 <script>initHeroRotator();
 document.getElementById("fp-date").textContent = new Date().toLocaleDateString("en-US", {weekday:"long", month:"long", day:"numeric", year:"numeric", timeZone:"America/New_York"});</script>
 <script src="assets/analytics.js"></script>
