@@ -6,6 +6,8 @@ Reads ARTICLES from assets/data.js (the single source of truth) and writes:
   - index.html           front page: lead story as the cover, three below, six-headline list
   - articles/<slug>.html related-articles block before </main>
   - sitemap.xml          regenerated from ARTICLES + the static pages
+  - feed.xml             RSS 2.0, the 30 newest published articles
+  - dean-mustaphalli.html  author page: every published article, newest first
 
 Idempotent: re-running overwrites the generated regions in place.
 Run after any change to ARTICLES, then commit the result.
@@ -29,6 +31,8 @@ STATIC_PAGES = [
     ("videos.html", "0.7"), ("restorative-justice.html", "0.7"),
     ("help-after-an-arrest-ny.html", "0.8"), ("checklist.html", "0.7"),
     ("guide.html", "0.7"),
+    ("dean-mustaphalli.html", "0.6"), ("ethics.html", "0.6"),
+    ("republish.html", "0.5"),
     ("intake-worksheet.html", "0.7"),
     ("parole-file-worksheet.html", "0.7"),
     ("methodology.html", "0.7"),
@@ -379,6 +383,50 @@ COVER_BEGIN = "<!-- prerender:front-cover:begin -->"
 COVER_END = "<!-- prerender:front-cover:end -->"
 
 
+def feed(live, n=30):
+    """RSS 2.0 for feed readers and aggregators. Newest first by date; data.js
+    order breaks ties so the lead story wins on a day with two articles."""
+    import datetime
+    from email.utils import format_datetime
+    order = sorted(enumerate(live), key=lambda t: (t[1].get("date", ""), -t[0]),
+                   reverse=True)
+    items, newest = [], None
+    for _, a in order[:n]:
+        try:
+            d = datetime.datetime.fromisoformat(a["date"]).replace(
+                hour=12, tzinfo=datetime.timezone.utc)
+        except (KeyError, ValueError):
+            continue
+        newest = newest or d
+        url = "%s/articles/%s.html" % (BASE, a["slug"])
+        items.append(
+            "    <item>\n      <title>%s</title>\n      <link>%s</link>\n"
+            "      <guid isPermaLink=\"true\">%s</guid>\n      <pubDate>%s</pubDate>\n"
+            "      <description>%s</description>\n    </item>\n"
+            % (e(a["title"]), url, url, format_datetime(d), e(a.get("excerpt", ""))))
+    return ('<?xml version="1.0" encoding="UTF-8"?>\n'
+            '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">\n  <channel>\n'
+            '    <title>Case Analytica</title>\n    <link>%s/</link>\n'
+            '    <description>Reporting on New York\'s criminal courts, prisons and parole.</description>\n'
+            '    <language>en-us</language>\n'
+            '    <atom:link href="%s/feed.xml" rel="self" type="application/rss+xml"/>\n'
+            '    <lastBuildDate>%s</lastBuildDate>\n%s  </channel>\n</rss>\n'
+            % (BASE, BASE, format_datetime(newest) if newest else "", "".join(items)))
+
+
+ABEGIN = "<!-- prerender:author:begin -->"
+AEND = "<!-- prerender:author:end -->"
+
+
+def author_list(live):
+    order = sorted(enumerate(live), key=lambda t: (t[1].get("date", ""), -t[0]),
+                   reverse=True)
+    return "".join(
+        '\n      <li><a href="articles/%s.html">%s</a> <span class="au-date">%s</span></li>'
+        % (a["slug"], e(a["title"]), nice_date(a.get("date", "")))
+        for _, a in order) + "\n      "
+
+
 def nice_date(iso):
     import datetime
     try:
@@ -503,6 +551,14 @@ def main():
         writes[path] = new
 
     writes["sitemap.xml"] = sitemap(articles, tracked)
+    writes["feed.xml"] = feed(live)
+
+    if os.path.exists("dean-mustaphalli.html"):
+        adoc = open("dean-mustaphalli.html", encoding="utf-8").read()
+        if ABEGIN in adoc:
+            writes["dean-mustaphalli.html"] = re.sub(
+                re.escape(ABEGIN) + r".*?" + re.escape(AEND),
+                lambda _: ABEGIN + author_list(live) + AEND, adoc, count=1, flags=re.S)
 
     changed = [p for p, c in writes.items()
                if not os.path.exists(p) or open(p, encoding="utf-8").read() != c]

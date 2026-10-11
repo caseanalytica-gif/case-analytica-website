@@ -20,6 +20,7 @@
 <meta name="description" content="Reporting and plain-language guides on New York's criminal courts, prisons, parole and reentry, by Dean Mustaphalli, who served time in a New York state prison.">
 <link rel="stylesheet" href="assets/style.css?v=20261011b">
 <link rel="canonical" href="https://www.caseanalytica.com/">
+<link rel="alternate" type="application/rss+xml" title="Case Analytica" href="https://www.caseanalytica.com/feed.xml">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Case Analytica">
 <meta property="og:title" content="Case Analytica: New York Arrest, Prison &amp; Parole Reporting">
@@ -261,6 +262,35 @@
     </div>
     <p style="margin-top:14px;"><a href="about.html">Read the longer version, and what this is not &rarr;</a></p>
   </section>
+
+<section class="wrap article-signup" aria-labelledby="article-signup-h">
+  <style>
+    .article-signup{margin:2.5rem auto 0;}
+    .article-signup .box{border:1px solid var(--line);border-left:4px solid var(--accent);background:var(--paper-raised);padding:1.25rem 1.5rem;border-radius:6px;}
+    .article-signup h2{margin:0 0 .4rem;font-family:var(--display);font-size:1.35rem;color:var(--ink);}
+    .article-signup p{margin:0 0 .9rem;color:var(--ink-soft);line-height:1.5;}
+    .article-signup form{display:flex;gap:.5rem;flex-wrap:wrap;}
+    .article-signup input[type=email]{flex:1 1 220px;min-width:0;padding:.65rem .8rem;font:inherit;border:1px solid var(--line);border-radius:4px;background:var(--paper);color:var(--ink);}
+    .article-signup button{padding:.65rem 1.1rem;font:inherit;font-weight:600;border:0;border-radius:4px;background:var(--btn-fill);color:#fff;cursor:pointer;}
+    .article-signup button:disabled{opacity:.6;cursor:default;}
+    .article-signup .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;}
+    .article-signup .signup-status{margin:.6rem 0 0;font-size:.95rem;}
+    .article-signup .signup-status.success{color:var(--pillar);}
+    .article-signup .signup-status.error{color:var(--accent-ink);}
+  </style>
+  <div class="box">
+    <h2 id="article-signup-h">New articles by email</h2>
+    <p>Sign up and we'll email you the free guide, What New York Doesn't Tell You After an Arrest. After that, one email on mornings a new article goes up, never more than one a day. Every email has an unsubscribe link.</p>
+    <form id="article-signup-form" novalidate>
+      <label for="article-signup-email" class="hp">Email address</label>
+      <input id="article-signup-email" type="email" name="email" autocomplete="email" placeholder="you@example.com" aria-label="Email address" required>
+      <span class="hp" aria-hidden="true"><input type="text" name="hp" tabindex="-1" autocomplete="off"></span>
+      <button type="submit">Sign me up</button>
+    </form>
+    <p id="article-signup-status" class="signup-status" role="status" aria-live="polite"></p>
+  </div>
+  <script src="assets/signup.js" defer></script>
+</section>
 
   <section class="fp-support" id="donate">
     <p><strong>Everything on this site is free, and always will be.</strong> If Case Analytica has helped you or someone you love, it runs on reader support.</p>

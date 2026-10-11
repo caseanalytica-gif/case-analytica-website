@@ -56,6 +56,21 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.caseanalytica.com/dean-mustaphalli.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.caseanalytica.com/ethics.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.caseanalytica.com/republish.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://www.caseanalytica.com/intake-worksheet.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

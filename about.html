@@ -19,6 +19,7 @@
 <title>About &amp; Intake: Case Analytica</title>
 <meta name="description" content="What Case Analytica is, how the free intake call works, and the boundaries of what we do.">
 <link rel="canonical" href="https://www.caseanalytica.com/about.html">
+<link rel="alternate" type="application/rss+xml" title="Case Analytica" href="https://www.caseanalytica.com/feed.xml">
 <link rel="stylesheet" href="assets/style.css?v=20261011a">
 <script type="application/ld+json">
 {
@@ -86,7 +87,7 @@
 
 <section style="padding-top:48px;">
   <div class="narrow">
-    <nav class="subnav" aria-label="About Case Analytica"><a href="about.html" aria-current="page">About</a><a href="methodology.html">How we report</a><a href="supporters.html">Supporters</a><a href="impact.html">Impact</a><a href="contact.html">Contact &amp; tips</a></nav>
+    <nav class="subnav" aria-label="About Case Analytica"><a href="about.html" aria-current="page">About</a><a href="methodology.html">How we report</a><a href="ethics.html">Ethics</a><a href="supporters.html">Supporters</a><a href="impact.html">Impact</a><a href="contact.html">Contact &amp; tips</a></nav>
     <p class="eyebrow">About</p>
     <h1 class="serif" style="font-size:clamp(28px,4vw,38px);margin:0 0 18px;">Everyone arrested deserves to know restorative justice is on the table, not just whoever thinks to ask.</h1>
     <p style="font-size:17px;color:var(--ink-soft);margin:0 0 24px;">I'm Dean Mustaphalli. Before any of this, I spent years in finance, working at a top-tier Wall Street firm and later running my own investment fund. That career ended with a felony conviction, and I served time in New York State prison. While I was incarcerated, I ran a transition program, helping other men get through their programs, prepare for parole board hearings, and work on their appeals in the law library. That work changed my outlook, from Wall Street to serving people caught in a carceral system that is genuinely broken. I won my own parole board appeal and came home in December 2023. Everything on this site comes from that experience: not a law degree, but years spent on the inside of a system most people only ever read about.</p>
@@ -107,6 +108,35 @@
     <h2 class="serif" style="font-size:24px;margin:44px 0 12px;">How the free intake call works</h2>
     <p style="font-size:17px;color:var(--ink-soft);">A 20–30 minute conversation to understand where a case actually stands: what stage it's at, what the realistic timeline looks like, and what to ask for next. If it's a legal question that needs an attorney, we'll help point you to one. If it's a question about the process, reentry support, or a restorative justice option, we'll walk through what's actually available in your county.</p>
   </div>
+</section>
+
+<section class="wrap article-signup" aria-labelledby="article-signup-h">
+  <style>
+    .article-signup{margin:2.5rem auto 0;}
+    .article-signup .box{border:1px solid var(--line);border-left:4px solid var(--accent);background:var(--paper-raised);padding:1.25rem 1.5rem;border-radius:6px;}
+    .article-signup h2{margin:0 0 .4rem;font-family:var(--display);font-size:1.35rem;color:var(--ink);}
+    .article-signup p{margin:0 0 .9rem;color:var(--ink-soft);line-height:1.5;}
+    .article-signup form{display:flex;gap:.5rem;flex-wrap:wrap;}
+    .article-signup input[type=email]{flex:1 1 220px;min-width:0;padding:.65rem .8rem;font:inherit;border:1px solid var(--line);border-radius:4px;background:var(--paper);color:var(--ink);}
+    .article-signup button{padding:.65rem 1.1rem;font:inherit;font-weight:600;border:0;border-radius:4px;background:var(--btn-fill);color:#fff;cursor:pointer;}
+    .article-signup button:disabled{opacity:.6;cursor:default;}
+    .article-signup .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;}
+    .article-signup .signup-status{margin:.6rem 0 0;font-size:.95rem;}
+    .article-signup .signup-status.success{color:var(--pillar);}
+    .article-signup .signup-status.error{color:var(--accent-ink);}
+  </style>
+  <div class="box">
+    <h2 id="article-signup-h">New articles by email</h2>
+    <p>Sign up and we'll email you the free guide, What New York Doesn't Tell You After an Arrest. After that, one email on mornings a new article goes up, never more than one a day. Every email has an unsubscribe link.</p>
+    <form id="article-signup-form" novalidate>
+      <label for="article-signup-email" class="hp">Email address</label>
+      <input id="article-signup-email" type="email" name="email" autocomplete="email" placeholder="you@example.com" aria-label="Email address" required>
+      <span class="hp" aria-hidden="true"><input type="text" name="hp" tabindex="-1" autocomplete="off"></span>
+      <button type="submit">Sign me up</button>
+    </form>
+    <p id="article-signup-status" class="signup-status" role="status" aria-live="polite"></p>
+  </div>
+  <script src="assets/signup.js" defer></script>
 </section>
 
 <section id="intake">
