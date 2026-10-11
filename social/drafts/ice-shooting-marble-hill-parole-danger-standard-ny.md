@@ -1,10 +1,10 @@
-# The NYS Parole Board has to explain in writing why someone is a danger. DHS hasn't said why its ICE officer fired seven shots in Marble Hill.
+# DHS Says Its Officers Feared for Their Lives in Marble Hill. New York's Parole Board Has to Put a Danger Finding in Writing.
 
 **Article:** https://www.caseanalytica.com/articles/ice-shooting-marble-hill-parole-danger-standard-ny.html
 **Graphic (this is what the link card pulls in, do not upload it):**
-https://www.caseanalytica.com/assets/social/ice-shooting-marble-hill-parole-danger-standard-ny-og.png
-(2400x1254, verified live 200 on 2026-10-09)
-**Published:** 2026-10-09
+https://www.caseanalytica.com/assets/social/ice-shooting-marble-hill-parole-danger-standard-ny-og.png?v=2
+(2400x1254, verified live 200 on 2026-10-11)
+**Published:** 2026-10-09. **Corrected and updated:** 2026-10-11 (ICE's account added, headline changed, driver's name now spelled Bergal)
 
 ---
 
@@ -12,38 +12,38 @@ https://www.caseanalytica.com/assets/social/ice-shooting-marble-hill-parole-dang
 
 **LinkedIn: use this one:**
 
-A certificate holder denied parole gets the Board's reasons in writing. The man an ICE officer shot in Marble Hill has no account of why.
+ICE says officers in Marble Hill feared for their lives. The Parole Board must write down why it calls someone dangerous.
 
 Alternates if you want a different angle:
 
-- DHS still hasn't explained why its officer fired seven rounds at a car with a 5-year-old in the back seat.
-- New York makes the Parole Board write down why someone is a danger. DHS hasn't said in public why this officer fired.
+- ICE says the driver "weaponized his vehicle." The man who was shot has no written finding he can challenge.
+- New York makes the Parole Board put a danger finding in writing. ICE explained the Marble Hill shooting out loud.
 
 **Facebook: use this one:**
 
-Seven shots at a car with a 5-year-old in the back seat. DHS still hasn't said why.
+ICE says its officers feared for their lives. The Parole Board would have to put that in writing.
 
 Alternates if you want a different angle:
 
-- If the Parole Board calls you a danger, it has to say why in writing. DHS hasn't said in public why its officer fired seven shots in Marble Hill.
+- Seven shots at a car with a 5-year-old in the back seat. ICE has given its reason out loud. Nobody has had to write it down.
 
 ---
 
 ## LinkedIn
 
-**A certificate holder denied parole gets the Board's reasons in writing. The man an ICE officer shot in Marble Hill has no account of why.**
+**ICE says officers in Marble Hill feared for their lives. The Parole Board must write down why it calls someone dangerous.**
 
 ---
 
-On Thursday afternoon an ICE officer fired seven rounds at a car at West 225th Street and Marble Hill Avenue. One hit the driver, Oscar Belgal, 28, below his left ear, according to NYPD Commissioner Jessica Tisch. His 5-year-old son was in the back seat. Witnesses told ABC7 a nearby school had just let out.
+On October 8 an ICE officer fired seven rounds at a car at West 225th Street and Marble Hill Avenue. One hit the driver, Oscar Bergal, 28, below his left ear, according to NYPD Commissioner Jessica Tisch. His 5-year-old son was in the back seat. Witnesses told ABC7 a nearby school had just let out.
 
-DHS says Belgal rammed ICE vehicles. It hasn't said what made the officer fire.
+The next day ICE gave its account. Marcos Charles, who runs ICE's Enforcement and Removal Operations, said Bergal "weaponized his vehicle" and that officers fired believing their lives were in danger. DHS Secretary Markwayne Mullin said the officers did not know the child was in the car, and that their body cameras were on. DHS has not released that footage.
 
 Compare that with how New York treats a person who holds an Earned Eligibility Certificate. Correction Law 805 says that person "shall be granted parole release" unless the Board makes two findings about future danger. Between April and September 2025 the Board denied certificate holders 369 times. Executive Law 259-i requires each denial's reasons in writing, "in detail and not in conclusory terms," with an appeal to members who didn't decide it.
 
-DHS's own use-of-force policy allows deadly force only on a reasonable belief of an imminent threat of death or serious bodily injury, and bars firing at the driver of a moving car unless that standard is met. The record it requires is internal. The state Attorney General's special unit only covers deaths. A local prosecutor can charge a federal officer, as Hennepin County did this year, but immunity gets litigated first.
+DHS's own use-of-force policy allows deadly force only on a reasonable belief of an imminent threat of death or serious bodily injury. The record it requires is internal. The Bronx District Attorney says her office is working to establish the facts. A local prosecutor can charge a federal officer, as Hennepin County did this year, but immunity gets litigated first.
 
-The full piece lays out both standards and who can review the shooting.
+The article was updated October 11 with ICE's account and a corrected spelling of the driver's name.
 
 https://www.caseanalytica.com/articles/ice-shooting-marble-hill-parole-danger-standard-ny.html
 
@@ -53,15 +53,17 @@ https://www.caseanalytica.com/articles/ice-shooting-marble-hill-parole-danger-st
 
 ## Facebook
 
-**Seven shots at a car with a 5-year-old in the back seat. DHS still hasn't said why.**
+**ICE says its officers feared for their lives. The Parole Board would have to put that in writing.**
 
 ---
 
-Thursday afternoon in Marble Hill, an ICE officer fired seven rounds at a car. The driver, Oscar Belgal, was hit below the ear and is in stable condition. His 5-year-old son was in the back seat and wasn't hurt. Witnesses told ABC7 kids were just getting out of school nearby.
+On October 8 in Marble Hill, an ICE officer fired seven rounds at a car. The driver, Oscar Bergal, was hit below the ear. His 5-year-old son was in the back seat and wasn't hurt. Witnesses told ABC7 kids were just getting out of school nearby.
 
-If you hold an Earned Eligibility Certificate and the Parole Board decides you're still a danger, the law makes it write down why, in detail, and you can appeal. The officer who fired those shots hasn't had to explain anything in public yet. The investigation is federal, and the state Attorney General's special unit only handles cases where someone dies.
+ICE now says Bergal drove at officers and they feared for their lives. The officers' body cameras were on, DHS says. DHS hasn't released that video.
 
-The article walks through both standards and who can actually review what happened.
+If you hold an Earned Eligibility Certificate and the Parole Board decides you're still a danger, the law makes it write down why, in detail, and you can appeal. The man who was shot has no written finding he can challenge.
+
+Read how each standard works, and who can review the shooting.
 
 https://www.caseanalytica.com/articles/ice-shooting-marble-hill-parole-danger-standard-ny.html
 
@@ -76,13 +78,13 @@ the clickable preview card from og:image. An uploaded photo isn't a link.
 only if you want it larger in-feed, knowing the image itself won't link.
 
 **Instagram / X**: upload the PNG directly:
-https://www.caseanalytica.com/assets/social/ice-shooting-marble-hill-parole-danger-standard-ny-og.png
+https://www.caseanalytica.com/assets/social/ice-shooting-marble-hill-parole-danger-standard-ny-og.png?v=2
 
-If a preview comes back blank or stale, append ?v=2 to the article URL to force a refetch.
-Verified 2026-10-09: og:image returns 200, image/png, 162448 bytes.
+The card was re-rendered on 2026-10-11 (old line "DHS hasn't said what was fired, or why" replaced) and the page now points at it with ?v=2, so a fresh scrape picks up the new image. If a preview still shows the old card, append ?v=2 to the article URL.
+Verified 2026-10-11: og:image returns 200, image/png, BYTES bytes.
 
 ---
 
 ## Note on tone
 
-The child is never named or shown, and no news footage is re-hosted. DHS's description of Belgal's record stays out of the social copy; it is in the article, attributed. Keep "hasn't said why" dated: if DHS explains the shooting before this posts, change the hook.
+The child is never named or shown, and no news footage is re-hosted. DHS's description of Bergal's record stays out of the social copy; it is in the article, attributed. Outlets are still split on Belgal and Bergal; the article explains the choice. "DHS hasn't released that video" is dated to 2026-10-11: check before posting, and change the line if the ICE footage comes out.
