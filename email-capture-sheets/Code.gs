@@ -27,6 +27,12 @@ function doPost(e) {
       return respond({ ok: false, error: 'Please enter a valid email address.' });
     }
 
+    // Course signups (source "course:<key>") go to the Course tab, not the
+    // article list. See the email course section at the bottom of this file.
+    if (source.indexOf('course:') === 0) {
+      return respond(enrollInCourse(email, source.slice(7)));
+    }
+
     var sheet = getSubscribersSheet();
     ensureHeader(sheet);
 
@@ -62,9 +68,9 @@ function sendGuideEmail(email) {
     '<p>Everything on the site pulled into one place: rights and process, ' +
     'diversion programs, the Clean Slate Act, and the exact questions to ' +
     'ask any attorney before a plea gets entered.</p>' +
-    '<p>&mdash; Dean</p>';
+    '<p>Dean</p>';
   var plainBody = "Here is your copy of the guide:\n" + PDF_URL +
-    "\n\n— Dean";
+    "\n\nDean";
 
   MailApp.sendEmail({
     to: email,
@@ -259,7 +265,7 @@ function buildDigestHtml(newArticles, unsubUrl) {
       escapeHtml(a.excerpt || '') + '</p>';
   }).join('');
   return '<p>New on Case Analytica:</p>' + items +
-    '<p>&mdash; ' + DIGEST_FROM_NAME + ' (<a href="https://www.caseanalytica.com">caseanalytica.com</a>)</p>' +
+    '<p>' + DIGEST_FROM_NAME + ' (<a href="https://www.caseanalytica.com">caseanalytica.com</a>)</p>' +
     '<p style="font-size:12px; color:#888;"><a href="' + unsubUrl + '">Unsubscribe</a> from these emails.</p>';
 }
 
@@ -268,7 +274,7 @@ function buildDigestPlain(newArticles, unsubUrl) {
     var url = ARTICLES_BASE_URL + a.slug + '.html' + DIGEST_UTM;
     return a.title + '\n' + url + (a.excerpt ? '\n' + a.excerpt : '');
   }).join('\n\n');
-  return 'New on Case Analytica:\n\n' + items + '\n\n— ' + DIGEST_FROM_NAME + ' (https://www.caseanalytica.com)' +
+  return 'New on Case Analytica:\n\n' + items + '\n\n' + DIGEST_FROM_NAME + ' (https://www.caseanalytica.com)' +
     '\n\nUnsubscribe: ' + unsubUrl;
 }
 
@@ -361,6 +367,7 @@ function removeSubscriber(email) {
   }
   var unsubSheet = getUnsubscribedSheet();
   unsubSheet.appendRow([email, new Date()]);
+  stopCourseFor(email);
 }
 
 function getUnsubscribedSheet() {
@@ -438,8 +445,7 @@ function sendDonationAppeal() {
 
 function sendAppealTo(email) {
   // Run from the editor, getUrl() returns the owner-only /dev link, so point at the live web app.
-  var unsubUrl = 'https://script.google.com/macros/s/AKfycbx-cq6QGDsWt3ooU1gzGRrNVFbCuanJW58KmVP5QK5vVEQ8X4O_JjAoJmfRyEgY_oBxcg/exec' +
-    '?unsubscribe=' + encodeURIComponent(email) + '&sig=' + signEmail(email);
+  var unsubUrl = liveUnsubscribeUrl(email);
   var html = APPEAL_PARAGRAPHS.map(function (p) { return '<p>' + escapeHtml(p) + '</p>'; }).join('') +
     '<p><a href="' + APPEAL_DONATE_URL + '">' + APPEAL_DONATE_URL + '</a></p>' +
     '<p>' + escapeHtml(APPEAL_AFTER_LINK) + '</p>' +
@@ -459,4 +465,227 @@ function getAppealSentSheet() {
     sheet.appendRow(['email', 'sent_at']);
   }
   return sheet;
+}
+
+// Run from the editor or a trigger, ScriptApp.getService().getUrl() can return
+// the owner-only /dev link, so unsubscribe links always point at the live app.
+var LIVE_EXEC_URL = 'https://script.google.com/macros/s/AKfycbx-cq6QGDsWt3ooU1gzGRrNVFbCuanJW58KmVP5QK5vVEQ8X4O_JjAoJmfRyEgY_oBxcg/exec';
+
+function liveUnsubscribeUrl(email) {
+  return LIVE_EXEC_URL + '?unsubscribe=' + encodeURIComponent(email) + '&sig=' + signEmail(email);
+}
+
+function fetchSiteJson(url) {
+  var res = UrlFetchApp.fetch(url + (url.indexOf('?') < 0 ? '?' : '&') + 'x=' + Date.now(), { muteHttpExceptions: true });
+  if (res.getResponseCode() !== 200) {
+    console.error('fetchSiteJson: HTTP ' + res.getResponseCode() + ' for ' + url);
+    return null;
+  }
+  try { return JSON.parse(res.getContentText()); }
+  catch (err) { console.error('fetchSiteJson: bad JSON at ' + url + ': ' + err.message); return null; }
+}
+
+function isUnsubscribed(email) {
+  var sheet = getUnsubscribedSheet();
+  if (sheet.getLastRow() < 2) return false;
+  var rows = sheet.getRange(2, 1, sheet.getLastRow() - 1, 1).getValues();
+  for (var i = 0; i < rows.length; i++) {
+    if ((rows[i][0] || '').toString().trim().toLowerCase() === email) return true;
+  }
+  return false;
+}
+
+/* ==========================================================================
+   Email course ("After an arrest in New York")
+   ==========================================================================
+   The lessons live on the site, in assets/course/<key>.json, so editing a
+   lesson never needs a redeploy. Signup sends lesson 1 at once; a daily
+   trigger sends each later lesson once its "day" (days since signup) arrives.
+   Setup, once, after pasting this file in and deploying a new version:
+     1) run sendCourseTest  (emails all lessons to this account to read)
+     2) run createCourseTrigger
+   Course tab columns: email | started | lastSent | course | status
+   ========================================================================== */
+
+var COURSE_BASE_URL = 'https://www.caseanalytica.com/assets/course/';
+var SITE_URL = 'https://www.caseanalytica.com/';
+
+function getCourseSheet() {
+  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var sheet = ss.getSheetByName('Course');
+  if (!sheet) {
+    sheet = ss.insertSheet('Course');
+    sheet.appendRow(['email', 'started', 'lastSent', 'course', 'status']);
+  }
+  return sheet;
+}
+
+function enrollInCourse(email, key) {
+  key = (key || '').replace(/[^a-z0-9-]/g, '');
+  var course = fetchSiteJson(COURSE_BASE_URL + key + '.json');
+  if (!course || !course.lessons || !course.lessons.length) {
+    return { ok: false, error: 'That course is not available right now. Try again later.' };
+  }
+  var sheet = getCourseSheet();
+  var last = sheet.getLastRow();
+  if (last >= 2) {
+    var rows = sheet.getRange(2, 1, last - 1, 5).getValues();
+    for (var i = 0; i < rows.length; i++) {
+      if ((rows[i][0] || '').toString().toLowerCase() === email && rows[i][3] === key && rows[i][4] === 'active') {
+        return { ok: true, duplicate: true };
+      }
+    }
+  }
+  sheet.appendRow([email, new Date(), 0, key, 'active']);
+  var row = sheet.getLastRow();
+  try {
+    sendLesson(email, course, 0);
+    sheet.getRange(row, 3).setValue(1);
+  } catch (err) {
+    // The daily trigger retries lesson 1 tomorrow.
+    console.error('Course lesson 1 failed for ' + email + ': ' + err.message);
+  }
+  return { ok: true };
+}
+
+function sendCourseLessons() {
+  var sheet = getCourseSheet();
+  var last = sheet.getLastRow();
+  if (last < 2) return;
+  var rows = sheet.getRange(2, 1, last - 1, 5).getValues();
+  var cache = {};
+  var now = new Date();
+  var sent = 0;
+  for (var i = 0; i < rows.length; i++) {
+    var email = (rows[i][0] || '').toString().toLowerCase();
+    var key = rows[i][3];
+    var lastSent = Number(rows[i][2]) || 0;
+    if (rows[i][4] !== 'active' || !email) continue;
+    if (isUnsubscribed(email)) { sheet.getRange(i + 2, 5).setValue('unsubscribed'); continue; }
+    var course = cache[key] || (cache[key] = fetchSiteJson(COURSE_BASE_URL + key + '.json'));
+    if (!course || !course.lessons) continue;
+    if (lastSent >= course.lessons.length) { sheet.getRange(i + 2, 5).setValue('finished'); continue; }
+    var days = Math.floor((now - new Date(rows[i][1])) / 86400000);
+    if (days < (course.lessons[lastSent].day || 0)) continue;
+    if (MailApp.getRemainingDailyQuota() < 1) {
+      console.log('Course: daily mail limit reached, the rest go tomorrow.');
+      break;
+    }
+    try {
+      sendLesson(email, course, lastSent);
+      sheet.getRange(i + 2, 3).setValue(lastSent + 1);
+      if (lastSent + 1 >= course.lessons.length) sheet.getRange(i + 2, 5).setValue('finished');
+      sent++;
+    } catch (err) {
+      console.error('Course lesson ' + (lastSent + 1) + ' failed for ' + email + ': ' + err.message);
+    }
+  }
+  console.log('Course: sent ' + sent + ' lesson(s).');
+}
+
+function stopCourseFor(email) {
+  var sheet = getCourseSheet();
+  var last = sheet.getLastRow();
+  if (last < 2) return;
+  var rows = sheet.getRange(2, 1, last - 1, 5).getValues();
+  for (var i = 0; i < rows.length; i++) {
+    if ((rows[i][0] || '').toString().toLowerCase() === email && rows[i][4] === 'active') {
+      sheet.getRange(i + 2, 5).setValue('unsubscribed');
+    }
+  }
+}
+
+function sendLesson(email, course, index) {
+  var L = course.lessons[index];
+  var unsub = liveUnsubscribeUrl(email);
+  var utm = '?utm_source=newsletter&utm_medium=email&utm_campaign=course_' + course.course;
+  var link = function (u) { return SITE_URL + u + utm; };
+  var html = '<p>' + escapeHtml(L.intro) + '</p><p><strong>Questions to ask:</strong></p><ul>' +
+    L.questions.map(function (q) {
+      return '<li style="margin-bottom:10px;">' + escapeHtml(q.q) + '<br><span style="font-size:13px;">From: <a href="' +
+        link(q.url) + '">' + escapeHtml(q.title) + '</a></span></li>';
+    }).join('') + '</ul>' +
+    '<p><a href="' + link(L.stage.url) + '">' + escapeHtml(L.stage.text) + '</a></p>' +
+    (L.closing ? '<p>' + escapeHtml(L.closing) + ' <a href="' + link('checklist.html') + '">The checklist</a>.</p>' : '') +
+    '<p>Dean</p>' +
+    '<p style="font-size:12px; color:#888;">' + escapeHtml(course.footer) + '<br><a href="' + unsub + '">Unsubscribe</a></p>';
+  var plain = L.intro + '\n\nQuestions to ask:\n\n' +
+    L.questions.map(function (q) { return '- ' + q.q + '\n  From: ' + q.title + '\n  ' + link(q.url); }).join('\n\n') +
+    '\n\n' + L.stage.text + ': ' + link(L.stage.url) +
+    (L.closing ? '\n\n' + L.closing + ' ' + link('checklist.html') : '') +
+    '\n\nDean\n\n' + course.footer + '\nUnsubscribe: ' + unsub;
+  MailApp.sendEmail({ to: email, subject: L.subject, body: plain, htmlBody: html, name: DIGEST_FROM_NAME });
+}
+
+// Sends every lesson of a course to this script's own account, to read first.
+function sendCourseTest() {
+  var course = fetchSiteJson(COURSE_BASE_URL + 'after-arrest.json');
+  if (!course) { console.log('Course file not found on the site.'); return; }
+  for (var i = 0; i < course.lessons.length; i++) sendLesson('caseanalytica@gmail.com', course, i);
+  console.log('Sent ' + course.lessons.length + ' test lessons to caseanalytica@gmail.com');
+}
+
+function createCourseTrigger() {
+  var exists = ScriptApp.getProjectTriggers().some(function (t) { return t.getHandlerFunction() === 'sendCourseLessons'; });
+  if (exists) { console.log('Course trigger already exists, skipping.'); return; }
+  ScriptApp.newTrigger('sendCourseLessons').timeBased().everyDays(1).atHour(8).create();
+  console.log('Course trigger created: runs once a day around 8am, script timezone.');
+}
+
+/* ==========================================================================
+   Weekly roundup (links to other New York newsrooms)
+   ==========================================================================
+   Each issue is published to the site as assets/roundups/latest.json. Nothing
+   sends on its own: run sendRoundupTest, read it, then run sendRoundup. Each
+   address is logged per issue in the RoundupSent tab, so a second run, or a
+   run the next day after the mail limit, skips anyone already sent.
+   ========================================================================== */
+
+var ROUNDUP_URL = 'https://www.caseanalytica.com/assets/roundups/latest.json';
+
+function sendRoundupTest() {
+  var r = fetchSiteJson(ROUNDUP_URL);
+  if (!r) { console.log('No roundup file on the site.'); return; }
+  sendRoundupTo('caseanalytica@gmail.com', r);
+  console.log('Roundup ' + r.issue + ' test sent to caseanalytica@gmail.com');
+}
+
+function sendRoundup() {
+  var r = fetchSiteJson(ROUNDUP_URL);
+  if (!r) { console.log('No roundup file on the site.'); return; }
+  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var log = ss.getSheetByName('RoundupSent') || ss.insertSheet('RoundupSent');
+  if (log.getLastRow() === 0) log.appendRow(['issue', 'email', 'sent_at']);
+  var done = {};
+  if (log.getLastRow() > 1) {
+    log.getRange(2, 1, log.getLastRow() - 1, 2).getValues().forEach(function (row) {
+      if (row[0] === r.issue) done[(row[1] || '').toString().toLowerCase()] = true;
+    });
+  }
+  var pending = getSubscriberEmails().filter(function (e) { return !done[e]; });
+  var sent = 0;
+  for (var i = 0; i < pending.length; i++) {
+    if (MailApp.getRemainingDailyQuota() < 1) { console.log('Mail limit reached. Run sendRoundup again tomorrow.'); break; }
+    try { sendRoundupTo(pending[i], r); log.appendRow([r.issue, pending[i], new Date()]); sent++; }
+    catch (err) { console.error('Roundup send failed for ' + pending[i] + ': ' + err.message); }
+  }
+  console.log('Roundup ' + r.issue + ': sent ' + sent + ', still pending ' + (pending.length - sent));
+}
+
+function sendRoundupTo(email, r) {
+  var unsub = liveUnsubscribeUrl(email);
+  var html = '<p>' + escapeHtml(r.intro) + '</p>' +
+    r.items.map(function (it) {
+      return '<p><strong><a href="' + it.url + '">' + escapeHtml(it.title) + '</a></strong><br>' +
+        '<span style="font-size:13px;">' + escapeHtml(it.outlet + ', ' + it.date + ', ' + it.by) + '</span><br>' +
+        escapeHtml(it.summary) + '</p>';
+    }).join('') +
+    (r.ours ? '<p><strong>From Case Analytica:</strong> <a href="' + r.ours.url + '">' + escapeHtml(r.ours.title) + '</a></p>' : '') +
+    '<p>' + escapeHtml(r.signoff || 'Dean') + '</p>' +
+    '<p style="font-size:12px; color:#888;"><a href="' + unsub + '">Unsubscribe</a></p>';
+  var plain = r.intro + '\n\n' +
+    r.items.map(function (it) { return it.title + '\n' + it.outlet + ', ' + it.date + ', ' + it.by + '\n' + it.summary + '\n' + it.url; }).join('\n\n') +
+    (r.ours ? '\n\nFrom Case Analytica: ' + r.ours.title + '\n' + r.ours.url : '') +
+    '\n\n' + (r.signoff || 'Dean') + '\n\nUnsubscribe: ' + unsub;
+  MailApp.sendEmail({ to: email, subject: r.subject, body: plain, htmlBody: html, name: DIGEST_FROM_NAME });
 }

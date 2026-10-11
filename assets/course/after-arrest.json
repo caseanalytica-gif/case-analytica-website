@@ -1,0 +1,191 @@
+{
+ "course": "after-arrest",
+ "title": "After an arrest in New York",
+ "footer": "General information about the New York system, not legal advice for your case.",
+ "updated": "2026-10-11",
+ "lessons": [
+  {
+   "day": 0,
+   "subject": "After an arrest in New York, 1 of 7: the first questions",
+   "intro": "The hours after an arrest move fast. This course takes the case one stage at a time, starting with the questions that put every option in the case on the table.",
+   "questions": [
+    {
+     "q": "“What are all the ways this case can end without a conviction?”",
+     "title": "What Actually Happens After an Arrest in New York State",
+     "url": "articles/after-an-arrest-in-new-york.html"
+    },
+    {
+     "q": "“What have you not told me about this case that I would want to know?”",
+     "title": "The Two Failures Nobody Warns You About: Information and Representation After a NY Arrest",
+     "url": "articles/two-failures-after-a-nys-arrest.html"
+    },
+    {
+     "q": "“I have a Desk Appearance Ticket. Am I eligible for Project Reset or an equivalent diversion program in this borough?”",
+     "title": "What Is Project Reset in New York? How a Desk Appearance Ticket Can Avoid a Criminal Record",
+     "url": "articles/project-reset-desk-appearance-ticket-ny.html"
+    }
+   ],
+   "stage": {
+    "text": "Read the arrest stage guide",
+    "url": "stages/arrest.html"
+   }
+  },
+  {
+   "day": 3,
+   "subject": "After an arrest in New York, 2 of 7: arraignment and bail",
+   "intro": "Arraignment is the first time the case is in front of a judge, and it is where bail is decided. These are the questions that make the court say why.",
+   "questions": [
+    {
+     "q": "“Why was bail set at this amount, and what specifically about flight risk or community ties was cited?”",
+     "title": "How Bail Actually Gets Set in New York After Bail Reform",
+     "url": "articles/how-bail-works-in-ny-after-reform.html"
+    },
+    {
+     "q": "“Has a 180.80 application actually been filed on this case, and if not, why not?”",
+     "title": "How Long Can New York Hold You on a Felony Complaint? CPL 180.80's 120-Hour Rule",
+     "url": "articles/cpl-180-80-release-from-custody-ny.html"
+    },
+    {
+     "q": "“Has the DA requested a source hearing on this bail, and what specifically is the reasonable cause they've cited?”",
+     "title": "Your Bail Is $100. Why Are You Still in Jail? What a Bail Source Hearing Actually Does",
+     "url": "articles/bail-source-hearing-ny-explained.html"
+    }
+   ],
+   "stage": {
+    "text": "Read the bail stage guide",
+    "url": "stages/bail.html"
+   }
+  },
+  {
+   "day": 6,
+   "subject": "After an arrest in New York, 3 of 7: getting a lawyer",
+   "intro": "Whether the lawyer is assigned or hired, you are entitled to understand what they are doing and why. These questions get you straight answers.",
+   "questions": [
+    {
+     "q": "“Is this a flat fee for the whole case, or does it only cover work up to a certain point, like before trial?”",
+     "title": "How Much Does a Criminal Defense Lawyer Actually Cost in New York?",
+     "url": "articles/cost-of-a-criminal-defense-lawyer-ny.html"
+    },
+    {
+     "q": "“Has a court interpreter in my language been requested for every date on this case?”",
+     "title": "When You Don't Understand the Language of Your Own Case: Interpreters, Literacy, and Access in NY Courts",
+     "url": "articles/language-access-ny-courts.html"
+    },
+    {
+     "q": "“What is the next date, and which part is it in?”",
+     "title": "Brooklyn Criminal Court: Which Train Actually Goes There, and What to Expect",
+     "url": "articles/brooklyn-criminal-court-logistics.html"
+    }
+   ],
+   "stage": {
+    "text": "Read the stage guide on getting a lawyer",
+    "url": "stages/counsel.html"
+   }
+  },
+  {
+   "day": 9,
+   "subject": "After an arrest in New York, 4 of 7: discovery and the clock",
+   "intro": "Between arraignment and any plea or trial, the prosecution has to turn over its evidence and the speedy trial clock is running. Most of this happens out of sight unless you ask.",
+   "questions": [
+    {
+     "q": "“Has a suppression motion been filed in my case, and if not, why not?”",
+     "title": "Can Evidence Get Thrown Out Before Trial? What a Suppression Hearing in New York Actually Does",
+     "url": "articles/motion-to-suppress-evidence-ny-explained.html"
+    },
+    {
+     "q": "“What is the actual CPL 30.30 date on my case right now, after excludable time, and can I see how you calculated it?”",
+     "title": "How Long Can New York Take You to Trial? CPL 30.30 Speedy Trial Rules Explained",
+     "url": "articles/cpl-30-30-speedy-trial-ny-explained.html"
+    },
+    {
+     "q": "“Has the DA filed notice of an intent to present this case to a grand jury, and have we served written notice that I want to testify?”",
+     "title": "Do You Have the Right to Testify Before the Grand Jury in New York? CPL 190.50 Explained",
+     "url": "articles/right-to-testify-grand-jury-cpl-190-50-ny.html"
+    }
+   ],
+   "stage": {
+    "text": "Read the pretrial stage guide",
+    "url": "stages/pretrial.html"
+   }
+  },
+  {
+   "day": 12,
+   "subject": "After an arrest in New York, 5 of 7: before any plea",
+   "intro": "Before agreeing to a plea, find out what else was possible and what the plea will cost later.",
+   "questions": [
+    {
+     "q": "“Is there a diversion program, ACD, or restorative justice option available for this specific charge, and if so, why is that not the offer on the table right now?”",
+     "title": "Why Do Innocent People Plead Guilty? The Trial Penalty Behind New York's Guilty-Plea Rate",
+     "url": "articles/why-innocent-people-plead-guilty-ny.html"
+    },
+    {
+     "q": "“If I were out, would you still be recommending this plea?”",
+     "title": "How Holding Someone at Rikers Becomes Leverage for a Plea",
+     "url": "articles/rikers-detention-plea-leverage-ny.html"
+    },
+    {
+     "q": "“Is this specific plea, to this specific charge, a deportable offense or an inadmissibility bar under federal immigration law?”",
+     "title": "Will Pleading Guilty Affect Your Immigration Status in New York?",
+     "url": "articles/pleading-guilty-immigration-consequences-ny.html"
+    }
+   ],
+   "stage": {
+    "text": "Read the plea stage guide",
+    "url": "stages/plea.html"
+   }
+  },
+  {
+   "day": 15,
+   "subject": "After an arrest in New York, 6 of 7: sentencing",
+   "intro": "Sentencing decides what the next months or years look like, and some of what happens later can be requested now.",
+   "questions": [
+    {
+     "q": "“Is this being offered as a conditional discharge or a sentence of probation, and if it's probation, what exactly will a probation officer require of me, how often, and for how long?”",
+     "title": "Conditional Discharge vs. Probation in New York: What You're Actually Agreeing To",
+     "url": "articles/conditional-discharge-vs-probation-ny.html"
+    },
+    {
+     "q": "“Is this case eligible for youthful offender treatment under CPL Article 720, separate from whatever happened with Raise the Age?”",
+     "title": "Youthful Offender Status vs. Raise the Age in New York: They're Not the Same Thing",
+     "url": "articles/youthful-offender-status-vs-raise-the-age-ny.html"
+    },
+    {
+     "q": "“Can I apply for a Certificate of Relief from Disabilities on this conviction, and should we request it now at sentencing?”",
+     "title": "Certificate of Relief from Disabilities in New York: How to Get Your Rights Back After a Conviction",
+     "url": "articles/certificate-of-relief-from-disabilities-ny.html"
+    }
+   ],
+   "stage": {
+    "text": "Read the sentencing stage guide",
+    "url": "stages/sentencing.html"
+   }
+  },
+  {
+   "day": 18,
+   "subject": "After an arrest in New York, 7 of 7: after the case",
+   "intro": "A case can follow someone into job applications, apartment searches and background checks long after it ends. This last email covers the record.",
+   "questions": [
+    {
+     "q": "“What is the exact date my sealing clock started, and has this conviction been sealed yet?”",
+     "title": "The Clean Slate Act: When Does Your NY Record Actually Get Sealed?",
+     "url": "articles/clean-slate-act-explained.html"
+    },
+    {
+     "q": "“What exactly did the background check report, and which company ran it?”",
+     "title": "Does a Conviction Actually Show Up on a Background Check in New York?",
+     "url": "articles/does-a-conviction-show-on-background-check-ny.html"
+    },
+    {
+     "q": "“Has the court actually sent the sealing notice to DCJS and to every agency involved, and how do I confirm my own record reflects it?”",
+     "title": "Your Case Was Dismissed. Was Your Arrest Record Sealed? CPL 160.50 Explained",
+     "url": "articles/cpl-160-50-sealing-favorable-termination-ny.html"
+    }
+   ],
+   "stage": {
+    "text": "Read the stage guide on records, jobs and housing",
+    "url": "stages/records.html"
+   },
+   "closing": "That's the end of the course. Every question from all seven emails is on one printable page, the checklist. To keep getting new articles, sign up for them on the site."
+  }
+ ]
+}

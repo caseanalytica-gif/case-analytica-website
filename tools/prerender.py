@@ -33,6 +33,7 @@ STATIC_PAGES = [
     ("guide.html", "0.7"),
     ("dean-mustaphalli.html", "0.6"), ("ethics.html", "0.6"),
     ("republish.html", "0.5"),
+    ("mail-inside.html", "0.7"),
     ("intake-worksheet.html", "0.7"),
     ("parole-file-worksheet.html", "0.7"),
     ("methodology.html", "0.7"),

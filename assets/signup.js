@@ -10,6 +10,10 @@
   var btn = form.querySelector('button[type="submit"]');
   var status = document.getElementById("article-signup-status");
   var label = btn.textContent;
+  // A form can name its own list (the email course uses "course:<key>") and its own thank-you line.
+  var source = form.getAttribute("data-source") ||
+    "article-signup:" + location.pathname.split("/").pop().replace(".html", "").slice(0, 45);
+  var okMsg = form.getAttribute("data-success") || "You're on the list. The guide is on its way to your inbox.";
 
   function say(msg, ok) {
     status.textContent = msg;
@@ -29,12 +33,12 @@
     fetch(ENDPOINT, {
       method: "POST",
       headers: { "Content-Type": "text/plain;charset=utf-8" },
-      body: JSON.stringify({ email: email, hp: hp.value, source: "article-signup:" + location.pathname.split("/").pop().replace(".html", "").slice(0, 45) })
+      body: JSON.stringify({ email: email, hp: hp.value, source: source })
     })
       .then(function (res) { return res.json(); })
       .then(function (data) {
         if (data && data.ok) {
-          say("You're on the list. The guide is on its way to your inbox.", true);
+          say(okMsg, true);
           form.reset();
           if (typeof gtag === "function") gtag("event", "article_signup", { page_path: location.pathname });
         } else {

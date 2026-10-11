@@ -574,6 +574,8 @@ footer.site-footer nav a{font-size:13.5px; color:var(--ink-soft);}
   /* chrome that should never reach paper */
   header.site-nav, footer.site-footer, .guide-fab,
   .intake-band, .donate-group, .ws-actions, .ws-status, .no-print{display:none !important;}
+  /* article extras: share buttons, signup box and Related reading waste a page inside a five-page mail limit */
+  .share-row, .article-signup, .related-articles, .subnav, .donate-prompt{display:none !important;}
   .hero{background:#fff !important; color:#000 !important; padding:0 !important;}
   .hero::after{display:none !important;}
   .ground-panel{background:#fff !important; color:#000 !important; border:1px solid #999 !important;}
