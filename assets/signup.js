@@ -2,7 +2,7 @@
 // web app as the guide and checklist forms (email-capture-sheets/Code.gs),
 // which adds the address to the Subscribers sheet and emails the guide.
 (function () {
-  var ENDPOINT = "https://script.google.com/macros/s/AKfycbx-cq6QGDsWt3ooU1gzGRrNVFbCuanJW58KmVP5QK5vVEQ8X4O_JjAoJmfRyEgY_oBxcg/exec";
+  var ENDPOINT = "https://script.google.com/macros/s/AKfycbwVTaXgT5_sEWyctixV5qpg5MMfq8cs3WQGfBzGEtxCbq4T5POOuLLMaLxbK4sdADd0Ow/exec";
   var form = document.getElementById("article-signup-form");
   if (!form) return;
   var input = form.querySelector('input[type="email"]');
