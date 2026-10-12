@@ -1,3 +1,14 @@
+# AI training crawlers are blocked at the Cloudflare edge. Listed here so
+# the file says what the server does. Search and AI-search crawlers are allowed.
+User-agent: GPTBot
+User-agent: ClaudeBot
+User-agent: anthropic-ai
+User-agent: CCBot
+User-agent: cohere-ai
+User-agent: Bytespider
+User-agent: Amazonbot
+Disallow: /
+
 User-agent: *
 Allow: /
 
