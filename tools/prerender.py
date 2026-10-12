@@ -28,7 +28,7 @@ FIELDS = ("slug", "title", "category", "stage", "date", "excerpt",
 STATIC_PAGES = [
     ("", "1.0"), ("articles.html", "0.9"), ("about.html", "0.7"), ("supporters.html", "0.6"),
     ("impact.html", "0.6"), ("contact.html", "0.6"),
-    ("videos.html", "0.7"), ("restorative-justice.html", "0.7"),
+    ("restorative-justice.html", "0.7"),
     ("help-after-an-arrest-ny.html", "0.8"), ("checklist.html", "0.7"),
     ("guide.html", "0.7"),
     ("dean-mustaphalli.html", "0.6"), ("ethics.html", "0.6"),
@@ -236,6 +236,20 @@ def replace_region(doc, new):
                   doc, count=1, flags=re.S)
 
 
+def last_modified(rel, published):
+    """The later of the publish date and the article's JSON-LD dateModified.
+    An article edited after publishing (a dated update note, a correction)
+    should tell crawlers so; the data.js date alone never changes."""
+    try:
+        doc = open(rel, encoding="utf-8").read()
+    except IOError:
+        return published
+    m = re.search(r'"dateModified":\s*"(\d{4}-\d{2}-\d{2})"', doc)
+    if m and (not published or m.group(1) > published):
+        return m.group(1)
+    return published
+
+
 def sitemap(articles, tracked):
     rows = []
     for path, pri in STATIC_PAGES:
@@ -244,7 +258,7 @@ def sitemap(articles, tracked):
         rel = "articles/%s.html" % a["slug"]
         if rel not in tracked:
             continue
-        rows.append((BASE + "/" + rel, a.get("date"), "0.9"))
+        rows.append((BASE + "/" + rel, last_modified(rel, a.get("date")), "0.9"))
     body = "".join(
         "  <url>\n    <loc>%s</loc>\n%s    <changefreq>monthly</changefreq>\n"
         "    <priority>%s</priority>\n  </url>\n"

@@ -526,6 +526,9 @@ footer.site-footer nav a{font-size:13.5px; color:var(--ink-soft);}
   }
   .guide-fab-text{display:none;}
   .guide-fab-icon{font-size:20px;}
+  /* On a phone the fixed button sits over the ends of article lines while
+     scrolling. Articles already link the guide in the body, so drop it there. */
+  body:has(.article-body) .guide-fab{display:none;}
 }
 
 /* ==========================================================================
