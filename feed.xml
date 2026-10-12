@@ -6,7 +6,14 @@
     <description>Reporting on New York's criminal courts, prisons and parole.</description>
     <language>en-us</language>
     <atom:link href="https://www.caseanalytica.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Sat, 10 Oct 2026 12:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 12 Oct 2026 12:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Can You Vote With a Criminal Record in New York? What the Law Says</title>
+      <link>https://www.caseanalytica.com/articles/can-you-vote-with-a-criminal-record-ny.html</link>
+      <guid isPermaLink="true">https://www.caseanalytica.com/articles/can-you-vote-with-a-criminal-record-ny.html</guid>
+      <pubDate>Mon, 12 Oct 2026 12:00:00 +0000</pubDate>
+      <description>In New York, a conviction stops you from voting only while you are in prison for a felony. On parole, on probation or home, you can vote, but a prison term cancels your registration, and the deadline to register again for November 3 is October 24.</description>
+    </item>
     <item>
       <title>How Mental Health Court Works in New York, and Why It Depends on Which County You&#x27;re Arrested In</title>
       <link>https://www.caseanalytica.com/articles/mental-health-court-diversion-ny-explained.html</link>
@@ -209,13 +216,6 @@
       <guid isPermaLink="true">https://www.caseanalytica.com/articles/closing-rikers-root-cause-prevention-ny.html</guid>
       <pubDate>Thu, 20 Aug 2026 12:00:00 +0000</pubDate>
       <description>Advocates say closing Rikers means treating housing and mental health needs instead of jailing them. The city already spends $507,000 a year per person there, and 87 percent of them haven&#x27;t been convicted. Here&#x27;s what the prevention argument rests on, and where the evidence is thinner than the slogan.</description>
-    </item>
-    <item>
-      <title>The Protect Our Courts Act: Why ICE Needs a Judicial Warrant to Arrest You at a NY Courthouse</title>
-      <link>https://www.caseanalytica.com/articles/protect-our-courts-act-ny-explained.html</link>
-      <guid isPermaLink="true">https://www.caseanalytica.com/articles/protect-our-courts-act-ny-explained.html</guid>
-      <pubDate>Wed, 19 Aug 2026 12:00:00 +0000</pubDate>
-      <description>New York&#x27;s Protect Our Courts Act bars civil arrests at state courthouses unless a judge, not an ICE supervisor, signed the warrant. A federal judge upheld the law in November 2025. Here&#x27;s what it actually covers.</description>
     </item>
   </channel>
 </rss>

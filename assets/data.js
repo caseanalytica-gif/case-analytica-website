@@ -313,6 +313,16 @@ const VIDEOS = [
 
 const ARTICLES = [
   {
+    slug: "can-you-vote-with-a-criminal-record-ny",
+    title: "Can You Vote With a Criminal Record in New York? What the Law Says",
+    category: "Rights & Process",
+    stage: "parole",
+    date: "2026-10-12",
+    imageAlt: "A Board of Elections sign at a New York City poll site reading Vote Here and Vote Aquí.",
+    imageCredit: "Photo: Oleg Yunakov, Wikimedia Commons, CC BY-SA 4.0",
+    excerpt: "In New York, a conviction stops you from voting only while you are in prison for a felony. On parole, on probation or home, you can vote, but a prison term cancels your registration, and the deadline to register again for November 3 is October 24."
+  },
+  {
     slug: "mental-health-court-diversion-ny-explained",
     title: "How Mental Health Court Works in New York, and Why It Depends on Which County You're Arrested In",
     category: "Restorative Justice",
