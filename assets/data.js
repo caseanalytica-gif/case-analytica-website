@@ -313,6 +313,18 @@ const VIDEOS = [
 
 const ARTICLES = [
   {
+    slug: "nyc-snow-shoveler-jobs-no-background-check-clean-slate-ny",
+    title: "Waiting on Clean Slate? NYC Pays $30 an Hour to Shovel Snow, and the Sign-Up Never Asked About a Record",
+    category: "Rights & Process",
+    stage: "records",
+    date: "2026-10-13",
+    cover: "snow",
+    coverStat: "$30 an hour.",
+    coverLine: "No record check at the sign-up.",
+    coverJump: "where-to-sign-up",
+    excerpt: "Still waiting for Clean Slate to seal your record? At DSNY's October 10 sign-up in Queens, the paperwork was tax forms, a Social Security card and proof of address. No background check, no fingerprints, no question about a record. Register by November 30."
+  },
+  {
     slug: "can-you-vote-with-a-criminal-record-ny",
     title: "Can You Vote With a Criminal Record in New York? What the Law Says",
     category: "Rights & Process",

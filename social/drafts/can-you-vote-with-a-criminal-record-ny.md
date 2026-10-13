@@ -3,7 +3,7 @@
 **Article:** https://www.caseanalytica.com/articles/can-you-vote-with-a-criminal-record-ny.html
 **Graphic (this is what the link card pulls in, do not upload it):**
 https://www.caseanalytica.com/assets/social/can-you-vote-with-a-criminal-record-ny-og.png
-(2400x1254, 167,874 bytes locally; verify live 200 after the push)
+(2400x1254, verified live 200 on 2026-10-12)
 **Published:** 2026-10-12
 
 ---
@@ -79,7 +79,7 @@ only if you want it larger in-feed, knowing the image itself won't link.
 https://www.caseanalytica.com/assets/social/can-you-vote-with-a-criminal-record-ny-og.png
 
 If a preview comes back blank or stale, append ?v=2 to the article URL to force a refetch.
-Verify after the push: og:image returns 200, image/png, 167874 bytes.
+Verified 2026-10-12: og:image returns 200, image/png, 167874 bytes.
 
 ---
 

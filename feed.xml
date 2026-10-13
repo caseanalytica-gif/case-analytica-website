@@ -6,7 +6,14 @@
     <description>Reporting on New York's criminal courts, prisons and parole.</description>
     <language>en-us</language>
     <atom:link href="https://www.caseanalytica.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Mon, 12 Oct 2026 12:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 13 Oct 2026 12:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Waiting on Clean Slate? NYC Pays $30 an Hour to Shovel Snow, and the Sign-Up Never Asked About a Record</title>
+      <link>https://www.caseanalytica.com/articles/nyc-snow-shoveler-jobs-no-background-check-clean-slate-ny.html</link>
+      <guid isPermaLink="true">https://www.caseanalytica.com/articles/nyc-snow-shoveler-jobs-no-background-check-clean-slate-ny.html</guid>
+      <pubDate>Tue, 13 Oct 2026 12:00:00 +0000</pubDate>
+      <description>Still waiting for Clean Slate to seal your record? At DSNY&#x27;s October 10 sign-up in Queens, the paperwork was tax forms, a Social Security card and proof of address. No background check, no fingerprints, no question about a record. Register by November 30.</description>
+    </item>
     <item>
       <title>Can You Vote With a Criminal Record in New York? What the Law Says</title>
       <link>https://www.caseanalytica.com/articles/can-you-vote-with-a-criminal-record-ny.html</link>
@@ -209,13 +216,6 @@
       <guid isPermaLink="true">https://www.caseanalytica.com/articles/queens-criminal-court-logistics.html</guid>
       <pubDate>Thu, 20 Aug 2026 12:00:00 +0000</pubDate>
       <description>Queens arraignments stop at 11:00 p.m., not 1:00 a.m. like the Bronx, and people assume every borough runs the same hours. Where the Kew Gardens courthouse is, how to get in, and which clerk windows close early.</description>
-    </item>
-    <item>
-      <title>Root-Cause Prevention Is the Part of Closing Rikers Nobody Budgets For</title>
-      <link>https://www.caseanalytica.com/articles/closing-rikers-root-cause-prevention-ny.html</link>
-      <guid isPermaLink="true">https://www.caseanalytica.com/articles/closing-rikers-root-cause-prevention-ny.html</guid>
-      <pubDate>Thu, 20 Aug 2026 12:00:00 +0000</pubDate>
-      <description>Advocates say closing Rikers means treating housing and mental health needs instead of jailing them. The city already spends $507,000 a year per person there, and 87 percent of them haven&#x27;t been convicted. Here&#x27;s what the prevention argument rests on, and where the evidence is thinner than the slogan.</description>
     </item>
   </channel>
 </rss>

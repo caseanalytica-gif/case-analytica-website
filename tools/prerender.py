@@ -24,7 +24,8 @@ import sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE = "https://www.caseanalytica.com"
 FIELDS = ("slug", "title", "category", "stage", "date", "excerpt",
-          "image", "imageAlt", "imageCredit")
+          "image", "imageAlt", "imageCredit",
+          "cover", "coverStat", "coverLine", "coverJump")
 STATIC_PAGES = [
     ("", "1.0"), ("articles.html", "0.9"), ("about.html", "0.7"), ("supporters.html", "0.6"),
     ("impact.html", "0.6"), ("contact.html", "0.6"),
@@ -459,9 +460,35 @@ def article_dek(slug, root):
     return html.unescape(m.group(1)) if m else ""
 
 
+def cine_cover_html(lead, root):
+    """A lead story with `cover:` set in data.js gets the cinematic cover: no
+    photo, one big figure, the headline under it. `cover` names the backdrop
+    (a CSS class, e.g. "snow"); `coverStat` and `coverLine` are the two big
+    lines; `coverJump` is an id in the article for the second link."""
+    href = "articles/%s.html" % e(lead["slug"])
+    jump = ('\n      <a class="cv-cta cv-cta-2" href="%s#%s">Where to sign up</a>'
+            % (href, e(lead["coverJump"])) if lead.get("coverJump") else "")
+    return (
+        '\n<section class="cv-cover cv-cine cv-fx-%s" aria-labelledby="cv-h">\n'
+        '  <div class="cv-fx" aria-hidden="true"></div>\n'
+        '  <div class="wrap cv-inner">\n'
+        '    <span class="cv-kicker">%s</span>\n'
+        '    <p class="cv-big">%s</p>\n'
+        '    <p class="cv-sub">%s</p>\n'
+        '    <h2 class="cv-h" id="cv-h"><a href="%s">%s</a></h2>\n'
+        '    <p class="cv-ctas">\n      <a class="cv-cta" href="%s">Read the story</a>%s\n    </p>\n'
+        '  </div>\n'
+        '  <a class="cv-help" href="help-after-an-arrest-ny.html">Was someone in your family just arrested? Start here</a>\n'
+        '</section>\n'
+        % (e(lead["cover"]), e(lead.get("category")), e(lead.get("coverStat")),
+           e(lead.get("coverLine")), href, e(lead["title"]), href, jump))
+
+
 def cover_html(live, root):
     """The lead story as a full-width cover over the courthouse photo."""
     lead = live[0]
+    if lead.get("cover"):
+        return cine_cover_html(lead, root)
     href = "articles/%s.html" % e(lead["slug"])
     return (
         '\n<section class="cv-cover" aria-labelledby="cv-h">\n'
