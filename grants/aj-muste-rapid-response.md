@@ -23,7 +23,13 @@ makes two specific findings. They are denied anyway, and no one publishes how of
 
 ## Why it is urgent
 
-[Name the dated event that makes this urgent now. The same answer as North Star.]
+The urgency is today, October 13, 2026, and every week after it. Every week the Parole Board
+denies release to people who hold an Earned Eligibility Certificate, and they stay in prison. The
+state prison system's own Earned Eligibility Program report counts 369 denials of certificate
+holders between April and September 2025, about 14 a week. (DOCCS counts Board appearances, not
+individual people.) Each of those denials should rest on the two findings Correction Law § 805
+requires. Nobody has published whether the written decisions state them. Every week this goes
+unchecked, more people stay held on decisions no one outside the Board has read against the law.
 
 ## What the money does
 

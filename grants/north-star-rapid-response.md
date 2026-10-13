@@ -29,9 +29,13 @@ they will probably break the law again and that release is not compatible with t
 society. People with an EEC are denied anyway, in written decisions that do not explain how the
 presumption was overcome. No one publishes how often this happens.
 
-[Why now: name the specific trigger. For example, a recent run of EEC denials reported to Case
-Analytica, a pending bill, or Board appointments. North Star funds a response to something
-happening now, so this answer needs a dated, real event.]
+The urgency is today, October 13, 2026, and every week after it. Every week the Parole Board
+denies release to people who hold an Earned Eligibility Certificate, and they stay in prison. The
+state prison system's own Earned Eligibility Program report counts 369 denials of certificate
+holders between April and September 2025, about 14 a week. (DOCCS counts Board appearances, not
+individual people.) Each of those denials should rest on the two findings Correction Law § 805
+requires. Nobody has published whether the written decisions state them. Every week this goes
+unchecked, more people stay held on decisions no one outside the Board has read against the law.
 
 ## The specific outcome in 3 to 6 months
 
