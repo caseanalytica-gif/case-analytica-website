@@ -34,7 +34,7 @@ $3,000 pays for:
 - $400: return stamps, so people inside can send back their written decisions;
 - $1,200: $50 stipends for [24] people who share their decisions and their account of the
   interview;
-- $500: FOIL and records costs, and the fiscal sponsor fee [confirm with ANF].
+- $500: FOIL and records costs ($290), and the fiscal sponsor fee at 7% ($210).
 
 ## Who leads it
 

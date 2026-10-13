@@ -13,7 +13,7 @@ word limit.
 
 Case Analytica publishes plain-language reporting on New York criminal law and parole for people
 facing a case and their families. It is a fiscally sponsored project of the Alternative Newsweekly
-Foundation, a 501(c)(3). Its budget is [amount], well under $800,000.
+Foundation, a 501(c)(3). Its year one budget is $174,982, well under $800,000.
 
 Case Analytica is led by a directly impacted person. Its founder, Dean Mustaphalli, served time in
 New York State prison. Inside, he ran a transition program that helped more than 100 men prepare
@@ -55,5 +55,5 @@ plain account of what the Board wrote and what the statute required it to write.
 
 ## Budget
 
-$5,000: packets and postage $900, return postage $400, participant stipends $1,500, records and
-FOIL $300, coding and data work $1,400, fiscal sponsor fee $500. Detail in `budgets.md`.
+$5,000: packets and postage $1,050, return postage $400, participant stipends $1,500, records and
+FOIL $300, coding and data work $1,400, fiscal sponsor fee (7%) $350. Detail in `budgets.md`.

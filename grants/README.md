@@ -32,9 +32,10 @@ points below come from search results and third-party listings. Each one says so
 
 ## Sequence
 
-1. **This week.** Dean reviews the concept note and budgets and fills the `[brackets]`.
-   Email ANF (executivedirector@altnewsfoundation.org) for: a fiscal sponsor letter, ANF's
-   current budget, and which budget figure counts for A.J. Muste's $250,000 cap.
+1. **This week.** Budgets approved by Dean on 2026-10-13. ANF's fee is 7%, and Ellen has said
+   she will sign on to any application that needs her. On 2026-10-13 Dean emailed Ellen for 3(c)
+   approval of North Star and A.J. Muste, and asked whether ANF's own budget is under the $250,000
+   and $800,000 caps. Waiting on her answer.
 2. **Next week.** Submit North Star Rapid Response.
 3. **Nov 2 to 6.** Submit A.J. Muste in its monthly window.
 4. **November.** Send the Sills inquiry to TPI. Start the NYCT Human Justice proposal.
