@@ -2,6 +2,8 @@
 
 Request: $3,000, which is near the typical award. The maximum is $5,000.
 
+Contact: Dean Mustaphalli, caseanalytica@gmail.com, 631-318-0532.
+
 **Window:** applications open only during the first full week of each month, Monday 10am to
 Friday 4pm ET. The next window is Monday November 2 to Friday November 6, 2026.
 
@@ -27,8 +29,8 @@ makes two specific findings. They are denied anyway, and no one publishes how of
 
 $3,000 pays for:
 
-- $900: printing and postage for [150] parole preparation packets mailed to EEC holders before
-  their interviews;
+- $900: printing and postage for parole preparation packets mailed to EEC holders before their
+  interviews, at least 20 a month and up to 150 in all;
 - $400: return stamps, so people inside can send back their written decisions;
 - $1,200: $50 stipends for [24] people who share their decisions and their account of the
   interview;
@@ -37,7 +39,7 @@ $3,000 pays for:
 ## Who leads it
 
 Dean Mustaphalli, who founded Case Analytica, served time in New York State prison. Inside, he
-ran a transition program preparing other men for parole hearings, and he won his own parole board
+ran a transition program that prepared more than 100 men for parole hearings, and he won his own parole board
 appeal. He came home in December 2023. The packets come from that work.
 
 ## Result

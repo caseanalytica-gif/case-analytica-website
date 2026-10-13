@@ -1,7 +1,7 @@
 # Concept note: Does an Earned Eligibility Certificate actually get people home?
 
 Case Analytica, a fiscally sponsored project of the Alternative Newsweekly Foundation
-(501(c)(3), EIN 30-0100369). Contact: Dean Mustaphalli, [email], [phone].
+(501(c)(3), EIN 30-0100369). Contact: Dean Mustaphalli, caseanalytica@gmail.com, 631-318-0532.
 
 ## The problem
 
@@ -18,7 +18,7 @@ and not whether denial decisions make the two findings the statute requires.
 
 ## The pilot
 
-A [six]-month pilot that answers the question with documents and helps the people it concerns
+A six-month pilot that answers the question with documents and helps the people it concerns
 while it does.
 
 1. **Collect.** Gather written Board decisions from EEC holders, with each person's consent,
@@ -40,7 +40,7 @@ while it does.
 
 - [40] written decisions collected and coded, published with names removed.
 - One FOIL request filed and its response published, including any refusal.
-- [100] preparation packets mailed into DOCCS facilities.
+- At least 120 preparation packets mailed into DOCCS facilities, 20 or more a month.
 - One public report and at least [3] articles on the findings.
 - A record of every EEC holder in the pilot who was released, and of every one who appealed a
   denial.
@@ -48,8 +48,8 @@ while it does.
 ## Who runs it
 
 Dean Mustaphalli founded Case Analytica and writes all of its reporting. He served time in New
-York State prison. While he was inside he ran a transition program, helping other men prepare for
-parole board hearings and work on their appeals in the law library. He won his own parole board
+York State prison. While he was inside he ran a transition program, helping more than 100 men prepare
+for parole board hearings and work on their appeals in the law library. He won his own parole board
 appeal and came home in December 2023. He is not an attorney, and the pilot gives no legal advice.
 When a person needs representation, the pilot refers them to one.
 

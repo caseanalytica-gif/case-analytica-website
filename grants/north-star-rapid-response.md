@@ -3,6 +3,8 @@
 Request: $5,000. Rolling. One grant per organization per year. The outcome has to land within 3
 to 6 months. Eligibility: budget under $800,000, led by directly impacted people.
 
+Contact: Dean Mustaphalli, caseanalytica@gmail.com, 631-318-0532.
+
 The application form wasn't reachable from this session, so these answers follow the questions
 the program describes. Paste each one into the matching field on Submittable and cut to fit any
 word limit.
@@ -14,8 +16,8 @@ facing a case and their families. It is a fiscally sponsored project of the Alte
 Foundation, a 501(c)(3). Its budget is [amount], well under $800,000.
 
 Case Analytica is led by a directly impacted person. Its founder, Dean Mustaphalli, served time in
-New York State prison. Inside, he ran a transition program that helped other men prepare for
-parole board hearings and work on appeals in the law library. He won his own parole board appeal
+New York State prison. Inside, he ran a transition program that helped more than 100 men prepare
+for parole board hearings and work on appeals in the law library. He won his own parole board appeal
 and came home in December 2023. [Name any formerly incarcerated advisers or family members who
 will work on the pilot.]
 
@@ -35,7 +37,8 @@ happening now, so this answer needs a dated, real event.]
 
 By [month] 2027, Case Analytica will have:
 
-- mailed [150] parole preparation packets to EEC holders with upcoming interviews;
+- mailed at least 120 parole preparation packets, 20 or more a month, to EEC holders with
+  upcoming interviews;
 - collected and read [30] written Board decisions from EEC holders, with their consent, against
   the two findings the statute requires;
 - filed a Freedom of Information Law request for the number of EEC holders the Board interviewed
