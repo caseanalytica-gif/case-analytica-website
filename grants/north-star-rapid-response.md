@@ -18,8 +18,8 @@ Foundation, a 501(c)(3). Its year one budget is $174,982, well under $800,000.
 Case Analytica is led by a directly impacted person. Its founder, Dean Mustaphalli, served time in
 New York State prison. Inside, he ran a transition program that helped more than 100 men prepare
 for parole board hearings and work on appeals in the law library. He won his own parole board appeal
-and came home in December 2023. [Name any formerly incarcerated advisers or family members who
-will work on the pilot.]
+and came home in December 2023. Dean runs the pilot himself. It has no advisers or staff yet;
+the people it serves shape it through what they send in, as described below.
 
 ## What is happening, and why now
 
