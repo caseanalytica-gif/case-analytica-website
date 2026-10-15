@@ -966,3 +966,70 @@ main.fp{padding-top:0;}
   .cv-cine .cv-h{font-size:17px; margin-bottom:24px;}
   .fp .cv-cta{font-size:17px;}
 }
+
+/* Reporting project page (parole-reporting-project.html): the cinematic cover outside
+   the front page, plus full-width big-type bands. Always black, whatever the theme. */
+.pp-hero{padding:0;}
+/* the statute's own words drift behind the hero, very faint; "and" a touch brighter.
+   Each row holds its text twice and moves by exactly half, so the loop has no seam */
+.pp-laws{position:absolute; inset:0; z-index:1; pointer-events:none; overflow:hidden;}
+.pp-law{position:absolute; left:0; margin:0; white-space:nowrap; display:flex; width:max-content;
+  font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif; font-style:italic;
+  font-size:clamp(28px,4.2vw,58px); color:rgba(255,255,255,.24);}
+.pp-law b{font-weight:700; color:rgba(41,151,255,.7);}
+.pp-law-1{top:13%; animation:pp-drift 90s linear infinite;}
+.pp-law-2{bottom:9%; animation:pp-drift 120s linear infinite reverse;}
+@keyframes pp-drift{from{transform:translateX(0);} to{transform:translateX(-50%);}}
+.pp-hero .cv-kicker{display:inline-block; position:relative; font-size:clamp(22px,2.4vw,30px); font-weight:600; letter-spacing:.01em; color:#F5F5F7; padding-bottom:12px;}
+/* the line under the kicker draws in left to right, holds, slides out to the right, and repeats.
+   The origin flips only while the line is full width, where it makes no visible difference */
+.pp-hero .cv-kicker::after{content:""; position:absolute; left:0; right:0; bottom:0; height:3px; border-radius:2px;
+  background:linear-gradient(90deg,#2997FF,#A9B8D6); transform:scaleX(0); transform-origin:left center;
+  animation:pp-draw 4.5s cubic-bezier(.65,0,.35,1) .9s infinite;}
+@keyframes pp-draw{0%{transform:scaleX(0); transform-origin:left center;} 30%{transform:scaleX(1); transform-origin:left center;}
+  62%{transform:scaleX(1); transform-origin:left center;} 63%{transform:scaleX(1); transform-origin:right center;}
+  88%,100%{transform:scaleX(0); transform-origin:right center;}}
+.pp-hero .cv-sub{font-size:clamp(22px,3.2vw,42px); max-width:24ch; margin-left:auto; margin-right:auto; text-wrap:balance;}
+.cv-cine .cv-cta{font-family:var(--sans); font-size:19px; color:#2997FF; text-decoration:none;}
+.cv-cine .cv-cta:hover{text-decoration:underline;}
+/* ledger: faint ruled lines drift up under a slow reading light. Each layer moves by exactly its tile height */
+.cv-fx-ledger .cv-fx{background-image:repeating-linear-gradient(180deg,rgba(255,255,255,.07) 0 1px,transparent 1px 34px);
+  background-size:100% 34px; animation:cv-ledger 7s linear infinite;
+  -webkit-mask-image:radial-gradient(ellipse 75% 65% at 50% 45%,#000 15%,transparent 75%);
+          mask-image:radial-gradient(ellipse 75% 65% at 50% 45%,#000 15%,transparent 75%);}
+.cv-fx-ledger .cv-fx::after{content:""; position:absolute; left:0; right:0; top:0; height:30%;
+  background:linear-gradient(180deg,rgba(120,150,210,0),rgba(120,150,210,.10) 50%,rgba(120,150,210,0));
+  animation:cv-scan 9s ease-in-out infinite;}
+@keyframes cv-ledger{from{background-position:0 0;} to{background-position:0 -34px;}}
+@keyframes cv-scan{0%{transform:translateY(-100%);} 100%{transform:translateY(340%);}}
+.pp-band{background:#000; color:#F5F5F7; text-align:center; padding:110px 0;}
+.pp-band p{margin:0;}
+.pp-lead{font-family:-apple-system,"SF Pro Display","Helvetica Neue",Helvetica,Arial,sans-serif; font-weight:600;
+  font-size:clamp(20px,2.6vw,32px); line-height:1.2; letter-spacing:-.02em; color:#86868B; max-width:30ch; margin:0 auto !important;}
+.pp-word{font-family:-apple-system,"SF Pro Display","Helvetica Neue",Helvetica,Arial,sans-serif; font-weight:700;
+  font-size:clamp(120px,24vw,300px); line-height:1; letter-spacing:-.06em; margin:18px 0 22px !important;
+  background:linear-gradient(180deg,#FFFFFF 30%,#A9B8D6 100%); -webkit-background-clip:text; background-clip:text; color:transparent;}
+.pp-kicker{font-family:var(--sans); font-size:15px; font-weight:600; color:#86868B; margin-bottom:34px !important;}
+.pp-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px; max-width:980px; margin:0 auto;}
+.pp-num{font-family:-apple-system,"SF Pro Display","Helvetica Neue",Helvetica,Arial,sans-serif; font-weight:700;
+  font-size:clamp(56px,8vw,112px); line-height:1; letter-spacing:-.045em; color:#6E6E73;}
+.pp-hot{background:linear-gradient(180deg,#FFFFFF 30%,#A9B8D6 100%); -webkit-background-clip:text; background-clip:text; color:transparent;}
+.pp-lbl{font-family:var(--sans); font-size:17px; color:#A1A1A6; margin-top:10px !important;}
+.pp-foot{font-family:var(--sans); font-size:14px; color:#6E6E73; margin-top:40px !important;}
+@supports (animation-timeline:view()){
+  .pp-band .wrap > *{animation:cv-rise linear both; animation-timeline:view(); animation-range:entry 0% entry 60%;}
+}
+@media (prefers-reduced-motion:reduce){
+  .cv-fx-ledger .cv-fx,.cv-fx-ledger .cv-fx::after,.pp-band .wrap > *{animation:none;}
+  .pp-hero .cv-kicker::after{animation:none; transform:none;}
+  .pp-law{animation:none;}
+}
+@media (max-width:640px){
+  .pp-band{padding:72px 0;}
+  .pp-grid{grid-template-columns:1fr; gap:30px;}
+  .cv-cine .cv-cta{font-size:17px;}
+  .pp-hero .cv-sub{font-size:22px;}
+  .pp-hero .cv-kicker{font-size:19px; padding-bottom:10px;}
+  .pp-law{font-size:24px;} .pp-law-1{top:7%;} .pp-law-2{bottom:3%;}
+  .pp-hero .cv-inner{padding-top:96px; padding-bottom:76px;}
+}
