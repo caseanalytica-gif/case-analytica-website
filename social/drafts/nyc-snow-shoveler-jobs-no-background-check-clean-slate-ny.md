@@ -3,7 +3,7 @@
 **Article:** https://www.caseanalytica.com/articles/nyc-snow-shoveler-jobs-no-background-check-clean-slate-ny.html
 **Graphic (this is what the link card pulls in, do not upload it):**
 https://www.caseanalytica.com/assets/social/nyc-snow-shoveler-jobs-no-background-check-clean-slate-ny-og.png
-(2400x1254, verify live 200 after the push)
+(2400x1254, verified live 200 on 2026-10-13)
 **Published:** 2026-10-13
 
 ---
@@ -77,10 +77,18 @@ only if you want it larger in-feed, knowing the image itself won't link.
 https://www.caseanalytica.com/assets/social/nyc-snow-shoveler-jobs-no-background-check-clean-slate-ny-og.png
 
 If a preview comes back blank or stale, append ?v=2 to the article URL to force a refetch.
-Verified: (fill after push) og:image returns 200, image/png, <N> bytes.
+Verified 2026-10-13: og:image returns 200, image/png, 174683 bytes.
 
 ---
 
 ## Note on tone
 
 The claim is what Case Analytica saw at the October 10 sign-up, not a promise that no check ever happens. Keep replies on that footing: "the sign-up didn't ask," never "they don't check." If someone reports being asked about a record after registering, take it as a tip.
+
+---
+
+## Posted
+
+- LinkedIn, 2026-10-13: https://www.linkedin.com/feed/update/urn:li:activity:7515771628018978816/ (link card attached)
+- Pinterest, 2026-10-13: https://www.pinterest.com/pin/1099652434089382477/
+- Facebook: not yet
