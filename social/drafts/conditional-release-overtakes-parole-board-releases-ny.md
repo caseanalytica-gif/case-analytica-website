@@ -90,5 +90,7 @@ Rewritten 2026-10-18 around Dean's point: a denial pushes release to conditional
 
 ## Posted
 
-- YouTube Short, uploaded unlisted 2026-10-17: https://youtube.com/shorts/EHx0rhnkyjA
+- YouTube Short, uploaded unlisted 2026-10-17, switched to Public 2026-10-18: https://youtube.com/shorts/EHx0rhnkyjA
 - TikTok, 2026-10-17: https://www.tiktok.com/@case.analytica/video/7697744550831361294
+- LinkedIn native video post, 2026-10-18: https://www.linkedin.com/feed/update/urn:li:activity:7517575438513274881/
+- Pinterest video pin, 2026-10-18, board New York Courts, Prisons and Parole, AI-modified off: https://www.pinterest.com/pin/1099652434089800992/
