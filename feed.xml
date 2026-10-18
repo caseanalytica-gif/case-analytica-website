@@ -6,7 +6,14 @@
     <description>Reporting on New York's criminal courts, prisons and parole.</description>
     <language>en-us</language>
     <atom:link href="https://www.caseanalytica.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Tue, 13 Oct 2026 12:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 18 Oct 2026 12:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Turned Down for Parole in New York? Conditional Release Can Mean Twice the Time Inside</title>
+      <link>https://www.caseanalytica.com/articles/conditional-release-overtakes-parole-board-releases-ny.html</link>
+      <guid isPermaLink="true">https://www.caseanalytica.com/articles/conditional-release-overtakes-parole-board-releases-ny.html</guid>
+      <pubDate>Sun, 18 Oct 2026 12:00:00 +0000</pubDate>
+      <description>Conditional release, about 43% of New York prison releases, has passed Parole Board release at about 41%. On an indeterminate sentence, conditional release comes at two-thirds of the maximum, about twice the time to a first parole hearing, leaving less supervision for Less Is More to cut. DOCCS data shows 402 certificate interviews the Board did not approve in six months.</description>
+    </item>
     <item>
       <title>Waiting on Clean Slate? NYC Pays $30 an Hour to Shovel Snow, and the Sign-Up Never Asked About a Record</title>
       <link>https://www.caseanalytica.com/articles/nyc-snow-shoveler-jobs-no-background-check-clean-slate-ny.html</link>
@@ -209,13 +216,6 @@
       <guid isPermaLink="true">https://www.caseanalytica.com/articles/bronx-criminal-court-logistics.html</guid>
       <pubDate>Thu, 20 Aug 2026 12:00:00 +0000</pubDate>
       <description>&quot;Bronx Criminal Court&quot; is two different buildings a block and a half apart, 215 and 265 East 161st Street, and both go by that name. How to find out which one you need before you travel, plus arraignment hours that run to 1:00 a.m. seven days a week.</description>
-    </item>
-    <item>
-      <title>Queens Criminal Court: Getting There, Getting In, and the 11 p.m. Cutoff</title>
-      <link>https://www.caseanalytica.com/articles/queens-criminal-court-logistics.html</link>
-      <guid isPermaLink="true">https://www.caseanalytica.com/articles/queens-criminal-court-logistics.html</guid>
-      <pubDate>Thu, 20 Aug 2026 12:00:00 +0000</pubDate>
-      <description>Queens arraignments stop at 11:00 p.m., not 1:00 a.m. like the Bronx, and people assume every borough runs the same hours. Where the Kew Gardens courthouse is, how to get in, and which clerk windows close early.</description>
     </item>
   </channel>
 </rss>

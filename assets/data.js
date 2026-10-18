@@ -19,6 +19,15 @@
 
 const VIDEOS = [
   {
+    title: "Conditional Release Now Passes Parole in NY Prisons. Who Checks the Housing Plan?",
+    category: "System",
+    format: "Short",
+    description: "More people now leave New York state prisons on a conditional release date than by a Parole Board vote. The State Comptroller found 45% of people released in 2024 had no permanent home.",
+    youtubeId: "EHx0rhnkyjA",
+    article: "conditional-release-overtakes-parole-board-releases-ny",
+    published: true
+  },
+  {
     title: "New York's Parole Board Is Less Likely to Release You If You're Not White. Here's the Data.",
     category: "Rights & Process",
     format: "Short",
@@ -312,6 +321,14 @@ const VIDEOS = [
 ];
 
 const ARTICLES = [
+  {
+    slug: "conditional-release-overtakes-parole-board-releases-ny",
+    title: "Turned Down for Parole in New York? Conditional Release Can Mean Twice the Time Inside",
+    category: "System",
+    stage: "parole",
+    date: "2026-10-18",
+    excerpt: "Conditional release, about 43% of New York prison releases, has passed Parole Board release at about 41%. On an indeterminate sentence, conditional release comes at two-thirds of the maximum, about twice the time to a first parole hearing, leaving less supervision for Less Is More to cut. DOCCS data shows 402 certificate interviews the Board did not approve in six months."
+  },
   {
     slug: "nyc-snow-shoveler-jobs-no-background-check-clean-slate-ny",
     title: "Waiting on Clean Slate? NYC Pays $30 an Hour to Shovel Snow, and the Sign-Up Never Asked About a Record",
