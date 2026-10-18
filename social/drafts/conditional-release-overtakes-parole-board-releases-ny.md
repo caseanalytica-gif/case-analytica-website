@@ -3,7 +3,7 @@
 **Article:** https://www.caseanalytica.com/articles/conditional-release-overtakes-parole-board-releases-ny.html
 **Graphic (this is what the link card pulls in, do not upload it):**
 https://www.caseanalytica.com/assets/social/conditional-release-overtakes-parole-board-releases-ny-og.png
-(2400x1254, re-rendered 2026-10-18, not yet verified live)
+(2400x1254, verified live 200 on 2026-10-18)
 **Published:** 2026-10-18
 **Video:** https://youtube.com/shorts/EHx0rhnkyjA (embedded in the article)
 
@@ -78,7 +78,7 @@ only if you want it larger in-feed, knowing the image itself won't link.
 https://www.caseanalytica.com/assets/social/conditional-release-overtakes-parole-board-releases-ny-og.png
 
 If a preview comes back blank or stale, append ?v=2 to the article URL to force a refetch.
-Verified: (fill in on publish) og:image returns 200, image/png, 194807 bytes.
+Verified 2026-10-18: og:image returns 200, image/png, 194807 bytes.
 
 ---
 
