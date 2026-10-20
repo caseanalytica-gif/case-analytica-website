@@ -77,7 +77,7 @@ only if you want it larger in-feed, knowing the image itself won't link.
 https://www.caseanalytica.com/assets/social/parole-denial-delays-clean-slate-jobs-housing-ny-og.png
 
 If a preview comes back blank or stale, append ?v=2 to the article URL to force a refetch.
-Verified 2026-10-20: og:image returns 200, image/png, BYTES bytes.
+Verified 2026-10-20: og:image returns 200, image/png, 169575 bytes.
 
 ---
 
