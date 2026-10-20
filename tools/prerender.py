@@ -25,7 +25,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE = "https://www.caseanalytica.com"
 FIELDS = ("slug", "title", "category", "stage", "date", "excerpt",
           "image", "imageAlt", "imageCredit",
-          "cover", "coverStat", "coverLine", "coverJump")
+          "cover", "coverStat", "coverLine", "coverJump", "coverJumpLabel", "coverDonate", "coverProject")
 STATIC_PAGES = [
     ("", "1.0"), ("articles.html", "0.9"), ("about.html", "0.7"), ("supporters.html", "0.6"),
     ("impact.html", "0.6"), ("contact.html", "0.6"),
@@ -461,14 +461,23 @@ def article_dek(slug, root):
     return html.unescape(m.group(1)) if m else ""
 
 
+DONATE_URL = "https://donate.stripe.com/6oU28s2Hg2mggdyet62Ji00"
+
+
 def cine_cover_html(lead, root):
     """A lead story with `cover:` set in data.js gets the cinematic cover: no
     photo, one big figure, the headline under it. `cover` names the backdrop
     (a CSS class, e.g. "snow"); `coverStat` and `coverLine` are the two big
     lines; `coverJump` is an id in the article for the second link."""
     href = "articles/%s.html" % e(lead["slug"])
-    jump = ('\n      <a class="cv-cta cv-cta-2" href="%s#%s">Where to sign up</a>'
-            % (href, e(lead["coverJump"])) if lead.get("coverJump") else "")
+    jump = ('\n      <a class="cv-cta cv-cta-2" href="%s#%s">%s</a>'
+            % (href, e(lead["coverJump"]), e(lead.get("coverJumpLabel") or "Where to sign up"))
+            if lead.get("coverJump") else "")
+    more = (' · <a href="%s">What the project does</a>' % e(lead["coverProject"])
+            if lead.get("coverProject") else "")
+    give = ('    <p class="cv-give-row"><a class="cv-give" href="%s" target="_blank" rel="noopener">%s</a>'
+            '<span class="cv-give-note">Your gift is tax-deductible.%s</span></p>\n'
+            % (DONATE_URL, e(lead["coverDonate"]), more) if lead.get("coverDonate") else "")
     return (
         '\n<section class="cv-cover cv-cine cv-fx-%s" aria-labelledby="cv-h">\n'
         '  <div class="cv-fx" aria-hidden="true"></div>\n'
@@ -478,11 +487,12 @@ def cine_cover_html(lead, root):
         '    <p class="cv-sub">%s</p>\n'
         '    <h2 class="cv-h" id="cv-h"><a href="%s">%s</a></h2>\n'
         '    <p class="cv-ctas">\n      <a class="cv-cta" href="%s">Read the story</a>%s\n    </p>\n'
+        '%s'
         '  </div>\n'
         '  <a class="cv-help" href="help-after-an-arrest-ny.html">Was someone in your family just arrested? Start here</a>\n'
         '</section>\n'
         % (e(lead["cover"]), e(lead.get("category")), e(lead.get("coverStat")),
-           e(lead.get("coverLine")), href, e(lead["title"]), href, jump))
+           e(lead.get("coverLine")), href, e(lead["title"]), href, jump, give))
 
 
 def cover_html(live, root):

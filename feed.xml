@@ -6,7 +6,14 @@
     <description>Reporting on New York's criminal courts, prisons and parole.</description>
     <language>en-us</language>
     <atom:link href="https://www.caseanalytica.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Sun, 18 Oct 2026 12:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 20 Oct 2026 12:00:00 +0000</lastBuildDate>
+    <item>
+      <title>One Parole Denial in New York Pushes Back Freedom, Clean Slate, Work and a Home</title>
+      <link>https://www.caseanalytica.com/articles/parole-denial-delays-clean-slate-jobs-housing-ny.html</link>
+      <guid isPermaLink="true">https://www.caseanalytica.com/articles/parole-denial-delays-clean-slate-jobs-housing-ny.html</guid>
+      <pubDate>Tue, 20 Oct 2026 12:00:00 +0000</pubDate>
+      <description>A parole denial for someone holding an Earned Eligibility Certificate adds years inside, and Clean Slate&#x27;s eight-year felony clock cannot start until release. On a 3-to-9 sentence, a record that could seal at year 11 waits until year 14. The Board turned down certificate holders 402 times between October 2025 and March 2026.</description>
+    </item>
     <item>
       <title>Turned Down for Parole in New York? Conditional Release Can Mean Twice the Time Inside</title>
       <link>https://www.caseanalytica.com/articles/conditional-release-overtakes-parole-board-releases-ny.html</link>
@@ -209,13 +216,6 @@
       <guid isPermaLink="true">https://www.caseanalytica.com/articles/queens-chain-snatching-arrest-process-ny.html</guid>
       <pubDate>Fri, 21 Aug 2026 12:00:00 +0000</pubDate>
       <description>A Queens chain-snatching case involving a 16-year-old shows how booking, arraignment, bail, and diversion actually work after an NYC arrest, and where Raise the Age changes the sequence.</description>
-    </item>
-    <item>
-      <title>Bronx Criminal Court: Which Building, Which Train, What to Expect</title>
-      <link>https://www.caseanalytica.com/articles/bronx-criminal-court-logistics.html</link>
-      <guid isPermaLink="true">https://www.caseanalytica.com/articles/bronx-criminal-court-logistics.html</guid>
-      <pubDate>Thu, 20 Aug 2026 12:00:00 +0000</pubDate>
-      <description>&quot;Bronx Criminal Court&quot; is two different buildings a block and a half apart, 215 and 265 East 161st Street, and both go by that name. How to find out which one you need before you travel, plus arraignment hours that run to 1:00 a.m. seven days a week.</description>
     </item>
   </channel>
 </rss>

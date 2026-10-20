@@ -322,6 +322,21 @@ const VIDEOS = [
 
 const ARTICLES = [
   {
+    slug: "parole-denial-delays-clean-slate-jobs-housing-ny",
+    title: "One Parole Denial in New York Pushes Back Freedom, Clean Slate, Work and a Home",
+    category: "System",
+    stage: "parole",
+    date: "2026-10-20",
+    cover: "years",
+    coverStat: "3 more years.",
+    coverLine: "A parole denial moves every date that comes after it.",
+    coverJump: "what-you-can-do",
+    coverJumpLabel: "What you can do",
+    coverDonate: "Support the parole project",
+    coverProject: "parole-reporting-project.html",
+    excerpt: "A parole denial for someone holding an Earned Eligibility Certificate adds years inside, and Clean Slate's eight-year felony clock cannot start until release. On a 3-to-9 sentence, a record that could seal at year 11 waits until year 14. The Board turned down certificate holders 402 times between October 2025 and March 2026."
+  },
+  {
     slug: "conditional-release-overtakes-parole-board-releases-ny",
     title: "Turned Down for Parole in New York? Conditional Release Can Mean Twice the Time Inside",
     category: "System",
