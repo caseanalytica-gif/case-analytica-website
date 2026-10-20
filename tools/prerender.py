@@ -553,6 +553,34 @@ def write_front(doc, live, root):
             raise SystemExit("prerender: index.html is missing %s" % begin)
         doc = re.sub(re.escape(begin) + r".*?" + re.escape(end),
                      lambda _: begin + inner + end, doc, count=1, flags=re.S)
+    return share_card(doc, live[0], root)
+
+
+HOME_TITLE = "Case Analytica: New York Arrest, Prison & Parole Reporting"
+HOME_DESC = ("Reporting and plain-language guides on New York's criminal courts, prisons, "
+             "parole and reentry, by Dean Mustaphalli, who served time in a New York state prison.")
+
+
+def share_card(doc, lead, root):
+    """A link to the homepage shows the lead story's card, so a social post can
+    send people to the cover (story, what you can do, donate) and still preview
+    the story. Leads without a card of their own fall back to the site card.
+    Only the og:/twitter: tags change; <title> and the meta description stay."""
+    png = "assets/social/%s-og.png" % lead["slug"]
+    if os.path.exists(os.path.join(root, png)):
+        img, title = "%s/%s" % (BASE, png), lead["title"]
+        desc = lead.get("coverLine") or article_dek(lead["slug"], root)
+    else:
+        img, title, desc = "%s/assets/social/home-og.png" % BASE, HOME_TITLE, HOME_DESC
+    for attr, key, val in (("property", "og:title", title), ("name", "twitter:title", title),
+                           ("property", "og:description", desc),
+                           ("name", "twitter:description", desc),
+                           ("property", "og:image", img), ("name", "twitter:image", img)):
+        tag = '<meta %s="%s" content="%s">' % (attr, key, e(val))
+        doc, n = re.subn(r'<meta %s="%s" content="[^"]*">' % (attr, re.escape(key)),
+                         lambda _: tag, doc, count=1)
+        if not n:
+            raise SystemExit("prerender: index.html is missing %s" % key)
     return doc
 
 

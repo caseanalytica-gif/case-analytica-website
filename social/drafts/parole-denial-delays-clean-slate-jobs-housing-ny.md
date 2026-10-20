@@ -59,9 +59,9 @@ On a 3-to-9 sentence, a person paroled at the first hearing is home at year 3. T
 
 New York law says people who earn the certificate "shall be granted parole release" unless the Board makes two findings. We're reading the denials to see whether those findings are there.
 
-If someone you love holds a certificate and was turned down, the article links to a form on our project page. To keep this reporting going, the article has a donate button too. Gifts are tax-deductible.
+If someone you love holds a certificate and was turned down, the story links to a form on our project page. To keep this reporting going, there is a donate link right under the headline. Gifts are tax-deductible.
 
-https://www.caseanalytica.com/articles/parole-denial-delays-clean-slate-jobs-housing-ny.html
+https://www.caseanalytica.com/
 
 ---
 
@@ -84,3 +84,13 @@ Verified 2026-10-20: og:image returns 200, image/png, 169575 bytes.
 ## Note on tone
 
 The 402 counts Board interviews, not people, and the article says so. The PPI figures are national (2008 data for unemployment); don't put a New York return rate on them in replies. The ask goes to readers and donors only, never to the Board or legislators. Don't claim the Board denies people to hold them longer; the answer is that nobody publishes the reasons, which is what the project documents.
+
+---
+
+## Posted 2026-10-20
+
+- LinkedIn (Dean's profile, link card confirmed): https://www.linkedin.com/feed/update/urn:li:activity:7518295611952119809/
+- LinkedIn Caseanalytica company page (added on request): https://www.linkedin.com/feed/update/urn:li:share:7518299257909592064/
+- Instagram @caseanalytica: https://www.instagram.com/caseanalytica/p/Det5ev0ETwN/
+- Pinterest: https://www.pinterest.com/pin/1099652434089964843/ (link changed to the homepage, 2026-10-20)
+- Facebook: not posted, Chrome is signed out of Facebook. Post it with the homepage link (the homepage card now shows this story's card while it leads).
