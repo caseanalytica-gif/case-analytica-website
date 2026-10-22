@@ -504,9 +504,6 @@ const ARTICLES = [
   },
   {
     slug: "clean-slate-coalition-implementation-advocacy-gap-ny",
-    image: "assets/photos/clean-slate-act-signing.jpg",
-    imageAlt: "Governor Hochul signs the Clean Slate Act at a table, with legislators and advocates standing behind her.",
-    imageCredit: "Office of Governor Kathy Hochul",
     title: "The Coalition That Won Clean Slate Isn't Publicly Fighting to Finish It",
     category: "System",
     stage: "records",
@@ -515,9 +512,6 @@ const ARTICLES = [
   },
   {
     slug: "clean-slate-sealing-bug-s6492-stuck-in-committee-ny",
-    image: "assets/photos/clean-slate-act-signing.jpg",
-    imageAlt: "Governor Hochul signs the Clean Slate Act at a table, with legislators and advocates standing behind her.",
-    imageCredit: "Office of Governor Kathy Hochul",
     title: "The Bill Fixing Clean Slate's Sealing Bug Has Sat in Committee Since March 2025",
     category: "System",
     stage: "records",
@@ -534,9 +528,6 @@ const ARTICLES = [
   },
   {
     slug: "clean-slate-implementation-funding-gap-ny",
-    image: "assets/photos/clean-slate-act-signing.jpg",
-    imageAlt: "Governor Hochul signs the Clean Slate Act at a table, with legislators and advocates standing behind her.",
-    imageCredit: "Office of Governor Kathy Hochul",
     title: "New York Says It Doesn't Need More Money to Seal Your Clean Slate Record",
     category: "System",
     stage: "records",
@@ -553,9 +544,6 @@ const ARTICLES = [
   },
   {
     slug: "clean-slate-act-negotiated-version-recidivism-cost-ny",
-    image: "assets/photos/clean-slate-act-signing.jpg",
-    imageAlt: "Governor Hochul signs the Clean Slate Act at a table, with legislators and advocates standing behind her.",
-    imageCredit: "Office of Governor Kathy Hochul",
     title: "The Clean Slate Act New York Almost Passed vs. the One Hochul Signed",
     category: "System",
     stage: "records",
@@ -724,8 +712,6 @@ const ARTICLES = [
   },
   {
     slug: "why-rikers-island-should-close-ny",
-    image: "assets/photos/rikers-corridor.jpg",
-    imageAlt: "A corrections officer carrying a ring of keys stands in an empty jail corridor, barred gates closed at the far end.",
     title: "Why Rikers Island Should Close, and What Could Actually Replace It",
     category: "System",
     stage: "custody",
@@ -734,8 +720,6 @@ const ARTICLES = [
   },
   {
     slug: "rikers-detention-plea-leverage-ny",
-    image: "assets/photos/rikers-corridor.jpg",
-    imageAlt: "A corrections officer carrying a ring of keys stands in an empty jail corridor, barred gates closed at the far end.",
     title: "How Holding Someone at Rikers Becomes Leverage for a Plea",
     category: "Restorative Justice",
     stage: "plea",
@@ -1032,9 +1016,6 @@ const ARTICLES = [
   },
   {
     slug: "clean-slate-act-explained",
-    image: "assets/photos/clean-slate-act-signing.jpg",
-    imageAlt: "Governor Hochul signs the Clean Slate Act at a table, with legislators and advocates standing behind her.",
-    imageCredit: "Office of Governor Kathy Hochul",
     title: "The Clean Slate Act: When Does Your NY Record Actually Get Sealed?",
     category: "System",
     stage: "records",
