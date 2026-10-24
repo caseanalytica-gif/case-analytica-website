@@ -1,0 +1,5 @@
+Almost none of the information that determines how a criminal case turns out is actually secret. Court dates are on file. Evidence deadlines are written into law. Diversion eligibility exists in program guidelines. The problem was never that this information doesn't exist. It's that nobody is required to hand it to the person it affects most, in plain language, at the moment they need it. When those deadlines get missed, the numbers show it: dismissals for speedy trial violations in New York rose from 10,562 cases in 2019 to 49,974 in 2024, a 373 percent increase.
+
+https://www.caseanalytica.com/articles/what-the-system-doesnt-tell-you.html
+
+Note: the bare URL above is intentional, for LinkedIn. Pasting the raw link on its own line lets LinkedIn auto-generate a clickable preview card. Do not attach an image to this LinkedIn post, an uploaded photo can't be a clickable link, only the bare URL creates the card. No graphic was generated for this article (no Canva tool available in this session).

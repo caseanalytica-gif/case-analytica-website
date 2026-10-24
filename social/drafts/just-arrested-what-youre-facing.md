@@ -1,0 +1,5 @@
+If this just happened to you, or to someone you love, you don't need a lecture on the criminal justice system. You need to know what's actually happening right now and what to do in the next few days that could change the entire outcome. Here's the part almost nobody gets told at this stage: restorative justice and diversion programs exist in New York, but none of them are offered automatically. A defense attorney has to specifically request one, and that window closes the moment a plea gets entered. Ask directly, before that happens: is there a diversion program or restorative justice option available for this case?
+
+https://www.caseanalytica.com/articles/just-arrested-what-youre-facing.html
+
+Note: the bare URL above is intentional, for LinkedIn. Pasting the raw link on its own line lets LinkedIn auto-generate a clickable preview card. Do not attach an image to this LinkedIn post, an uploaded photo can't be a clickable link, only the bare URL creates the card. No graphic was generated for this article (no Canva tool available in this session).

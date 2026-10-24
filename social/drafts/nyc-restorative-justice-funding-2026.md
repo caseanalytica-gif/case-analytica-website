@@ -1,0 +1,5 @@
+This site spends a lot of time telling people that restorative justice exists and that they have to ask for it themselves. Here's the funding that backs that up with real numbers. New York City's Mayor's Office of Criminal Justice committed $6.5 million in July 2024, part of $16.5 million over several years, to 16 organizations running restorative justice circles across the five boroughs: for school students, domestic violence survivors, people in addiction recovery, and teens arrested on gun charges. These aren't hypothetical options anymore. They're funded programs.
+
+https://www.caseanalytica.com/articles/nyc-restorative-justice-funding-2026.html
+
+Note: the bare URL above is intentional, for LinkedIn. Pasting the raw link on its own line lets LinkedIn auto-generate a clickable preview card. Do not attach an image to this LinkedIn post, an uploaded photo can't be a clickable link, only the bare URL creates the card. No graphic was generated for this article (no Canva tool available in this session).
