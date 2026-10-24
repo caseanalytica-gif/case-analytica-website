@@ -1,0 +1,7 @@
+If you or someone you know is a domestic violence survivor facing charges connected to that abuse, ask before any plea is on the table: am I eligible to request a hearing under Penal Law 60.12, and has that been raised with the DA yet. New York's Court of Appeals ruled in April 2026 that a prosecutor cannot condition a plea offer on giving that hearing up.
+
+https://www.caseanalytica.com/articles/domestic-violence-survivors-justice-act-ny.html
+
+Note: the bare URL above is for LinkedIn. Pasting the raw link on its own line lets LinkedIn auto-generate a clickable preview card. Do not attach the generated graphic (or any image) to this LinkedIn post: an uploaded photo can't be a clickable link, only the bare URL creates the card. A graphic would instead be used as the uploaded image itself on platforms like Instagram, Facebook, and X.
+
+Graphic: not generated this run. No Canva tool is authorized/available in this session, so graphic generation was skipped per instructions.
