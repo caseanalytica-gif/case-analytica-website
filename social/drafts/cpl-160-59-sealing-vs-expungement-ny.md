@@ -1,0 +1,5 @@
+New York does not expunge convictions. Not for anyone, under any statute. What it offers instead is sealing, and almost nobody finds out the difference until they've already lost time over it.
+
+https://www.caseanalytica.com/articles/cpl-160-59-sealing-vs-expungement-ny.html
+
+Note: bare-URL format is for LinkedIn. Pasting the raw URL lets LinkedIn auto-generate a clickable preview card. Do not attach the generated graphic as the LinkedIn post's image; an uploaded photo can't be a clickable link, only the bare URL creates the card. The graphic (not generated this run, no Canva tool available) is for Instagram/Facebook/X where an uploaded image works as the post itself.
