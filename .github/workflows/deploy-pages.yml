@@ -36,6 +36,9 @@ jobs:
             --exclude='/social/' --exclude='/video-scripts/' \
             --exclude='/linkedin-posts/' --exclude='/tools/' \
             --exclude='/cloudflare/' --exclude='/email-capture-sheets/'
+      # Drop embedded tool credentials (C2PA, XMP) from any media that slipped in.
+      - name: Strip media provenance
+        run: python3 tools/strip-provenance.py _site
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
