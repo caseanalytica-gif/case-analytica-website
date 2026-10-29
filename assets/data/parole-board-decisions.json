@@ -1,0 +1,182 @@
+{
+ "title": "New York Board of Parole: initial-interview decisions",
+ "source": "NYS Department of Corrections and Community Supervision, via NY Open Data",
+ "source_url": "https://data.ny.gov/d/cgk2-twzc",
+ "dataset_id": "cgk2-twzc",
+ "source_last_updated": "2026-04-23",
+ "retrieved": "2026-10-28",
+ "population": "Initial parole-board interviews only, by calendar year of the decision. Not reappearances, and not limited to Earned Eligibility Certificate holders.",
+ "rows_counted": 136832,
+ "folded_values": {
+  "APPROVED": 28874,
+  "DENIED": 67202,
+  "POSPONED": 1455,
+  "POSTPONED": 18660,
+  "approved": 8132,
+  "denied": 8274,
+  "postponed": 4235
+ },
+ "yearly": [
+  {
+   "year": 2008,
+   "approved": 2550,
+   "denied": 7712,
+   "postponed": 1197
+  },
+  {
+   "year": 2009,
+   "approved": 1992,
+   "denied": 6236,
+   "postponed": 1449
+  },
+  {
+   "year": 2010,
+   "approved": 1892,
+   "denied": 6000,
+   "postponed": 1891
+  },
+  {
+   "year": 2011,
+   "approved": 1581,
+   "denied": 5941,
+   "postponed": 1455
+  },
+  {
+   "year": 2012,
+   "approved": 1776,
+   "denied": 5805,
+   "postponed": 1549
+  },
+  {
+   "year": 2013,
+   "approved": 1658,
+   "denied": 5432,
+   "postponed": 1686
+  },
+  {
+   "year": 2014,
+   "approved": 1683,
+   "denied": 5365,
+   "postponed": 1847
+  },
+  {
+   "year": 2015,
+   "approved": 1717,
+   "denied": 5271,
+   "postponed": 1666
+  },
+  {
+   "year": 2016,
+   "approved": 1904,
+   "denied": 4875,
+   "postponed": 1706
+  },
+  {
+   "year": 2017,
+   "approved": 2380,
+   "denied": 4398,
+   "postponed": 1565
+  },
+  {
+   "year": 2018,
+   "approved": 3198,
+   "denied": 2934,
+   "postponed": 1239
+  },
+  {
+   "year": 2019,
+   "approved": 2826,
+   "denied": 2932,
+   "postponed": 1236
+  },
+  {
+   "year": 2020,
+   "approved": 2156,
+   "denied": 2371,
+   "postponed": 776
+  },
+  {
+   "year": 2021,
+   "approved": 1561,
+   "denied": 1930,
+   "postponed": 853
+  },
+  {
+   "year": 2022,
+   "approved": 1565,
+   "denied": 2175,
+   "postponed": 864
+  },
+  {
+   "year": 2023,
+   "approved": 1948,
+   "denied": 2105,
+   "postponed": 969
+  },
+  {
+   "year": 2024,
+   "approved": 2210,
+   "denied": 2101,
+   "postponed": 1032
+  },
+  {
+   "year": 2025,
+   "approved": 2409,
+   "denied": 1893,
+   "postponed": 1370
+  }
+ ],
+ "by_crime_latest_year": {
+  "year": 2025,
+  "rows": [
+   {
+    "crime": "OTHER FELONY",
+    "approved": 679,
+    "denied": 414,
+    "postponed": 311
+   },
+   {
+    "crime": "OTHER COERCIVE",
+    "approved": 510,
+    "denied": 423,
+    "postponed": 368
+   },
+   {
+    "crime": "MAJOR PROPERTY",
+    "approved": 673,
+    "denied": 261,
+    "postponed": 300
+   },
+   {
+    "crime": "LEGISLATIVE VFO",
+    "approved": 284,
+    "denied": 576,
+    "postponed": 224
+   },
+   {
+    "crime": "A1 VIOLENT",
+    "approved": 96,
+    "denied": 93,
+    "postponed": 73
+   },
+   {
+    "crime": "YOUTHFUL OFFENDERS",
+    "approved": 66,
+    "denied": 63,
+    "postponed": 71
+   },
+   {
+    "crime": "DRUG OFFENSES",
+    "approved": 99,
+    "denied": 61,
+    "postponed": 21
+   },
+   {
+    "crime": "JUVENILE OFFENDERS",
+    "approved": 2,
+    "denied": 2,
+    "postponed": 2
+   }
+  ]
+ }
+}

@@ -41,6 +41,7 @@ STATIC_PAGES = [
     ("methodology.html", "0.7"),
     ("glossary.html", "0.7"),
     ("directory.html", "0.8"),
+    ("parole-board-decisions.html", "0.7"),
     ("parole-data.html", "0.8"),
     ("parole-reporting-project.html", "0.8"),
     ("jobs-records-data.html", "0.8"),
