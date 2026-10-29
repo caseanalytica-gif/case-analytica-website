@@ -19,6 +19,14 @@
 
 const VIDEOS = [
   {
+    title: "402 Parole Denials in Six Months: New York's Earned Eligibility Certificate",
+    category: "System",
+    format: "Short",
+    description: "New York law presumes release for people with an Earned Eligibility Certificate. From October 2025 through March 2026 the Parole Board denied certificate holders 402 times, by the state prison system's own count. Case Analytica is reading what the Board wrote.",
+    youtubeId: "rs5Ji9Hy-lU",
+    published: true
+  },
+  {
     title: "Conditional Release Now Passes Parole in NY Prisons. Who Checks the Housing Plan?",
     category: "System",
     format: "Short",
