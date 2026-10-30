@@ -330,6 +330,14 @@ const VIDEOS = [
 
 const ARTICLES = [
   {
+    slug: "misdemeanor-trials-new-prosecutors-experience-ny",
+    title: "Do Young Prosecutors Practice on Misdemeanor Cases? They Do, and the Person Charged Pays",
+    category: "Rights & Process",
+    stage: "plea",
+    date: "2026-10-30",
+    excerpt: "A New York public defender says young prosecutors try low-level misdemeanors for experience. Case Analytica tested it against the record: 3 in 1,000 New York City misdemeanors reached trial in 2019, Queens says its new prosecutors get misdemeanor trials, and a misdemeanor conviction cuts annual earnings by an average of 16 percent."
+  },
+  {
     slug: "parole-denial-delays-clean-slate-jobs-housing-ny",
     title: "One Parole Denial in New York Pushes Back Freedom, Clean Slate, Work and a Home",
     category: "System",
