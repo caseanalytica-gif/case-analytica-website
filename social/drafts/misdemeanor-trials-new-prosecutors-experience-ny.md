@@ -80,3 +80,12 @@ Verified 2026-10-30: og:image returns 200, image/png, 158437 bytes.
 ## Note on tone
 
 The article takes a position: prosecutors are practicing on people's lives. It also says what the record cannot show. Keep both in any post. Do not turn it into a call on any office or official. The video is an edited excerpt of @carolineisocool's public TikTok, credited.
+
+## Posted 2026-10-30 (Dean: "post this article to all social media now")
+
+- LinkedIn (Caseanalytica company page): https://www.linkedin.com/feed/update/urn:li:share:7522038544891203584?actorCompanyId=146725860
+- Facebook (Caseanalytica page): posted with link card, AI label off; permalink not captured, it is the top post on the page.
+- Bluesky: https://bsky.app/profile/caseanalytica.bsky.social/post/3mz4oa4e4ok2u (second Bluesky post of the day, on Dean's go-ahead; the daily task's post was the Queens riot article)
+- Instagram (@caseanalytica): https://www.instagram.com/caseanalytica/p/DfIfuKCi0tu/ (light card, Original crop, AI label off)
+- Pinterest: https://www.pinterest.com/pin/1099652434090900578/ (board New York Courts, Prisons and Parole; similar products off, AI-modified off)
+- Not posted: TikTok, YouTube Shorts and Reels. The video itself went up Oct 29; this article's video is the same clip.
