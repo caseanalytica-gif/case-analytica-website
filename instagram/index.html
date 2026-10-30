@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-035TDMG4Y0"></script>
@@ -21,6 +21,12 @@
 <link rel="canonical" href="https://www.caseanalytica.com/instagram/">
 <link rel="stylesheet" href="../assets/style.css?v=20261020c">
 <style>
+  /* Light "sky" palette for the social link pages, fixed in every color scheme. */
+  :root[data-theme="light"]{
+    --paper:#F2F7FB; --paper-raised:#FFFFFF; --ink:#12263F; --ink-soft:#46607A; --line:#D3E1EE;
+    --accent:#1A5FD0; --pillar:#1A5FD0; color-scheme:light;
+  }
+  :root[data-theme="light"] body{background:var(--paper); color:var(--ink);}
   body{display:flex; align-items:center; min-height:100vh;}
   .links-wrap{max-width:480px; margin:0 auto; padding:48px 24px; width:100%;}
   .links-header{text-align:center; margin-bottom:32px;}
