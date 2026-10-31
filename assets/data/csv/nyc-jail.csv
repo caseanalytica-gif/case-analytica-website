@@ -1,0 +1,12 @@
+read_date,group,value,count
+2026-10-31,total,all,6647
+2026-10-31,gender,Female,512
+2026-10-31,gender,Male,6124
+2026-10-31,gender,Not recorded,11
+2026-10-31,age_band,Under 18,0
+2026-10-31,age_band,18 to 24,1036
+2026-10-31,age_band,25 to 34,2135
+2026-10-31,age_band,35 to 44,1888
+2026-10-31,age_band,45 to 54,937
+2026-10-31,age_band,55 and older,648
+2026-10-31,age_band,Age not recorded,3

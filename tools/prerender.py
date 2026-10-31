@@ -38,7 +38,7 @@ STATIC_PAGES = [
     ("course.html", "0.7"),
     ("intake-worksheet.html", "0.7"),
     ("parole-file-worksheet.html", "0.7"),
-    ("methodology.html", "0.7"),
+    ("methodology.html", "0.7"), ("data.html", "0.8"),
     ("glossary.html", "0.7"),
     ("directory.html", "0.8"),
     ("parole-board-decisions.html", "0.7"),

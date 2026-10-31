@@ -1,0 +1,141 @@
+{
+ "title": "New York State prison admissions by year",
+ "source": "NYS Department of Corrections and Community Supervision, via NY Open Data",
+ "source_url": "https://data.ny.gov/d/m2rg-xjan",
+ "dataset_id": "m2rg-xjan",
+ "source_last_updated": "2026-02-26",
+ "retrieved": "2026-10-31",
+ "population": "Admissions to state prison for a new offense or a parole violation, counted by year of admission.",
+ "admission_types_in_source": {
+  "NEW COURT COMMITMENT": 207717,
+  "RET PAROLE VIOLATOR": 114559
+ },
+ "yearly": [
+  {
+   "year": 2008,
+   "new_court_commitment": 15811,
+   "returned_parole_violator": 10252,
+   "other": 0,
+   "total": 26063
+  },
+  {
+   "year": 2009,
+   "new_court_commitment": 15322,
+   "returned_parole_violator": 9314,
+   "other": 0,
+   "total": 24636
+  },
+  {
+   "year": 2010,
+   "new_court_commitment": 14754,
+   "returned_parole_violator": 9008,
+   "other": 0,
+   "total": 23762
+  },
+  {
+   "year": 2011,
+   "new_court_commitment": 14496,
+   "returned_parole_violator": 9139,
+   "other": 0,
+   "total": 23635
+  },
+  {
+   "year": 2012,
+   "new_court_commitment": 14089,
+   "returned_parole_violator": 9264,
+   "other": 0,
+   "total": 23353
+  },
+  {
+   "year": 2013,
+   "new_court_commitment": 13694,
+   "returned_parole_violator": 9270,
+   "other": 0,
+   "total": 22964
+  },
+  {
+   "year": 2014,
+   "new_court_commitment": 13271,
+   "returned_parole_violator": 8496,
+   "other": 0,
+   "total": 21767
+  },
+  {
+   "year": 2015,
+   "new_court_commitment": 12633,
+   "returned_parole_violator": 8226,
+   "other": 0,
+   "total": 20859
+  },
+  {
+   "year": 2016,
+   "new_court_commitment": 12872,
+   "returned_parole_violator": 8410,
+   "other": 0,
+   "total": 21282
+  },
+  {
+   "year": 2017,
+   "new_court_commitment": 12806,
+   "returned_parole_violator": 7802,
+   "other": 0,
+   "total": 20608
+  },
+  {
+   "year": 2018,
+   "new_court_commitment": 11608,
+   "returned_parole_violator": 7499,
+   "other": 0,
+   "total": 19107
+  },
+  {
+   "year": 2019,
+   "new_court_commitment": 10408,
+   "returned_parole_violator": 7277,
+   "other": 0,
+   "total": 17685
+  },
+  {
+   "year": 2020,
+   "new_court_commitment": 3945,
+   "returned_parole_violator": 3060,
+   "other": 0,
+   "total": 7005
+  },
+  {
+   "year": 2021,
+   "new_court_commitment": 6013,
+   "returned_parole_violator": 2591,
+   "other": 0,
+   "total": 8604
+  },
+  {
+   "year": 2022,
+   "new_court_commitment": 9007,
+   "returned_parole_violator": 1022,
+   "other": 0,
+   "total": 10029
+  },
+  {
+   "year": 2023,
+   "new_court_commitment": 9155,
+   "returned_parole_violator": 1117,
+   "other": 0,
+   "total": 10272
+  },
+  {
+   "year": 2024,
+   "new_court_commitment": 9082,
+   "returned_parole_violator": 1438,
+   "other": 0,
+   "total": 10520
+  },
+  {
+   "year": 2025,
+   "new_court_commitment": 8751,
+   "returned_parole_violator": 1374,
+   "other": 0,
+   "total": 10125
+  }
+ ]
+}

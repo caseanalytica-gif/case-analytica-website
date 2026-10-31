@@ -129,6 +129,16 @@
   .fp-lead > a:last-child{order:-1;}
 }
 </style>
+<style>
+  .fp-nums{margin:0 0 8px;padding:6px 0 0}
+  .fp-nums-grid{list-style:none;margin:12px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .fp-nums-grid a{display:block;height:100%;background:var(--paper-raised);border:1px solid var(--line);border-radius:10px;padding:16px 18px;text-decoration:none;color:var(--ink)}
+  .fp-nums-grid a:hover{border-color:var(--pillar)}
+  .fp-nums-grid .n{display:block;font-family:var(--display);font-size:34px;line-height:1.1}
+  .fp-nums-grid .l{display:block;font-size:15px;margin-top:6px}
+  .fp-nums-grid .s{display:block;font-size:13px;margin-top:8px;color:var(--ink-soft)}
+  @media(max-width:760px){.fp-nums-grid{grid-template-columns:repeat(2,1fr)}.fp-nums-grid .n{font-size:28px}}
+</style>
 </head>
 <body>
 
@@ -151,6 +161,7 @@
           <a href="parole-board-decisions.html">Parole decision charts</a>
         </div>
       </details>
+      <a href="data.html">Data</a>
       <a href="about.html">Who we are</a>
       <details class="navgroup">
         <summary>Get involved</summary>
@@ -218,6 +229,19 @@
       <li class="fp-need-pp"><a href="parole-reporting-project.html"><em>Our reporting project</em><strong>Parole denials under Correction Law 805</strong><span>From October 2025 to March 2026 the Parole Board denied certificate holders 402 times. This project reads what the Board wrote.</span></a></li>
     </ul>
   </nav>
+  <!-- ind:home-top:begin -->
+<section class="fp-nums" aria-labelledby="fp-nums-h">
+  <h2 class="fp-label" id="fp-nums-h">The numbers</h2>
+  <ul class="fp-nums-grid">
+    <li><a href="data.html#prison-admissions"><span class="n">10,125</span><span class="l">people admitted to state prison in 2025</span><span class="s">NYS Corrections, read Oct 31</span></a></li>
+    <li><a href="data.html#prison-population"><span class="n">33,884</span><span class="l">in state prison on March 31, 2026</span><span class="s">NYS Corrections, read Oct 31</span></a></li>
+    <li><a href="data.html#nyc-jail"><span class="n">6,647</span><span class="l">in New York City jails today</span><span class="s">NYC Correction, read Oct 31</span></a></li>
+    <li><a href="data.html#parole"><span class="n">42.5%</span><span class="l">of first parole interviews approved in 2025</span><span class="s">NYS Corrections, read Oct 31</span></a></li>
+  </ul>
+  <p class="fp-more"><a href="data.html">All the data, with sources and downloads</a></p>
+</section>
+<!-- ind:home-top:end -->
+
   <section class="cv-stat" aria-label="Medical parole in New York, 2020">
     <p class="cv-reveal cv-line">In 2020, New York's prison system, DOCCS, received</p>
     <p class="cv-reveal cv-num">1,049</p>

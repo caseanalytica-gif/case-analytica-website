@@ -1,0 +1,87 @@
+{
+ "title": "People under New York State prison custody on March 31 of each year",
+ "source": "NYS Department of Corrections and Community Supervision, via NY Open Data",
+ "source_url": "https://data.ny.gov/d/55zc-sp6m",
+ "dataset_id": "55zc-sp6m",
+ "source_last_updated": "2026-07-30",
+ "retrieved": "2026-10-31",
+ "population": "People under DOCCS custody on March 31 of the snapshot year. Incarcerated individuals only.",
+ "yearly": [
+  {
+   "year": 2008,
+   "total": 62597
+  },
+  {
+   "year": 2009,
+   "total": 60041
+  },
+  {
+   "year": 2010,
+   "total": 57682
+  },
+  {
+   "year": 2011,
+   "total": 56466
+  },
+  {
+   "year": 2012,
+   "total": 55355
+  },
+  {
+   "year": 2013,
+   "total": 54026
+  },
+  {
+   "year": 2014,
+   "total": 53385
+  },
+  {
+   "year": 2015,
+   "total": 52266
+  },
+  {
+   "year": 2016,
+   "total": 51403
+  },
+  {
+   "year": 2017,
+   "total": 50593
+  },
+  {
+   "year": 2018,
+   "total": 48851
+  },
+  {
+   "year": 2019,
+   "total": 46037
+  },
+  {
+   "year": 2020,
+   "total": 42123
+  },
+  {
+   "year": 2021,
+   "total": 31262
+  },
+  {
+   "year": 2022,
+   "total": 30413
+  },
+  {
+   "year": 2023,
+   "total": 31659
+  },
+  {
+   "year": 2024,
+   "total": 32745
+  },
+  {
+   "year": 2025,
+   "total": 32370
+  },
+  {
+   "year": 2026,
+   "total": 33884
+  }
+ ]
+}

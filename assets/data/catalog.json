@@ -1,0 +1,47 @@
+{
+ "title": "Case Analytica data catalog",
+ "url": "https://www.caseanalytica.com/data.html",
+ "generated": "2026-10-31",
+ "indicators": [
+  {
+   "id": "prison-admissions",
+   "name": "New York State prison admissions by year, 2008 to present",
+   "description": "Annual counts of admissions to New York State prisons, split into new court commitments and returned parole violators. Counts come from the NYS Department of Corrections and Community Supervision.",
+   "temporal": "2008/2025",
+   "source_url": "https://data.ny.gov/d/m2rg-xjan",
+   "publisher": "NYS Department of Corrections and Community Supervision"
+  },
+  {
+   "id": "prison-population",
+   "name": "People under New York State prison custody on March 31, 2008 to present",
+   "description": "Counts of incarcerated people under the custody of the NYS Department of Corrections and Community Supervision on March 31 of each year.",
+   "temporal": "2008/2026",
+   "source_url": "https://data.ny.gov/d/55zc-sp6m",
+   "publisher": "NYS Department of Corrections and Community Supervision"
+  },
+  {
+   "id": "adult-arrests",
+   "name": "Adult arrests in New York State by year, 1970 to present",
+   "description": "Annual counts of arrest events for adults in New York State, from the county rows published by the NYS Division of Criminal Justice Services, with felony and misdemeanor totals.",
+   "temporal": "1970/2025",
+   "source_url": "https://data.ny.gov/d/rikd-mt35",
+   "publisher": "NYS Division of Criminal Justice Services"
+  },
+  {
+   "id": "nyc-jail",
+   "name": "People in New York City jails, daily from the first recorded day",
+   "description": "Count of people in NYC Department of Correction custody on the day it was read, by gender and age band. Sealed cases are excluded by the agency.",
+   "temporal": "2026-10-31/2026-10-31",
+   "source_url": "https://data.cityofnewyork.us/d/7479-ugqb",
+   "publisher": "NYC Department of Correction"
+  },
+  {
+   "id": "parole-board-decisions",
+   "name": "New York Board of Parole first-interview decisions, 2008 to present",
+   "description": "Approvals, denials and postponements at New York parole first interviews, by year and crime class, from NYS Department of Corrections and Community Supervision data.",
+   "temporal": "2008/2025",
+   "source_url": "https://data.ny.gov/d/cgk2-twzc",
+   "publisher": "NYS Department of Corrections and Community Supervision"
+  }
+ ]
+}

@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-035TDMG4Y0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-035TDMG4Y0');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="max-image-preview:large">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16.png">
+<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+<title>New York Justice Data: Parole, Prisons, Jails and Arrests</title>
+<meta name="description" content="Parole, prison, jail and arrest figures for New York, each read from the agency that publishes it, with the source, the read date, a table and a CSV download.">
+<link rel="canonical" href="https://www.caseanalytica.com/data.html">
+<link rel="alternate" type="application/rss+xml" title="Case Analytica" href="https://www.caseanalytica.com/feed.xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Case Analytica">
+<meta property="og:title" content="New York Justice Data: Parole, Prisons, Jails and Arrests">
+<meta property="og:description" content="Parole, prison, jail and arrest figures for New York, each read from the agency that publishes it, with the source, the read date, a table and a CSV download.">
+<meta property="og:url" content="https://www.caseanalytica.com/data.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="New York Justice Data: Parole, Prisons, Jails and Arrests">
+<meta name="twitter:description" content="Parole, prison, jail and arrest figures for New York, each read from the agency that publishes it, with the source, the read date, a table and a CSV download.">
+<link rel="stylesheet" href="assets/style.css?v=20261020c">
+<!-- ld:begin -->
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "DataCatalog",
+ "name": "Case Analytica data hub",
+ "url": "https://www.caseanalytica.com/data.html",
+ "publisher": {
+  "@type": "Organization",
+  "name": "Case Analytica",
+  "url": "https://www.caseanalytica.com/"
+ },
+ "dataset": [
+  {
+   "@type": "Dataset",
+   "name": "New York State prison admissions by year, 2008 to present",
+   "description": "Annual counts of admissions to New York State prisons, split into new court commitments and returned parole violators. Counts come from the NYS Department of Corrections and Community Supervision.",
+   "url": "https://www.caseanalytica.com/data.html#prison-admissions",
+   "creator": {
+    "@type": "Organization",
+    "name": "NYS Department of Corrections and Community Supervision"
+   },
+   "isBasedOn": "https://data.ny.gov/d/m2rg-xjan",
+   "temporalCoverage": "2008/2025",
+   "spatialCoverage": "New York",
+   "dateModified": "2026-10-31",
+   "distribution": [
+    {
+     "@type": "DataDownload",
+     "encodingFormat": "text/csv",
+     "contentUrl": "https://www.caseanalytica.com/assets/data/csv/prison-admissions.csv"
+    },
+    {
+     "@type": "DataDownload",
+     "encodingFormat": "application/json",
+     "contentUrl": "https://www.caseanalytica.com/assets/data/prison-admissions.json"
+    }
+   ]
+  },
+  {
+   "@type": "Dataset",
+   "name": "People under New York State prison custody on March 31, 2008 to present",
+   "description": "Counts of incarcerated people under the custody of the NYS Department of Corrections and Community Supervision on March 31 of each year.",
+   "url": "https://www.caseanalytica.com/data.html#prison-population",
+   "creator": {
+    "@type": "Organization",
+    "name": "NYS Department of Corrections and Community Supervision"
+   },
+   "isBasedOn": "https://data.ny.gov/d/55zc-sp6m",
+   "temporalCoverage": "2008/2026",
+   "spatialCoverage": "New York",
+   "dateModified": "2026-10-31",
+   "distribution": [
+    {
+     "@type": "DataDownload",
+     "encodingFormat": "text/csv",
+     "contentUrl": "https://www.caseanalytica.com/assets/data/csv/prison-population.csv"
+    },
+    {
+     "@type": "DataDownload",
+     "encodingFormat": "application/json",
+     "contentUrl": "https://www.caseanalytica.com/assets/data/prison-population.json"
+    }
+   ]
+  },
+  {
+   "@type": "Dataset",
+   "name": "Adult arrests in New York State by year, 1970 to present",
+   "description": "Annual counts of arrest events for adults in New York State, from the county rows published by the NYS Division of Criminal Justice Services, with felony and misdemeanor totals.",
+   "url": "https://www.caseanalytica.com/data.html#adult-arrests",
+   "creator": {
+    "@type": "Organization",
+    "name": "NYS Division of Criminal Justice Services"
+   },
+   "isBasedOn": "https://data.ny.gov/d/rikd-mt35",
+   "temporalCoverage": "1970/2025",
+   "spatialCoverage": "New York",
+   "dateModified": "2026-10-31",
+   "distribution": [
+    {
+     "@type": "DataDownload",
+     "encodingFormat": "text/csv",
+     "contentUrl": "https://www.caseanalytica.com/assets/data/csv/adult-arrests.csv"
+    },
+    {
+     "@type": "DataDownload",
+     "encodingFormat": "application/json",
+     "contentUrl": "https://www.caseanalytica.com/assets/data/adult-arrests.json"
+    }
+   ]
+  },
+  {
+   "@type": "Dataset",
+   "name": "People in New York City jails, daily from the first recorded day",
+   "description": "Count of people in NYC Department of Correction custody on the day it was read, by gender and age band. Sealed cases are excluded by the agency.",
+   "url": "https://www.caseanalytica.com/data.html#nyc-jail",
+   "creator": {
+    "@type": "Organization",
+    "name": "NYC Department of Correction"
+   },
+   "isBasedOn": "https://data.cityofnewyork.us/d/7479-ugqb",
+   "temporalCoverage": "2026-10-31/2026-10-31",
+   "spatialCoverage": "New York",
+   "dateModified": "2026-10-31",
+   "distribution": [
+    {
+     "@type": "DataDownload",
+     "encodingFormat": "text/csv",
+     "contentUrl": "https://www.caseanalytica.com/assets/data/csv/nyc-jail.csv"
+    },
+    {
+     "@type": "DataDownload",
+     "encodingFormat": "application/json",
+     "contentUrl": "https://www.caseanalytica.com/assets/data/nyc-jail.json"
+    }
+   ]
+  },
+  {
+   "@type": "Dataset",
+   "name": "New York Board of Parole first-interview decisions, 2008 to present",
+   "description": "Approvals, denials and postponements at New York parole first interviews, by year and crime class, from NYS Department of Corrections and Community Supervision data.",
+   "url": "https://www.caseanalytica.com/data.html#parole-board-decisions",
+   "creator": {
+    "@type": "Organization",
+    "name": "NYS Department of Corrections and Community Supervision"
+   },
+   "isBasedOn": "https://data.ny.gov/d/cgk2-twzc",
+   "temporalCoverage": "2008/2025",
+   "spatialCoverage": "New York",
+   "dateModified": "2026-10-31",
+   "distribution": [
+    {
+     "@type": "DataDownload",
+     "encodingFormat": "application/json",
+     "contentUrl": "https://www.caseanalytica.com/assets/data/parole-board-decisions.json"
+    }
+   ]
+  }
+ ]
+}
+</script>
+<!-- ld:end -->
+<style>
+  .dash-tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;margin:18px 0 8px}
+  .tile{background:var(--paper-raised);border:1px solid var(--line);border-radius:10px;padding:16px 18px}
+  .tile .n{font-family:var(--display);font-size:32px;line-height:1.1;color:var(--ink)}
+  .tile .l{font-size:14px;color:var(--ink-soft);margin-top:6px}
+  .ind-head{font-size:17px;color:var(--ink);margin:0 0 10px}
+  .chart{background:var(--paper-raised);border:1px solid var(--line);border-radius:10px;padding:16px 14px 10px;margin:14px 0 8px}
+  .chart svg{display:block;width:100%;height:auto}
+  .chart text{fill:var(--ink-soft);font-family:var(--sans);font-size:12px}
+  .chart .v{fill:var(--ink);font-weight:600}
+  .chart .grid{stroke:var(--line);stroke-width:1}
+  .chart .ln.s1{stroke:var(--pillar)} .chart .ln.s2{stroke:var(--accent)} .chart .ln.s3{stroke:#9AA3B2}
+  .chart .dot.s1,.chart rect.s1{fill:var(--pillar)} .chart .dot.s2,.chart rect.s2{fill:var(--accent)} .chart .dot.s3,.chart rect.s3{fill:#9AA3B2}
+  .key{display:flex;gap:18px;flex-wrap:wrap;font-size:14px;color:var(--ink-soft);margin:6px 0 0}
+  .key i{display:inline-block;width:12px;height:12px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+  .key i.s1{background:var(--pillar)} .key i.s2{background:var(--accent)} .key i.s3{background:#9AA3B2}
+  table.dt{width:100%;border-collapse:collapse;font-size:14px;margin:8px 0}
+  table.dt th,table.dt td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:right}
+  table.dt th:first-child,table.dt td:first-child{text-align:left}
+  details.raw{margin:10px 0} details.raw summary{cursor:pointer;color:var(--pillar-deep)}
+  .chips{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 6px}
+  .chips a{border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:15px;background:var(--paper-raised)}
+  .ind{padding-top:10px;margin-top:34px;border-top:1px solid var(--line)}
+  .dl{font-size:15px;margin:8px 0 0}
+  .more{font-size:16px;margin:12px 0 0}
+  .std li{margin:6px 0}
+  @media(max-width:600px){.chart text{font-size:21px}.tile .n{font-size:28px}}
+</style>
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="wrap nav-inner">
+    <a href="index.html" class="wordmark">Case<span>Analytica</span></a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+    <nav class="links">
+      <details class="navgroup">
+        <summary>What we do</summary>
+        <div class="navmenu">
+          <a href="restorative-justice.html">Restorative Justice</a>
+          <a href="articles.html">Articles</a>
+          <a href="stages/index.html">By case stage</a>
+          <a href="videos.html">Videos</a>
+          <a href="case-navigation.html">Case Navigation</a>
+          <a href="help-after-an-arrest-ny.html">Just been arrested</a>
+          <a href="directory.html">Where to get help</a>
+          <a href="parole-reporting-project.html">Parole reporting project</a>
+          <a href="parole-board-decisions.html">Parole decision charts</a>
+        </div>
+      </details>
+      <a href="data.html" class="current">Data</a>
+      <a href="about.html">Who we are</a>
+      <details class="navgroup">
+        <summary>Get involved</summary>
+        <div class="navmenu">
+          <a href="about.html#intake">Book a free intake call</a>
+          <a href="intake-worksheet.html">Case worksheet</a>
+          <a href="guide.html">The free guide</a>
+          <a href="checklist.html">Printable checklist</a>
+          <a href="https://donate.stripe.com/6oU28s2Hg2mggdyet62Ji00" target="_blank" rel="noopener">Donate</a>
+        </div>
+      </details>
+      <a class="btn" href="about.html#intake">Book a Free Intake Call</a>
+    </nav>
+    <a class="btn btn-donate" href="https://donate.stripe.com/6oU28s2Hg2mggdyet62Ji00" target="_blank" rel="noopener">Donate</a>
+    <label for="nav-toggle" class="nav-toggle-btn"><span class="nav-toggle-bars" aria-hidden="true">☰</span><span class="nav-toggle-text">Menu</span></label>
+  </div>
+</header>
+
+<a href="guide.html" class="guide-fab" aria-label="Get the free guide">
+  <span class="guide-fab-icon">📘</span>
+  <span class="guide-fab-text">Free Guide</span>
+</a>
+
+<main>
+
+<section style="padding-top:48px;">
+  <div class="narrow">
+    <p class="eyebrow">Data</p>
+    <h1 class="serif" style="font-size:clamp(28px,4vw,38px);margin:0 0 18px;">New York justice data, with the source beside every number.</h1>
+    <p style="font-size:17px;color:var(--ink-soft);margin:0 0 10px;">Case Analytica reads these figures from the agencies that publish them. Each one shows the day we read it, a link to the source and a table of the counts. Every set downloads as CSV or JSON.</p>
+    <nav class="chips" aria-label="Jump to a topic">
+      <a href="#parole">Parole</a><a href="#prisons">State prisons</a><a href="#jails">City jails</a><a href="#arrests">Arrests</a><a href="#records">Jobs and records</a><a href="#standard">How it is kept</a>
+    </nav>
+
+    <div class="ind" id="parole">
+      <h2>Parole</h2>
+      <!-- ind:parole-top:begin -->
+<p class="ind-head">In 2025 the Board of Parole approved 2,409 of its 5,672 first-interview decisions, or 42.5%. In 2008 it was 22.3%.</p><p class="dir-caveat">Source: <a href="https://data.ny.gov/d/cgk2-twzc" target="_blank" rel="noopener">Parole Board Decisions for Initial Interviews by Crime Type: Beginning 2008</a>, published by the NYS Department of Corrections and Community Supervision. The agency last updated it on 2026-04-23. Case Analytica read it on 2026-10-31. First interviews only. These are not the Earned Eligibility Certificate denials the parole reporting project reads.</p><div class="dash-tiles"><div class="tile"><div class="n">2,409</div><div class="l">approved in 2025</div></div><div class="tile"><div class="n">1,893</div><div class="l">denied in 2025</div></div><div class="tile"><div class="n">1,370</div><div class="l">postponed in 2025</div></div></div>
+<!-- ind:parole-top:end -->
+      <p class="more"><a href="parole-board-decisions.html">Charts by year and crime class</a> · <a href="parole-data.html">The parole data record</a>, with release, denial and disparity figures each read at its source</p>
+      <p class="dl">Download: <a href="assets/data/parole-board-decisions.json" download>Board decisions (JSON)</a> · <a href="assets/data/ny-parole-data.json" download>Parole data record (JSON)</a></p>
+    </div>
+
+    <div class="ind" id="prisons">
+      <h2>State prisons</h2>
+      <div id="prison-admissions">
+        <h3>Admissions per year</h3>
+        <!-- ind:prison-admissions-top:begin -->
+<p class="ind-head">The state prison system admitted 10,125 people in 2025, down from 26,063 in 2008. In 2025, 8,751 were new court commitments and 1,374 were people returned for a parole violation.</p><p class="dir-caveat">Source: <a href="https://data.ny.gov/d/m2rg-xjan" target="_blank" rel="noopener">Prison Admissions: Beginning 2008</a>, published by the NYS Department of Corrections and Community Supervision. The agency last updated it on 2026-02-26. Case Analytica read it on 2026-10-31. This counts admissions, not people: someone admitted twice in a year is counted twice. The agency says its county field should not be used to count convictions by county.</p><div class="dash-tiles"><div class="tile"><div class="n">10,125</div><div class="l">admissions in 2025</div></div><div class="tile"><div class="n">8,751</div><div class="l">new court commitments</div></div><div class="tile"><div class="n">1,374</div><div class="l">returned for a parole violation</div></div></div>
+<!-- ind:prison-admissions-top:end -->
+        <div class="chart"><svg id="c-adm" role="img" aria-label="Stacked bar chart of state prison admissions per year, split into new court commitments and returned parole violators"></svg>
+          <div class="key"><span><i class="s1"></i>New court commitments</span><span><i class="s2"></i>Returned parole violators</span></div></div>
+        <!-- ind:prison-admissions-bot:begin -->
+<details class="raw"><summary>The counts behind the chart</summary><table class="dt"><caption class="sr-only">Prison admissions by year</caption><thead><tr><th>Year</th><th>New court commitments</th><th>Returned parole violators</th><th>Total</th></tr></thead><tbody><tr><td>2025</td><td>8,751</td><td>1,374</td><td>10,125</td></tr><tr><td>2024</td><td>9,082</td><td>1,438</td><td>10,520</td></tr><tr><td>2023</td><td>9,155</td><td>1,117</td><td>10,272</td></tr><tr><td>2022</td><td>9,007</td><td>1,022</td><td>10,029</td></tr><tr><td>2021</td><td>6,013</td><td>2,591</td><td>8,604</td></tr><tr><td>2020</td><td>3,945</td><td>3,060</td><td>7,005</td></tr><tr><td>2019</td><td>10,408</td><td>7,277</td><td>17,685</td></tr><tr><td>2018</td><td>11,608</td><td>7,499</td><td>19,107</td></tr><tr><td>2017</td><td>12,806</td><td>7,802</td><td>20,608</td></tr><tr><td>2016</td><td>12,872</td><td>8,410</td><td>21,282</td></tr><tr><td>2015</td><td>12,633</td><td>8,226</td><td>20,859</td></tr><tr><td>2014</td><td>13,271</td><td>8,496</td><td>21,767</td></tr><tr><td>2013</td><td>13,694</td><td>9,270</td><td>22,964</td></tr><tr><td>2012</td><td>14,089</td><td>9,264</td><td>23,353</td></tr><tr><td>2011</td><td>14,496</td><td>9,139</td><td>23,635</td></tr><tr><td>2010</td><td>14,754</td><td>9,008</td><td>23,762</td></tr><tr><td>2009</td><td>15,322</td><td>9,314</td><td>24,636</td></tr><tr><td>2008</td><td>15,811</td><td>10,252</td><td>26,063</td></tr></tbody></table></details><p class="dl">Download: <a href="assets/data/csv/prison-admissions.csv" download>CSV</a> · <a href="assets/data/prison-admissions.json" download>JSON</a></p>
+<!-- ind:prison-admissions-bot:end -->
+      </div>
+      <div id="prison-population" style="margin-top:28px;">
+        <h3>People under custody on March 31</h3>
+        <!-- ind:prison-population-top:begin -->
+<p class="ind-head">On March 31, 2026, 33,884 people were in the custody of the state prison system. On March 31, 2008, it was 62,597.</p><p class="dir-caveat">Source: <a href="https://data.ny.gov/d/55zc-sp6m" target="_blank" rel="noopener">Incarcerated Individuals Under Custody: Beginning 2008</a>, published by the NYS Department of Corrections and Community Supervision. The agency last updated it on 2026-07-30. Case Analytica read it on 2026-10-31. This is a count on one day each year, not a count over the year. It is a different measure from admissions above.</p><div class="dash-tiles"><div class="tile"><div class="n">33,884</div><div class="l">under custody, March 31, 2026</div></div><div class="tile"><div class="n">32,370</div><div class="l">under custody, March 31, 2025</div></div></div>
+<!-- ind:prison-population-top:end -->
+        <div class="chart"><svg id="c-pop" role="img" aria-label="Line chart of people under state prison custody on March 31 of each year"></svg></div>
+        <!-- ind:prison-population-bot:begin -->
+<details class="raw"><summary>The counts behind the chart</summary><table class="dt"><caption class="sr-only">People under custody by year</caption><thead><tr><th>As of March 31 of</th><th>People under custody</th></tr></thead><tbody><tr><td>2026</td><td>33,884</td></tr><tr><td>2025</td><td>32,370</td></tr><tr><td>2024</td><td>32,745</td></tr><tr><td>2023</td><td>31,659</td></tr><tr><td>2022</td><td>30,413</td></tr><tr><td>2021</td><td>31,262</td></tr><tr><td>2020</td><td>42,123</td></tr><tr><td>2019</td><td>46,037</td></tr><tr><td>2018</td><td>48,851</td></tr><tr><td>2017</td><td>50,593</td></tr><tr><td>2016</td><td>51,403</td></tr><tr><td>2015</td><td>52,266</td></tr><tr><td>2014</td><td>53,385</td></tr><tr><td>2013</td><td>54,026</td></tr><tr><td>2012</td><td>55,355</td></tr><tr><td>2011</td><td>56,466</td></tr><tr><td>2010</td><td>57,682</td></tr><tr><td>2009</td><td>60,041</td></tr><tr><td>2008</td><td>62,597</td></tr></tbody></table></details><p class="dl">Download: <a href="assets/data/csv/prison-population.csv" download>CSV</a> · <a href="assets/data/prison-population.json" download>JSON</a></p>
+<!-- ind:prison-population-bot:end -->
+      </div>
+    </div>
+
+    <div class="ind" id="jails">
+      <h2>New York City jails</h2>
+      <div id="nyc-jail">
+        <!-- ind:nyc-jail-top:begin -->
+<p class="ind-head">On October 31, 2026, 6,647 people were in the custody of the New York City Department of Correction (6,124 male, 512 female, 11 not recorded).</p><p class="dir-caveat">Source: <a href="https://data.cityofnewyork.us/d/7479-ugqb" target="_blank" rel="noopener">Daily Inmates In Custody</a>, published by the NYC Department of Correction. The agency last updated it on 2026-10-30. Case Analytica read it on 2026-10-31. The feed shows one day only and excludes sealed cases. Case Analytica records each day it reads the feed, so a daily series builds up from the first day it was recorded.</p><div class="dash-tiles"><div class="tile"><div class="n">6,647</div><div class="l">in custody on 2026-10-31</div></div><div class="tile"><div class="n">6,124</div><div class="l">male</div></div><div class="tile"><div class="n">512</div><div class="l">female</div></div></div>
+<!-- ind:nyc-jail-top:end -->
+        <div class="chart"><svg id="c-jail" role="img" aria-label="Bar chart of people in New York City jails by age band on the day the data was read"></svg></div>
+        <div id="jail-hist" class="chart" hidden><svg id="c-jhist" role="img" aria-label="Line chart of the daily count of people in New York City jails since this page began recording"></svg></div>
+        <!-- ind:nyc-jail-bot:begin -->
+<details class="raw"><summary>The counts behind the chart</summary><table class="dt"><caption class="sr-only">People in NYC jails by age band on 2026-10-31</caption><thead><tr><th>Age</th><th>People in custody</th></tr></thead><tbody><tr><td>Under 18</td><td>0</td></tr><tr><td>18 to 24</td><td>1,036</td></tr><tr><td>25 to 34</td><td>2,135</td></tr><tr><td>35 to 44</td><td>1,888</td></tr><tr><td>45 to 54</td><td>937</td></tr><tr><td>55 and older</td><td>648</td></tr><tr><td>Age not recorded</td><td>3</td></tr></tbody></table></details><p class="dl">Download: <a href="assets/data/csv/nyc-jail.csv" download>CSV</a> · <a href="assets/data/nyc-jail.json" download>JSON</a></p>
+<!-- ind:nyc-jail-bot:end -->
+      </div>
+    </div>
+
+    <div class="ind" id="arrests">
+      <h2>Arrests</h2>
+      <div id="adult-arrests">
+        <!-- ind:adult-arrests-top:begin -->
+<p class="ind-head">The county rows add up to 404,985 adult arrest events in 2025, and 388,330 in 2024. In 2025, 152,710 were counted as felonies and 252,275 as misdemeanors. The five New York City counties account for 227,498.</p><p class="dir-caveat">Source: <a href="https://data.ny.gov/d/rikd-mt35" target="_blank" rel="noopener">Adult Arrests 18 and Older by County: Beginning 1970</a>, published by the NYS Division of Criminal Justice Services. The agency last updated it on 2026-09-22. Case Analytica read it on 2026-10-31. Case Analytica added up the county rows to get a state figure. Arrests of people under 18 and non-fingerprintable offenses are not included.</p><div class="dash-tiles"><div class="tile"><div class="n">404,985</div><div class="l">adult arrest events, 2025</div></div><div class="tile"><div class="n">152,710</div><div class="l">counted as felonies</div></div><div class="tile"><div class="n">252,275</div><div class="l">counted as misdemeanors</div></div></div>
+<!-- ind:adult-arrests-top:end -->
+        <div class="chart"><svg id="c-arr" role="img" aria-label="Line chart of adult arrest events in New York State per year, with felony and misdemeanor lines"></svg>
+          <div class="key"><span><i class="s1"></i>All arrest events</span><span><i class="s2"></i>Felony</span><span><i class="s3"></i>Misdemeanor</span></div></div>
+        <!-- ind:adult-arrests-bot:begin -->
+<h3>New York City counties, 2025</h3><table class="dt"><caption class="sr-only">Adult arrest events by New York City county, 2025</caption><thead><tr><th>County</th><th>All arrest events</th><th>Felony</th><th>Misdemeanor</th></tr></thead><tbody><tr><td>Manhattan (New York County)</td><td>58,080</td><td>22,086</td><td>35,994</td></tr><tr><td>Brooklyn (Kings County)</td><td>64,204</td><td>27,837</td><td>36,367</td></tr><tr><td>Bronx</td><td>51,393</td><td>21,033</td><td>30,360</td></tr><tr><td>Queens</td><td>44,845</td><td>19,827</td><td>25,018</td></tr><tr><td>Staten Island (Richmond County)</td><td>8,976</td><td>3,577</td><td>5,399</td></tr></tbody></table><details class="raw"><summary>The state counts behind the chart</summary><table class="dt"><caption class="sr-only">Adult arrest events in New York State by year</caption><thead><tr><th>Year</th><th>All arrest events</th><th>Felony</th><th>Misdemeanor</th></tr></thead><tbody><tr><td>2025</td><td>404,985</td><td>152,710</td><td>252,275</td></tr><tr><td>2024</td><td>388,330</td><td>149,991</td><td>238,339</td></tr><tr><td>2023</td><td>353,083</td><td>139,392</td><td>213,691</td></tr><tr><td>2022</td><td>309,275</td><td>123,602</td><td>185,673</td></tr><tr><td>2021</td><td>276,051</td><td>109,394</td><td>166,657</td></tr><tr><td>2020</td><td>258,334</td><td>101,899</td><td>156,435</td></tr><tr><td>2019</td><td>356,726</td><td>125,760</td><td>230,966</td></tr><tr><td>2018</td><td>393,997</td><td>132,276</td><td>261,721</td></tr><tr><td>2017</td><td>427,676</td><td>134,962</td><td>292,714</td></tr><tr><td>2016</td><td>451,303</td><td>140,998</td><td>310,305</td></tr><tr><td>2015</td><td>458,546</td><td>137,180</td><td>321,366</td></tr><tr><td>2014</td><td>496,554</td><td>141,831</td><td>354,723</td></tr><tr><td>2013</td><td>512,881</td><td>145,092</td><td>367,789</td></tr><tr><td>2012</td><td>523,329</td><td>144,779</td><td>378,550</td></tr><tr><td>2011</td><td>532,889</td><td>144,715</td><td>388,174</td></tr><tr><td>2010</td><td>538,161</td><td>147,547</td><td>390,614</td></tr><tr><td>2009</td><td>538,262</td><td>150,458</td><td>387,804</td></tr><tr><td>2008</td><td>529,025</td><td>155,158</td><td>373,867</td></tr><tr><td>2007</td><td>527,563</td><td>157,696</td><td>369,867</td></tr><tr><td>2006</td><td>501,709</td><td>153,099</td><td>348,610</td></tr><tr><td>2005</td><td>485,625</td><td>147,740</td><td>337,885</td></tr><tr><td>2004</td><td>476,481</td><td>144,267</td><td>332,214</td></tr><tr><td>2003</td><td>473,081</td><td>141,060</td><td>332,021</td></tr><tr><td>2002</td><td>482,988</td><td>151,493</td><td>331,495</td></tr><tr><td>2001</td><td>488,339</td><td>153,677</td><td>334,662</td></tr><tr><td>2000</td><td>526,321</td><td>161,054</td><td>365,267</td></tr><tr><td>1999</td><td>504,864</td><td>162,896</td><td>341,968</td></tr><tr><td>1998</td><td>542,981</td><td>177,697</td><td>365,284</td></tr><tr><td>1997</td><td>537,064</td><td>177,979</td><td>359,085</td></tr><tr><td>1996</td><td>517,736</td><td>176,830</td><td>340,906</td></tr><tr><td>1995</td><td>507,416</td><td>176,162</td><td>331,254</td></tr><tr><td>1994</td><td>489,143</td><td>175,941</td><td>313,202</td></tr><tr><td>1993</td><td>440,950</td><td>163,469</td><td>277,481</td></tr><tr><td>1992</td><td>446,107</td><td>169,528</td><td>276,579</td></tr><tr><td>1991</td><td>464,534</td><td>179,497</td><td>285,037</td></tr><tr><td>1990</td><td>476,194</td><td>187,372</td><td>288,822</td></tr><tr><td>1989</td><td>484,543</td><td>190,731</td><td>293,812</td></tr><tr><td>1988</td><td>466,292</td><td>176,358</td><td>289,934</td></tr><tr><td>1987</td><td>440,145</td><td>159,543</td><td>280,602</td></tr><tr><td>1986</td><td>415,980</td><td>153,927</td><td>262,053</td></tr><tr><td>1985</td><td>383,804</td><td>134,440</td><td>249,364</td></tr><tr><td>1984</td><td>366,394</td><td>132,060</td><td>234,334</td></tr><tr><td>1983</td><td>344,181</td><td>122,991</td><td>221,190</td></tr><tr><td>1982</td><td>330,905</td><td>121,084</td><td>209,821</td></tr><tr><td>1981</td><td>290,876</td><td>111,732</td><td>179,144</td></tr><tr><td>1980</td><td>272,094</td><td>105,141</td><td>166,953</td></tr><tr><td>1979</td><td>272,637</td><td>107,330</td><td>165,307</td></tr><tr><td>1978</td><td>270,098</td><td>104,173</td><td>165,925</td></tr><tr><td>1977</td><td>267,211</td><td>110,641</td><td>156,570</td></tr><tr><td>1976</td><td>258,116</td><td>108,278</td><td>149,838</td></tr><tr><td>1975</td><td>240,956</td><td>98,938</td><td>142,018</td></tr><tr><td>1974</td><td>233,539</td><td>97,190</td><td>136,349</td></tr><tr><td>1973</td><td>208,955</td><td>86,520</td><td>122,435</td></tr><tr><td>1972</td><td>219,023</td><td>95,192</td><td>123,831</td></tr><tr><td>1971</td><td>185,326</td><td>97,606</td><td>87,720</td></tr><tr><td>1970</td><td>154,549</td><td>87,731</td><td>66,818</td></tr></tbody></table></details><p class="dl">Download: <a href="assets/data/csv/adult-arrests.csv" download>CSV</a> · <a href="assets/data/adult-arrests.json" download>JSON</a></p>
+<!-- ind:adult-arrests-bot:end -->
+      </div>
+    </div>
+
+    <div class="ind" id="records">
+      <h2>Jobs and records</h2>
+      <p>New York City government job postings, parole and probation counts, and Clean Slate sealing progress, each traced to its public source, are on their own page.</p>
+      <p class="more"><a href="jobs-records-data.html">New York City jobs and records data</a></p>
+    </div>
+
+    <div class="ind" id="standard">
+      <h2>How this data is kept</h2>
+      <ul class="std">
+        <li>Each figure is read at the agency that publishes it and stated as the agency states it.</li>
+        <li>Every indicator shows who published it, when the agency last updated it, and the day we read it.</li>
+        <li>Different measures stay separate. Admissions over a year and custody on one day are both prison counts, but they are not the same thing and are never combined.</li>
+        <li>We refresh by re-reading the source, not continuously. The read date is the only claim about how current a figure is.</li>
+        <li>To cite a figure, cite the agency named under it. This page is an index.</li>
+      </ul>
+      <h3>Known gaps</h3>
+      <p>No public count of convictions sealed under the Clean Slate Act has been published, so it is not here (see <a href="jobs-records-data.html">the jobs and records page</a>). No public file gives sentence structure, such as the minimum term, so the number of people covered by Correction Law 805 cannot be counted from open data.</p>
+      <h3>Change log</h3>
+      <ul class="std">
+        <li><strong>2026-10-31:</strong> Hub opened with parole, state prison admissions, state prison custody, New York City jails and adult arrests.</li>
+      </ul>
+      <p>Corrections are welcome. If a figure is wrong or its source has been revised, write to <!--email_off--><a href="mailto:caseanalytica@gmail.com">caseanalytica@gmail.com</a><!--/email_off-->. See also <a href="methodology.html">our method</a>.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap foot-grid">
+    <div>
+      <p><strong>Case Analytica</strong>: general information about the New York State justice system, not legal advice for your specific case. Always confirm specifics with a licensed attorney.</p>
+      <p class="foot-sponsor">Case Analytica is fiscally sponsored by the Alternative Newsweekly Foundation, EIN 30-0100369. All donations are tax-deductible to the extent allowed by law.</p>
+    </div>
+    <div class="foot-right">
+      <div class="donate-group">
+        <a class="donate-btn" href="https://donate.stripe.com/6oU28s2Hg2mggdyet62Ji00" target="_blank" rel="noopener">♥ Donate</a>
+      </div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="restorative-justice.html">Restorative Justice</a>
+        <a href="videos.html">Videos</a>
+        <a href="articles.html">Articles</a>
+        <a href="case-navigation.html">Case Navigation</a>
+        <a href="guide.html">Guide</a>
+        <a href="about.html">About</a>
+        <a href="methodology.html">Methodology</a>
+        <a href="methodology.html#corrections">Corrections</a>
+        <a href="glossary.html">Glossary</a>
+        <a href="directory.html">Directory</a>
+        <a href="data.html">Data</a>
+        <a href="stages/index.html">By stage</a>
+      <a href="https://www.facebook.com/profile.php?id=61593408088467" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://www.tiktok.com/@case.analytica" target="_blank" rel="noopener">TikTok</a>
+      <a href="https://www.youtube.com/@caseanalytica" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.linkedin.com/company/caseanalytica" target="_blank" rel="noopener">LinkedIn</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/data-charts.js?v=20261031d"></script>
+<script>
+(function(){
+  function $(id){return document.getElementById(id)}
+  function J(p){return fetch(p).then(function(r){return r.json()})}
+  J('assets/data/prison-admissions.json').then(function(D){
+    CAChart.stacked($('c-adm'),D.yearly.map(function(r){return {label:String(r.year),new_court_commitment:r.new_court_commitment,returned_parole_violator:r.returned_parole_violator}}),
+      [{k:'new_court_commitment',name:'new court commitments',cls:'s1'},{k:'returned_parole_violator',name:'returned parole violators',cls:'s2'}]);
+  });
+  J('assets/data/prison-population.json').then(function(D){
+    CAChart.line($('c-pop'),[{name:'Under custody March 31',cls:'s1',pts:D.yearly.map(function(r){return {x:r.year,y:r.total}})}]);
+  });
+  J('assets/data/adult-arrests.json').then(function(D){
+    CAChart.line($('c-arr'),[
+      {name:'All arrest events',cls:'s1',pts:D.yearly.map(function(r){return {x:r.year,y:r.total}})},
+      {name:'Felony',cls:'s2',pts:D.yearly.map(function(r){return {x:r.year,y:r.felony}})},
+      {name:'Misdemeanor',cls:'s3',pts:D.yearly.map(function(r){return {x:r.year,y:r.misdemeanor}})}]);
+  });
+  J('assets/data/nyc-jail.json').then(function(D){
+    CAChart.hbars($('c-jail'),D.by_age_band.map(function(b){return {label:b.band,value:b.count}}));
+  });
+  J('assets/data/nyc-jail-history.json').then(function(H){
+    if(H.days.length>1){$('jail-hist').hidden=false;
+      CAChart.line($('c-jhist'),[{name:'In custody',cls:'s1',pts:H.days.map(function(d){return {x:d.date.slice(5),y:d.total}})}],{h:220});}
+  });
+})();
+</script>
+</body>
+</html>

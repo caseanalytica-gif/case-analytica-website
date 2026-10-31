@@ -1,0 +1,382 @@
+{
+ "title": "Adult arrests in New York State by year",
+ "source": "NYS Division of Criminal Justice Services, via NY Open Data",
+ "source_url": "https://data.ny.gov/d/rikd-mt35",
+ "dataset_id": "rikd-mt35",
+ "source_last_updated": "2026-09-22",
+ "retrieved": "2026-10-31",
+ "population": "Arrest events for people 18 or older when the crime was committed, for fingerprintable offenses (any felony, and misdemeanors defined in the penal law). Each event is counted once, under its most serious charge. State totals add up the county rows.",
+ "yearly": [
+  {
+   "year": 1970,
+   "total": 154549,
+   "felony": 87731,
+   "misdemeanor": 66818
+  },
+  {
+   "year": 1971,
+   "total": 185326,
+   "felony": 97606,
+   "misdemeanor": 87720
+  },
+  {
+   "year": 1972,
+   "total": 219023,
+   "felony": 95192,
+   "misdemeanor": 123831
+  },
+  {
+   "year": 1973,
+   "total": 208955,
+   "felony": 86520,
+   "misdemeanor": 122435
+  },
+  {
+   "year": 1974,
+   "total": 233539,
+   "felony": 97190,
+   "misdemeanor": 136349
+  },
+  {
+   "year": 1975,
+   "total": 240956,
+   "felony": 98938,
+   "misdemeanor": 142018
+  },
+  {
+   "year": 1976,
+   "total": 258116,
+   "felony": 108278,
+   "misdemeanor": 149838
+  },
+  {
+   "year": 1977,
+   "total": 267211,
+   "felony": 110641,
+   "misdemeanor": 156570
+  },
+  {
+   "year": 1978,
+   "total": 270098,
+   "felony": 104173,
+   "misdemeanor": 165925
+  },
+  {
+   "year": 1979,
+   "total": 272637,
+   "felony": 107330,
+   "misdemeanor": 165307
+  },
+  {
+   "year": 1980,
+   "total": 272094,
+   "felony": 105141,
+   "misdemeanor": 166953
+  },
+  {
+   "year": 1981,
+   "total": 290876,
+   "felony": 111732,
+   "misdemeanor": 179144
+  },
+  {
+   "year": 1982,
+   "total": 330905,
+   "felony": 121084,
+   "misdemeanor": 209821
+  },
+  {
+   "year": 1983,
+   "total": 344181,
+   "felony": 122991,
+   "misdemeanor": 221190
+  },
+  {
+   "year": 1984,
+   "total": 366394,
+   "felony": 132060,
+   "misdemeanor": 234334
+  },
+  {
+   "year": 1985,
+   "total": 383804,
+   "felony": 134440,
+   "misdemeanor": 249364
+  },
+  {
+   "year": 1986,
+   "total": 415980,
+   "felony": 153927,
+   "misdemeanor": 262053
+  },
+  {
+   "year": 1987,
+   "total": 440145,
+   "felony": 159543,
+   "misdemeanor": 280602
+  },
+  {
+   "year": 1988,
+   "total": 466292,
+   "felony": 176358,
+   "misdemeanor": 289934
+  },
+  {
+   "year": 1989,
+   "total": 484543,
+   "felony": 190731,
+   "misdemeanor": 293812
+  },
+  {
+   "year": 1990,
+   "total": 476194,
+   "felony": 187372,
+   "misdemeanor": 288822
+  },
+  {
+   "year": 1991,
+   "total": 464534,
+   "felony": 179497,
+   "misdemeanor": 285037
+  },
+  {
+   "year": 1992,
+   "total": 446107,
+   "felony": 169528,
+   "misdemeanor": 276579
+  },
+  {
+   "year": 1993,
+   "total": 440950,
+   "felony": 163469,
+   "misdemeanor": 277481
+  },
+  {
+   "year": 1994,
+   "total": 489143,
+   "felony": 175941,
+   "misdemeanor": 313202
+  },
+  {
+   "year": 1995,
+   "total": 507416,
+   "felony": 176162,
+   "misdemeanor": 331254
+  },
+  {
+   "year": 1996,
+   "total": 517736,
+   "felony": 176830,
+   "misdemeanor": 340906
+  },
+  {
+   "year": 1997,
+   "total": 537064,
+   "felony": 177979,
+   "misdemeanor": 359085
+  },
+  {
+   "year": 1998,
+   "total": 542981,
+   "felony": 177697,
+   "misdemeanor": 365284
+  },
+  {
+   "year": 1999,
+   "total": 504864,
+   "felony": 162896,
+   "misdemeanor": 341968
+  },
+  {
+   "year": 2000,
+   "total": 526321,
+   "felony": 161054,
+   "misdemeanor": 365267
+  },
+  {
+   "year": 2001,
+   "total": 488339,
+   "felony": 153677,
+   "misdemeanor": 334662
+  },
+  {
+   "year": 2002,
+   "total": 482988,
+   "felony": 151493,
+   "misdemeanor": 331495
+  },
+  {
+   "year": 2003,
+   "total": 473081,
+   "felony": 141060,
+   "misdemeanor": 332021
+  },
+  {
+   "year": 2004,
+   "total": 476481,
+   "felony": 144267,
+   "misdemeanor": 332214
+  },
+  {
+   "year": 2005,
+   "total": 485625,
+   "felony": 147740,
+   "misdemeanor": 337885
+  },
+  {
+   "year": 2006,
+   "total": 501709,
+   "felony": 153099,
+   "misdemeanor": 348610
+  },
+  {
+   "year": 2007,
+   "total": 527563,
+   "felony": 157696,
+   "misdemeanor": 369867
+  },
+  {
+   "year": 2008,
+   "total": 529025,
+   "felony": 155158,
+   "misdemeanor": 373867
+  },
+  {
+   "year": 2009,
+   "total": 538262,
+   "felony": 150458,
+   "misdemeanor": 387804
+  },
+  {
+   "year": 2010,
+   "total": 538161,
+   "felony": 147547,
+   "misdemeanor": 390614
+  },
+  {
+   "year": 2011,
+   "total": 532889,
+   "felony": 144715,
+   "misdemeanor": 388174
+  },
+  {
+   "year": 2012,
+   "total": 523329,
+   "felony": 144779,
+   "misdemeanor": 378550
+  },
+  {
+   "year": 2013,
+   "total": 512881,
+   "felony": 145092,
+   "misdemeanor": 367789
+  },
+  {
+   "year": 2014,
+   "total": 496554,
+   "felony": 141831,
+   "misdemeanor": 354723
+  },
+  {
+   "year": 2015,
+   "total": 458546,
+   "felony": 137180,
+   "misdemeanor": 321366
+  },
+  {
+   "year": 2016,
+   "total": 451303,
+   "felony": 140998,
+   "misdemeanor": 310305
+  },
+  {
+   "year": 2017,
+   "total": 427676,
+   "felony": 134962,
+   "misdemeanor": 292714
+  },
+  {
+   "year": 2018,
+   "total": 393997,
+   "felony": 132276,
+   "misdemeanor": 261721
+  },
+  {
+   "year": 2019,
+   "total": 356726,
+   "felony": 125760,
+   "misdemeanor": 230966
+  },
+  {
+   "year": 2020,
+   "total": 258334,
+   "felony": 101899,
+   "misdemeanor": 156435
+  },
+  {
+   "year": 2021,
+   "total": 276051,
+   "felony": 109394,
+   "misdemeanor": 166657
+  },
+  {
+   "year": 2022,
+   "total": 309275,
+   "felony": 123602,
+   "misdemeanor": 185673
+  },
+  {
+   "year": 2023,
+   "total": 353083,
+   "felony": 139392,
+   "misdemeanor": 213691
+  },
+  {
+   "year": 2024,
+   "total": 388330,
+   "felony": 149991,
+   "misdemeanor": 238339
+  },
+  {
+   "year": 2025,
+   "total": 404985,
+   "felony": 152710,
+   "misdemeanor": 252275
+  }
+ ],
+ "nyc_counties_latest_year": {
+  "year": 2025,
+  "rows": [
+   {
+    "county": "Manhattan (New York County)",
+    "total": 58080,
+    "felony": 22086,
+    "misdemeanor": 35994
+   },
+   {
+    "county": "Brooklyn (Kings County)",
+    "total": 64204,
+    "felony": 27837,
+    "misdemeanor": 36367
+   },
+   {
+    "county": "Bronx",
+    "total": 51393,
+    "felony": 21033,
+    "misdemeanor": 30360
+   },
+   {
+    "county": "Queens",
+    "total": 44845,
+    "felony": 19827,
+    "misdemeanor": 25018
+   },
+   {
+    "county": "Staten Island (Richmond County)",
+    "total": 8976,
+    "felony": 3577,
+    "misdemeanor": 5399
+   }
+  ]
+ }
+}

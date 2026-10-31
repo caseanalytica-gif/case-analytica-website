@@ -1,0 +1,46 @@
+{
+ "title": "People in New York City jails, current day",
+ "source": "NYC Department of Correction, via NYC Open Data",
+ "source_url": "https://data.cityofnewyork.us/d/7479-ugqb",
+ "dataset_id": "7479-ugqb",
+ "source_last_updated": "2026-10-30",
+ "retrieved": "2026-10-31",
+ "population": "People in New York City Department of Correction custody on the day the feed was read. The agency excludes sealed cases, so totals can differ slightly from its other published statistics.",
+ "total": 6647,
+ "by_gender": {
+  "Not recorded": 11,
+  "Male": 6124,
+  "Female": 512
+ },
+ "by_age_band": [
+  {
+   "band": "Under 18",
+   "count": 0
+  },
+  {
+   "band": "18 to 24",
+   "count": 1036
+  },
+  {
+   "band": "25 to 34",
+   "count": 2135
+  },
+  {
+   "band": "35 to 44",
+   "count": 1888
+  },
+  {
+   "band": "45 to 54",
+   "count": 937
+  },
+  {
+   "band": "55 and older",
+   "count": 648
+  },
+  {
+   "band": "Age not recorded",
+   "count": 3
+  }
+ ],
+ "history_file": "assets/data/nyc-jail-history.json"
+}
