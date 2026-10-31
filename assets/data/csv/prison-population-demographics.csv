@@ -1,0 +1,60 @@
+snapshot_year_as_of_march_31,group,value,count
+2018,race_ethnicity,Black,23555
+2018,race_ethnicity,White,11852
+2018,race_ethnicity,Hispanic,11827
+2018,race_ethnicity,Other,1355
+2018,race_ethnicity,Unknown,262
+2019,race_ethnicity,Black,22245
+2019,race_ethnicity,Hispanic,11180
+2019,race_ethnicity,White,11128
+2019,race_ethnicity,Other,1250
+2019,race_ethnicity,Unknown,234
+2020,race_ethnicity,Black,20639
+2020,race_ethnicity,Hispanic,10283
+2020,race_ethnicity,White,9892
+2020,race_ethnicity,Other,1192
+2020,race_ethnicity,Unknown,117
+2021,race_ethnicity,Black,15773
+2021,race_ethnicity,Hispanic,7674
+2021,race_ethnicity,White,6825
+2021,race_ethnicity,Other,521
+2021,race_ethnicity,Native American,268
+2021,race_ethnicity,Asian,201
+2022,race_ethnicity,Black,14829
+2022,race_ethnicity,Hispanic,7333
+2022,race_ethnicity,White,7087
+2022,race_ethnicity,Other,674
+2022,race_ethnicity,Native American,298
+2022,race_ethnicity,Asian,192
+2023,race_ethnicity,Black,15561
+2023,race_ethnicity,Hispanic,7529
+2023,race_ethnicity,White,7208
+2023,race_ethnicity,Other,800
+2023,race_ethnicity,Native American,335
+2023,race_ethnicity,Asian,226
+2024,race_ethnicity,Black,16128
+2024,race_ethnicity,Hispanic,7791
+2024,race_ethnicity,White,7459
+2024,race_ethnicity,Other,768
+2024,race_ethnicity,Native American,335
+2024,race_ethnicity,Asian,264
+2025,race_ethnicity,Black,16090
+2025,race_ethnicity,Hispanic,7729
+2025,race_ethnicity,White,7258
+2025,race_ethnicity,Other,679
+2025,race_ethnicity,Native American,334
+2025,race_ethnicity,Asian,280
+2026,race_ethnicity,Black,16703
+2026,race_ethnicity,Hispanic,8151
+2026,race_ethnicity,White,7685
+2026,race_ethnicity,Other,711
+2026,race_ethnicity,Native American,328
+2026,race_ethnicity,Asian,306
+2026,gender,Male,32408
+2026,gender,Female,1476
+2026,age_band,Under 25,2600
+2026,age_band,25 to 34,9648
+2026,age_band,35 to 44,10288
+2026,age_band,45 to 54,6256
+2026,age_band,55 to 64,3652
+2026,age_band,65 and older,1440

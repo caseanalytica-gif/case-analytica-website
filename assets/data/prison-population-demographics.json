@@ -1,0 +1,111 @@
+{
+ "title": "People under New York State prison custody on March 31, 2026, by race and ethnicity, gender and age",
+ "source": "NYS Department of Corrections and Community Supervision, via NY Open Data",
+ "source_url": "https://data.ny.gov/d/55zc-sp6m",
+ "dataset_id": "55zc-sp6m",
+ "source_last_updated": "2026-07-30",
+ "retrieved": "2026-10-31",
+ "snapshot_year": 2026,
+ "race_ethnicity_by_year": {
+  "2018": {
+   "Black": 23555,
+   "Hispanic": 11827,
+   "Other": 1355,
+   "Unknown": 262,
+   "White": 11852
+  },
+  "2019": {
+   "Black": 22245,
+   "Hispanic": 11180,
+   "Other": 1250,
+   "Unknown": 234,
+   "White": 11128
+  },
+  "2020": {
+   "Black": 20639,
+   "Hispanic": 10283,
+   "Other": 1192,
+   "Unknown": 117,
+   "White": 9892
+  },
+  "2021": {
+   "Asian": 201,
+   "Black": 15773,
+   "Hispanic": 7674,
+   "Native American": 268,
+   "Other": 521,
+   "White": 6825
+  },
+  "2022": {
+   "Asian": 192,
+   "Black": 14829,
+   "Hispanic": 7333,
+   "Native American": 298,
+   "Other": 674,
+   "White": 7087
+  },
+  "2023": {
+   "Asian": 226,
+   "Black": 15561,
+   "Hispanic": 7529,
+   "Native American": 335,
+   "Other": 800,
+   "White": 7208
+  },
+  "2024": {
+   "Asian": 264,
+   "Black": 16128,
+   "Hispanic": 7791,
+   "Native American": 335,
+   "Other": 768,
+   "White": 7459
+  },
+  "2025": {
+   "Asian": 280,
+   "Black": 16090,
+   "Hispanic": 7729,
+   "Native American": 334,
+   "Other": 679,
+   "White": 7258
+  },
+  "2026": {
+   "Asian": 306,
+   "Black": 16703,
+   "Hispanic": 8151,
+   "Native American": 328,
+   "Other": 711,
+   "White": 7685
+  }
+ },
+ "by_gender": {
+  "Male": 32408,
+  "Female": 1476
+ },
+ "by_age_band": [
+  {
+   "band": "Under 25",
+   "count": 2600
+  },
+  {
+   "band": "25 to 34",
+   "count": 9648
+  },
+  {
+   "band": "35 to 44",
+   "count": 10288
+  },
+  {
+   "band": "45 to 54",
+   "count": 6256
+  },
+  {
+   "band": "55 to 64",
+   "count": 3652
+  },
+  {
+   "band": "65 and older",
+   "count": 1440
+  }
+ ],
+ "notes": "Age is as of the file date, not March 31. Race and ethnicity is provided from the 2018 snapshot onward, per the agency."
+}

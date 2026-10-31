@@ -254,8 +254,8 @@ RD = datetime.date.today().strftime("%b ") + str(datetime.date.today().day)
 lastA, lastP, lastY = yearly[-1], py[-1], Y[-1]
 home_items = [
     (n(lastA["total"]), f"people admitted to state prison in {lastA['year']}", "NYS Corrections", "data.html#prison-admissions"),
-    (n(lastP["total"]), f"in state prison on March 31, {lastP['year']}", "NYS Corrections", "data.html#prison-population"),
-    (n(total), "in New York City jails today", "NYC Correction", "data.html#nyc-jail"),
+    (n(lastP["total"]), f"in state prison on March 31, {lastP['year']}", "NYS Corrections", "ny-prison-population.html"),
+    (n(total), "in New York City jails today", "NYC Correction", "nyc-jail-population.html"),
     (f'{lastY["approved"] / tot(lastY) * 100:.1f}%', f"of first parole interviews approved in {lastY['year']}", "NYS Corrections", "data.html#parole"),
 ]
 home = ('<section class="fp-nums" aria-labelledby="fp-nums-h">\n  <h2 class="fp-label" id="fp-nums-h">The numbers</h2>\n  <ul class="fp-nums-grid">\n'
@@ -295,5 +295,7 @@ if INDEX.exists():
     if pat.search(ix):
         INDEX.write_text(pat.sub(lambda m: m.group(1) + "\n" + home + "\n" + m.group(2), ix))
 print("data.html and assets/data/* refreshed", TODAY)
+import subprocess, sys
+subprocess.run([sys.executable, str(ROOT / "tools" / "data_pages.py")], check=True)
 for c in catalog:
     print(" -", c["id"], c["temporal"])

@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-035TDMG4Y0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-035TDMG4Y0');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="max-image-preview:large">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16.png">
+<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+<title>NYC Jail Population Today: Daily Count by Age and Gender</title>
+<meta name="description" content="6,647 people were in NYC jails on October 31, 2026, per the Department of Correction&#x27;s daily file. Age and gender counts, a daily history and a CSV.">
+<link rel="canonical" href="https://www.caseanalytica.com/nyc-jail-population.html">
+<link rel="alternate" type="application/rss+xml" title="Case Analytica" href="https://www.caseanalytica.com/feed.xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Case Analytica">
+<meta property="og:title" content="NYC Jail Population Today: Daily Count by Age and Gender">
+<meta property="og:description" content="6,647 people were in NYC jails on October 31, 2026, per the Department of Correction&#x27;s daily file. Age and gender counts, a daily history and a CSV.">
+<meta property="og:url" content="https://www.caseanalytica.com/nyc-jail-population.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="NYC Jail Population Today: Daily Count by Age and Gender">
+<meta name="twitter:description" content="6,647 people were in NYC jails on October 31, 2026, per the Department of Correction&#x27;s daily file. Age and gender counts, a daily history and a CSV.">
+<link rel="stylesheet" href="assets/style.css?v=20261020c">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Home",
+   "item": "https://www.caseanalytica.com/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "Data",
+   "item": "https://www.caseanalytica.com/data.html"
+  },
+  {
+   "@type": "ListItem",
+   "position": 3,
+   "name": "How many people are in NYC jails today?",
+   "item": "https://www.caseanalytica.com/nyc-jail-population.html"
+  }
+ ]
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Dataset",
+ "name": "People in New York City jails, current day and daily history",
+ "description": "6,647 people were in NYC jails on October 31, 2026, per the Department of Correction's daily file. Age and gender counts, a daily history and a CSV.",
+ "url": "https://www.caseanalytica.com/nyc-jail-population.html",
+ "creator": {
+  "@type": "Organization",
+  "name": "NYC Department of Correction"
+ },
+ "isBasedOn": "https://data.cityofnewyork.us/d/7479-ugqb",
+ "temporalCoverage": "2026-10-31/2026-10-31",
+ "spatialCoverage": "New York",
+ "dateModified": "2026-10-31",
+ "publisher": {
+  "@type": "Organization",
+  "name": "Case Analytica",
+  "url": "https://www.caseanalytica.com/"
+ },
+ "distribution": [
+  {
+   "@type": "DataDownload",
+   "encodingFormat": "text/csv",
+   "contentUrl": "https://www.caseanalytica.com/assets/data/csv/nyc-jail.csv"
+  },
+  {
+   "@type": "DataDownload",
+   "encodingFormat": "application/json",
+   "contentUrl": "https://www.caseanalytica.com/assets/data/nyc-jail.json"
+  },
+  {
+   "@type": "DataDownload",
+   "encodingFormat": "application/json",
+   "contentUrl": "https://www.caseanalytica.com/assets/data/nyc-jail-history.json"
+  }
+ ]
+}
+</script>
+<style>
+  .dash-tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;margin:18px 0 8px}
+  .tile{background:var(--paper-raised);border:1px solid var(--line);border-radius:10px;padding:16px 18px}
+  .tile .n{font-family:var(--display);font-size:32px;line-height:1.1;color:var(--ink)}
+  .tile .l{font-size:14px;color:var(--ink-soft);margin-top:6px}
+  .ind-head{font-size:17px;color:var(--ink);margin:0 0 10px}
+  .chart{background:var(--paper-raised);border:1px solid var(--line);border-radius:10px;padding:16px 14px 10px;margin:14px 0 8px}
+  .chart svg{display:block;width:100%;height:auto}
+  .chart text{fill:var(--ink-soft);font-family:var(--sans);font-size:12px}
+  .chart .v{fill:var(--ink);font-weight:600}
+  .chart .grid{stroke:var(--line);stroke-width:1}
+  .chart .ln.s1{stroke:var(--pillar)} .chart .ln.s2{stroke:var(--accent)} .chart .ln.s3{stroke:#9AA3B2}
+  .chart .dot.s1,.chart rect.s1{fill:var(--pillar)} .chart .dot.s2,.chart rect.s2{fill:var(--accent)} .chart .dot.s3,.chart rect.s3{fill:#9AA3B2}
+  .key{display:flex;gap:18px;flex-wrap:wrap;font-size:14px;color:var(--ink-soft);margin:6px 0 0}
+  .key i{display:inline-block;width:12px;height:12px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+  .key i.s1{background:var(--pillar)} .key i.s2{background:var(--accent)} .key i.s3{background:#9AA3B2}
+  table.dt{width:100%;border-collapse:collapse;font-size:14px;margin:8px 0}
+  table.dt th,table.dt td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:right}
+  table.dt th:first-child,table.dt td:first-child{text-align:left}
+  details.raw{margin:10px 0} details.raw summary{cursor:pointer;color:var(--pillar-deep)}
+  .chips{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 6px}
+  .chips a{border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:15px;background:var(--paper-raised)}
+  .ind{padding-top:10px;margin-top:34px;border-top:1px solid var(--line)}
+  .dl{font-size:15px;margin:8px 0 0}
+  .more{font-size:16px;margin:12px 0 0}
+  .std li{margin:6px 0}
+  @media(max-width:600px){.chart text{font-size:21px}.tile .n{font-size:28px}}
+</style>
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="wrap nav-inner">
+    <a href="index.html" class="wordmark">Case<span>Analytica</span></a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+    <nav class="links">
+      <details class="navgroup">
+        <summary>What we do</summary>
+        <div class="navmenu">
+          <a href="restorative-justice.html">Restorative Justice</a>
+          <a href="articles.html">Articles</a>
+          <a href="stages/index.html">By case stage</a>
+          <a href="videos.html">Videos</a>
+          <a href="case-navigation.html">Case Navigation</a>
+          <a href="help-after-an-arrest-ny.html">Just been arrested</a>
+          <a href="directory.html">Where to get help</a>
+          <a href="parole-reporting-project.html">Parole reporting project</a>
+          <a href="parole-board-decisions.html">Parole decision charts</a>
+        </div>
+      </details>
+      <a href="data.html" class="current">Data</a>
+      <a href="about.html">Who we are</a>
+      <details class="navgroup">
+        <summary>Get involved</summary>
+        <div class="navmenu">
+          <a href="about.html#intake">Book a free intake call</a>
+          <a href="intake-worksheet.html">Case worksheet</a>
+          <a href="guide.html">The free guide</a>
+          <a href="checklist.html">Printable checklist</a>
+          <a href="https://donate.stripe.com/6oU28s2Hg2mggdyet62Ji00" target="_blank" rel="noopener">Donate</a>
+        </div>
+      </details>
+      <a class="btn" href="about.html#intake">Book a Free Intake Call</a>
+    </nav>
+    <a class="btn btn-donate" href="https://donate.stripe.com/6oU28s2Hg2mggdyet62Ji00" target="_blank" rel="noopener">Donate</a>
+    <label for="nav-toggle" class="nav-toggle-btn"><span class="nav-toggle-bars" aria-hidden="true">☰</span><span class="nav-toggle-text">Menu</span></label>
+  </div>
+</header>
+
+<a href="guide.html" class="guide-fab" aria-label="Get the free guide">
+  <span class="guide-fab-icon">📘</span>
+  <span class="guide-fab-text">Free Guide</span>
+</a>
+
+<a href="guide.html" class="guide-fab" aria-label="Get the free guide">
+  <span class="guide-fab-icon">📘</span>
+  <span class="guide-fab-text">Free Guide</span>
+</a>
+
+<main>
+
+<section style="padding-top:48px;">
+  <div class="narrow">
+    <p class="eyebrow"><a href="data.html">Data</a> / New York City jails</p>
+    <h1 class="serif" style="font-size:clamp(28px,4vw,38px);margin:0 0 18px;">How many people are in NYC jails today?</h1>
+    <p class="ind-head">On October 31, 2026, 6,647 people were in the custody of the New York City Department of Correction (6,124 male, 512 female, 11 not recorded).</p>
+    <p class="dir-caveat">Source: <a href="https://data.cityofnewyork.us/d/7479-ugqb" target="_blank" rel="noopener">Daily Inmates In Custody</a>, published by the NYC Department of Correction. The agency last updated it on 2026-10-30. Case Analytica read it on 2026-10-31. The file shows one day only and leaves out sealed cases.</p>
+    <div class="dash-tiles"><div class="tile"><div class="n">6,647</div><div class="l">in custody on 2026-10-31</div></div><div class="tile"><div class="n">6,124</div><div class="l">male</div></div><div class="tile"><div class="n">512</div><div class="l">female</div></div></div>
+
+    <h2 style="margin-top:34px;">By age</h2>
+    <div class="chart"><svg id="c-jail" role="img" aria-label="Bar chart of people in New York City jails by age band on the day the data was read"></svg></div>
+    <details class="raw"><summary>The counts behind the chart</summary>
+    <table class="dt"><caption class="sr-only">People in NYC jails by age band on 2026-10-31</caption><thead><tr><th>Age</th><th>People in custody</th></tr></thead><tbody><tr><td>Under 18</td><td>0</td></tr><tr><td>18 to 24</td><td>1,036</td></tr><tr><td>25 to 34</td><td>2,135</td></tr><tr><td>35 to 44</td><td>1,888</td></tr><tr><td>45 to 54</td><td>937</td></tr><tr><td>55 and older</td><td>648</td></tr><tr><td>Age not recorded</td><td>3</td></tr></tbody></table>
+    </details>
+
+    <h2 style="margin-top:34px;">Is this the Rikers Island population?</h2>
+    <p>Not exactly. The file counts everyone in the Department of Correction's custody. It has no field for the facility where a person is held, so Case Analytica does not publish a count for Rikers Island alone. For the Rikers questions the file cannot answer, see the articles at the bottom of this page.</p>
+
+    <h2 style="margin-top:34px;">Why this number can differ from other reports</h2>
+    <p>The agency says the file leaves out sealed cases and that totals built from it "may differ slightly from other published statistics." This is also one day's count, read on October 31, 2026. An average over a month will not match a single day.</p>
+
+    <h2 style="margin-top:34px;">Daily history</h2>
+    <p>The agency's file holds only the current day. Case Analytica saves each day it reads the file. The record starts on October 31, 2026 and grows each time this page is refreshed.</p>
+    <div id="jail-hist" class="chart" hidden><svg id="c-jhist" role="img" aria-label="Line chart of the daily count of people in New York City jails since this page began recording"></svg></div>
+    <details class="raw"><summary>The days recorded so far</summary>
+    <table class="dt"><caption class="sr-only">Daily count of people in NYC jails</caption><thead><tr><th>Date</th><th>People in custody</th></tr></thead><tbody><tr><td>2026-10-31</td><td>6,647</td></tr></tbody></table>
+    </details>
+    <p class="dl">Download: <a href="assets/data/csv/nyc-jail.csv" download>Today's counts (CSV)</a> · <a href="assets/data/nyc-jail.json" download>Today's counts (JSON)</a> · <a href="assets/data/nyc-jail-history.json" download>Daily history (JSON)</a></p>
+
+    <h2 style="margin-top:34px;">More on New York City jails</h2>
+    <ul class="std">
+      <li><a href="articles/rikers-island-cost-per-person-ny.html">What Rikers Island costs per person</a></li>
+      <li><a href="articles/rikers-detention-plea-leverage-ny.html">How detention at Rikers affects plea decisions</a></li>
+      <li><a href="articles/why-rikers-island-should-close-ny.html">Why Rikers Island should close</a></li>
+      <li><a href="ny-prison-population.html">New York State prison population by year, race and age</a></li>
+      <li><a href="data.html">All the data, with sources and downloads</a></li>
+    </ul>
+    <p>To cite a figure, cite the agency named under it. Corrections are welcome at <!--email_off--><a href="mailto:caseanalytica@gmail.com">caseanalytica@gmail.com</a><!--/email_off-->. See also <a href="methodology.html">our method</a>.</p>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap foot-grid">
+    <div>
+      <p><strong>Case Analytica</strong>: general information about the New York State justice system, not legal advice for your specific case. Always confirm specifics with a licensed attorney.</p>
+      <p class="foot-sponsor">Case Analytica is fiscally sponsored by the Alternative Newsweekly Foundation, EIN 30-0100369. All donations are tax-deductible to the extent allowed by law.</p>
+    </div>
+    <div class="foot-right">
+      <div class="donate-group">
+        <a class="donate-btn" href="https://donate.stripe.com/6oU28s2Hg2mggdyet62Ji00" target="_blank" rel="noopener">♥ Donate</a>
+      </div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="restorative-justice.html">Restorative Justice</a>
+        <a href="videos.html">Videos</a>
+        <a href="articles.html">Articles</a>
+        <a href="case-navigation.html">Case Navigation</a>
+        <a href="guide.html">Guide</a>
+        <a href="about.html">About</a>
+        <a href="methodology.html">Methodology</a>
+        <a href="methodology.html#corrections">Corrections</a>
+        <a href="glossary.html">Glossary</a>
+        <a href="directory.html">Directory</a>
+        <a href="data.html">Data</a>
+        <a href="stages/index.html">By stage</a>
+      <a href="https://www.facebook.com/profile.php?id=61593408088467" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://www.tiktok.com/@case.analytica" target="_blank" rel="noopener">TikTok</a>
+      <a href="https://www.youtube.com/@caseanalytica" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.linkedin.com/company/caseanalytica" target="_blank" rel="noopener">LinkedIn</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/data-charts.js?v=20261031d"></script>
+<script>
+(function(){
+  function $(id){return document.getElementById(id)}
+  function J(p){return fetch(p).then(function(r){return r.json()})}
+  J('assets/data/nyc-jail.json').then(function(D){
+    CAChart.hbars($('c-jail'),D.by_age_band.map(function(b){return {label:b.band,value:b.count}}));
+  });
+  J('assets/data/nyc-jail-history.json').then(function(H){
+    if(H.days.length>1){$('jail-hist').hidden=false;
+      CAChart.line($('c-jhist'),[{name:'In custody',cls:'s1',pts:H.days.map(function(d){return {x:d.date.slice(5),y:d.total}})}],{h:220});}
+  });
+})();
+</script>
+</body>
+</html>
