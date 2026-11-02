@@ -1,7 +1,7 @@
 {
  "title": "Case Analytica data catalog",
  "url": "https://www.caseanalytica.com/data.html",
- "generated": "2026-11-01",
+ "generated": "2026-11-02",
  "indicators": [
   {
    "id": "prison-admissions",
@@ -31,7 +31,7 @@
    "id": "nyc-jail",
    "name": "People in New York City jails, daily from the first recorded day",
    "description": "Count of people in NYC Department of Correction custody on the day it was read, by gender and age band. Sealed cases are excluded by the agency.",
-   "temporal": "2026-10-31/2026-11-01",
+   "temporal": "2026-10-31/2026-11-02",
    "source_url": "https://data.cityofnewyork.us/d/7479-ugqb",
    "publisher": "NYC Department of Correction"
   },
