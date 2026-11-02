@@ -97,3 +97,11 @@ If a preview comes back blank or stale, append ?v=2 to the article URL to force 
 ## Note on tone
 
 First person is Dean's: he filed the requests. Both counts are dated 2026-11-02. The "no count" claim is scoped to what he found, and the post says so; do not turn it into "the state refuses."
+
+## Posted
+
+- 2026-11-02 LinkedIn (Dean's profile, link card): posted
+- 2026-11-02 Facebook (Caseanalytica Page, link card): posted
+- 2026-11-02 Bluesky (@caseanalytica.bsky.social, link card, shortened to fit 300 characters): posted
+- 2026-11-02 Instagram (@caseanalytica, light 4:5 card): posted
+- 2026-11-02 Pinterest: https://www.pinterest.com/pin/1099652434091119515/
