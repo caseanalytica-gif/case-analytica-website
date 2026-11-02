@@ -6,7 +6,14 @@
     <description>Reporting on New York's criminal courts, prisons and parole.</description>
     <language>en-us</language>
     <atom:link href="https://www.caseanalytica.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Fri, 30 Oct 2026 12:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 02 Nov 2026 12:00:00 +0000</lastBuildDate>
+    <item>
+      <title>New York Counts Every Person in Its Jails Each Morning. I Cannot Find a Count of the Records It Has Sealed.</title>
+      <link>https://www.caseanalytica.com/articles/ny-counts-jail-every-day-no-public-clean-slate-sealing-count.html</link>
+      <guid isPermaLink="true">https://www.caseanalytica.com/articles/ny-counts-jail-every-day-no-public-clean-slate-sealing-count.html</guid>
+      <pubDate>Mon, 02 Nov 2026 12:00:00 +0000</pubDate>
+      <description>New York City reported 6,665 people in its jails today. The state has until November 16, 2027 to seal eligible convictions under the Clean Slate Act, and Case Analytica found no published count of how many it has sealed. A records request is pending.</description>
+    </item>
     <item>
       <title>Do Young Prosecutors Practice on Misdemeanor Cases? They Do, and the Person Charged Pays</title>
       <link>https://www.caseanalytica.com/articles/misdemeanor-trials-new-prosecutors-experience-ny.html</link>
@@ -209,13 +216,6 @@
       <guid isPermaLink="true">https://www.caseanalytica.com/articles/less-is-more-act-parole-technical-violations-ny.html</guid>
       <pubDate>Wed, 02 Sep 2026 12:00:00 +0000</pubDate>
       <description>In 2018, New York sent thousands of people back to prison for missing a curfew or an appointment, not a new crime. Here&#x27;s what the Less Is More Act changed, and what the data since shows about whether it worked.</description>
-    </item>
-    <item>
-      <title>What Happens After a Murder Arrest in New York: The Jesus Acosta Case and the Limits of Diversion</title>
-      <link>https://www.caseanalytica.com/articles/jesus-acosta-murder-arrest-process-ny.html</link>
-      <guid isPermaLink="true">https://www.caseanalytica.com/articles/jesus-acosta-murder-arrest-process-ny.html</guid>
-      <pubDate>Tue, 01 Sep 2026 12:00:00 +0000</pubDate>
-      <description>Jesus Acosta&#x27;s arrest and arraignment on murder charges in the Bronx and Brooklyn shows how central booking, arraignment, bail, and parole holds actually work, and why New York&#x27;s diversion programs don&#x27;t reach a case like this one.</description>
     </item>
   </channel>
 </rss>

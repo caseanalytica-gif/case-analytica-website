@@ -330,6 +330,14 @@ const VIDEOS = [
 
 const ARTICLES = [
   {
+    slug: "ny-counts-jail-every-day-no-public-clean-slate-sealing-count",
+    title: "New York Counts Every Person in Its Jails Each Morning. I Cannot Find a Count of the Records It Has Sealed.",
+    category: "System",
+    stage: "records",
+    date: "2026-11-02",
+    excerpt: "New York City reported 6,665 people in its jails today. The state has until November 16, 2027 to seal eligible convictions under the Clean Slate Act, and Case Analytica found no published count of how many it has sealed. A records request is pending."
+  },
+  {
     slug: "misdemeanor-trials-new-prosecutors-experience-ny",
     title: "Do Young Prosecutors Practice on Misdemeanor Cases? They Do, and the Person Charged Pays",
     category: "Rights & Process",
