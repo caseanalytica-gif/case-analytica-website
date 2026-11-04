@@ -4,7 +4,7 @@
  "source_url": "https://data.ny.gov/d/rikd-mt35",
  "dataset_id": "rikd-mt35",
  "source_last_updated": "2026-09-22",
- "retrieved": "2026-11-03",
+ "retrieved": "2026-11-04",
  "population": "Arrest events for people 18 or older when the crime was committed, for fingerprintable offenses (any felony, and misdemeanors defined in the penal law). Each event is counted once, under its most serious charge. State totals add up the county rows.",
  "yearly": [
   {
