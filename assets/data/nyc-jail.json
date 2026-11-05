@@ -4,7 +4,7 @@
  "source_url": "https://data.cityofnewyork.us/d/7479-ugqb",
  "dataset_id": "7479-ugqb",
  "source_last_updated": "2026-11-01",
- "retrieved": "2026-11-04",
+ "retrieved": "2026-11-05",
  "population": "People in New York City Department of Correction custody on the day the feed was read. The agency excludes sealed cases, so totals can differ slightly from its other published statistics.",
  "total": 6665,
  "by_gender": {
