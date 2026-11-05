@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 330" role="img" aria-labelledby="t d" font-family="Iowan Old Style, Palatino Linotype, Palatino, Georgia, serif">
+<title id="t">Three ways to find out whether a certificate was issued</title>
+<desc id="d">Write the Certificate Review Unit, ask your parole officer in writing, and request your own DCJS record.</desc>
+<rect width="900" height="330" fill="#0F121A"/>
+<g fill="#1A1F2E" stroke="#33363B" stroke-width="1.5">
+<rect x="30" y="40" width="270" height="250" rx="6"/><rect x="315" y="40" width="270" height="250" rx="6"/><rect x="600" y="40" width="270" height="250" rx="6"/>
+</g>
+<g fill="#C6A068"><rect x="30" y="40" width="5.5" height="250"/><rect x="315" y="40" width="5.5" height="250"/><rect x="600" y="40" width="5.5" height="250"/></g>
+<g fill="#C6A068" font-family="ui-monospace, Menlo, monospace" font-size="12" letter-spacing="1.6">
+<text x="56" y="76">1 · ALBANY</text><text x="341" y="76">2 · PAROLE OFFICE</text><text x="626" y="76">3 · DCJS</text></g>
+<g fill="#F5F3EE" font-size="20" font-weight="600">
+<text x="56" y="112">Write the Certificate</text><text x="56" y="138">Review Unit</text>
+<text x="341" y="112">Ask your parole</text><text x="341" y="138">officer in writing</text>
+<text x="626" y="112">Request your own</text><text x="626" y="138">New York record</text></g>
+<g fill="#F5F3EE" font-size="16">
+<text x="56" y="176">Registered mail. Ask if one</text><text x="56" y="198">was issued, and for the</text><text x="56" y="220">original or a copy.</text>
+<text x="341" y="176">Same question. A "no," or</text><text x="341" y="198">no answer, is then on paper.</text>
+<text x="626" y="176">Shows whether the</text><text x="626" y="198">certificate was reported</text><text x="626" y="220">to the state.</text></g>
+<g fill="#969EAA" font-size="14" font-style="italic"><text x="56" y="266">Unit phone: (518) 485-8953</text></g>
+</svg>

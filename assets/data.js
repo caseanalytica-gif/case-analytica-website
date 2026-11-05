@@ -330,6 +330,14 @@ const VIDEOS = [
 
 const ARTICLES = [
   {
+    slug: "certificate-of-relief-parole-office-handover-ny",
+    title: "Just Released From Prison on Parole? Ask Whether a Certificate of Relief Was Issued",
+    category: "Rights & Process",
+    stage: "records",
+    date: "2026-11-05",
+    excerpt: "DOCCS prepares a Certificate of Relief from Disabilities for eligible people before release and sends the original to the parole office. Not everyone gets one, and the directive has no step that tells you. One account shows what happens when you ask."
+  },
+  {
     slug: "ny-counts-jail-every-day-no-public-clean-slate-sealing-count",
     title: "New York Counts Every Person in Its Jails Each Morning. I Cannot Find a Count of the Records It Has Sealed.",
     category: "System",

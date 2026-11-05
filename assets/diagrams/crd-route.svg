@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" role="img" aria-labelledby="t d" font-family="Iowan Old Style, Palatino Linotype, Palatino, Georgia, serif">
+<title id="t">Where a Certificate of Relief goes after DOCCS grants it</title>
+<desc id="d">A flow from prison staff to the superintendent to the Certificate Review Unit in Albany, then to the parole office for people released on parole, with no step that hands it to the person.</desc>
+<rect width="900" height="560" fill="#0F121A"/>
+<g fill="#1A1F2E" stroke="#33363B" stroke-width="1.5">
+<rect x="30" y="60" width="250" height="120" rx="6"/>
+<rect x="325" y="60" width="250" height="120" rx="6"/>
+<rect x="620" y="60" width="250" height="120" rx="6"/>
+<rect x="30" y="290" width="400" height="100" rx="6"/>
+<rect x="470" y="290" width="400" height="100" rx="6"/>
+</g>
+<g fill="none" stroke="#C6A068" stroke-width="2.5">
+<path d="M280 120 H325"/><path d="M575 120 H620"/>
+<path d="M745 180 V225 H230 V290"/><path d="M745 225 H670 V290"/>
+</g>
+<g fill="#C6A068"><path d="M325 120l-9-6v12z"/><path d="M620 120l-9-6v12z"/><path d="M230 290l-6-9h12z"/><path d="M670 290l-6-9h12z"/></g>
+<g fill="#C6A068" font-family="ui-monospace, Menlo, monospace" font-size="12" letter-spacing="1.6">
+<text x="48" y="88">1 · BEFORE RELEASE</text><text x="343" y="88">2 · SUPERINTENDENT</text><text x="638" y="88">3 · ALBANY</text>
+<text x="48" y="318">PAROLE RELEASE</text><text x="488" y="318">END-OF-SENTENCE RELEASE</text>
+</g>
+<g fill="#F5F3EE" font-size="17">
+<text x="48" y="118">Prison staff prepare a</text><text x="48" y="140">certificate for each eligible</text><text x="48" y="162">person approved for release.</text>
+<text x="343" y="118">Signs it, or defers it for</text><text x="343" y="140">24 months. A deferral gets</text><text x="343" y="162">written notice to the person.</text>
+<text x="638" y="118">Certificate Review Unit</text><text x="638" y="140">numbers it, reports it to</text><text x="638" y="162">DCJS, keeps a copy.</text>
+<text x="48" y="348">Original goes to the Bureau Chief at</text><text x="48" y="372">the parole office that supervises you.</text>
+<text x="488" y="348">Original goes back to the prison, to be</text><text x="488" y="372">handed over at the time of release.</text>
+</g>
+<rect x="30" y="430" width="400" height="86" rx="6" fill="none" stroke="#C6A068" stroke-width="2" stroke-dasharray="8 6"/>
+<path d="M230 390 V430" stroke="#C6A068" stroke-width="2" stroke-dasharray="4 5"/>
+<text x="48" y="462" fill="#C6A068" font-family="ui-monospace, Menlo, monospace" font-size="12" letter-spacing="1.6">THE GAP</text>
+<text x="48" y="486" fill="#F5F3EE" font-size="17" font-style="italic">No step tells you it was issued</text>
+<text x="48" y="508" fill="#F5F3EE" font-size="17" font-style="italic">or hands it to you.</text>
+<text x="470" y="470" fill="#969EAA" font-size="14" font-style="italic">Source: DOCCS Directive 8400 (07/01/2024).</text>
+<text x="470" y="492" fill="#969EAA" font-size="14" font-style="italic">The directive for earlier releases, dated 03/24/2023,</text>
+<text x="470" y="512" fill="#969EAA" font-size="14" font-style="italic">could not be read.</text>
+</svg>
