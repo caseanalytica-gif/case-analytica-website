@@ -74,3 +74,11 @@ https://www.caseanalytica.com/assets/social/clean-slate-manual-review-form-not-a
 
 If a preview comes back blank or stale, append ?v=2 to the article URL to force a refetch.
 Verified 2026-11-06: og:image returns 200, image/png, 168053 bytes.
+
+## Posted
+
+- LinkedIn (personal profile): 2026-11-06 https://www.linkedin.com/feed/update/urn:li:activity:7524470703836827649/ (link card showed; the preview sits below the visible composer, scroll to it before judging)
+- Facebook: not yet
+- Bluesky: not yet
+- Instagram: not yet
+- Pinterest: not yet
