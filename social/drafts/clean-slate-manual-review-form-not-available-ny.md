@@ -3,7 +3,7 @@
 **Article:** https://www.caseanalytica.com/articles/clean-slate-manual-review-form-not-available-ny.html
 **Graphic (this is what the link card pulls in; do not upload it):**
 https://www.caseanalytica.com/assets/social/clean-slate-manual-review-form-not-available-ny-og.png
-(2400x1254, verified live PENDING on 2026-11-06)
+(2400x1254, verified live 200 on 2026-11-06)
 **Published:** 2026-11-06
 
 ---
@@ -73,4 +73,4 @@ only if you want it larger in-feed, knowing the image itself won't link.
 https://www.caseanalytica.com/assets/social/clean-slate-manual-review-form-not-available-ny-og.png
 
 If a preview comes back blank or stale, append ?v=2 to the article URL to force a refetch.
-Verified PENDING: og:image returns 200, image/png, 168053 bytes.
+Verified 2026-11-06: og:image returns 200, image/png, 168053 bytes.
