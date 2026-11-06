@@ -407,6 +407,27 @@ def _vix_tabs(wb, xw, cfg, portfolios, vix, mc, mc_regime):
     _autowidth(ws, min_w=12)
     ws.column_dimensions["A"].width = 24
 
+    # Margin alert
+    mg = vix["margin"]
+    mn = mg["now"]
+    ws = wb.create_sheet("Margin Alert")
+    ws["A1"] = "Margin alert: does this week's Difference sit where the next week has cleared the margin?"
+    ws["A1"].font = TITLE_FONT
+    ws["A2"] = (f"Margin {mn['margin']:.1%} a week net of costs, win rate at least {mn['min_win']:.0%}. A rule must clear it on all "
+                "weeks AND walk-forward (rule chosen from earlier weeks only) before it can fire.")
+    r = _write_kv(ws, [("Week", mn["week"]), ("Difference (pts)", mn["difference"]), ("Margin alert", mn["headline"]),
+                       ("Triggered, not confirmed", mn["unconfirmed"])], 4, "This week",
+                  highlight={"Margin alert"} if mn["fired"] else None)
+    ws.cell(row=r, column=1, value="Each instrument's best rule and its walk-forward record").font = SUB_FONT
+    r = _write_df(ws, mg["summary"], r + 1, formats={"win_rate": PCT, "avg_result": PCT, "t_stat": RATIO, "normal_win": PCT,
+                                                      "normal_avg": PCT, "wf_win_rate": PCT, "wf_avg_result": PCT})
+    ws.cell(row=r, column=1, value="Every threshold for every instrument").font = SUB_FONT
+    cur = mg["curve"].drop(columns=["key"]).copy()
+    cur["clears_margin"] = cur["clears_margin"].map({True: "yes", False: "no"})
+    _write_df(ws, cur, r + 1, formats={"win_rate": PCT, "avg_result": PCT, "t_stat": RATIO, "threshold": PTS})
+    _autowidth(ws, min_w=12)
+    ws.column_dimensions["A"].width = 26
+
     # Difference signal on the workbook's series
     ds = vix["diff_signal"]
     cur = ds["current"]
@@ -681,7 +702,7 @@ def export(path: Path, *, cfg: dict, data_report: dict, asset_stats: pd.DataFram
 
         if "Sheet" in wb.sheetnames:
             del wb["Sheet"]
-        first = ["VIX Dashboard", "Trade Alerts", "Summary", "VIX Regimes", "Regime Stress Test", "Regime Monte Carlo",
+        first = ["VIX Dashboard", "Trade Alerts", "Margin Alert", "Summary", "VIX Regimes", "Regime Stress Test", "Regime Monte Carlo",
                  "VIX Rule Backtest", "VIX Hedge Sizing", "VIX Weekly Coefficients", "Difference Signal", "VIX Difference Study",
                  "Implied vs Historical Vol",
                  "Signal Tests",

@@ -175,6 +175,11 @@ def write(path: Path, *, portfolios, mc_regime, vix: dict, cfg: dict) -> Path:
                                  "entry_difference": None, "since_entry": None,
                                  "position": "No open SCO alert this week"})
 
+    mg = vix["margin"]
+    margin_now = [dict(mg["now"])]
+    margin_summary = _rows(mg["summary"])
+    margin_curve = _rows(mg["curve"])
+
     payload = {
         "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "state": state, "odds": odds, "history": _rows(hist), "portfolios": prow, "weights": weights,
@@ -182,6 +187,7 @@ def write(path: Path, *, portfolios, mc_regime, vix: dict, cfg: dict) -> Path:
         "weekly": _rows(wk), "ivhv": _rows(ivhv), "diff_signal": diff_signal, "diff_now": diff_now,
         "alert_now": alert_now, "alert_rules": alert_rules, "alert_log": alert_log,
         "sco": sco_rows, "sco_stats": sco_stats,
+        "margin_now": margin_now, "margin_summary": margin_summary, "margin_curve": margin_curve,
         "findings": [{"n": i + 1, "text": t} for i, t in enumerate(vix["findings"])],
     }
     payload = json.loads(json.dumps(payload, default=_clean))

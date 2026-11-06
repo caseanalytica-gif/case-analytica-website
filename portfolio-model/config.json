@@ -233,8 +233,49 @@
       }
     ],
     "instruments": [
-      "SCO"
-    ]
+      "SCO",
+      "UUP",
+      "XLU",
+      "GLD",
+      "SPY",
+      "QQQ",
+      "IWM",
+      "TLT",
+      "XLP",
+      "UNG",
+      "USO"
+    ],
+    "margin": {
+      "instruments": [
+        "SCO",
+        "UUP",
+        "XLU",
+        "GLD",
+        "SPY",
+        "QQQ",
+        "IWM",
+        "TLT",
+        "XLP",
+        "UNG",
+        "USO"
+      ],
+      "margin": 0.005,
+      "min_win": 0.55,
+      "min_weeks": 20,
+      "min_live_signals": 10,
+      "cost_round_trip": 0.0004,
+      "warmup_weeks": 156,
+      "up_thresholds": [
+        0,
+        8,
+        0.5
+      ],
+      "down_thresholds": [
+        -0.5,
+        -8,
+        -0.5
+      ]
+    }
   },
   "output": {
     "excel_file": "portfolio_model_output.xlsx"

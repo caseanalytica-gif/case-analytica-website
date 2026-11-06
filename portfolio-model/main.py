@@ -21,6 +21,7 @@ import numpy as np
 
 import alerts
 import dashboard_data
+import margin
 import data_loader
 import exporter
 import optimizer as opt
@@ -140,6 +141,7 @@ def main(argv=None) -> int:
     dsig = vm.difference_signal(wkly, cfg)
     notes += vm.difference_signal_findings(dsig)
     al = alerts.build(wkly, cfg, vd.weekly_close)
+    mg = margin.build(wkly, cfg, vd.weekly_close)
     notes += vm.difference_findings(diff)
 
     # NaN guard on everything the model computed.
@@ -162,16 +164,16 @@ def main(argv=None) -> int:
                              trans_1d=vm.transition_table(rm, 1), trans_1m=vm.transition_table(rm, 21, empirical=True),
                              trans_1m_markov=vm.transition_table(rm, 21),
                              stress=stress, backtest=bt, curves=curves, hedge=hedge, signals=sig,
-                             weekly=wkly, iv_hv=vm.iv_hv(vd), difference=diff, diff_signal=dsig, alerts=al, findings=notes, vix=vd.vix, vix3m=vd.vix3m,
+                             weekly=wkly, iv_hv=vm.iv_hv(vd), difference=diff, diff_signal=dsig, alerts=al, margin=mg, findings=notes, vix=vd.vix, vix3m=vd.vix3m,
                              labels=rm.labels, thresholds=rm.thresholds))
 
     vix_bundle = dict(state=state, regimes=vm.regime_table(vd, rm_raw), stress=stress, labels=rm.labels,
-                      vix=vd.vix, vix3m=vd.vix3m, difference=diff, diff_signal=dsig, alerts=al, weekly=wkly, iv_hv=vm.iv_hv(vd), prices=vd.weekly_close,
+                      vix=vd.vix, vix3m=vd.vix3m, difference=diff, diff_signal=dsig, alerts=al, margin=mg, weekly=wkly, iv_hv=vm.iv_hv(vd), prices=vd.weekly_close,
                       findings=notes)
     dash_file = dashboard_data.write(BASE / "dashboard_data" / "vix_model_data.json", portfolios=portfolios,
                                      mc_regime=mc_regime, vix=vix_bundle, cfg=cfg)
     log.info("Dashboard data: %s (%.0f KB)", dash_file.name, dash_file.stat().st_size / 1024)
-    alert_text = alerts.message(al)
+    alert_text = alerts.message(al) + "\n" + margin.message(mg)
     (BASE / "dashboard_data" / "alert.txt").write_text(alert_text + "\n")
 
     # 8. Console summary ------------------------------------------------------
