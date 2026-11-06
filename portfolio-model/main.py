@@ -166,7 +166,7 @@ def main(argv=None) -> int:
                              labels=rm.labels, thresholds=rm.thresholds))
 
     vix_bundle = dict(state=state, regimes=vm.regime_table(vd, rm_raw), stress=stress, labels=rm.labels,
-                      vix=vd.vix, vix3m=vd.vix3m, difference=diff, diff_signal=dsig, alerts=al, weekly=wkly, iv_hv=vm.iv_hv(vd),
+                      vix=vd.vix, vix3m=vd.vix3m, difference=diff, diff_signal=dsig, alerts=al, weekly=wkly, iv_hv=vm.iv_hv(vd), prices=vd.weekly_close,
                       findings=notes)
     dash_file = dashboard_data.write(BASE / "dashboard_data" / "vix_model_data.json", portfolios=portfolios,
                                      mc_regime=mc_regime, vix=vix_bundle, cfg=cfg)

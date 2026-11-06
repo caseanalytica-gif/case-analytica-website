@@ -1,4 +1,4 @@
-VIX Difference alert for the week ending 2026-11-06: Difference +5.74 pts.
+VIX Difference alert for the week ending 2026-11-06: Difference +6.41 pts.
 Alert: Buy SCO next week (long-only oil short) (trade); Oil lower next week (signal); Short natural gas next week (watch); Long gold next week (watch); VIX lower next week (signal).
 - Buy SCO next week (long-only oil short) [trade]: Buy SCO (ProShares UltraShort Bloomberg Crude Oil, -2x daily crude) at the Friday close, sell at the next Friday close. It is 2x leveraged: half the dollar size gives about the exposure of a 1x oil short. It resets daily, so do not hold it longer than the week. Backtest won 58% of 24 signals.
 - Oil lower next week [signal]: The underlying move. If you can only buy, use the SCO rule; CL=F on Yahoo is a front-month series with roll jumps. Backtest won 67% of 24 signals.

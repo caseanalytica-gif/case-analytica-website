@@ -133,12 +133,40 @@ def write(path: Path, *, portfolios, mc_regime, vix: dict, cfg: dict) -> Path:
     alert_rules = _rows(al["rules"])
     alert_log = _rows(al["log"])
 
+    # SCO: the long-only instrument for the oil-short alert, with crude for comparison.
+    px = vix["prices"]
+    sco_rows, sco_stats = [], []
+    if "SCO" in px.columns:
+        p = px[["SCO", "CL=F"]].copy()
+        p.columns = ["sco", "crude"]
+        p["crude"] = p["crude"].mask(p["crude"] <= 0)
+        recent = p[p.index >= p.index.max() - pd.DateOffset(years=5)].dropna(subset=["sco"])
+        recent = recent.reset_index()
+        recent.columns = ["date", "sco", "crude"]
+        sco_rows = _rows(recent)
+        s = p["sco"].dropna()
+        wkr = p.resample("W-FRI").last().pct_change(fill_method=None)
+        yr = s[s.index >= s.index.max() - pd.DateOffset(years=1)]
+        trades = al["log"][al["log"]["rule_id"] == "sco-long"] if len(al["log"]) else pd.DataFrame()
+        done = trades[trades["outcome"] != "open"] if len(trades) else trades
+        sco_stats = [{
+            "as_of": s.index[-1].date().isoformat(), "last": float(s.iloc[-1]),
+            "chg_1w": float(s.iloc[-1] / s.iloc[-6] - 1), "chg_1m": float(s.iloc[-1] / s.iloc[-22] - 1),
+            "high_52w": float(yr.max()), "low_52w": float(yr.min()),
+            "corr_weekly_crude": float(wkr["sco"].corr(wkr["crude"])),
+            "alert_trades": int(len(done)),
+            "alert_win_rate": float((done["result"] > 0).mean()) if len(done) else None,
+            "alert_avg": float(done["result"].mean()) if len(done) else None,
+            "alert_open": "yes" if len(trades) and (trades["outcome"] == "open").any() else "no",
+        }]
+
     payload = {
         "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "state": state, "odds": odds, "history": _rows(hist), "portfolios": prow, "weights": weights,
         "regimes": regimes, "diff_vix": diff_vix, "diff_inst": diff_inst, "diff_strat": diff_strat,
         "weekly": _rows(wk), "ivhv": _rows(ivhv), "diff_signal": diff_signal, "diff_now": diff_now,
         "alert_now": alert_now, "alert_rules": alert_rules, "alert_log": alert_log,
+        "sco": sco_rows, "sco_stats": sco_stats,
         "findings": [{"n": i + 1, "text": t} for i, t in enumerate(vix["findings"])],
     }
     payload = json.loads(json.dumps(payload, default=_clean))
