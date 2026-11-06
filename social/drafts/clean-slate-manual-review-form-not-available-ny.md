@@ -79,6 +79,6 @@ Verified 2026-11-06: og:image returns 200, image/png, 168053 bytes.
 
 - LinkedIn (personal profile): 2026-11-06 https://www.linkedin.com/feed/update/urn:li:activity:7524470703836827649/ (link card showed; the preview sits below the visible composer, scroll to it before judging)
 - Facebook (Caseanalytica page): 2026-11-06, posted with link card; URL not captured
-- Bluesky: not yet
-- Instagram: not yet
-- Pinterest: not yet
+- Bluesky (@caseanalytica.bsky.social): 2026-11-06 https://bsky.app/profile/caseanalytica.bsky.social/post/3mznkopoftc25
+- Instagram (@caseanalytica, light 4:5 card): 2026-11-06 https://www.instagram.com/caseanalytica/p/DfZy9J4Ceqh/
+- Pinterest: 2026-11-06 https://www.pinterest.com/pin/1099652434091441093/
