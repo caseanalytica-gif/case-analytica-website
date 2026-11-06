@@ -84,3 +84,78 @@ def message(al: dict) -> str:
                          f"{wr:.0%} of {r['backtest_signals']} signals." if wr is not None else f"- {r['rule']}")
     lines.append(f"Last week ({n['last_week']}): {n['last_week_result']}")
     return "\n".join(lines)
+
+
+def sco_exit_plan(wkly: dict, cfg: dict, prices: pd.DataFrame, entry_price: float | None) -> dict:
+    """Exit levels for the buy-SCO alert from how past alert trades played out.
+
+    Each past alert: buy at that Friday's close, then check the next week's
+    daily closes. Rules compared: hold to Friday, take profit at a daily close
+    up by the target, stop at a daily close down by the stop, and both.
+    """
+    rule = next((r for r in cfg["alerts"]["rules"] if r["id"] == "sco-long"), None)
+    ex = cfg["alerts"].get("sco_exit", {})
+    if rule is None or "SCO" not in prices.columns:
+        return {}
+    tbl = wkly["table"]
+    d = tbl["Difference"]
+    daily = prices["SCO"].dropna()
+    trades = []
+    for t in tbl.index[d >= float(rule["min_difference"])]:
+        e = daily[daily.index <= t]
+        w = daily[(daily.index > t) & (daily.index <= t + pd.Timedelta(days=7))]
+        if len(e) and len(w) and w.index[-1] >= t + pd.Timedelta(days=6):
+            trades.append(w.values / e.iloc[-1] - 1)
+
+    def run(target, stop):
+        out = []
+        for path in trades:
+            res = path[-1]
+            for rr in path:
+                if target is not None and rr >= target:
+                    res = rr
+                    break
+                if stop is not None and rr <= -stop:
+                    res = rr
+                    break
+            out.append(res)
+        out = np.array(out)
+        return {"trades": int(len(out)), "win_rate": float((out > 0).mean()) if len(out) else None,
+                "avg": float(out.mean()) if len(out) else None, "worst": float(out.min()) if len(out) else None}
+
+    rules = [("Hold to Friday close", None, None)]
+    rules += [(f"Take profit at +{t:.0%}", t, None) for t in ex.get("compare_targets", [])]
+    rules += [(f"Stop at -{s:.0%}", None, s) for s in ex.get("compare_stops", [])]
+    tp, st = ex.get("take_profit"), ex.get("optional_stop")
+    if tp and st:
+        rules.append((f"Take profit +{tp:.0%} and stop -{st:.0%}", tp, st))
+    comparison = [{"exit_rule": n, **run(t, s), "key": n} for n, t, s in rules]
+
+    fri = np.array([p[-1] for p in trades])
+    q = np.percentile(fri, [10, 50, 90]) if len(fri) else [np.nan] * 3
+    plan = {"take_profit": tp, "optional_stop": st}
+    if entry_price:
+        plan.update({"target_price": entry_price * (1 + tp) if tp else None,
+                     "stop_price": entry_price * (1 - st) if st else None,
+                     "median_price": entry_price * (1 + q[1]), "p10_price": entry_price * (1 + q[0]),
+                     "p90_price": entry_price * (1 + q[2])})
+    return {"plan": plan, "comparison": pd.DataFrame(comparison)}
+
+
+def exit_message(plan: dict, entry_week: str | None, exit_by: str | None, entry_price: float | None) -> str:
+    p = plan.get("plan", {}) if plan else {}
+    if not entry_price or not p.get("target_price"):
+        return ""
+    cmp_ = plan["comparison"].set_index("exit_rule")
+    tp_rule = f"Take profit at +{p['take_profit']:.0%}"
+    hold = cmp_.loc["Hold to Friday close"]
+    tpr = cmp_.loc[tp_rule] if tp_rule in cmp_.index else None
+    lines = [f"SCO exit plan (bought {entry_week} close at ${entry_price:.2f}):",
+             f"- Take profit: sell if SCO closes at or above ${p['target_price']:.2f} (+{p['take_profit']:.0%}) before {exit_by}.",
+             f"- Otherwise sell at the {exit_by} close. Typical result ${p['median_price']:.2f}; 1-in-10 bad week ${p['p10_price']:.2f}.",
+             (f"- Optional risk limit: stop at ${p['stop_price']:.2f} (-{p['optional_stop']:.0%}); in the backtest stops lowered the average."
+              if p.get("stop_price") else "")]
+    if tpr is not None:
+        lines.append(f"- Backtest: take-profit won {tpr['win_rate']:.0%} (avg {tpr['avg']:+.2%}) vs hold-to-Friday "
+                     f"{hold['win_rate']:.0%} (avg {hold['avg']:+.2%}) over {int(hold['trades'])} trades.")
+    return "\n".join(l for l in lines if l)

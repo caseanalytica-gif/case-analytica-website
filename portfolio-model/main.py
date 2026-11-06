@@ -18,6 +18,7 @@ import time
 from pathlib import Path
 
 import numpy as np
+import pandas as pd
 
 import alerts
 import dashboard_data
@@ -142,6 +143,9 @@ def main(argv=None) -> int:
     notes += vm.difference_signal_findings(dsig)
     al = alerts.build(wkly, cfg, vd.weekly_close)
     mg = margin.build(wkly, cfg, vd.weekly_close)
+    _open = al["log"][(al["log"]["rule_id"] == "sco-long") & (al["log"]["outcome"] == "open")] if len(al["log"]) else al["log"]
+    _entry = float(vd.weekly_close["SCO"].dropna()[lambda s: s.index <= pd.Timestamp(_open.iloc[0]["week"])].iloc[-1]) if len(_open) else None
+    sco_exit = alerts.sco_exit_plan(wkly, cfg, vd.weekly_close, _entry)
     notes += vm.difference_findings(diff)
 
     # NaN guard on everything the model computed.
@@ -168,12 +172,22 @@ def main(argv=None) -> int:
                              labels=rm.labels, thresholds=rm.thresholds))
 
     vix_bundle = dict(state=state, regimes=vm.regime_table(vd, rm_raw), stress=stress, labels=rm.labels,
-                      vix=vd.vix, vix3m=vd.vix3m, difference=diff, diff_signal=dsig, alerts=al, margin=mg, weekly=wkly, iv_hv=vm.iv_hv(vd), prices=vd.weekly_close,
+                      vix=vd.vix, vix3m=vd.vix3m, difference=diff, diff_signal=dsig, alerts=al, margin=mg, sco_exit=sco_exit, weekly=wkly, iv_hv=vm.iv_hv(vd), prices=vd.weekly_close,
                       findings=notes)
     dash_file = dashboard_data.write(BASE / "dashboard_data" / "vix_model_data.json", portfolios=portfolios,
                                      mc_regime=mc_regime, vix=vix_bundle, cfg=cfg)
     log.info("Dashboard data: %s (%.0f KB)", dash_file.name, dash_file.stat().st_size / 1024)
-    alert_text = alerts.message(al) + "\n" + margin.message(mg)
+    _ent = None
+    if len(_open):
+        _wk = pd.Timestamp(_open.iloc[0]["week"])
+        _ent = (_wk.date().isoformat(), (_wk + pd.Timedelta(days=7)).date().isoformat())
+    exit_text = alerts.exit_message(sco_exit, _ent[0] if _ent else None, _ent[1] if _ent else None, _entry)
+    _lw = al["now"].get("last_week")
+    _held = al["log"][(al["log"]["rule_id"] == "sco-long") & (al["log"]["week"] == _lw)] if (_lw and len(al["log"])) else []
+    if len(_held):
+        exit_text = (f"EXIT TODAY: if you still hold the SCO bought at the {_lw} close, sell it at today's close "
+                     f"(unless it already hit its take-profit).\n" + exit_text).strip()
+    alert_text = alerts.message(al) + "\n" + margin.message(mg) + ("\n" + exit_text if exit_text else "")
     (BASE / "dashboard_data" / "alert.txt").write_text(alert_text + "\n")
 
     # 8. Console summary ------------------------------------------------------

@@ -275,6 +275,18 @@
         -8,
         -0.5
       ]
+    },
+    "sco_exit": {
+      "take_profit": 0.05,
+      "optional_stop": 0.08,
+      "compare_targets": [
+        0.05,
+        0.08
+      ],
+      "compare_stops": [
+        0.05,
+        0.08
+      ]
     }
   },
   "output": {

@@ -180,6 +180,13 @@ def write(path: Path, *, portfolios, mc_regime, vix: dict, cfg: dict) -> Path:
     margin_summary = _rows(mg["summary"])
     margin_curve = _rows(mg["curve"])
 
+    se = vix.get("sco_exit") or {}
+    if sco_stats and se:
+        pl = se.get("plan", {})
+        sco_stats[0].update({k: pl.get(k) for k in ("take_profit", "optional_stop", "target_price", "stop_price",
+                                                       "median_price", "p10_price", "p90_price")})
+    sco_exit_rules = _rows(se["comparison"]) if se else []
+
     payload = {
         "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "state": state, "odds": odds, "history": _rows(hist), "portfolios": prow, "weights": weights,
@@ -188,6 +195,7 @@ def write(path: Path, *, portfolios, mc_regime, vix: dict, cfg: dict) -> Path:
         "alert_now": alert_now, "alert_rules": alert_rules, "alert_log": alert_log,
         "sco": sco_rows, "sco_stats": sco_stats,
         "margin_now": margin_now, "margin_summary": margin_summary, "margin_curve": margin_curve,
+        "sco_exit_rules": sco_exit_rules,
         "findings": [{"n": i + 1, "text": t} for i, t in enumerate(vix["findings"])],
     }
     payload = json.loads(json.dumps(payload, default=_clean))
