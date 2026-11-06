@@ -74,7 +74,8 @@ def load(cfg: dict, tickers: list[str], base_dir: Path) -> VixData:
 
     # Weekly cross-asset panel (the "Coefficient Table" workbook).
     ws = vc["weekly"]["series"]
-    wk = data_loader.fetch_panel(list(ws.values()) + ["SPY"], years, dc, base_dir,
+    extra = [s for s in cfg.get("alerts", {}).get("instruments", []) if s not in ws.values()]
+    wk = data_loader.fetch_panel(list(ws.values()) + ["SPY"] + extra, years, dc, base_dir,
                                  fields=("Close",), tag="weekly")["Close"]
     wk.index = pd.to_datetime(wk.index).tz_localize(None)
     wk = wk.mask(wk <= 0)                        # WTI settled negative in Apr 2020

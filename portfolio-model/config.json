@@ -187,13 +187,22 @@
     "live_from": "2026-11-06",
     "rules": [
       {
+        "id": "sco-long",
+        "name": "Buy SCO next week (long-only oil short)",
+        "symbol": "SCO",
+        "side": "Long",
+        "min_difference": 5,
+        "status": "trade",
+        "how": "Buy SCO (ProShares UltraShort Bloomberg Crude Oil, -2x daily crude) at the Friday close, sell at the next Friday close. It is 2x leveraged: half the dollar size gives about the exposure of a 1x oil short. It resets daily, so do not hold it longer than the week."
+      },
+      {
         "id": "oil-short",
-        "name": "Short oil next week",
+        "name": "Oil lower next week",
         "series": "Oil",
         "side": "Short",
         "min_difference": 5,
-        "status": "trade",
-        "how": "Short CL=F futures or short USO, from Friday close to the next Friday close."
+        "status": "signal",
+        "how": "The underlying move. If you can only buy, use the SCO rule; CL=F on Yahoo is a front-month series with roll jumps."
       },
       {
         "id": "natgas-short",
@@ -222,6 +231,9 @@
         "status": "signal",
         "how": "Not directly tradable. A risk read; the non-VIX way to trade it is selling SPY or SPX option premium, which is untested here."
       }
+    ],
+    "instruments": [
+      "SCO"
     ]
   },
   "output": {

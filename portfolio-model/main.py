@@ -139,7 +139,7 @@ def main(argv=None) -> int:
     diff = vm.difference_study(cfg, BASE)
     dsig = vm.difference_signal(wkly, cfg)
     notes += vm.difference_signal_findings(dsig)
-    al = alerts.build(wkly, cfg)
+    al = alerts.build(wkly, cfg, vd.weekly_close)
     notes += vm.difference_findings(diff)
 
     # NaN guard on everything the model computed.

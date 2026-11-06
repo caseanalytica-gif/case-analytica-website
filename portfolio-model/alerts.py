@@ -15,7 +15,7 @@ import numpy as np
 import pandas as pd
 
 
-def build(wkly: dict, cfg: dict) -> dict:
+def build(wkly: dict, cfg: dict, prices: pd.DataFrame | None = None) -> dict:
     ac = cfg["alerts"]
     live_from = pd.Timestamp(ac["live_from"])
     sym = cfg["vix"]["weekly"]["series"]
@@ -24,14 +24,22 @@ def build(wkly: dict, cfg: dict) -> dict:
     weeks = tbl.index
 
     log = []
+    def weekly_change(rule):
+        if "series" in rule:
+            return rule["series"], sym.get(rule["series"], rule["series"]), tbl[rule["series"]]
+        # A tradable instrument outside the workbook's series: Friday-to-Friday % change.
+        p = prices[rule["symbol"]].resample("W-FRI").last().pct_change(fill_method=None).reindex(weeks)
+        return rule["symbol"], rule["symbol"], p
+
     for rule in ac["rules"]:
-        s, sg = rule["series"], (1 if rule["side"] == "Long" else -1)
-        nxt = tbl[s].shift(-1)
+        sg = 1 if rule["side"] == "Long" else -1
+        s, symbol, chg = weekly_change(rule)
+        nxt = chg.shift(-1)
         for t in weeks[d >= float(rule["min_difference"])]:
             res = nxt.get(t)
             res = None if res is None or not np.isfinite(res) else float(sg * res)
             log.append({"week": t.date().isoformat(), "difference": float(d[t]), "rule_id": rule["id"],
-                        "rule": rule["name"], "status": rule["status"], "series": s, "symbol": sym.get(s, s),
+                        "rule": rule["name"], "status": rule["status"], "series": s, "symbol": symbol,
                         "side": rule["side"], "result": res,
                         "outcome": "open" if res is None else ("won" if res > 0 else "lost"),
                         "record": "live" if t >= live_from else "backtest",
@@ -46,7 +54,7 @@ def build(wkly: dict, cfg: dict) -> dict:
         rules.append({"rule_id": rule["id"], "rule": rule["name"], "status": rule["status"],
                       "trigger": f"Weekly Difference of {rule['min_difference']:+g} points or more",
                       "min_difference": float(rule["min_difference"]),
-                      "symbol": sym.get(rule["series"], rule["series"]), "side": rule["side"], "how": rule["how"],
+                      "symbol": rule.get("symbol") or sym.get(rule["series"], rule["series"]), "side": rule["side"], "how": rule["how"],
                       "backtest_signals": int(len(bt)), "backtest_win_rate": float((bt["result"] > 0).mean()) if len(bt) else None,
                       "backtest_avg_result": float(bt["result"].mean()) if len(bt) else None,
                       "live_signals": int(len(lv)), "live_wins": int((lv["result"] > 0).sum()) if len(lv) else 0})
