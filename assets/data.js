@@ -330,6 +330,14 @@ const VIDEOS = [
 
 const ARTICLES = [
   {
+    slug: "clean-slate-manual-review-form-not-available-ny",
+    title: "The Clean Slate Fix for a Missed Sealing Is a Form. The Form Doesn't Exist Yet.",
+    category: "Rights & Process",
+    stage: "records",
+    date: "2026-11-06",
+    excerpt: "CPL 160.57 promises sealing within 30 days of a valid form. The court system says the form will come no later than November 16, 2027, and is not available now."
+  },
+  {
     slug: "certificate-of-relief-parole-office-handover-ny",
     title: "Just Released From Prison on Parole? Ask Whether a Certificate of Relief Was Issued",
     category: "Rights & Process",
