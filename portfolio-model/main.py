@@ -65,7 +65,7 @@ def main(argv=None) -> int:
     t0 = time.time()
     cfg = load_config(Path(args.config))
     if args.refresh:
-        cfg["data"]["use_cache"] = False
+        cfg["data"]["force_refresh"] = True   # download fresh, then update the cache
     m, fr_cfg, mc_cfg, vc = cfg["model"], cfg["frictions"], cfg["monte_carlo"], cfg["vix"]
     periods = int(m["trading_days_per_year"])
     rf = float(m["risk_free_rate"])

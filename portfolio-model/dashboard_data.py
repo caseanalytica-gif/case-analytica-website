@@ -159,6 +159,21 @@ def write(path: Path, *, portfolios, mc_regime, vix: dict, cfg: dict) -> Path:
             "alert_avg": float(done["result"].mean()) if len(done) else None,
             "alert_open": "yes" if len(trades) and (trades["outcome"] == "open").any() else "no",
         }]
+        # The open SCO trade, if any: bought at that Friday's close, sold at the next Friday's close.
+        open_t = trades[trades["outcome"] == "open"] if len(trades) else trades
+        if len(open_t):
+            buy_wk = pd.Timestamp(open_t.iloc[0]["week"])
+            entry = s[s.index <= buy_wk]
+            sco_stats[0].update({
+                "entry_week": buy_wk.date().isoformat(), "entry_price": float(entry.iloc[-1]),
+                "exit_by": (buy_wk + pd.Timedelta(days=7)).date().isoformat(),
+                "entry_difference": float(open_t.iloc[0]["difference"]),
+                "since_entry": float(s.iloc[-1] / entry.iloc[-1] - 1),
+                "position": "Open: buy SCO at the entry close, sell at the exit-day close"})
+        else:
+            sco_stats[0].update({"entry_week": None, "entry_price": None, "exit_by": None,
+                                 "entry_difference": None, "since_entry": None,
+                                 "position": "No open SCO alert this week"})
 
     payload = {
         "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),

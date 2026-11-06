@@ -72,7 +72,7 @@ def fetch_panel(symbols: list[str], years: float, data_cfg: dict, base_dir: Path
     files = {f: cache_dir / f"{key}_{f}.csv" for f in fields}
 
     max_age = data_cfg.get("cache_max_age_hours", 24)
-    if data_cfg.get("use_cache", True) and all(
+    if data_cfg.get("use_cache", True) and not data_cfg.get("force_refresh") and all(
             fp.exists() and (time.time() - fp.stat().st_mtime) / 3600 <= max_age
             for fp in files.values()):
         log.info("Loading %s from cache", key)
