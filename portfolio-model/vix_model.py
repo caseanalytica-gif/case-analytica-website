@@ -811,3 +811,96 @@ def difference_findings(dsr: dict) -> list[str]:
                    f"{r['Buy-and-hold Sharpe (vs T-bills)']:.2f} {'buy-and-hold' if r['Side'] == 'Long' else 'always short'}"
                    f"{' (better)' if better else ''}.")
     return out
+
+
+# --------------------------------------------------------------------------
+# Difference signal on the workbook's own series (weekly table)
+# --------------------------------------------------------------------------
+def difference_signal(wkly: dict, cfg: dict) -> dict:
+    """Bucket each week of the weekly coefficient table by its Difference
+    (VIX close minus VIX open, in points) and measure what each of the
+    workbook's series did the following week. Win rates are compared with
+    all weeks (binomial test), and checked in both halves of the window."""
+    from scipy.stats import binomtest
+
+    wc = cfg["vix"]["weekly"]
+    edges = list(wc.get("difference_buckets", [-3, -1, 0, 1, 3]))
+    extreme = float(wc.get("difference_extreme", 5))
+    sym = wc["series"]
+    tbl = wkly["table"]
+    names = [k for k in sym if k in tbl.columns]
+    nxt = tbl[names].shift(-1)
+    d = tbl["Difference"]
+
+    def lab(lo, hi):
+        f = lambda v: f"{v:+g}" if v else "0"
+        if lo is None:
+            return f"Below {f(hi)}"
+        if hi is None:
+            return f"{f(lo)} and up"
+        return f"{f(lo)} to {f(hi)}"
+
+    bounds = [(None, edges[0])] + list(zip(edges[:-1], edges[1:])) + [(edges[-1], None)]
+    labels = [lab(lo, hi) for lo, hi in bounds]
+    bucket = pd.Series(pd.cut(d, [-np.inf] + edges + [np.inf], labels=labels, right=False), index=d.index)
+    half = tbl.index[len(tbl) // 2]
+    scopes = [(l, bucket == l) for l in labels] + [(f"{extreme:+g} and up (extreme)", d >= extreme)]
+
+    rows, trades = [], []
+    for order, (scope, mask) in enumerate(scopes):
+        for name in names:
+            x = nxt[name][mask].dropna()
+            allx = nxt[name].dropna()
+            if not len(x):
+                continue
+            up, base_up = float((x > 0).mean()), float((allx > 0).mean())
+            for side, sg in (("Long", 1), ("Short", -1)):
+                y = sg * x
+                base = float((sg * allx > 0).mean())
+                p = float(binomtest(int((y > 0).sum()), len(y), base, alternative="greater").pvalue) if len(y) >= 5 else np.nan
+                h1, h2 = y[y.index < half], y[y.index >= half]
+                w1, w2 = (float((h1 > 0).mean()) if len(h1) else np.nan), (float((h2 > 0).mean()) if len(h2) else np.nan)
+                trades.append({"scope": scope, "order": order, "series": name, "symbol": sym[name], "side": side,
+                               "weeks": len(y), "win": float((y > 0).mean()), "normal_win": base,
+                               "edge": float((y > 0).mean()) - base, "mean_next": float(y.mean()), "p_value": p,
+                               "win_first_half": w1, "win_second_half": w2,
+                               "holds_both_halves": bool(np.isfinite(w1) and np.isfinite(w2) and w1 > base and w2 > base),
+                               "key": f"{scope}|{side} {name}"})
+            rows.append({"bucket": scope, "order": order, "series": name, "symbol": sym[name], "weeks": len(x),
+                         "p_up_next": up, "p_up_all": base_up, "mean_next": float(x.mean()),
+                         "key": f"{scope}|{name}"})
+    trades = pd.DataFrame(trades)
+    cur_val = float(d.iloc[-1])
+    cur_bucket = str(bucket.iloc[-1])
+    current = {"week": tbl.index[-1].date().isoformat(), "difference": cur_val, "bucket": cur_bucket,
+               "extreme": bool(cur_val >= extreme), "first_week": tbl.index[0].date().isoformat(),
+               "split_week": half.date().isoformat(), "weeks_total": len(tbl)}
+    in_scope = [cur_bucket] + ([f"{extreme:+g} and up (extreme)"] if cur_val >= extreme else [])
+    ranked = (trades[trades["scope"].isin(in_scope)]
+              .sort_values(["order", "win"], ascending=[True, False]))
+    return {"buckets": pd.DataFrame(rows), "trades": trades, "now": ranked, "current": current, "labels": labels}
+
+
+def difference_signal_findings(ds: dict) -> list[str]:
+    c = ds["current"]
+    out = [f"Latest week ({c['week']}): Difference {c['difference']:+.2f} pts, bucket '{c['bucket']}'."]
+    now = ds["now"]
+    for scope in now["scope"].unique():
+        s = now[now["scope"] == scope]
+        vix = s[(s["series"] == "VIX") & (s["side"] == "Short")]
+        if len(vix):
+            v = vix.iloc[0]
+            out.append(f"After Difference {scope.lower()}, VIX was lower the next week {v['win']:.0%} of the time "
+                       f"({int(v['weeks'])} weeks; normal week {v['normal_win']:.0%}; halves {v['win_first_half']:.0%} / "
+                       f"{v['win_second_half']:.0%}).")
+        other = s[(s["series"] != "VIX")].sort_values("win", ascending=False)
+        good = other[(other["p_value"] < 0.05) & other["holds_both_halves"]]
+        if len(good):
+            out.append(f"In that bucket, workbook series with a significant and stable edge: " + "; ".join(
+                f"{r['side'].lower()} {r['series']} ({r['symbol']}) won {r['win']:.0%} vs {r['normal_win']:.0%} normally"
+                for _, r in good.iterrows()) + ".")
+        else:
+            b = other.iloc[0]
+            out.append(f"No non-VIX workbook series has a significant and stable edge there; the best is "
+                       f"{b['side'].lower()} {b['series']} at {b['win']:.0%} vs {b['normal_win']:.0%} normally (p = {b['p_value']:.2f}).")
+    return out

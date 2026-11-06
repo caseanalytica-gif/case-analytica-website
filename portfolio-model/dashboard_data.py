@@ -116,11 +116,23 @@ def write(path: Path, *, portfolios, mc_regime, vix: dict, cfg: dict) -> Path:
     ivhv = vix["iv_hv"].iloc[-252:].reset_index()
     ivhv.columns = ["date", "iv", "iv_rank", "hv", "hv_rank", "iv_minus_hv"]
 
+    sig = vix["diff_signal"]
+    cur = sig["current"]
+    state[0].update({"diff_week": cur["week"], "diff_value": cur["difference"], "diff_bucket": cur["bucket"],
+                     "diff_extreme": "yes" if cur["extreme"] else "no", "diff_first_week": cur["first_week"],
+                     "diff_weeks": cur["weeks_total"]})
+    diff_signal = _rows(sig["buckets"])
+    diff_now = _rows(sig["now"])
+    for r in diff_now:
+        r["trade"] = f"{r['side']} {r['series']}"
+        strong = r["p_value"] is not None and r["p_value"] < 0.05 and r["holds_both_halves"]
+        r["verdict"] = "holds" if strong else ("weak" if r["holds_both_halves"] else "no edge")
+
     payload = {
         "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "state": state, "odds": odds, "history": _rows(hist), "portfolios": prow, "weights": weights,
         "regimes": regimes, "diff_vix": diff_vix, "diff_inst": diff_inst, "diff_strat": diff_strat,
-        "weekly": _rows(wk), "ivhv": _rows(ivhv),
+        "weekly": _rows(wk), "ivhv": _rows(ivhv), "diff_signal": diff_signal, "diff_now": diff_now,
         "findings": [{"n": i + 1, "text": t} for i, t in enumerate(vix["findings"])],
     }
     payload = json.loads(json.dumps(payload, default=_clean))

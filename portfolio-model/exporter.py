@@ -388,6 +388,37 @@ def _vix_tabs(wb, xw, cfg, portfolios, vix, mc, mc_regime):
     ws.column_dimensions["E"].width = 22
     ws.freeze_panes = "A7"
 
+    # Difference signal on the workbook's series
+    ds = vix["diff_signal"]
+    cur = ds["current"]
+    ws = wb.create_sheet("Difference Signal")
+    ws["A1"] = "Next-week outcome by weekly Difference (VIX close minus VIX open, points)"
+    ws["A1"].font = TITLE_FONT
+    ws["A2"] = (f"The weekly table's own series, {cur['first_week']} to {cur['week']} ({cur['weeks_total']} weeks). "
+                "'Won' = the trade made money the following Friday-to-Friday week. 'Normal week' = the same trade's win "
+                f"rate over all weeks. Halves split at {cur['split_week']}. p-value: one-sided binomial test against the normal week.")
+    r = _write_kv(ws, [("Latest week", cur["week"]), ("Difference (pts)", cur["difference"]),
+                       ("Bucket", cur["bucket"]), ("Also an extreme week", "yes" if cur["extreme"] else "no")], 4, "This week")
+    ws.cell(row=r, column=1, value="Trades for this week's bucket, best first").font = SUB_FONT
+    now = ds["now"].drop(columns=["order", "key"]).rename(columns={
+        "scope": "Bucket", "series": "Series", "symbol": "Symbol", "side": "Side", "weeks": "Weeks", "win": "Won next week",
+        "normal_win": "Normal week win rate", "edge": "Edge vs normal", "mean_next": "Avg next-week change",
+        "p_value": "p-value", "win_first_half": "Won, first half", "win_second_half": "Won, second half",
+        "holds_both_halves": "Above normal in both halves"})
+    now["Above normal in both halves"] = now["Above normal in both halves"].map({True: "yes", False: "no"})
+    r = _write_df(ws, now, r + 1, formats={"p-value": RATIO})
+    ws.cell(row=r, column=1, value="Chance each series rose the next week, by Difference bucket").font = SUB_FONT
+    piv = ds["buckets"].pivot_table(index=["order", "bucket"], columns="series", values="p_up_next").reset_index(level=0, drop=True)
+    piv = piv.reset_index().rename(columns={"bucket": "Difference bucket"})
+    r = _write_df(ws, piv, r + 1, formats={c: PCT for c in piv.columns if c != "Difference bucket"})
+    ws.cell(row=r, column=1, value="All trades in all buckets").font = SUB_FONT
+    allt = ds["trades"].drop(columns=["order", "key"]).copy()
+    allt["holds_both_halves"] = allt["holds_both_halves"].map({True: "yes", False: "no"})
+    _write_df(ws, allt, r + 1, formats={"p_value": RATIO, "win": PCT, "normal_win": PCT, "edge": PCT, "mean_next": PCT,
+                                         "win_first_half": PCT, "win_second_half": PCT})
+    _autowidth(ws, min_w=12)
+    ws.column_dimensions["A"].width = 26
+
     # Implied vs historical volatility (the workbook's Sheet2)
     ivhv = vix["iv_hv"]
     ws = wb.create_sheet("Implied vs Historical Vol")
@@ -632,7 +663,7 @@ def export(path: Path, *, cfg: dict, data_report: dict, asset_stats: pd.DataFram
         if "Sheet" in wb.sheetnames:
             del wb["Sheet"]
         first = ["VIX Dashboard", "Summary", "VIX Regimes", "Regime Stress Test", "Regime Monte Carlo",
-                 "VIX Rule Backtest", "VIX Hedge Sizing", "VIX Weekly Coefficients", "VIX Difference Study",
+                 "VIX Rule Backtest", "VIX Hedge Sizing", "VIX Weekly Coefficients", "Difference Signal", "VIX Difference Study",
                  "Implied vs Historical Vol",
                  "Signal Tests",
                  "Optimal Weights", "Efficient Frontier", "Monte Carlo Metrics"]

@@ -136,6 +136,8 @@ def main(argv=None) -> int:
     wkly = vm.weekly_coefficients(vd, cfg)
     notes = vm.findings(state, rm, bt, hedge, sig, wkly, vd, vc["hedge_asset"])
     diff = vm.difference_study(cfg, BASE)
+    dsig = vm.difference_signal(wkly, cfg)
+    notes += vm.difference_signal_findings(dsig)
     notes += vm.difference_findings(diff)
 
     # NaN guard on everything the model computed.
@@ -158,11 +160,11 @@ def main(argv=None) -> int:
                              trans_1d=vm.transition_table(rm, 1), trans_1m=vm.transition_table(rm, 21, empirical=True),
                              trans_1m_markov=vm.transition_table(rm, 21),
                              stress=stress, backtest=bt, curves=curves, hedge=hedge, signals=sig,
-                             weekly=wkly, iv_hv=vm.iv_hv(vd), difference=diff, findings=notes, vix=vd.vix, vix3m=vd.vix3m,
+                             weekly=wkly, iv_hv=vm.iv_hv(vd), difference=diff, diff_signal=dsig, findings=notes, vix=vd.vix, vix3m=vd.vix3m,
                              labels=rm.labels, thresholds=rm.thresholds))
 
     vix_bundle = dict(state=state, regimes=vm.regime_table(vd, rm_raw), stress=stress, labels=rm.labels,
-                      vix=vd.vix, vix3m=vd.vix3m, difference=diff, weekly=wkly, iv_hv=vm.iv_hv(vd),
+                      vix=vd.vix, vix3m=vd.vix3m, difference=diff, diff_signal=dsig, weekly=wkly, iv_hv=vm.iv_hv(vd),
                       findings=notes)
     dash_file = dashboard_data.write(BASE / "dashboard_data" / "vix_model_data.json", portfolios=portfolios,
                                      mc_regime=mc_regime, vix=vix_bundle, cfg=cfg)
