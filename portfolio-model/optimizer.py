@@ -269,6 +269,40 @@ class MeanVarianceOptimizer:
                         "beats the risk-free rate after frictions", out.sharpe_net)
         return out
 
+    def max_sharpe_constrained(self, name: str, risk_cov: np.ndarray,
+                               cap_cov: np.ndarray, cap: float) -> PortfolioResult:
+        """Maximise net return / risk under ``risk_cov`` subject to
+        sqrt(w' cap_cov w) <= cap (e.g. a ceiling on Crisis-regime volatility).
+        Falls back to the minimum-``cap_cov`` portfolio if the cap is infeasible."""
+        risk_cov, cap_cov = np.asarray(risk_cov, float), np.asarray(cap_cov, float)
+
+        def neg(w):
+            v = np.sqrt(max(w @ risk_cov @ w, 1e-16))
+            return -(self.net(w) - self.rf) / v
+
+        cons = [self.sum_to_one,
+                {"type": "ineq", "fun": lambda w: cap ** 2 - w @ cap_cov @ w}]
+        best = None
+        for w0 in self._starts():
+            r = minimize(neg, w0, method="SLSQP", bounds=self.bounds, constraints=cons,
+                         options={"ftol": 1e-12, "maxiter": 1000})
+            feasible = np.sqrt(r.x @ cap_cov @ r.x) <= cap + 1e-6 and abs(r.x.sum() - 1) < 1e-6
+            if feasible and np.isfinite(r.fun) and (best is None or r.fun < best.fun):
+                best = r
+        note = ""
+        if best is None:
+            log.warning("%s: cap %.1f%% infeasible; using minimum constrained-risk portfolio",
+                        name, cap * 100)
+            best = minimize(lambda w: w @ cap_cov @ w, np.full(self.n, 1 / self.n),
+                            jac=lambda w: 2 * cap_cov @ w, method="SLSQP",
+                            bounds=self.bounds, constraints=[self.sum_to_one])
+            note = "cap infeasible: minimum constrained-risk portfolio"
+        out = self.evaluate(name, best.x, best.success, note or str(best.message))
+        w = out.weights.values
+        out.extra.update({"capped_vol": float(np.sqrt(w @ cap_cov @ w)),
+                          "risk_model_vol": float(np.sqrt(w @ risk_cov @ w)), "cap": cap})
+        return out
+
     def efficient_frontier(self, n_points: int, w_minvar: np.ndarray) -> pd.DataFrame:
         """Minimum volatility for each net-return target on the upper branch."""
         r_lo = self.net(w_minvar)
@@ -313,15 +347,27 @@ class MeanVarianceOptimizer:
 # Monte Carlo forward simulation
 # --------------------------------------------------------------------------
 @dataclass
+class RegimeProcess:
+    """Markov regime-switching market for ``simulate``. Arrays are per step."""
+    drift: np.ndarray       # (K, N) log drift per step
+    chol: np.ndarray        # (K, N, N) Cholesky factor of per-step covariance
+    P: np.ndarray           # (K, K) per-step transition matrix
+    start: int              # starting regime index
+    labels: list
+
+
+@dataclass
 class SimulationResult:
     wealth: np.ndarray          # (n_trials, years+1), end-of-year wealth
     max_drawdown: np.ndarray    # (n_trials,) on the monthly path
     fees_paid: np.ndarray       # (n_trials,)
     taxes_paid: np.ndarray      # (n_trials,)
+    regime_share: np.ndarray | None = None   # (n_trials, K) share of steps per regime
 
 
 def simulate(weights: np.ndarray, mu: np.ndarray, cov: np.ndarray, mc_cfg: dict,
-             fr_cfg: dict, apply_frictions: bool = True) -> SimulationResult:
+             fr_cfg: dict, apply_frictions: bool = True,
+             regime: RegimeProcess | None = None) -> SimulationResult:
     """Simulate wealth paths for a rebalanced portfolio.
 
     Asset prices follow correlated geometric Brownian motion (or a
@@ -331,6 +377,11 @@ def simulate(weights: np.ndarray, mu: np.ndarray, cov: np.ndarray, mc_cfg: dict,
       3. on rebalance dates: sell overweights (realising gains under the
          average-cost method), net gains against losses (with optional
          carry-forward), pay tax, and reset to target weights.
+
+    With ``regime`` set, each trial carries a Markov state that switches every
+    step according to ``regime.P``; the drift and covariance of that step come
+    from the current state, which produces volatility clustering and
+    crisis-time correlation shifts that a single covariance matrix cannot.
 
     The RNG is re-seeded on every call, so gross and net runs, and different
     portfolios, see identical market scenarios (common random numbers).
@@ -366,13 +417,31 @@ def simulate(weights: np.ndarray, mu: np.ndarray, cov: np.ndarray, mc_cfg: dict,
     taxes = np.zeros(n_trials)
     wealth = np.empty((n_trials, years + 1))
     wealth[:, 0] = W0
+    if regime is not None:
+        K = regime.P.shape[0]
+        cumP = np.cumsum(regime.P, axis=1)
+        cumP[:, -1] = 1.0
+        state = np.full(n_trials, int(regime.start))
+        occupancy = np.zeros((n_trials, K))
 
     for step in range(1, years * spy + 1):
+        if regime is not None:
+            u = rng.random(n_trials)
+            state = np.minimum((u[:, None] > cumP[state]).sum(axis=1), K - 1)
+            occupancy[np.arange(n_trials), state] += 1
         z = rng.standard_normal((n_trials, N))
         if dist == "student_t":
             g = rng.chisquare(df_t, n_trials) / df_t
             z = z / np.sqrt(g)[:, None] * np.sqrt((df_t - 2) / df_t)
-        holdings *= np.exp(drift + z @ L.T)
+        if regime is None:
+            holdings *= np.exp(drift + z @ L.T)
+        else:
+            logret = np.empty_like(z)
+            for k in range(K):
+                m = state == k
+                if m.any():
+                    logret[m] = regime.drift[k] + z[m] @ regime.chol[k].T
+            holdings *= np.exp(logret)
 
         if er > 0:
             fees += holdings.sum(1) * (1 - fee_keep)
@@ -408,7 +477,8 @@ def simulate(weights: np.ndarray, mu: np.ndarray, cov: np.ndarray, mc_cfg: dict,
 
     if not np.isfinite(wealth).all():
         raise FloatingPointError("Non-finite wealth values in simulation")
-    return SimulationResult(wealth, max_dd, fees, taxes)
+    share = occupancy / (years * spy) if regime is not None else None
+    return SimulationResult(wealth, max_dd, fees, taxes, share)
 
 
 def risk_metrics(net: SimulationResult, gross: SimulationResult, mc_cfg: dict,

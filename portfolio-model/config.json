@@ -1,10 +1,16 @@
 {
-  "tickers": ["SPY", "QQQ", "GLD", "TLT", "ARKK"],
-
+  "tickers": [
+    "SPY",
+    "QQQ",
+    "GLD",
+    "TLT",
+    "ARKK",
+    "VIXY"
+  ],
   "data": {
     "lookback_years": 5,
     "interval": "1d",
-    "min_coverage": 0.90,
+    "min_coverage": 0.9,
     "max_ffill_days": 5,
     "max_stale_fraction": 0.25,
     "max_abs_daily_return": 0.75,
@@ -13,21 +19,21 @@
     "cache_dir": "data_cache",
     "cache_max_age_hours": 24
   },
-
   "model": {
     "risk_free_rate": 0.04,
     "trading_days_per_year": 252,
     "expected_return_method": "arithmetic",
     "covariance_method": "ledoit_wolf",
-    "weight_bounds": [0.0, 1.0]
+    "weight_bounds": [
+      0.0,
+      1.0
+    ]
   },
-
   "optimization": {
     "frontier_points": 40,
     "n_random_starts": 20,
     "seed": 42
   },
-
   "frictions": {
     "expense_ratio": 0.0007,
     "capital_gains_tax_rate": 0.15,
@@ -36,7 +42,6 @@
     "friction_draws": 4000,
     "seed": 7
   },
-
   "monte_carlo": {
     "n_trials": 10000,
     "horizon_years": 20,
@@ -45,9 +50,131 @@
     "distribution": "normal",
     "student_t_df": 6,
     "seed": 2026,
-    "percentiles": [10, 50, 90]
+    "percentiles": [
+      10,
+      50,
+      90
+    ]
   },
-
+  "vix": {
+    "symbol": "^VIX",
+    "term_symbol": "^VIX3M",
+    "tbill_symbol": "^IRX",
+    "hedge_asset": "VIXY",
+    "regime_lookback_years": 10,
+    "regime_thresholds": [
+      15,
+      20,
+      30
+    ],
+    "regime_labels": [
+      "Calm",
+      "Normal",
+      "Elevated",
+      "Crisis"
+    ],
+    "min_regime_days": 60,
+    "regime_mean_shrinkage": 1.0,
+    "crisis_vol_cap": 0.2,
+    "hedge_sizes": [
+      0.0,
+      0.02,
+      0.05,
+      0.1,
+      0.15,
+      0.2
+    ],
+    "overlay": {
+      "max_exposure": 1.0,
+      "backwardation_exposure": 0.5,
+      "regime_exposure": {
+        "Calm": 1.0,
+        "Normal": 1.0,
+        "Elevated": 0.75,
+        "Crisis": 0.5
+      },
+      "cost_bps": 5
+    },
+    "stress_windows": {
+      "COVID crash": [
+        "2020-02-19",
+        "2020-03-23"
+      ],
+      "2022 bear market": [
+        "2022-01-03",
+        "2022-10-12"
+      ],
+      "Aug 2024 vol spike": [
+        "2024-07-16",
+        "2024-08-05"
+      ],
+      "Apr 2025 tariff shock": [
+        "2025-04-02",
+        "2025-04-08"
+      ]
+    },
+    "weekly": {
+      "history_weeks": 52,
+      "series": {
+        "VIX": "^VIX",
+        "N/Gas": "NG=F",
+        "10 Yr Bond": "^TNX",
+        "Gold": "GC=F",
+        "Oil": "CL=F",
+        "DOW Jones Commodity": "DJP"
+      }
+    },
+    "regime_calibrate_to_base": true,
+    "difference_study": {
+      "start_date": "2010-01-01",
+      "instruments": [
+        "SPY",
+        "QQQ",
+        "IWM",
+        "TLT",
+        "IEF",
+        "GLD",
+        "XLU",
+        "XLP",
+        "HYG",
+        "UUP",
+        "USO",
+        "DJP"
+      ],
+      "big_quantile": 0.9,
+      "daily_threshold_window": 252,
+      "weekly_threshold_window": 104,
+      "cost_bps": 2,
+      "daily_strategies": [
+        {
+          "symbol": "SPY",
+          "side": 1
+        },
+        {
+          "symbol": "QQQ",
+          "side": 1
+        },
+        {
+          "symbol": "XLP",
+          "side": 1
+        }
+      ],
+      "weekly_strategies": [
+        {
+          "symbol": "UUP",
+          "side": 1
+        },
+        {
+          "symbol": "DJP",
+          "side": -1
+        },
+        {
+          "symbol": "SPY",
+          "side": 1
+        }
+      ]
+    }
+  },
   "output": {
     "excel_file": "portfolio_model_output.xlsx"
   }

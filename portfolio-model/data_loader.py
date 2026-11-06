@@ -28,6 +28,7 @@ class DataError(RuntimeError):
 
 def _download(tickers: list[str], start: datetime, end: datetime,
               interval: str, retries: int) -> pd.DataFrame:
+    """Raw yfinance frame (columns: Price field x Ticker), with retries."""
     import yfinance as yf
 
     last_exc: Exception | None = None
@@ -41,14 +42,11 @@ def _download(tickers: list[str], start: datetime, end: datetime,
             )
             if raw is None or raw.empty:
                 raise DataError("yfinance returned an empty frame")
-            close = raw["Close"] if isinstance(raw.columns, pd.MultiIndex) else raw[["Close"]]
-            if isinstance(close, pd.Series):
-                close = close.to_frame()
-            if close.shape[1] == 1 and len(tickers) == 1:
-                close.columns = tickers
-            if close.dropna(how="all").empty:
+            if not isinstance(raw.columns, pd.MultiIndex):
+                raw.columns = pd.MultiIndex.from_product([raw.columns, tickers])
+            if raw["Close"].dropna(how="all").empty:
                 raise DataError("all downloaded prices are NaN")
-            return close
+            return raw
         except Exception as exc:  # network / parsing failures
             last_exc = exc
             wait = 2 ** (attempt + 1)
@@ -59,35 +57,47 @@ def _download(tickers: list[str], start: datetime, end: datetime,
     raise DataError(f"Price download failed after {retries + 1} attempts: {last_exc}")
 
 
-def fetch_prices(tickers: list[str], data_cfg: dict, base_dir: Path) -> pd.DataFrame:
-    """Return a raw (uncleaned) adjusted-close panel, using the cache if fresh."""
-    tickers = [t.strip().upper() for t in tickers]
-    if len(set(tickers)) != len(tickers):
-        raise DataError(f"Duplicate tickers in config: {tickers}")
+def fetch_panel(symbols: list[str], years: float, data_cfg: dict, base_dir: Path,
+                fields: tuple[str, ...] = ("Close",), tag: str = "prices") -> dict[str, pd.DataFrame]:
+    """Raw (uncleaned) panels, one DataFrame per price field, cached on disk."""
+    symbols = [t.strip().upper() for t in symbols]
+    if len(set(symbols)) != len(symbols):
+        raise DataError(f"Duplicate symbols: {symbols}")
 
     end = datetime.now()
-    start = end - timedelta(days=int(round(365.25 * data_cfg["lookback_years"])))
-
+    start = end - timedelta(days=int(round(365.25 * years)))
     cache_dir = base_dir / data_cfg.get("cache_dir", "data_cache")
-    key = "_".join(sorted(tickers)) + f"_{data_cfg['lookback_years']}y_{data_cfg['interval']}"
-    cache_file = cache_dir / f"prices_{key}.csv"
+    safe = "_".join(sorted(s.replace("^", "idx").replace("=", "") for s in symbols))
+    key = f"{tag}_{safe}_{years}y_{data_cfg['interval']}"
+    files = {f: cache_dir / f"{key}_{f}.csv" for f in fields}
 
-    if data_cfg.get("use_cache", True) and cache_file.exists():
-        age_h = (time.time() - cache_file.stat().st_mtime) / 3600
-        if age_h <= data_cfg.get("cache_max_age_hours", 24):
-            log.info("Loading prices from cache %s (%.1fh old)", cache_file.name, age_h)
-            cached = pd.read_csv(cache_file, index_col=0, parse_dates=True)
-            return cached[[t for t in tickers if t in cached.columns]]
+    max_age = data_cfg.get("cache_max_age_hours", 24)
+    if data_cfg.get("use_cache", True) and all(
+            fp.exists() and (time.time() - fp.stat().st_mtime) / 3600 <= max_age
+            for fp in files.values()):
+        log.info("Loading %s from cache", key)
+        out = {f: pd.read_csv(fp, index_col=0, parse_dates=True) for f, fp in files.items()}
+        return {f: df[[s for s in symbols if s in df.columns]] for f, df in out.items()}
 
-    log.info("Downloading %s from %s to %s", tickers, start.date(), end.date())
-    prices = _download(tickers, start, end, data_cfg["interval"],
-                       int(data_cfg.get("download_retries", 4)))
-    prices = prices.reindex(columns=[t for t in tickers if t in prices.columns])
-
+    log.info("Downloading %s from %s to %s", symbols, start.date(), end.date())
+    raw = _download(symbols, start, end, data_cfg["interval"],
+                    int(data_cfg.get("download_retries", 4)))
+    out = {}
+    for f in fields:
+        df = raw[f]
+        if isinstance(df, pd.Series):
+            df = df.to_frame(symbols[0])
+        out[f] = df.reindex(columns=[s for s in symbols if s in df.columns])
     if data_cfg.get("use_cache", True):
         cache_dir.mkdir(parents=True, exist_ok=True)
-        prices.to_csv(cache_file)
-    return prices
+        for f, df in out.items():
+            df.to_csv(files[f])
+    return out
+
+
+def fetch_prices(tickers: list[str], data_cfg: dict, base_dir: Path) -> pd.DataFrame:
+    """Raw adjusted-close panel for the model's assets."""
+    return fetch_panel(tickers, data_cfg["lookback_years"], data_cfg, base_dir)["Close"]
 
 
 def clean_prices(prices: pd.DataFrame, data_cfg: dict) -> tuple[pd.DataFrame, dict]:

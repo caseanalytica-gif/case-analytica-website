@@ -1,4 +1,10 @@
-"""Entry point: data -> moments -> optimisation -> frontier -> Monte Carlo -> Excel.
+"""Entry point.
+
+Base model:  data -> moments -> optimisation -> frontier -> Monte Carlo
+VIX model:   VIX regimes -> regime risk -> crisis-constrained portfolio ->
+             regime-switching Monte Carlo -> stress test -> VIX rule backtests ->
+             VIXY hedge sizing -> signal tests -> weekly coefficient table
+Output:      one Excel workbook, VIX Dashboard first.
 
 Usage:  venv/bin/python main.py [--config config.json] [--refresh]
 """
@@ -16,6 +22,7 @@ import numpy as np
 import data_loader
 import exporter
 import optimizer as opt
+import vix_model as vm
 
 BASE = Path(__file__).resolve().parent
 log = logging.getLogger("portfolio_model")
@@ -24,12 +31,23 @@ log = logging.getLogger("portfolio_model")
 def load_config(path: Path) -> dict:
     with open(path) as f:
         cfg = json.load(f)
-    for section in ("data", "model", "optimization", "frictions", "monte_carlo", "output"):
+    for section in ("data", "model", "optimization", "frictions", "monte_carlo", "vix", "output"):
         if section not in cfg:
             raise KeyError(f"config is missing section '{section}'")
     if not cfg.get("tickers") or len(cfg["tickers"]) < 2:
         raise ValueError("config.tickers must list at least 2 symbols")
     return cfg
+
+
+def run_mc(p, mu, cov, mc_cfg, fr_cfg, regime=None):
+    net = opt.simulate(p.weights.values, mu, cov, mc_cfg, fr_cfg, True, regime)
+    gross = opt.simulate(p.weights.values, mu, cov, mc_cfg, fr_cfg, False, regime)
+    metrics = opt.risk_metrics(net, gross, mc_cfg)
+    if regime is not None:
+        for k, lab in enumerate(regime.labels):
+            metrics[f"Avg share of months in {lab}"] = float(net.regime_share[:, k].mean())
+    bands, reps = opt.percentile_paths(net, mc_cfg["percentiles"])
+    return metrics, bands, reps
 
 
 def main(argv=None) -> int:
@@ -40,19 +58,20 @@ def main(argv=None) -> int:
 
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)-7s %(message)s",
                         datefmt="%H:%M:%S")
+    for noisy in ("yfinance", "peewee", "urllib3"):
+        logging.getLogger(noisy).setLevel(logging.CRITICAL)
     t0 = time.time()
     cfg = load_config(Path(args.config))
     if args.refresh:
         cfg["data"]["use_cache"] = False
-    m, fr_cfg, mc_cfg = cfg["model"], cfg["frictions"], cfg["monte_carlo"]
+    m, fr_cfg, mc_cfg, vc = cfg["model"], cfg["frictions"], cfg["monte_carlo"], cfg["vix"]
     periods = int(m["trading_days_per_year"])
     rf = float(m["risk_free_rate"])
 
-    # 1. Data --------------------------------------------------------------
+    # 1. Base data ---------------------------------------------------------
     prices, returns, report = data_loader.load_data(cfg["tickers"], cfg["data"], BASE)
-    log.info("Clean data: %d rows, %s to %s, tickers %s (ffilled %d cells, dropped %d rows)",
-             report["clean_rows"], report["start"], report["end"], report["tickers"],
-             report["ffilled_cells"], report["dropped_rows"])
+    log.info("Base data: %d rows, %s to %s, tickers %s", report["clean_rows"],
+             report["start"], report["end"], report["tickers"])
     if report["dropped_tickers"]:
         log.warning("Dropped tickers: %s", report["dropped_tickers"])
 
@@ -61,67 +80,105 @@ def main(argv=None) -> int:
     cov, shrink = opt.covariance_matrix(returns, periods, m["covariance_method"])
     corr = cov / np.outer(np.sqrt(np.diag(cov)), np.sqrt(np.diag(cov)))
     stats = opt.asset_statistics(prices, returns, mu, cov, rf, periods)
-    log.info("Covariance method %s (shrinkage %.3f)", m["covariance_method"], shrink)
 
-    # 3. Optimisation --------------------------------------------------------
+    # 3. VIX data and regimes ---------------------------------------------
+    vd = vm.load(cfg, list(mu.index), BASE)
+    missing = sorted(set(mu.index) - set(vd.asset_returns.columns))
+    if missing:
+        raise data_loader.DataError(
+            f"{missing} lack {vc['regime_lookback_years']}y of clean history for the regime "
+            "model; shorten vix.regime_lookback_years or change the tickers")
+    rm = vm.fit_regimes(vd, cfg)
+    rm_raw = rm
+    if vc.get("regime_calibrate_to_base", True):
+        rm = vm.calibrate_to_base(rm, cov)
+    state = vm.current_state(vd, rm)
+    log.info("VIX %.2f on %s: %s regime, %s", state["VIX close"], state["As of"],
+             state["Current regime"], state["Term structure"])
+
+    # 4. Optimisation ------------------------------------------------------
     friction = opt.FrictionModel(mu.values, cov.values, fr_cfg["expense_ratio"],
                                  fr_cfg["capital_gains_tax_rate"], fr_cfg["rebalance_frequency"],
                                  int(fr_cfg.get("friction_draws", 4000)), int(fr_cfg.get("seed", 7)))
     engine = opt.MeanVarianceOptimizer(mu, cov, rf, friction, m["weight_bounds"],
                                        cfg["optimization"]["n_random_starts"],
                                        cfg["optimization"]["seed"])
-    max_sharpe = engine.max_sharpe()
-    min_var = engine.min_variance()
-    portfolios = [max_sharpe, min_var]
+    tick = list(mu.index)
+    crisis_cov = rm.cov[rm.labels[-1]].loc[tick, tick].values
+    mix_cov = sum(rm.stationary[k] * rm.cov[lab].loc[tick, tick].values
+                  for k, lab in enumerate(rm.labels))
+    portfolios = [engine.max_sharpe(), engine.min_variance(),
+                  engine.max_sharpe_constrained("VIX Crisis-Constrained", cov.values, crisis_cov,
+                                                float(vc["crisis_vol_cap"]))]
     for p in portfolios:
         if not np.isclose(p.weights.sum(), 1.0) or (p.weights < -1e-9).any():
             raise AssertionError(f"{p.name}: weights violate constraints")
-        if not p.converged:
-            log.warning("%s: optimiser reported '%s'", p.name, p.message)
-
+        p.extra["crisis_vol"] = float(np.sqrt(p.weights.values @ crisis_cov @ p.weights.values))
+        p.extra["regime_mix_vol"] = float(np.sqrt(p.weights.values @ mix_cov @ p.weights.values))
     frontier = engine.efficient_frontier(cfg["optimization"]["frontier_points"],
-                                         min_var.weights.values)
+                                         portfolios[1].weights.values)
 
-    # 4. Monte Carlo ---------------------------------------------------------
-    mc_metrics, bands, reps = {}, {}, {}
+    # 5. Monte Carlo: stationary and regime-switching ----------------------
+    proc = vm.regime_process(rm, mu, cfg)
+    mc, mc_regime = {}, {}
     for p in portfolios:
         tm = time.time()
-        net = opt.simulate(p.weights.values, mu.values, cov.values, mc_cfg, fr_cfg, True)
-        gross = opt.simulate(p.weights.values, mu.values, cov.values, mc_cfg, fr_cfg, False)
-        mc_metrics[p.name] = opt.risk_metrics(net, gross, mc_cfg)
-        bands[p.name], reps[p.name] = opt.percentile_paths(net, mc_cfg["percentiles"])
-        log.info("Monte Carlo %s: %d trials x %d yrs in %.1fs", p.name, mc_cfg["n_trials"],
-                 mc_cfg["horizon_years"], time.time() - tm)
+        mc[p.name] = run_mc(p, mu.values, cov.values, mc_cfg, fr_cfg)
+        mc_regime[p.name] = run_mc(p, mu.values, cov.values, mc_cfg, fr_cfg, proc)
+        log.info("Monte Carlo %s (stationary + regime): %.1fs", p.name, time.time() - tm)
 
-    # Final NaN guard before anything is written.
-    for name, md in mc_metrics.items():
+    # 6. VIX analytics ------------------------------------------------------
+    stress = vm.stress_test(portfolios, rm, float(mc_cfg["initial_capital"]), state["Current regime"])
+    bt, curves = vm.backtest_overlays(vd, rm, portfolios, cfg)
+    hedge = vm.hedge_sizing(vd, rm, portfolios[0], engine, cfg)
+    sig = vm.signal_tests(vd, rm)
+    wkly = vm.weekly_coefficients(vd, cfg)
+    notes = vm.findings(state, rm, bt, hedge, sig, wkly, vd, vc["hedge_asset"])
+    diff = vm.difference_study(cfg, BASE)
+    notes += vm.difference_findings(diff)
+
+    # NaN guard on everything the model computed.
+    for name, (md, _, _) in list(mc.items()) + list(mc_regime.items()):
         bad = [k for k, v in md.items() if not np.isfinite(v)]
         if bad:
             raise ValueError(f"Non-finite Monte Carlo metrics for {name}: {bad}")
-    if frontier.isna().any().any():
-        raise ValueError("NaN in efficient frontier")
+    for label, df in (("frontier", frontier), ("stress test", stress), ("backtest", bt),
+                      ("hedge sizing", hedge)):
+        num = df.select_dtypes("number")
+        if not np.isfinite(num.values).all():
+            raise ValueError(f"Non-finite values in {label}")
 
-    # 5. Export --------------------------------------------------------------
+    # 7. Export ---------------------------------------------------------------
     out = BASE / cfg["output"]["excel_file"]
     exporter.export(out, cfg=cfg, data_report=report, asset_stats=stats, corr=corr, cov=cov,
-                    shrinkage=shrink, portfolios=portfolios, frontier=frontier,
-                    mc_metrics=mc_metrics, bands=bands, rep_paths=reps)
+                    shrinkage=shrink, portfolios=portfolios, frontier=frontier, mc=mc,
+                    mc_regime=mc_regime,
+                    vix=dict(state=state, regimes=vm.regime_table(vd, rm_raw),
+                             trans_1d=vm.transition_table(rm, 1), trans_1m=vm.transition_table(rm, 21, empirical=True),
+                             trans_1m_markov=vm.transition_table(rm, 21),
+                             stress=stress, backtest=bt, curves=curves, hedge=hedge, signals=sig,
+                             weekly=wkly, iv_hv=vm.iv_hv(vd), difference=diff, findings=notes, vix=vd.vix, vix3m=vd.vix3m,
+                             labels=rm.labels, thresholds=rm.thresholds))
 
-    # 6. Console summary -----------------------------------------------------
-    print("\n" + "=" * 78)
-    print(f"{'':28s}{'Max Sharpe':>18s}{'Min Variance':>18s}")
-    for label, attr in [("Gross expected return", "gross_return"), ("Tax drag (est.)", "tax_drag"),
-                        ("Net expected return", "net_return"), ("Volatility", "volatility")]:
-        print(f"{label:28s}{getattr(max_sharpe, attr):>18.2%}{getattr(min_var, attr):>18.2%}")
-    print(f"{'Net Sharpe':28s}{max_sharpe.sharpe_net:>18.3f}{min_var.sharpe_net:>18.3f}")
-    for t in mu.index:
-        print(f"  weight {t:19s}{max_sharpe.weights[t]:>18.2%}{min_var.weights[t]:>18.2%}")
-    for k in ["P10 Terminal Wealth", "P50 Terminal Wealth", "P90 Terminal Wealth",
-              "Probability of Loss (Terminal < Initial)", "Median Friction Leakage ($)"]:
-        a, b = mc_metrics[max_sharpe.name][k], mc_metrics[min_var.name][k]
-        fmt = "{:>18.2%}" if "Probability" in k else "{:>18,.0f}"
-        print(f"{k[:28]:28s}" + fmt.format(a) + fmt.format(b))
-    print("=" * 78)
+    # 8. Console summary ------------------------------------------------------
+    w = 20
+    names = [p.name for p in portfolios]
+    print("\n" + "=" * (30 + w * len(names)))
+    print("VIX DASHBOARD")
+    for n_ in notes:
+        print(" - " + n_)
+    print("-" * (30 + w * len(names)))
+    print(f"{'':30s}" + "".join(f"{n[:w - 2]:>{w}s}" for n in names))
+    for label, attr in [("Net expected return", "net_return"), ("Volatility (base)", "volatility")]:
+        print(f"{label:30s}" + "".join(f"{getattr(p, attr):>{w}.2%}" for p in portfolios))
+    print(f"{'Volatility in Crisis regime':30s}" + "".join(f"{p.extra['crisis_vol']:>{w}.2%}" for p in portfolios))
+    print(f"{'Net Sharpe':30s}" + "".join(f"{p.sharpe_net:>{w}.3f}" for p in portfolios))
+    for t in tick:
+        print(f"  weight {t:21s}" + "".join(f"{p.weights[t]:>{w}.2%}" for p in portfolios))
+    for k in ["P10 Terminal Wealth", "P50 Terminal Wealth", "P90 Terminal Wealth"]:
+        print(f"{k + ' (static)':30s}" + "".join(f"{mc[n][0][k]:>{w},.0f}" for n in names))
+        print(f"{k + ' (VIX regime)':30s}" + "".join(f"{mc_regime[n][0][k]:>{w},.0f}" for n in names))
+    print("=" * (30 + w * len(names)))
     print(f"Wrote {out.name} in {time.time() - t0:.1f}s")
     return 0
 
