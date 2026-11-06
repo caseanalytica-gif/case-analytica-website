@@ -1,0 +1,54 @@
+{
+  "tickers": ["SPY", "QQQ", "GLD", "TLT", "ARKK"],
+
+  "data": {
+    "lookback_years": 5,
+    "interval": "1d",
+    "min_coverage": 0.90,
+    "max_ffill_days": 5,
+    "max_stale_fraction": 0.25,
+    "max_abs_daily_return": 0.75,
+    "download_retries": 4,
+    "use_cache": true,
+    "cache_dir": "data_cache",
+    "cache_max_age_hours": 24
+  },
+
+  "model": {
+    "risk_free_rate": 0.04,
+    "trading_days_per_year": 252,
+    "expected_return_method": "arithmetic",
+    "covariance_method": "ledoit_wolf",
+    "weight_bounds": [0.0, 1.0]
+  },
+
+  "optimization": {
+    "frontier_points": 40,
+    "n_random_starts": 20,
+    "seed": 42
+  },
+
+  "frictions": {
+    "expense_ratio": 0.0007,
+    "capital_gains_tax_rate": 0.15,
+    "rebalance_frequency": "annual",
+    "tax_loss_carryforward": true,
+    "friction_draws": 4000,
+    "seed": 7
+  },
+
+  "monte_carlo": {
+    "n_trials": 10000,
+    "horizon_years": 20,
+    "steps_per_year": 12,
+    "initial_capital": 1000000,
+    "distribution": "normal",
+    "student_t_df": 6,
+    "seed": 2026,
+    "percentiles": [10, 50, 90]
+  },
+
+  "output": {
+    "excel_file": "portfolio_model_output.xlsx"
+  }
+}

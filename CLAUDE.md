@@ -69,8 +69,8 @@ Cloudflare sits in front for security headers; DNS and TLS are a separate
 manual dashboard job, never part of a push.
 
 The workflow publishes a filtered copy, not the whole repo: every `.md` file,
-`social/`, `video-scripts/`, `linkedin-posts/`, `tools/`, `cloudflare/` and
-`email-capture-sheets/` stay in git but are not served. A new internal folder
+`social/`, `video-scripts/`, `linkedin-posts/`, `tools/`, `cloudflare/`,
+`email-capture-sheets/` and `portfolio-model/` stay in git but are not served. A new internal folder
 needs adding to the exclude list in `deploy-pages.yml`.
 
 Stage your own paths and hunks. Never `git add -A` here, because the working tree
