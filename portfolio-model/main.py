@@ -19,6 +19,7 @@ from pathlib import Path
 
 import numpy as np
 
+import dashboard_data
 import data_loader
 import exporter
 import optimizer as opt
@@ -159,6 +160,13 @@ def main(argv=None) -> int:
                              stress=stress, backtest=bt, curves=curves, hedge=hedge, signals=sig,
                              weekly=wkly, iv_hv=vm.iv_hv(vd), difference=diff, findings=notes, vix=vd.vix, vix3m=vd.vix3m,
                              labels=rm.labels, thresholds=rm.thresholds))
+
+    vix_bundle = dict(state=state, regimes=vm.regime_table(vd, rm_raw), stress=stress, labels=rm.labels,
+                      vix=vd.vix, vix3m=vd.vix3m, difference=diff, weekly=wkly, iv_hv=vm.iv_hv(vd),
+                      findings=notes)
+    dash_file = dashboard_data.write(BASE / "dashboard_data" / "vix_model_data.json", portfolios=portfolios,
+                                     mc_regime=mc_regime, vix=vix_bundle, cfg=cfg)
+    log.info("Dashboard data: %s (%.0f KB)", dash_file.name, dash_file.stat().st_size / 1024)
 
     # 8. Console summary ------------------------------------------------------
     w = 20
