@@ -19,6 +19,7 @@ from pathlib import Path
 
 import numpy as np
 
+import alerts
 import dashboard_data
 import data_loader
 import exporter
@@ -138,6 +139,7 @@ def main(argv=None) -> int:
     diff = vm.difference_study(cfg, BASE)
     dsig = vm.difference_signal(wkly, cfg)
     notes += vm.difference_signal_findings(dsig)
+    al = alerts.build(wkly, cfg)
     notes += vm.difference_findings(diff)
 
     # NaN guard on everything the model computed.
@@ -160,15 +162,17 @@ def main(argv=None) -> int:
                              trans_1d=vm.transition_table(rm, 1), trans_1m=vm.transition_table(rm, 21, empirical=True),
                              trans_1m_markov=vm.transition_table(rm, 21),
                              stress=stress, backtest=bt, curves=curves, hedge=hedge, signals=sig,
-                             weekly=wkly, iv_hv=vm.iv_hv(vd), difference=diff, diff_signal=dsig, findings=notes, vix=vd.vix, vix3m=vd.vix3m,
+                             weekly=wkly, iv_hv=vm.iv_hv(vd), difference=diff, diff_signal=dsig, alerts=al, findings=notes, vix=vd.vix, vix3m=vd.vix3m,
                              labels=rm.labels, thresholds=rm.thresholds))
 
     vix_bundle = dict(state=state, regimes=vm.regime_table(vd, rm_raw), stress=stress, labels=rm.labels,
-                      vix=vd.vix, vix3m=vd.vix3m, difference=diff, diff_signal=dsig, weekly=wkly, iv_hv=vm.iv_hv(vd),
+                      vix=vd.vix, vix3m=vd.vix3m, difference=diff, diff_signal=dsig, alerts=al, weekly=wkly, iv_hv=vm.iv_hv(vd),
                       findings=notes)
     dash_file = dashboard_data.write(BASE / "dashboard_data" / "vix_model_data.json", portfolios=portfolios,
                                      mc_regime=mc_regime, vix=vix_bundle, cfg=cfg)
     log.info("Dashboard data: %s (%.0f KB)", dash_file.name, dash_file.stat().st_size / 1024)
+    alert_text = alerts.message(al)
+    (BASE / "dashboard_data" / "alert.txt").write_text(alert_text + "\n")
 
     # 8. Console summary ------------------------------------------------------
     w = 20
@@ -189,6 +193,7 @@ def main(argv=None) -> int:
         print(f"{k + ' (static)':30s}" + "".join(f"{mc[n][0][k]:>{w},.0f}" for n in names))
         print(f"{k + ' (VIX regime)':30s}" + "".join(f"{mc_regime[n][0][k]:>{w},.0f}" for n in names))
     print("=" * (30 + w * len(names)))
+    print("\nALERT\n" + alert_text)
     print(f"Wrote {out.name} in {time.time() - t0:.1f}s")
     return 0
 

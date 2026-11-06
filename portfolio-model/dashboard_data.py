@@ -128,11 +128,17 @@ def write(path: Path, *, portfolios, mc_regime, vix: dict, cfg: dict) -> Path:
         strong = r["p_value"] is not None and r["p_value"] < 0.05 and r["holds_both_halves"]
         r["verdict"] = "holds" if strong else ("weak" if r["holds_both_halves"] else "no edge")
 
+    al = vix["alerts"]
+    alert_now = [dict(al["now"])]
+    alert_rules = _rows(al["rules"])
+    alert_log = _rows(al["log"])
+
     payload = {
         "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "state": state, "odds": odds, "history": _rows(hist), "portfolios": prow, "weights": weights,
         "regimes": regimes, "diff_vix": diff_vix, "diff_inst": diff_inst, "diff_strat": diff_strat,
         "weekly": _rows(wk), "ivhv": _rows(ivhv), "diff_signal": diff_signal, "diff_now": diff_now,
+        "alert_now": alert_now, "alert_rules": alert_rules, "alert_log": alert_log,
         "findings": [{"n": i + 1, "text": t} for i, t in enumerate(vix["findings"])],
     }
     payload = json.loads(json.dumps(payload, default=_clean))

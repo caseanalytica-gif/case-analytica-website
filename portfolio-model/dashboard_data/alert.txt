@@ -1,0 +1,7 @@
+VIX Difference alert for the week ending 2026-11-06: Difference +5.30 pts.
+Alert: Short oil next week (trade); Short natural gas next week (watch); Long gold next week (watch); VIX lower next week (signal).
+- Short oil next week [trade]: Short CL=F futures or short USO, from Friday close to the next Friday close. Backtest won 67% of 24 signals.
+- Short natural gas next week [watch]: NG=F futures or UNG. Watch only: the edge is not statistically significant. Backtest won 67% of 24 signals.
+- Long gold next week [watch]: GC=F futures or GLD. Watch only: the edge is not statistically significant. Backtest won 62% of 24 signals.
+- VIX lower next week [signal]: Not directly tradable. A risk read; the non-VIX way to trade it is selling SPY or SPX option premium, which is untested here. Backtest won 81% of 47 signals.
+Last week (2026-10-30): No alerts fired last week.

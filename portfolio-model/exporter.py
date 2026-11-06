@@ -388,6 +388,25 @@ def _vix_tabs(wb, xw, cfg, portfolios, vix, mc, mc_regime):
     ws.column_dimensions["E"].width = 22
     ws.freeze_panes = "A7"
 
+    # Trade alerts
+    al = vix["alerts"]
+    n = al["now"]
+    ws = wb.create_sheet("Trade Alerts")
+    ws["A1"] = "Weekly Difference trade alerts"
+    ws["A1"].font = TITLE_FONT
+    ws["A2"] = (f"Rules fixed on {n['live_from']}. Weeks before that are a backtest of rules chosen on the same data, "
+                "so their win rates flatter the rules; weeks from then on are the live record.")
+    r = _write_kv(ws, [("Week", n["week"]), ("Difference (pts)", n["difference"]), ("Alert", n["headline"]),
+                       ("Last week", n["last_week_result"])], 4, "This week", highlight={"Alert"} if n["fired"] else None)
+    ws.cell(row=r, column=1, value="Rules").font = SUB_FONT
+    r = _write_df(ws, al["rules"].drop(columns=["min_difference"]), r + 1,
+                  formats={"backtest_win_rate": PCT, "backtest_avg_result": PCT})
+    ws.cell(row=r, column=1, value="Alert log, newest first").font = SUB_FONT
+    if len(al["log"]):
+        _write_df(ws, al["log"].drop(columns=["key"]), r + 1, formats={"result": PCT, "difference": PTS})
+    _autowidth(ws, min_w=12)
+    ws.column_dimensions["A"].width = 24
+
     # Difference signal on the workbook's series
     ds = vix["diff_signal"]
     cur = ds["current"]
@@ -662,7 +681,7 @@ def export(path: Path, *, cfg: dict, data_report: dict, asset_stats: pd.DataFram
 
         if "Sheet" in wb.sheetnames:
             del wb["Sheet"]
-        first = ["VIX Dashboard", "Summary", "VIX Regimes", "Regime Stress Test", "Regime Monte Carlo",
+        first = ["VIX Dashboard", "Trade Alerts", "Summary", "VIX Regimes", "Regime Stress Test", "Regime Monte Carlo",
                  "VIX Rule Backtest", "VIX Hedge Sizing", "VIX Weekly Coefficients", "Difference Signal", "VIX Difference Study",
                  "Implied vs Historical Vol",
                  "Signal Tests",

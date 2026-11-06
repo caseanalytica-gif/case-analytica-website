@@ -183,6 +183,47 @@
       ]
     }
   },
+  "alerts": {
+    "live_from": "2026-11-06",
+    "rules": [
+      {
+        "id": "oil-short",
+        "name": "Short oil next week",
+        "series": "Oil",
+        "side": "Short",
+        "min_difference": 5,
+        "status": "trade",
+        "how": "Short CL=F futures or short USO, from Friday close to the next Friday close."
+      },
+      {
+        "id": "natgas-short",
+        "name": "Short natural gas next week",
+        "series": "N/Gas",
+        "side": "Short",
+        "min_difference": 5,
+        "status": "watch",
+        "how": "NG=F futures or UNG. Watch only: the edge is not statistically significant."
+      },
+      {
+        "id": "gold-long",
+        "name": "Long gold next week",
+        "series": "Gold",
+        "side": "Long",
+        "min_difference": 5,
+        "status": "watch",
+        "how": "GC=F futures or GLD. Watch only: the edge is not statistically significant."
+      },
+      {
+        "id": "vix-lower",
+        "name": "VIX lower next week",
+        "series": "VIX",
+        "side": "Short",
+        "min_difference": 3,
+        "status": "signal",
+        "how": "Not directly tradable. A risk read; the non-VIX way to trade it is selling SPY or SPX option premium, which is untested here."
+      }
+    ]
+  },
   "output": {
     "excel_file": "portfolio_model_output.xlsx"
   }
