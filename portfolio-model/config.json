@@ -215,12 +215,12 @@
       },
       {
         "id": "gold-long",
-        "name": "Long gold next week",
-        "series": "Gold",
+        "name": "Long GLD next week",
         "side": "Long",
         "min_difference": 5,
         "status": "watch",
-        "how": "GC=F futures or GLD. Watch only: the edge is not statistically significant."
+        "how": "Buy GLD (SPDR Gold Shares, tracks gold bullion) at the Friday close, sell at the next Friday close. Watch only: the edge is weak and not statistically significant.",
+        "symbol": "GLD"
       },
       {
         "id": "vix-lower",
