@@ -194,7 +194,8 @@
         "min_difference": 5,
         "status": "trade",
         "how": "Buy SCO (ProShares UltraShort Bloomberg Crude Oil, -2x daily crude) at the Friday close, sell at the next Friday close. It is 2x leveraged: half the dollar size gives about the exposure of a 1x oil short. It resets daily, so do not hold it longer than the week.",
-        "take_profit": 0.05
+        "take_profit": 0.05,
+        "no_extend_note": "Do not hold SCO past this exit, even at a loss: since 2010, 5 of 11 losing SCO trades never got back to +1%."
       },
       {
         "id": "xlu-long",
@@ -206,7 +207,8 @@
         "how": "Buy XLU (Utilities Select Sector SPDR) at the Friday close, sell at the next Friday close. The higher-probability, lower-risk companion to SCO: since 2010 it won 68% of these weeks (normal week 56%), avg +0.87%, 1-in-10 bad week about -2.8%. Not leveraged.",
         "take_profit": 0.025,
         "take_profit_optional": true,
-        "take_profit_note": "Since 2010 a +2.5% take profit won 70% vs 68% holding, but the average fell to +0.74% from +0.87%."
+        "take_profit_note": "Since 2010 a +2.5% take profit won 70% vs 68% holding, but the average fell to +0.74% from +0.87%.",
+        "extend_cap_days": 63
       },
       {
         "id": "spy-long",
@@ -218,7 +220,8 @@
         "how": "Buy SPY (SPDR S&P 500) at the Friday close after VIX fell 5 points or more during the week, sell at the next Friday close. Stocks tend to keep rising as fear unwinds: since 2010 it won 67% of these weeks (normal week 58%), avg +0.85%, worst week -6.6%. Most of these weeks come within a month of a +3 spike.",
         "take_profit": 0.01,
         "take_profit_optional": true,
-        "take_profit_note": "Since 2010 a +1% take profit won 78% vs 67% holding, but the average fell to +0.72% from +0.85%."
+        "take_profit_note": "Since 2010 a +1% take profit won 78% vs 67% holding, but the average fell to +0.72% from +0.85%.",
+        "extend_cap_days": 63
       },
       {
         "id": "sso-long",
@@ -230,7 +233,8 @@
         "take_profit": 0.01,
         "take_profit_optional": true,
         "take_profit_note": "Since 2010 a +1% take profit won 83% vs 67% holding, but the average fell to +1.25% from +1.70%.",
-        "how": "The 2x version of the SPY trade, same week: buy SSO (ProShares Ultra S&P 500) at the Friday close, sell at the next Friday close. Since 2010 it won 67% of these weeks, avg +1.70% (SPY +0.85%), worst week -13.2%. Use it in place of SPY, not on top of it, and size it at about half the SPY amount for the same risk."
+        "how": "The 2x version of the SPY trade, same week: buy SSO (ProShares Ultra S&P 500) at the Friday close, sell at the next Friday close. Since 2010 it won 67% of these weeks, avg +1.70% (SPY +0.85%), worst week -13.2%. Use it in place of SPY, not on top of it, and size it at about half the SPY amount for the same risk.",
+        "extend_cap_days": 63
       },
       {
         "id": "svol-long",
@@ -241,7 +245,8 @@
         "min_vix": 20,
         "trigger_text": "Weekly Difference negative and VIX close 20 or above",
         "status": "trade",
-        "how": "Buy SVOL (Simplify Volatility Premium: a small short-VIX-futures position with crash protection) at the Friday close, sell at the next Friday close. Since 2021 it won 71% of these weeks (normal week 56%), avg +1.11%, walk-forward 73%, worst week -6.1%. It is a volatility product: size it small and never on margin."
+        "how": "Buy SVOL (Simplify Volatility Premium: a small short-VIX-futures position with crash protection) at the Friday close, sell at the next Friday close. Since 2021 it won 71% of these weeks (normal week 56%), avg +1.11%, walk-forward 73%, worst week -6.1%. It is a volatility product: size it small and never on margin.",
+        "extend_cap_days": 21
       },
       {
         "id": "oil-short",
@@ -338,7 +343,8 @@
         0.05,
         0.08
       ]
-    }
+    },
+    "hold_to_target": 0.01
   },
   "output": {
     "excel_file": "portfolio_model_output.xlsx"
@@ -352,7 +358,8 @@
         "min_difference": 3,
         "hold_days": 1,
         "note": "Since 2010 QQQ rose the next day 64% of 117 times after VIX closed 3+ points above its open (normal day 54%), avg +0.58%, walk-forward 64%, worst day -6.3%.",
-        "trigger_text": "VIX closes 3+ points above its open"
+        "trigger_text": "VIX closes 3+ points above its open",
+        "extend_cap_days": 63
       },
       {
         "id": "daily-gld",
@@ -360,8 +367,10 @@
         "max_difference": -3,
         "hold_days": 5,
         "note": "Since 2010 GLD rose over the next 5 days 63% of 86 times after VIX closed 3+ points below its open (normal 53%), avg +1.05%, walk-forward 66%, worst -9.1%.",
-        "trigger_text": "VIX closes 3+ points below its open"
+        "trigger_text": "VIX closes 3+ points below its open",
+        "extend_cap_days": 21
       }
-    ]
+    ],
+    "hold_to_target": 0.01
   }
 }

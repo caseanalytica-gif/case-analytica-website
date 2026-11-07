@@ -109,7 +109,12 @@ def build(wkly: dict, cfg: dict, prices: pd.DataFrame | None = None) -> dict:
                        "take_profit": float(tp) if tp else None,
                        "target_price": entry * (1 + float(tp)) if tp else None,
                        "take_profit_optional": bool(r.get("take_profit_optional", False)),
-                       "take_profit_note": r.get("take_profit_note", "")})
+                       "take_profit_note": r.get("take_profit_note", ""),
+                       # Hold-to-target: a loss at the planned exit is held until +1% or the cap.
+                       "hold_target_price": entry * (1 + float(ac.get("hold_to_target", 0.01))) if r.get("extend_cap_days") else None,
+                       "hold_until": (s.index[-1] + pd.offsets.BDay(int(r["extend_cap_days"]))).date().isoformat()
+                                     if r.get("extend_cap_days") else None,
+                       "no_extend_note": r.get("no_extend_note", "")})
     now["orders"] = orders
     prev = weeks[-2] if len(weeks) > 1 else None
     prev_rows = log[log["week"] == prev.date().isoformat()] if prev is not None and len(log) else pd.DataFrame()
@@ -139,6 +144,11 @@ def message(al: dict) -> str:
                     line += " " + o["take_profit_note"]
             else:
                 line += f" Sell at the {o['exit_by']} close."
+            if o.get("hold_target_price"):
+                line += (f" If it is below your buy price at that close, keep holding until it closes at or above"
+                         f" ${o['hold_target_price']:.2f} (+1%), or sell at the close on {o['hold_until']} at the latest.")
+            elif o.get("no_extend_note"):
+                line += " " + o["no_extend_note"]
             lines.append(line)
     lines.append(f"Last week ({n['last_week']}): {n['last_week_result']}")
     return "\n".join(lines)

@@ -7,8 +7,8 @@ Alert: Buy SCO next week (long-only oil short) (trade); Buy XLU next week (high-
 - Long GLD next week [watch]: Buy GLD (SPDR Gold Shares, tracks gold bullion) at the Friday close, sell at the next Friday close. Watch only: the edge is weak and not statistically significant. Backtest won 54% of 24 signals.
 - VIX lower next week [signal]: Not directly tradable. A risk read; the non-VIX way to trade it is selling SPY or SPX option premium, which is untested here. Backtest won 81% of 47 signals.
 Orders (buy at the Friday close, at about these prices):
-- SCO: buy at about $18.77. Take profit: sell if it closes at or above $19.71 (+5.0%) before 2026-11-13; otherwise sell at the 2026-11-13 close.
-- XLU: buy at about $43.13. Optional take profit: sell if it closes at or above $44.21 (+2.5%) before 2026-11-13; otherwise sell at the 2026-11-13 close. Since 2010 a +2.5% take profit won 70% vs 68% holding, but the average fell to +0.74% from +0.87%.
+- SCO: buy at about $18.77. Take profit: sell if it closes at or above $19.71 (+5.0%) before 2026-11-13; otherwise sell at the 2026-11-13 close. Do not hold SCO past this exit, even at a loss: since 2010, 5 of 11 losing SCO trades never got back to +1%.
+- XLU: buy at about $43.13. Optional take profit: sell if it closes at or above $44.21 (+2.5%) before 2026-11-13; otherwise sell at the 2026-11-13 close. Since 2010 a +2.5% take profit won 70% vs 68% holding, but the average fell to +0.74% from +0.87%. If it is below your buy price at that close, keep holding until it closes at or above $43.56 (+1%), or sell at the close on 2027-02-03 at the latest.
 Last week (2026-10-30): No alerts fired last week.
 SCO exit plan (bought 2026-11-06 close at $18.77):
 - Take profit: sell if SCO closes at or above $19.71 (+5%) before 2026-11-13.
