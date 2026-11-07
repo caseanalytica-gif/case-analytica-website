@@ -196,6 +196,15 @@
         "how": "Buy SCO (ProShares UltraShort Bloomberg Crude Oil, -2x daily crude) at the Friday close, sell at the next Friday close. It is 2x leveraged: half the dollar size gives about the exposure of a 1x oil short. It resets daily, so do not hold it longer than the week."
       },
       {
+        "id": "xlu-long",
+        "name": "Buy XLU next week (high-probability defensive)",
+        "symbol": "XLU",
+        "side": "Long",
+        "min_difference": 5,
+        "status": "trade",
+        "how": "Buy XLU (Utilities Select Sector SPDR) at the Friday close, sell at the next Friday close. The higher-probability, lower-risk companion to SCO: since 2010 it won 68% of these weeks (normal week 56%), avg +0.87%, 1-in-10 bad week about -2.8%. Not leveraged."
+      },
+      {
         "id": "oil-short",
         "name": "Oil lower next week",
         "series": "Oil",
