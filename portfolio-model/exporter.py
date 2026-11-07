@@ -399,7 +399,7 @@ def _vix_tabs(wb, xw, cfg, portfolios, vix, mc, mc_regime):
     r = _write_kv(ws, [("Week", n["week"]), ("Difference (pts)", n["difference"]), ("Alert", n["headline"]),
                        ("Last week", n["last_week_result"])], 4, "This week", highlight={"Alert"} if n["fired"] else None)
     ws.cell(row=r, column=1, value="Rules").font = SUB_FONT
-    r = _write_df(ws, al["rules"].drop(columns=["min_difference", "max_difference"]), r + 1,
+    r = _write_df(ws, al["rules"].drop(columns=["min_difference", "max_difference", "min_vix", "trigger_text"]), r + 1,
                   formats={"backtest_win_rate": PCT, "backtest_avg_result": PCT})
     ws.cell(row=r, column=1, value="Alert log, newest first").font = SUB_FONT
     if len(al["log"]):

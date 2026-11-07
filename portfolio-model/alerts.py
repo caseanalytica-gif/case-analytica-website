@@ -15,16 +15,24 @@ import numpy as np
 import pandas as pd
 
 
-def fires(rule: dict, diff):
+def fires(rule: dict, diff, vix=None):
     """True where the Difference meets the rule: at or above ``min_difference``,
-    or at or below ``max_difference`` for a rule on a falling-VIX week."""
+    or at or below ``max_difference`` for a rule on a falling-VIX week. A rule
+    with ``min_vix`` also needs the week's VIX close at or above that level."""
     mx = rule.get("max_difference")
     if mx is not None and np.isfinite(float(mx)):
-        return diff <= float(mx)
-    return diff >= float(rule["min_difference"])
+        hit = diff <= float(mx)
+    else:
+        hit = diff >= float(rule["min_difference"])
+    mv = rule.get("min_vix")
+    if mv is not None and np.isfinite(float(mv)):
+        hit = hit & (vix >= float(mv)) if vix is not None else hit & False
+    return hit
 
 
 def trigger_text(rule: dict) -> str:
+    if isinstance(rule.get("trigger_text"), str):
+        return rule["trigger_text"]
     mx = rule.get("max_difference")
     if mx is not None and np.isfinite(float(mx)):
         return f"Weekly Difference of {float(mx):+g} points or less"
@@ -37,6 +45,7 @@ def build(wkly: dict, cfg: dict, prices: pd.DataFrame | None = None) -> dict:
     sym = cfg["vix"]["weekly"]["series"]
     tbl = wkly["table"]
     d = tbl["Difference"]
+    vclose = tbl["VIX Close"]
     weeks = tbl.index
 
     log = []
@@ -51,7 +60,7 @@ def build(wkly: dict, cfg: dict, prices: pd.DataFrame | None = None) -> dict:
         sg = 1 if rule["side"] == "Long" else -1
         s, symbol, chg = weekly_change(rule)
         nxt = chg.shift(-1)
-        for t in weeks[fires(rule, d)]:
+        for t in weeks[fires(rule, d, vclose)]:
             res = nxt.get(t)
             res = None if res is None or not np.isfinite(res) else float(sg * res)
             log.append({"week": t.date().isoformat(), "difference": float(d[t]), "rule_id": rule["id"],
@@ -71,15 +80,16 @@ def build(wkly: dict, cfg: dict, prices: pd.DataFrame | None = None) -> dict:
                       "trigger": trigger_text(rule),
                       "min_difference": float(rule.get("min_difference", np.nan)),
                       "max_difference": float(rule.get("max_difference", np.nan)),
+                      "min_vix": float(rule.get("min_vix", np.nan)), "trigger_text": rule.get("trigger_text"),
                       "symbol": rule.get("symbol") or sym.get(rule["series"], rule["series"]), "side": rule["side"], "how": rule["how"],
                       "backtest_signals": int(len(bt)), "backtest_win_rate": float((bt["result"] > 0).mean()) if len(bt) else None,
                       "backtest_avg_result": float(bt["result"].mean()) if len(bt) else None,
                       "live_signals": int(len(lv)), "live_wins": int((lv["result"] > 0).sum()) if len(lv) else 0})
 
     last = weeks[-1]
-    fired = [r for r in ac["rules"] if fires(r, d.iloc[-1])]
+    fired = [r for r in ac["rules"] if fires(r, d.iloc[-1], vclose.iloc[-1])]
     now = {"week": last.date().isoformat(), "difference": float(d.iloc[-1]),
-           "fired": len(fired), "fired_trades": sum(r["status"] == "trade" for r in fired),
+           "vix_close": float(vclose.iloc[-1]), "fired": len(fired), "fired_trades": sum(r["status"] == "trade" for r in fired),
            "headline": ("No alert this week: Difference inside every rule's bar." if not fired else
                         "Alert: " + "; ".join(f"{r['name']} ({r['status']})" for r in fired) + "."),
            "live_from": ac["live_from"]}
@@ -113,7 +123,7 @@ def message(al: dict) -> str:
     n = al["now"]
     lines = [f"VIX Difference alert for the week ending {n['week']}: Difference {n['difference']:+.2f} pts.", n["headline"]]
     for _, r in al["rules"].iterrows():
-        if fires(r, n["difference"]):
+        if fires(r, n["difference"], n.get("vix_close")):
             wr = r["backtest_win_rate"]
             lines.append(f"- {r['rule']} [{r['status']}]: {r['how']} Backtest won "
                          f"{wr:.0%} of {r['backtest_signals']} signals." if wr is not None else f"- {r['rule']}")

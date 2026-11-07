@@ -221,6 +221,29 @@
         "take_profit_note": "Since 2010 a +1% take profit won 78% vs 67% holding, but the average fell to +0.72% from +0.85%."
       },
       {
+        "id": "sso-long",
+        "name": "Buy SSO next week (2x S&P 500, fear collapsed)",
+        "symbol": "SSO",
+        "side": "Long",
+        "max_difference": -5,
+        "status": "trade",
+        "take_profit": 0.01,
+        "take_profit_optional": true,
+        "take_profit_note": "Since 2010 a +1% take profit won 83% vs 67% holding, but the average fell to +1.25% from +1.70%.",
+        "how": "The 2x version of the SPY trade, same week: buy SSO (ProShares Ultra S&P 500) at the Friday close, sell at the next Friday close. Since 2010 it won 67% of these weeks, avg +1.70% (SPY +0.85%), worst week -13.2%. Use it in place of SPY, not on top of it, and size it at about half the SPY amount for the same risk."
+      },
+      {
+        "id": "svol-long",
+        "name": "Buy SVOL next week (fear easing from a high level)",
+        "symbol": "SVOL",
+        "side": "Long",
+        "max_difference": -0.01,
+        "min_vix": 20,
+        "trigger_text": "Weekly Difference negative and VIX close 20 or above",
+        "status": "trade",
+        "how": "Buy SVOL (Simplify Volatility Premium: a small short-VIX-futures position with crash protection) at the Friday close, sell at the next Friday close. Since 2021 it won 71% of these weeks (normal week 56%), avg +1.11%, walk-forward 73%, worst week -6.1%. It is a volatility product: size it small and never on margin."
+      },
+      {
         "id": "oil-short",
         "name": "Oil lower next week",
         "series": "Oil",
@@ -268,7 +291,9 @@
       "TLT",
       "XLP",
       "UNG",
-      "USO"
+      "USO",
+      "SSO",
+      "SVOL"
     ],
     "margin": {
       "instruments": [
