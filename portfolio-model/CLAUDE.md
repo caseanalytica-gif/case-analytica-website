@@ -52,6 +52,11 @@ the week on the correct, official closing numbers:
 Both run `main.py --refresh`, upload the new `vix_model_data.json` to the
 dashboard, repoint every dataset at it in one batch, and delete the old file.
 
+The daily section (datasets daily_now, daily_orders, daily_rules, daily_log,
+Alerts tab) reads daily_alert.json, uploaded by the 3:37 PM weekday run, which
+repoints only those four datasets. main.py also folds the same tables into
+vix_model_data.json, so the Friday runs repoint all datasets to one file.
+
 If a Friday run fails or a refresh is done by hand, do the same steps: run
 `main.py --refresh`, check `alert_now[0].week` is this Friday, then upload and
 repoint as above. A Friday market holiday means the week ends Thursday; the
