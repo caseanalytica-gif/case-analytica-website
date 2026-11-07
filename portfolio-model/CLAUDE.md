@@ -43,6 +43,11 @@ the week on the correct, official closing numbers:
    (`trig_01FKwGtYteGAK4p9Lzb5dgzX`): reruns the model after the close and
    replaces the dashboard data with the official Friday closes. Reports the final
    Difference and says plainly if the final close changed which alerts fired.
+3. **3:37 PM ET weekdays, "VIX daily alert (QQQ / GLD)"**
+   (`trig_01Ry8NEzqzshedkS81C8zQse`): runs `daily_alert.py` (rules in
+   config.json under "daily"). VIX close minus open +3 or more: buy QQQ at
+   the close, sell next close. -3 or less: buy GLD at the close, sell 5
+   trading days later. Also sends SELL reminders. Does not touch the dashboard.
 
 Both run `main.py --refresh`, upload the new `vix_model_data.json` to the
 dashboard, repoint every dataset at it in one batch, and delete the old file.
@@ -89,6 +94,11 @@ Monday-open entries: do not reintroduce them.
   at $18.77, take profit $19.71; XLU at $43.13; exit at the Nov 13 close).
   Earlier weeks are a backtest of rules chosen on the same data.
 - About 80% of -5 weeks come within 4 weeks of a +3 spike.
+- Daily rules (since 2010): QQQ next day after a +3 VIX day won 64% of 117
+  (normal 54%), avg +0.58%, walk-forward 64%, worst day -6.3%. GLD over 5 days
+  after a -3 day won 63% of 86, avg +1.05%, walk-forward 66%. SVXY after +3 won
+  69% of 70 (avg +0.87%) but was not chosen (crash risk). Daily moves of +1 or
+  +2 have little or no edge.
 - Tested 2026-11-07 and not adopted (do not re-test without a new reason):
   - Rotation: hold SPY (or GLD), switch to SCO on a +5 alert, back after the
     take-profit. 3 years: +109% vs +75% SPY alone; +156% vs +104% GLD alone.
