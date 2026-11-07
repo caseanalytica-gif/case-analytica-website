@@ -342,5 +342,24 @@
   },
   "output": {
     "excel_file": "portfolio_model_output.xlsx"
+  },
+  "daily": {
+    "threshold": 3,
+    "rules": [
+      {
+        "id": "daily-qqq",
+        "symbol": "QQQ",
+        "min_difference": 3,
+        "hold_days": 1,
+        "note": "Since 2010 QQQ rose the next day 64% of 117 times after VIX closed 3+ points above its open (normal day 54%), avg +0.58%, walk-forward 64%, worst day -6.3%."
+      },
+      {
+        "id": "daily-gld",
+        "symbol": "GLD",
+        "max_difference": -3,
+        "hold_days": 5,
+        "note": "Since 2010 GLD rose over the next 5 days 63% of 86 times after VIX closed 3+ points below its open (normal 53%), avg +1.05%, walk-forward 66%, worst -9.1%."
+      }
+    ]
   }
 }
