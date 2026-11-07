@@ -143,6 +143,10 @@ def main(argv=None) -> int:
     notes += vm.difference_signal_findings(dsig)
     al = alerts.build(wkly, cfg, vd.weekly_close)
     mg = margin.build(wkly, cfg, vd.weekly_close)
+    margin_on = cfg["alerts"]["margin"].get("enabled", True)
+    if not margin_on:
+        # Cash-only account: the margin study stays on the dashboard, but never alerts.
+        mg["now"]["fired"] = 0
     _open = al["log"][(al["log"]["rule_id"] == "sco-long") & (al["log"]["outcome"] == "open")] if len(al["log"]) else al["log"]
     _entry = float(vd.weekly_close["SCO"].dropna()[lambda s: s.index <= pd.Timestamp(_open.iloc[0]["week"])].iloc[-1]) if len(_open) else None
     sco_exit = alerts.sco_exit_plan(wkly, cfg, vd.weekly_close, _entry)
@@ -187,7 +191,7 @@ def main(argv=None) -> int:
     if len(_held):
         exit_text = (f"EXIT TODAY: if you still hold the SCO bought at the {_lw} close, sell it at today's close "
                      f"(unless it already hit its take-profit).\n" + exit_text).strip()
-    alert_text = alerts.message(al) + "\n" + margin.message(mg) + ("\n" + exit_text if exit_text else "")
+    alert_text = alerts.message(al) + ("\n" + margin.message(mg) if margin_on else "") + ("\n" + exit_text if exit_text else "")
     (BASE / "dashboard_data" / "alert.txt").write_text(alert_text + "\n")
 
     # 8. Console summary ------------------------------------------------------

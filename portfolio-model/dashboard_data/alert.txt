@@ -10,8 +10,6 @@ Orders (buy at the Friday close, at about these prices):
 - SCO: buy at about $18.77. Take profit: sell if it closes at or above $19.71 (+5.0%) before 2026-11-13; otherwise sell at the 2026-11-13 close.
 - XLU: buy at about $43.13. Optional take profit: sell if it closes at or above $44.21 (+2.5%) before 2026-11-13; otherwise sell at the 2026-11-13 close. Since 2010 a +2.5% take profit won 70% vs 68% holding, but the average fell to +0.74% from +0.87%.
 Last week (2026-10-30): No alerts fired last week.
-No margin alert: at Difference +6.59, no instrument has a rule that clears the 0.5% weekly margin both in-sample and walk-forward.
-Triggered in-sample but not confirmed walk-forward (not alerts): SCO (Difference >= +5), XLU (Difference >= +4.5), XLP (Difference >= +4.5).
 SCO exit plan (bought 2026-11-06 close at $18.77):
 - Take profit: sell if SCO closes at or above $19.71 (+5%) before 2026-11-13.
 - Otherwise sell at the 2026-11-13 close. Typical result $19.34; 1-in-10 bad week $16.43.
