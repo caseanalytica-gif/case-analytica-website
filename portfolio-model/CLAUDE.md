@@ -78,6 +78,13 @@ Monday-open entries: do not reintroduce them.
 - SVXY changed from -1x to -0.5x in Feb 2018: use only data after that.
 - Say plainly when a result is weak. Never present in-sample results as a forecast.
 
+## Keeping this memory current
+
+At the end of a session that changed rules, ran new tests or opened or closed a
+live trade, run the `reflect` skill (`.claude/skills/reflect/`). It reviews the
+session, shows the exact edits to this file and any new skills, and saves only
+what the user approves.
+
 ## Writing rules for anything the user reads
 
 No em dashes and no exclamation points. Plain, direct sentences. Lead with the
