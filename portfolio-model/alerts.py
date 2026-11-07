@@ -18,14 +18,16 @@ import pandas as pd
 def fires(rule: dict, diff):
     """True where the Difference meets the rule: at or above ``min_difference``,
     or at or below ``max_difference`` for a rule on a falling-VIX week."""
-    if "max_difference" in rule:
-        return diff <= float(rule["max_difference"])
+    mx = rule.get("max_difference")
+    if mx is not None and np.isfinite(float(mx)):
+        return diff <= float(mx)
     return diff >= float(rule["min_difference"])
 
 
 def trigger_text(rule: dict) -> str:
-    if "max_difference" in rule:
-        return f"Weekly Difference of {rule['max_difference']:+g} points or less"
+    mx = rule.get("max_difference")
+    if mx is not None and np.isfinite(float(mx)):
+        return f"Weekly Difference of {float(mx):+g} points or less"
     return f"Weekly Difference of {rule['min_difference']:+g} points or more"
 
 
@@ -81,6 +83,24 @@ def build(wkly: dict, cfg: dict, prices: pd.DataFrame | None = None) -> dict:
            "headline": ("No alert this week: Difference inside every rule's bar." if not fired else
                         "Alert: " + "; ".join(f"{r['name']} ({r['status']})" for r in fired) + "."),
            "live_from": ac["live_from"]}
+    # Orders for this week's trades: entry at this Friday's close, exit by next Friday's close.
+    orders = []
+    for r in fired:
+        if r["status"] != "trade" or "symbol" not in r or prices is None or r["symbol"] not in prices.columns:
+            continue
+        s = prices[r["symbol"]].dropna()
+        s = s[s.index <= last]
+        if not len(s):
+            continue
+        entry = float(s.iloc[-1])
+        tp = r.get("take_profit")
+        orders.append({"rule_id": r["id"], "symbol": r["symbol"], "entry_date": s.index[-1].date().isoformat(),
+                       "entry_price": entry, "exit_by": (last + pd.Timedelta(days=7)).date().isoformat(),
+                       "take_profit": float(tp) if tp else None,
+                       "target_price": entry * (1 + float(tp)) if tp else None,
+                       "take_profit_optional": bool(r.get("take_profit_optional", False)),
+                       "take_profit_note": r.get("take_profit_note", "")})
+    now["orders"] = orders
     prev = weeks[-2] if len(weeks) > 1 else None
     prev_rows = log[log["week"] == prev.date().isoformat()] if prev is not None and len(log) else pd.DataFrame()
     now["last_week"] = prev.date().isoformat() if prev is not None else None
@@ -97,6 +117,19 @@ def message(al: dict) -> str:
             wr = r["backtest_win_rate"]
             lines.append(f"- {r['rule']} [{r['status']}]: {r['how']} Backtest won "
                          f"{wr:.0%} of {r['backtest_signals']} signals." if wr is not None else f"- {r['rule']}")
+    if n.get("orders"):
+        lines.append("Orders (buy at the Friday close, at about these prices):")
+        for o in n["orders"]:
+            line = f"- {o['symbol']}: buy at about ${o['entry_price']:.2f}."
+            if o["target_price"]:
+                kind = "Optional take profit" if o["take_profit_optional"] else "Take profit"
+                line += (f" {kind}: sell if it closes at or above ${o['target_price']:.2f} (+{o['take_profit']:.1%})"
+                         f" before {o['exit_by']}; otherwise sell at the {o['exit_by']} close.")
+                if o["take_profit_note"]:
+                    line += " " + o["take_profit_note"]
+            else:
+                line += f" Sell at the {o['exit_by']} close."
+            lines.append(line)
     lines.append(f"Last week ({n['last_week']}): {n['last_week_result']}")
     return "\n".join(lines)
 

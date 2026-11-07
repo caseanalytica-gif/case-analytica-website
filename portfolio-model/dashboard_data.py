@@ -130,6 +130,7 @@ def write(path: Path, *, portfolios, mc_regime, vix: dict, cfg: dict) -> Path:
 
     al = vix["alerts"]
     alert_now = [dict(al["now"])]
+    alert_orders = alert_now[0].pop("orders", [])
     alert_rules = _rows(al["rules"])
     alert_log = _rows(al["log"])
 
@@ -192,7 +193,7 @@ def write(path: Path, *, portfolios, mc_regime, vix: dict, cfg: dict) -> Path:
         "state": state, "odds": odds, "history": _rows(hist), "portfolios": prow, "weights": weights,
         "regimes": regimes, "diff_vix": diff_vix, "diff_inst": diff_inst, "diff_strat": diff_strat,
         "weekly": _rows(wk), "ivhv": _rows(ivhv), "diff_signal": diff_signal, "diff_now": diff_now,
-        "alert_now": alert_now, "alert_rules": alert_rules, "alert_log": alert_log,
+        "alert_now": alert_now, "alert_orders": alert_orders, "alert_rules": alert_rules, "alert_log": alert_log,
         "sco": sco_rows, "sco_stats": sco_stats,
         "margin_now": margin_now, "margin_summary": margin_summary, "margin_curve": margin_curve,
         "sco_exit_rules": sco_exit_rules,

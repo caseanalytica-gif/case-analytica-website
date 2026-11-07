@@ -193,7 +193,8 @@
         "side": "Long",
         "min_difference": 5,
         "status": "trade",
-        "how": "Buy SCO (ProShares UltraShort Bloomberg Crude Oil, -2x daily crude) at the Friday close, sell at the next Friday close. It is 2x leveraged: half the dollar size gives about the exposure of a 1x oil short. It resets daily, so do not hold it longer than the week."
+        "how": "Buy SCO (ProShares UltraShort Bloomberg Crude Oil, -2x daily crude) at the Friday close, sell at the next Friday close. It is 2x leveraged: half the dollar size gives about the exposure of a 1x oil short. It resets daily, so do not hold it longer than the week.",
+        "take_profit": 0.05
       },
       {
         "id": "xlu-long",
@@ -202,7 +203,10 @@
         "side": "Long",
         "min_difference": 5,
         "status": "trade",
-        "how": "Buy XLU (Utilities Select Sector SPDR) at the Friday close, sell at the next Friday close. The higher-probability, lower-risk companion to SCO: since 2010 it won 68% of these weeks (normal week 56%), avg +0.87%, 1-in-10 bad week about -2.8%. Not leveraged."
+        "how": "Buy XLU (Utilities Select Sector SPDR) at the Friday close, sell at the next Friday close. The higher-probability, lower-risk companion to SCO: since 2010 it won 68% of these weeks (normal week 56%), avg +0.87%, 1-in-10 bad week about -2.8%. Not leveraged.",
+        "take_profit": 0.025,
+        "take_profit_optional": true,
+        "take_profit_note": "Since 2010 a +2.5% take profit won 70% vs 68% holding, but the average fell to +0.74% from +0.87%."
       },
       {
         "id": "spy-long",
@@ -211,7 +215,10 @@
         "side": "Long",
         "max_difference": -5,
         "status": "trade",
-        "how": "Buy SPY (SPDR S&P 500) at the Friday close after VIX fell 5 points or more during the week, sell at the next Friday close. Stocks tend to keep rising as fear unwinds: since 2010 it won 67% of these weeks (normal week 58%), avg +0.85%, worst week -6.6%. Most of these weeks come within a month of a +3 spike."
+        "how": "Buy SPY (SPDR S&P 500) at the Friday close after VIX fell 5 points or more during the week, sell at the next Friday close. Stocks tend to keep rising as fear unwinds: since 2010 it won 67% of these weeks (normal week 58%), avg +0.85%, worst week -6.6%. Most of these weeks come within a month of a +3 spike.",
+        "take_profit": 0.01,
+        "take_profit_optional": true,
+        "take_profit_note": "Since 2010 a +1% take profit won 78% vs 67% holding, but the average fell to +0.72% from +0.85%."
       },
       {
         "id": "oil-short",
