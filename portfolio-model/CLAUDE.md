@@ -76,6 +76,12 @@ Monday-open entries: do not reintroduce them.
 
 - A rule fires on `min_difference` (at or above) or `max_difference` (at or below).
 - A rule can also require `min_vix` (minimum VIX close) and carry its own `trigger_text`.
+- Cash account only, no margin (user, 2026-11-07). Margin alerts are off
+  (alerts.margin.enabled = false); the margin study still runs for the
+  dashboard. Lower margin bars were tested: at 0.30%/week only QQQ on
+  Difference -0.5 or less passed walk-forward, and that is mostly normal
+  drift. Watch for cash-account settlement: reusing unsettled sale money
+  for a trade that is sold before settlement is a good faith violation.
 - The alert's Orders block gives each trade's entry price, take-profit price and exit date (`take_profit` in each rule).
 - Margin alert: only for a rule that clears 0.5% a week net and a 55% win rate,
   both in-sample and walk-forward. As of 2026-11-07 none qualify.
