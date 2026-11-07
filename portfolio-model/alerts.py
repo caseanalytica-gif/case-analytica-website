@@ -15,6 +15,20 @@ import numpy as np
 import pandas as pd
 
 
+def fires(rule: dict, diff):
+    """True where the Difference meets the rule: at or above ``min_difference``,
+    or at or below ``max_difference`` for a rule on a falling-VIX week."""
+    if "max_difference" in rule:
+        return diff <= float(rule["max_difference"])
+    return diff >= float(rule["min_difference"])
+
+
+def trigger_text(rule: dict) -> str:
+    if "max_difference" in rule:
+        return f"Weekly Difference of {rule['max_difference']:+g} points or less"
+    return f"Weekly Difference of {rule['min_difference']:+g} points or more"
+
+
 def build(wkly: dict, cfg: dict, prices: pd.DataFrame | None = None) -> dict:
     ac = cfg["alerts"]
     live_from = pd.Timestamp(ac["live_from"])
@@ -35,7 +49,7 @@ def build(wkly: dict, cfg: dict, prices: pd.DataFrame | None = None) -> dict:
         sg = 1 if rule["side"] == "Long" else -1
         s, symbol, chg = weekly_change(rule)
         nxt = chg.shift(-1)
-        for t in weeks[d >= float(rule["min_difference"])]:
+        for t in weeks[fires(rule, d)]:
             res = nxt.get(t)
             res = None if res is None or not np.isfinite(res) else float(sg * res)
             log.append({"week": t.date().isoformat(), "difference": float(d[t]), "rule_id": rule["id"],
@@ -52,18 +66,19 @@ def build(wkly: dict, cfg: dict, prices: pd.DataFrame | None = None) -> dict:
         bt = g[(g["record"] == "backtest") & (g["outcome"] != "open")] if len(g) else g
         lv = g[(g["record"] == "live") & (g["outcome"] != "open")] if len(g) else g
         rules.append({"rule_id": rule["id"], "rule": rule["name"], "status": rule["status"],
-                      "trigger": f"Weekly Difference of {rule['min_difference']:+g} points or more",
-                      "min_difference": float(rule["min_difference"]),
+                      "trigger": trigger_text(rule),
+                      "min_difference": float(rule.get("min_difference", np.nan)),
+                      "max_difference": float(rule.get("max_difference", np.nan)),
                       "symbol": rule.get("symbol") or sym.get(rule["series"], rule["series"]), "side": rule["side"], "how": rule["how"],
                       "backtest_signals": int(len(bt)), "backtest_win_rate": float((bt["result"] > 0).mean()) if len(bt) else None,
                       "backtest_avg_result": float(bt["result"].mean()) if len(bt) else None,
                       "live_signals": int(len(lv)), "live_wins": int((lv["result"] > 0).sum()) if len(lv) else 0})
 
     last = weeks[-1]
-    fired = [r for r in ac["rules"] if d.iloc[-1] >= float(r["min_difference"])]
+    fired = [r for r in ac["rules"] if fires(r, d.iloc[-1])]
     now = {"week": last.date().isoformat(), "difference": float(d.iloc[-1]),
            "fired": len(fired), "fired_trades": sum(r["status"] == "trade" for r in fired),
-           "headline": ("No alert this week: Difference below every rule's bar." if not fired else
+           "headline": ("No alert this week: Difference inside every rule's bar." if not fired else
                         "Alert: " + "; ".join(f"{r['name']} ({r['status']})" for r in fired) + "."),
            "live_from": ac["live_from"]}
     prev = weeks[-2] if len(weeks) > 1 else None
@@ -78,7 +93,7 @@ def message(al: dict) -> str:
     n = al["now"]
     lines = [f"VIX Difference alert for the week ending {n['week']}: Difference {n['difference']:+.2f} pts.", n["headline"]]
     for _, r in al["rules"].iterrows():
-        if n["difference"] >= r["min_difference"]:
+        if fires(r, n["difference"]):
             wr = r["backtest_win_rate"]
             lines.append(f"- {r['rule']} [{r['status']}]: {r['how']} Backtest won "
                          f"{wr:.0%} of {r['backtest_signals']} signals." if wr is not None else f"- {r['rule']}")

@@ -1,11 +1,5 @@
 VIX Difference alert for the week ending 2026-11-06: Difference +6.59 pts.
 Alert: Buy SCO next week (long-only oil short) (trade); Buy XLU next week (high-probability defensive) (trade); Oil lower next week (signal); Short natural gas next week (watch); Long GLD next week (watch); VIX lower next week (signal).
-- Buy SCO next week (long-only oil short) [trade]: Buy SCO (ProShares UltraShort Bloomberg Crude Oil, -2x daily crude) at the Friday close, sell at the next Friday close. It is 2x leveraged: half the dollar size gives about the exposure of a 1x oil short. It resets daily, so do not hold it longer than the week. Backtest won 58% of 24 signals.
-- Buy XLU next week (high-probability defensive) [trade]: Buy XLU (Utilities Select Sector SPDR) at the Friday close, sell at the next Friday close. The higher-probability, lower-risk companion to SCO: since 2010 it won 68% of these weeks (normal week 56%), avg +0.87%, 1-in-10 bad week about -2.8%. Not leveraged. Backtest won 71% of 24 signals.
-- Oil lower next week [signal]: The underlying move. If you can only buy, use the SCO rule; CL=F on Yahoo is a front-month series with roll jumps. Backtest won 67% of 24 signals.
-- Short natural gas next week [watch]: NG=F futures or UNG. Watch only: the edge is not statistically significant. Backtest won 67% of 24 signals.
-- Long GLD next week [watch]: Buy GLD (SPDR Gold Shares, tracks gold bullion) at the Friday close, sell at the next Friday close. Watch only: the edge is weak and not statistically significant. Backtest won 54% of 24 signals.
-- VIX lower next week [signal]: Not directly tradable. A risk read; the non-VIX way to trade it is selling SPY or SPX option premium, which is untested here. Backtest won 81% of 47 signals.
 Last week (2026-10-30): No alerts fired last week.
 No margin alert: at Difference +6.59, no instrument has a rule that clears the 0.5% weekly margin both in-sample and walk-forward.
 Triggered in-sample but not confirmed walk-forward (not alerts): SCO (Difference >= +5), XLU (Difference >= +4.5), XLP (Difference >= +4.5).

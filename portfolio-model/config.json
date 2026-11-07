@@ -205,6 +205,15 @@
         "how": "Buy XLU (Utilities Select Sector SPDR) at the Friday close, sell at the next Friday close. The higher-probability, lower-risk companion to SCO: since 2010 it won 68% of these weeks (normal week 56%), avg +0.87%, 1-in-10 bad week about -2.8%. Not leveraged."
       },
       {
+        "id": "spy-long",
+        "name": "Buy SPY next week (fear collapsed)",
+        "symbol": "SPY",
+        "side": "Long",
+        "max_difference": -5,
+        "status": "trade",
+        "how": "Buy SPY (SPDR S&P 500) at the Friday close after VIX fell 5 points or more during the week, sell at the next Friday close. Stocks tend to keep rising as fear unwinds: since 2010 it won 67% of these weeks (normal week 58%), avg +0.85%, worst week -6.6%. Most of these weeks come within a month of a +3 spike."
+      },
+      {
         "id": "oil-short",
         "name": "Oil lower next week",
         "series": "Oil",
