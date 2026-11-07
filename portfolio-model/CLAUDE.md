@@ -92,6 +92,16 @@ Monday-open entries: do not reintroduce them.
   Difference -0.5 or less passed walk-forward, and that is mostly normal
   drift. Watch for cash-account settlement: reusing unsettled sale money
   for a trade that is sold before settlement is a good faith violation.
+- Hold to +1% (added 2026-11-07, `hold_to_target` and `extend_cap_days`): a
+  trade below its buy price at its planned exit is held until it closes 1%
+  above the buy price, up to 63 trading days for QQQ, SPY, SSO and XLU and 21
+  for SVOL and GLD. SCO is never held past plan. Since 2010, every losing QQQ,
+  SPY, SSO and XLU trade reached +1% (medians: QQQ 7, SSO 11, SPY 14, XLU 23
+  trading days; average dip while waiting 5-9%). SVOL: all recovered, one took
+  235 days. GLD: half within a month, one took 9 years, two from Mar 2026 never
+  did. SCO: 5 of 11 losers never recovered (fell 94-99% in 2020-2022). These
+  results come from a mostly rising market; a long bear market would be worse.
+  The daily alert sends HOLD and SELL reminders and fills the daily_held table.
 - The alert's Orders block gives each trade's entry price, take-profit price and exit date (`take_profit` in each rule).
 - Margin alert: only for a rule that clears 0.5% a week net and a 55% win rate,
   both in-sample and walk-forward. As of 2026-11-07 none qualify.
