@@ -89,6 +89,26 @@ Monday-open entries: do not reintroduce them.
     since 2018, worst -20%); GLD as a trade (44% won since 2021); SPY on +5
     (t-stat 0.95); any rule on Difference between 0 and -5 (no edge).
   - $5,000 per SCO alert, last 3 years: 5 trades, +$1,225.
+- VIX ETFs, tested 2026-11-07 (not yet alerts):
+  - Never buy long-VIX ETFs (VIXY, VXX, UVXY, UVIX, VIXM): they lose in every
+    Difference bucket and decay 18% to 82% a year.
+  - Inverse VIX ETFs work only after fear starts easing, never after a spike.
+    Signal "Difference negative and VIX 20 or above", Friday close to Friday close:
+    SVIX (since 2022) won 81% of 43, avg +4.35%, worst week -12%;
+    SVXY (since Mar 2018) won 72% of 88, avg +1.27%, worst week -18.4%;
+    SVOL (since 2021) won 71% of 51, avg +1.11%, walk-forward 73%, worst week -6.1%.
+  - The same signal does not work for stock ETFs since 2010 (SSO, UPRO, SPY won
+    55-56% vs 58% normal; walk-forward fails). SVIX's 81% is partly a 2022-2026
+    effect. SVOL is the preferred way to take it; SVIX is watch-only.
+  - Crash risk: SVIX fell 39% and SVXY 21% in one day (2024-08-05). Size small,
+    never on margin.
+  - On Difference -5 or less (since 2010, 46 trades): SSO (2x S&P 500) won 67%,
+    avg +1.70%, walk-forward 67%, worst week -13.2%; with a +1% take profit it
+    won 83%, avg +1.25%. Same odds as SPY at about twice the payoff.
+  - JEPI after +5 weeks won 11 of 13, avg +1.53%, worst week -0.6%: watch only,
+    too few trades.
+  - Pending user decision: add SVOL (negative week, VIX 20+) and an SSO option on
+    -5 weeks, as trade or watch.
 
 ## Standards for any new signal or rule
 
