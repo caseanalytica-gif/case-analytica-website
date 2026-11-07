@@ -68,11 +68,14 @@ Monday-open entries: do not reintroduce them.
 | +5 or more | Buy SCO (-2x daily crude). Take profit at +5% from entry, else sell next Friday close. Optional -8% stop. | trade |
 | +5 or more | Buy XLU (utilities). Hold the week. Since 2010 won 68% (normal week 56%), avg +0.87%. Optional take profit +2.5% (won 70%, avg +0.74%). | trade |
 | -5 or less | Buy SPY. Hold the week. Since 2010 won 67% (normal week 58%), avg +0.85%. Optional take profit +1% (won 78%, avg +0.72%). | trade |
+| -5 or less | Buy SSO (2x S&P 500) in place of SPY, about half the size. Since 2010 won 67%, avg +1.70%, worst week -13.2%. Optional take profit +1% (won 83%, avg +1.25%). | trade |
+| Negative, VIX close 20+ | Buy SVOL. Since 2021 won 71%, avg +1.11%, walk-forward 73%, worst week -6.1%. Size small, never on margin. | trade |
 | +5 or more | Long GLD; short natural gas | watch |
 | +5 or more | Oil lower next week | signal |
 | +3 or more | VIX lower next week (risk read, not a trade) | signal |
 
 - A rule fires on `min_difference` (at or above) or `max_difference` (at or below).
+- A rule can also require `min_vix` (minimum VIX close) and carry its own `trigger_text`.
 - The alert's Orders block gives each trade's entry price, take-profit price and exit date (`take_profit` in each rule).
 - Margin alert: only for a rule that clears 0.5% a week net and a 55% win rate,
   both in-sample and walk-forward. As of 2026-11-07 none qualify.
@@ -107,8 +110,7 @@ Monday-open entries: do not reintroduce them.
     won 83%, avg +1.25%. Same odds as SPY at about twice the payoff.
   - JEPI after +5 weeks won 11 of 13, avg +1.53%, worst week -0.6%: watch only,
     too few trades.
-  - Pending user decision: add SVOL (negative week, VIX 20+) and an SSO option on
-    -5 weeks, as trade or watch.
+  - SVOL and SSO added as trade alerts on 2026-11-07.
 
 ## Standards for any new signal or rule
 
