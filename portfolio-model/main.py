@@ -180,6 +180,15 @@ def main(argv=None) -> int:
                       findings=notes)
     dash_file = dashboard_data.write(BASE / "dashboard_data" / "vix_model_data.json", portfolios=portfolios,
                                      mc_regime=mc_regime, vix=vix_bundle, cfg=cfg)
+    # Daily alert tables ride along in the same file, so a weekly refresh keeps them current too.
+    import daily_alert
+    try:
+        _daily = daily_alert.build(cfg)["tables"]
+        _payload = json.loads(dash_file.read_text())
+        _payload.update(_daily)
+        dash_file.write_text(json.dumps(_payload, separators=(",", ":"), allow_nan=False))
+    except Exception as e:  # the weekly run must not fail because of the daily tables
+        log.warning("Daily alert tables not added: %s", e)
     log.info("Dashboard data: %s (%.0f KB)", dash_file.name, dash_file.stat().st_size / 1024)
     _ent = None
     if len(_open):

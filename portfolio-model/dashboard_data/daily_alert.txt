@@ -1,3 +1,3 @@
 Daily VIX alert for 2026-11-06: VIX open 27.68, now 25.64, Difference -2.04 pts.
-SELL QQQ at today's close: bought 2026-11-05 at about $647.05 (VIX Difference +11.04), now $656.10 (+1.40%).
+SELL QQQ at today's close: Bought 2026-11-05 at about $647.05 (VIX Difference +11.04). Now $656.10 (+1.40%).
 Cash only: buy with settled funds, and do not reuse today's sale proceeds for a trade you sell before they settle.
