@@ -20,6 +20,15 @@ anything here.
 - The user's original workbooks (`Copy_of_VIX_Algo.xlsx`, `algo_with_chart.xlsx`)
   are kept outside the repo. Their hand-entered values do not match the dates
   they carry; do not treat them as data.
+- The workbooks compute Spread Total two ways (sum in algo_with_chart, sum / 6
+  in Copy_of_VIX_Algo); the model follows algo_with_chart. Only the Difference
+  row drives trades: Spread Total and Average did not predict next week's VIX
+  or SPY.
+- Dashboard page: every drawing goes through the `draw()` wrapper, which clears
+  the loading shimmer (`dash-skeleton`). Keep it in any page edit; without it
+  the tables stay blank.
+- The Mac folder "Portfolio model ai" sits in iCloud (under ~/Library), which
+  cloud sessions cannot attach. Send Mac updates as a zip of that folder.
 
 ## Weekly dashboard update: every Friday
 
@@ -42,6 +51,10 @@ If a Friday run fails or a refresh is done by hand, do the same steps: run
 `main.py --refresh`, check `alert_now[0].week` is this Friday, then upload and
 repoint as above. A Friday market holiday means the week ends Thursday; the
 model handles that from the data.
+
+Deleting the old data file is a permanent delete: in Auto mode it can be
+refused. That is harmless (the old file is unused); the user can approve it
+in another mode.
 
 ## The alert rules (`config.json`, `alerts.rules`)
 
@@ -66,6 +79,15 @@ Monday-open entries: do not reintroduce them.
   at $18.77, take profit $19.71; XLU at $43.13; exit at the Nov 13 close).
   Earlier weeks are a backtest of rules chosen on the same data.
 - About 80% of -5 weeks come within 4 weeks of a +3 spike.
+- Tested 2026-11-07 and not adopted (do not re-test without a new reason):
+  - Rotation: hold SPY (or GLD), switch to SCO on a +5 alert, back after the
+    take-profit. 3 years: +109% vs +75% SPY alone; +156% vs +104% GLD alone.
+  - After the SCO take-profit, buy GLD for the rest of the week: added +1.05%
+    on average (16 of 24 alerts hit the take-profit early).
+  - Rejected: KOLD on +5 (worst week -38%); SVXY on positive weeks (+0.58%
+    since 2018, worst -20%); GLD as a trade (44% won since 2021); SPY on +5
+    (t-stat 0.95); any rule on Difference between 0 and -5 (no edge).
+  - $5,000 per SCO alert, last 3 years: 5 trades, +$1,225.
 
 ## Standards for any new signal or rule
 
