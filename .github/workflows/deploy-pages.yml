@@ -36,6 +36,9 @@ jobs:
             --exclude='/social/' --exclude='/video-scripts/' \
             --exclude='/linkedin-posts/' --exclude='/tools/' \
             --exclude='/cloudflare/' --exclude='/email-capture-sheets/'
+      # Minify the published stylesheet only. assets/style.css in git stays readable.
+      - name: Minify CSS
+        run: python3 tools/minify_css.py _site/assets/style.css
       # Drop embedded tool credentials (C2PA, XMP) from any media that slipped in.
       - name: Strip media provenance
         run: python3 tools/strip-provenance.py _site

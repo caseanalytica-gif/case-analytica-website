@@ -73,6 +73,11 @@ The workflow publishes a filtered copy, not the whole repo: every `.md` file,
 `email-capture-sheets/` stay in git but are not served. A new internal folder
 needs adding to the exclude list in `deploy-pages.yml`.
 
+The deploy also minifies `assets/style.css` in the published copy only
+(`tools/minify_css.py`, 61 KB to 45 KB, added 2026-11-09 after an Ahrefs "CSS file
+size too large" warning). Edit the readable source in git. If you want to see what
+the live file will be, run `python3 tools/minify_css.py assets/style.css /tmp/style.min.css`.
+
 Stage your own paths and hunks. Never `git add -A` here, because the working tree
 usually holds unrelated in-progress edits.
 
