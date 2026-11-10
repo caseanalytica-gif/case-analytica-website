@@ -462,7 +462,7 @@ def article_dek(slug, root):
     return html.unescape(m.group(1)) if m else ""
 
 
-DONATE_URL = "https://donate.stripe.com/6oU28s2Hg2mggdyet62Ji00"
+DONATE_URL = "https://fundrazr.com/CaseAnalytica?ref=cr_5FFML2"
 
 
 def cine_cover_html(lead, root):
