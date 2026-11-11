@@ -1,12 +1,12 @@
 read_date,group,value,count
-2026-11-07,total,all,6608
-2026-11-07,gender,Female,516
-2026-11-07,gender,Male,6082
-2026-11-07,gender,Not recorded,10
-2026-11-07,age_band,Under 18,0
-2026-11-07,age_band,18 to 24,1025
-2026-11-07,age_band,25 to 34,2127
-2026-11-07,age_band,35 to 44,1867
-2026-11-07,age_band,45 to 54,933
-2026-11-07,age_band,55 and older,653
-2026-11-07,age_band,Age not recorded,3
+2026-11-11,total,all,6618
+2026-11-11,gender,Female,515
+2026-11-11,gender,Male,6094
+2026-11-11,gender,Not recorded,9
+2026-11-11,age_band,Under 18,0
+2026-11-11,age_band,18 to 24,1038
+2026-11-11,age_band,25 to 34,2120
+2026-11-11,age_band,35 to 44,1864
+2026-11-11,age_band,45 to 54,937
+2026-11-11,age_band,55 and older,657
+2026-11-11,age_band,Age not recorded,2
