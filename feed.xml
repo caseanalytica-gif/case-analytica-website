@@ -6,7 +6,14 @@
     <description>Reporting on New York's criminal courts, prisons and parole.</description>
     <language>en-us</language>
     <atom:link href="https://www.caseanalytica.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Fri, 06 Nov 2026 12:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 12 Nov 2026 12:00:00 +0000</lastBuildDate>
+    <item>
+      <title>New York Counted 9 Deaths at Rikers and 149 in State Prisons This Year. The State&#x27;s List Names Them and Gives No Cause.</title>
+      <link>https://www.caseanalytica.com/articles/deaths-in-custody-rikers-state-prisons-parole-2026-ny.html</link>
+      <guid isPermaLink="true">https://www.caseanalytica.com/articles/deaths-in-custody-rikers-state-prisons-parole-2026-ny.html</guid>
+      <pubDate>Thu, 12 Nov 2026 12:00:00 +0000</pubDate>
+      <description>Nine deaths in NYC jail custody and 149 on the state prison list so far in 2026, and what the Parole Board&#x27;s numbers say about who goes home.</description>
+    </item>
     <item>
       <title>The Clean Slate Fix for a Missed Sealing Is a Form. The Form Doesn&#x27;t Exist Yet.</title>
       <link>https://www.caseanalytica.com/articles/clean-slate-manual-review-form-not-available-ny.html</link>
@@ -209,13 +216,6 @@
       <guid isPermaLink="true">https://www.caseanalytica.com/articles/nyc-office-of-community-safety-mamdani-explained.html</guid>
       <pubDate>Fri, 04 Sep 2026 12:00:00 +0000</pubDate>
       <description>Mayor Mamdani ran on sending care, not just police, to mental health crises and gun violence in the neighborhoods hit hardest by both. Six months into the Office of Community Safety, here&#x27;s the real money and the real response already reaching Black and Brown New Yorkers.</description>
-    </item>
-    <item>
-      <title>New York&#x27;s Parole Board Is 33% Less Likely to Release a Person of Color: The Data Behind the Gap</title>
-      <link>https://www.caseanalytica.com/articles/parole-board-racial-disparity-release-rates-ny.html</link>
-      <guid isPermaLink="true">https://www.caseanalytica.com/articles/parole-board-racial-disparity-release-rates-ny.html</guid>
-      <pubDate>Wed, 02 Sep 2026 12:00:00 +0000</pubDate>
-      <description>A New York University report found the state&#x27;s parole board releases people of color at a rate 33 percent lower than white applicants, and the gap has widened under Governor Hochul. Here&#x27;s what the data shows.</description>
     </item>
   </channel>
 </rss>

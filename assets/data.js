@@ -330,6 +330,17 @@ const VIDEOS = [
 
 const ARTICLES = [
   {
+    slug: "deaths-in-custody-rikers-state-prisons-parole-2026-ny",
+    title: "New York Counted 9 Deaths at Rikers and 149 in State Prisons This Year. The State's List Names Them and Gives No Cause.",
+    category: "System",
+    stage: "system",
+    date: "2026-11-12",
+    excerpt: "Nine deaths in NYC jail custody and 149 on the state prison list so far in 2026, and what the Parole Board's numbers say about who goes home.",
+    image: "assets/photos/rikers-island-aerial.jpg",
+    imageAlt: "Aerial photograph of Rikers Island in the East River with LaGuardia Airport beyond it. No people are visible.",
+    imageCredit: "Photo: Cdogsimmons, Wikimedia Commons, public domain"
+  },
+  {
     slug: "clean-slate-manual-review-form-not-available-ny",
     title: "The Clean Slate Fix for a Missed Sealing Is a Form. The Form Doesn't Exist Yet.",
     category: "Rights & Process",
