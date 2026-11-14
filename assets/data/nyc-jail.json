@@ -3,14 +3,14 @@
  "source": "NYC Department of Correction, via NYC Open Data",
  "source_url": "https://data.cityofnewyork.us/d/7479-ugqb",
  "dataset_id": "7479-ugqb",
- "source_last_updated": "2026-11-10",
- "retrieved": "2026-11-11",
+ "source_last_updated": "2026-11-13",
+ "retrieved": "2026-11-14",
  "population": "People in New York City Department of Correction custody on the day the feed was read. The agency excludes sealed cases, so totals can differ slightly from its other published statistics.",
- "total": 6618,
+ "total": 6636,
  "by_gender": {
-  "Not recorded": 9,
-  "Male": 6094,
-  "Female": 515
+  "Not recorded": 10,
+  "Male": 6108,
+  "Female": 518
  },
  "by_age_band": [
   {
@@ -19,19 +19,19 @@
   },
   {
    "band": "18 to 24",
-   "count": 1038
+   "count": 1028
   },
   {
    "band": "25 to 34",
-   "count": 2120
+   "count": 2116
   },
   {
    "band": "35 to 44",
-   "count": 1864
+   "count": 1883
   },
   {
    "band": "45 to 54",
-   "count": 937
+   "count": 949
   },
   {
    "band": "55 and older",
@@ -39,7 +39,7 @@
   },
   {
    "band": "Age not recorded",
-   "count": 2
+   "count": 3
   }
  ],
  "history_file": "assets/data/nyc-jail-history.json"
