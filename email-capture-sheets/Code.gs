@@ -693,10 +693,10 @@ var RD_MONTHS = ['January','February','March','April','May','June','July','Augus
 var RD_DAYS = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 
 // Donation blocks. Gift wording: "Your gift is tax-deductible." is the cleared short line; the sponsor line is Ellen's, verbatim (2026-10-08).
-// Each placement has its own FundRazr referral code so gifts can be traced. The bottom code is empty until it is created
-// (FundRazr > Engage > Referrals); with it empty the bottom block is skipped, never sent with a wrong link.
+// Each placement has its own FundRazr referral code so gifts can be traced (mid: Email list cr_dFFMM9; bottom: "Email, bottom block" cr_fFJ8Ve, made 2026-11-16).
+// If a code is ever emptied, that block is skipped rather than sent with a wrong link.
 var RD_REF_MID = 'https://fundrazr.com/CaseAnalytica?ref=cr_dFFMM9';
-var RD_REF_BOTTOM = '';
+var RD_REF_BOTTOM = 'https://fundrazr.com/CaseAnalytica?ref=cr_fFJ8Ve';
 var RD_SPONSOR_LINE = 'Case Analytica is fiscally sponsored by the Alternative Newsweekly Foundation, EIN 30-0100369. All donations are tax-deductible to the extent allowed by law.';
 var RD_GIVE_MID = {
   url: RD_REF_MID,
