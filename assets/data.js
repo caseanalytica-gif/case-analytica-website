@@ -330,6 +330,17 @@ const VIDEOS = [
 
 const ARTICLES = [
   {
+    slug: "nypd-disbands-srg-protest-arrest-process-ny",
+    title: "The NYPD Is Disbanding the Unit That Polices Protests. What Happens to Someone It Arrests Does Not Change",
+    category: "Rights & Process",
+    stage: "arrest",
+    date: "2026-11-16",
+    excerpt: "Mayor Mamdani announced the end of the NYPD's Strategic Response Group on Nov. 16, 2026. The charges, the appearance ticket and the sealing rules for a protest arrest come from state law, and the plan leaves them where they were.",
+    image: "assets/photos/nypd-headquarters-one-police-plaza.jpg",
+    imageAlt: "The brick tower of One Police Plaza, the NYPD's headquarters, against a blue sky. No people are visible.",
+    imageCredit: "Photo: Kidfly182, Wikimedia Commons, CC BY 4.0"
+  },
+  {
     slug: "deaths-in-custody-rikers-state-prisons-parole-2026-ny",
     title: "New York Counted 9 Deaths at Rikers and 149 in State Prisons This Year. The State's List Names Them and Gives No Cause.",
     category: "System",
