@@ -642,6 +642,7 @@ function createCourseTrigger() {
    ========================================================================== */
 
 var ROUNDUP_URL = 'https://www.caseanalytica.com/assets/roundups/latest.json';
+var ROUNDUP_FROM_NAME = 'Case Analytica';
 
 function sendRoundupTest() {
   var r = fetchSiteJson(ROUNDUP_URL);
@@ -672,20 +673,223 @@ function sendRoundup() {
   console.log('Roundup ' + r.issue + ': sent ' + sent + ', still pending ' + (pending.length - sent));
 }
 
+// ---------------------------------------------------------------------------
+// Roundup email layout: black stage, one huge number, grey lines, blue links.
+// Built as nested tables with inline styles because Gmail and Outlook ignore
+// most modern CSS. Every block after the header is optional and only renders
+// when the issue JSON has the field:
+//   hero     {kicker, number, line, url, link_text}
+//   ours_week [{title, url, category, date, excerpt, image, credit}]
+//   stat     {number, line, url, link_text}
+//   question "the exact question to ask"
+//   items    [{outlet, date, by, title, url, summary}]
+//   give     {url, label, line, ways[], sponsor} bottom donation block; false turns it off
+//   giveMid  {url, label, heading, line} box midway through the other-newsroom stories; false turns it off
+// Both default to RD_GIVE / RD_GIVE_MID below (Julie, 2026-11-15: a box midway and one at the bottom, different referral codes).
+// ---------------------------------------------------------------------------
+var RD_FONT = "-apple-system,BlinkMacSystemFont,'SF Pro Display','Helvetica Neue',Helvetica,Arial,sans-serif";
+var RD_SERIF = "'New York',Georgia,'Times New Roman',serif";
+var RD_MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+var RD_DAYS = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+
+// Donation blocks. Gift wording: "Your gift is tax-deductible." is the cleared short line; the sponsor line is Ellen's, verbatim (2026-10-08).
+// Each placement has its own FundRazr referral code so gifts can be traced. The bottom code is empty until it is created
+// (FundRazr > Engage > Referrals); with it empty the bottom block is skipped, never sent with a wrong link.
+var RD_REF_MID = 'https://fundrazr.com/CaseAnalytica?ref=cr_dFFMM9';
+var RD_REF_BOTTOM = '';
+var RD_SPONSOR_LINE = 'Case Analytica is fiscally sponsored by the Alternative Newsweekly Foundation, EIN 30-0100369. All donations are tax-deductible to the extent allowed by law.';
+var RD_GIVE_MID = {
+  url: RD_REF_MID,
+  heading: 'Enjoy our free stories?',
+  line: 'Case Analytica is free to read and runs on reader gifts. Your gift is tax-deductible.',
+  label: 'Donate today'
+};
+var RD_GIVE = {
+  url: RD_REF_BOTTOM,
+  label: 'Donate today',
+  line: 'If this reporting helps you, help keep it free. Your gift is tax-deductible.',
+  ways: [
+    { text: 'Donor-advised fund: contact your fund manager and designate a gift for Case Analytica using the Alternative Newsweekly Foundation EIN, 30-0100369.' },
+    { text: 'Stock: write to stock@altnewsfoundation.org.' },
+    { text: 'Crypto: ', url: 'https://altnewsfoundation.org/caseanalytica/' }
+  ],
+  sponsor: RD_SPONSOR_LINE
+};
+
+function roundupGive(r) { if (r.give === false) return null; var g = r.give || RD_GIVE; return g && g.url ? g : null; }
+function roundupGiveMid(r) { if (r.giveMid === false) return null; var g = r.giveMid || RD_GIVE_MID; return g && g.url ? g : null; }
+
+function roundupOurs(r) {
+  if (r.ours_week && r.ours_week.length) return r.ours_week;
+  return r.ours ? [r.ours] : [];
+}
+
+function roundupDateLabel(issue) {
+  var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(issue || '');
+  if (!m) return '';
+  var d = new Date(Date.UTC(+m[1], +m[2] - 1, +m[3]));
+  return RD_DAYS[d.getUTCDay()] + ', ' + RD_MONTHS[d.getUTCMonth()] + ' ' + (+m[3]) + ', ' + m[1];
+}
+
+function rdLink(url, text, size) {
+  return '<a href="' + url + '" style="color:#2997ff;text-decoration:none;font-size:' + (size || 18) + 'px;">' + escapeHtml(text) + ' &rsaquo;</a>';
+}
+
+function rdRow(inner, extraTdStyle) {
+  return '<tr><td class="pad" style="padding:' + (extraTdStyle || '0 28px') + ';font-family:' + RD_FONT + ';color:#f5f5f7;">' + inner + '</td></tr>';
+}
+
+function rdLabel(text) {
+  return rdRow('<div style="font-size:15px;font-weight:600;color:#86868b;padding:10px 0 14px;">' + escapeHtml(text) + '</div>');
+}
+
+function rdHeroHtml(h) {
+  return '<tr><td class="pad" align="center" style="padding:70px 28px 74px;font-family:' + RD_FONT + ';">' +
+    (h.kicker ? '<div style="font-size:19px;font-weight:600;color:#f5f5f7;">' + escapeHtml(h.kicker) + '</div>' : '') +
+    '<div class="big" style="font-size:132px;font-weight:700;letter-spacing:-4px;line-height:1.05;color:#f5f5f7;margin:6px 0;">' + escapeHtml(h.number) + '</div>' +
+    '<div style="font-size:22px;line-height:1.3;color:#86868b;margin:0 auto 22px;max-width:430px;">' + escapeHtml(h.line) + '</div>' +
+    (h.url ? rdLink(h.url, h.link_text || 'Read the story') : '') +
+    '</td></tr>';
+}
+
+function rdTileHtml(a) {
+  var img = a.image
+    ? '<tr><td style="font-size:0;line-height:0;"><a href="' + a.url + '"><img src="' + a.image + '" width="552" alt="" style="display:block;width:100%;max-width:552px;height:auto;border:0;"></a></td></tr>'
+    : '';
+  var ey = [a.category, a.date].filter(function (x) { return x; }).join('  ·  ');
+  return '<tr><td class="pad" style="padding:0 20px 18px;">' +
+    '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#161618" style="background:#161618;border-radius:22px;overflow:hidden;">' + img +
+    '<tr><td style="padding:20px 24px 26px;font-family:' + RD_FONT + ';">' +
+    (ey ? '<div style="font-size:12px;letter-spacing:1px;text-transform:uppercase;color:#86868b;">' + escapeHtml(ey) + '</div>' : '') +
+    '<div class="h3" style="font-size:25px;line-height:1.16;font-weight:700;color:#f5f5f7;margin:9px 0 10px;"><a href="' + a.url + '" style="color:#f5f5f7;text-decoration:none;">' + escapeHtml(a.title) + '</a></div>' +
+    (a.excerpt ? '<div style="font-size:16px;line-height:1.45;color:#a1a1a6;margin:0 0 14px;">' + escapeHtml(a.excerpt) + '</div>' : '') +
+    rdLink(a.url, 'Read the story') +
+    (a.credit ? '<div style="font-size:11px;color:#6e6e73;margin-top:14px;">' + escapeHtml(a.credit) + '</div>' : '') +
+    '</td></tr></table></td></tr>';
+}
+
+function rdStatHtml(s) {
+  return '<tr><td class="pad" align="center" style="padding:84px 28px;font-family:' + RD_FONT + ';">' +
+    '<div class="big" style="font-size:120px;font-weight:700;letter-spacing:-4px;line-height:1.05;color:#f5f5f7;">' + escapeHtml(s.number) + '</div>' +
+    '<div style="font-size:20px;line-height:1.35;color:#86868b;margin:10px auto 18px;max-width:440px;">' + escapeHtml(s.line) + '</div>' +
+    (s.url ? rdLink(s.url, s.link_text || 'See the data') : '') +
+    '</td></tr>';
+}
+
+function rdQuestionHtml(q) {
+  return '<tr><td class="pad" style="padding:6px 20px 18px;">' +
+    '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#161618" style="background:#161618;border-radius:22px;">' +
+    '<tr><td align="center" style="padding:34px 28px;font-family:' + RD_FONT + ';">' +
+    '<div style="font-size:12px;letter-spacing:1px;text-transform:uppercase;color:#2997ff;">The exact question to ask</div>' +
+    '<div style="font-family:' + RD_SERIF + ';font-size:25px;line-height:1.3;font-style:italic;color:#f5f5f7;margin-top:12px;">&ldquo;' + escapeHtml(q) + '&rdquo;</div>' +
+    '</td></tr></table></td></tr>';
+}
+
+function rdItemHtml(it) {
+  return '<tr><td class="pad" style="padding:0 28px;">' +
+    '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="border-top:1px solid #2a2a2d;padding:18px 0;font-family:' + RD_FONT + ';">' +
+    '<div style="font-size:12px;letter-spacing:1px;text-transform:uppercase;color:#86868b;">' + escapeHtml(it.outlet + '  ·  ' + it.date + '  ·  ' + it.by) + '</div>' +
+    '<div style="font-size:19px;font-weight:600;line-height:1.25;margin:6px 0;"><a href="' + it.url + '" style="color:#f5f5f7;text-decoration:none;">' + escapeHtml(it.title) + '</a></div>' +
+    '<div style="font-size:15px;line-height:1.5;color:#a1a1a6;">' + escapeHtml(it.summary) + '</div>' +
+    '</td></tr></table></td></tr>';
+}
+
+function rdGiveMidHtml(g) {
+  return '<tr><td class="pad" style="padding:8px 28px 8px;font-family:' + RD_FONT + ';">' +
+    '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td align="center" style="background:#1c1c1e;border-radius:18px;padding:30px 24px;">' +
+    '<div style="font-size:26px;line-height:1.15;font-weight:700;letter-spacing:-.5px;color:#f5f5f7;margin:0 0 8px;">' + escapeHtml(g.heading || 'Enjoy our free stories?') + '</div>' +
+    '<div style="font-size:16px;line-height:1.45;color:#a1a1a6;margin:0 auto 18px;max-width:400px;">' + escapeHtml(g.line) + '</div>' +
+    '<a href="' + g.url + '" style="display:inline-block;background:#2997ff;color:#ffffff;font-size:16px;text-decoration:none;padding:11px 24px;border-radius:980px;">' + escapeHtml(g.label || 'Donate today') + '</a>' +
+    '</td></tr></table></td></tr>';
+}
+
+function rdGiveHtml(g) {
+  var ways = '';
+  if (g.ways && g.ways.length) {
+    ways = '<div style="font-size:13px;line-height:1.6;color:#86868b;margin:26px auto 0;max-width:440px;text-align:left;">' +
+      '<div style="font-size:12px;letter-spacing:1px;text-transform:uppercase;color:#86868b;margin-bottom:6px;">Other ways to give</div>' +
+      g.ways.map(function (w) {
+        return '<div style="margin:0 0 5px;">' + escapeHtml(w.text) + (w.url ? '<a href="' + w.url + '" style="color:#2997ff;text-decoration:none;">' + escapeHtml(w.url.replace(/^https?:\/\//, '')) + '</a>' : '') + '</div>';
+      }).join('') + '</div>';
+  }
+  return '<tr><td class="pad" align="center" style="padding:56px 28px 44px;font-family:' + RD_FONT + ';">' +
+    '<div style="font-size:38px;line-height:1.1;font-weight:700;letter-spacing:-1px;color:#f5f5f7;margin:0 0 10px;">Reporting that stays free.</div>' +
+    '<div style="font-size:18px;line-height:1.4;color:#86868b;margin:0 auto 22px;max-width:420px;">' + escapeHtml(g.line || 'If this reporting helps you, help keep it free. Your gift is tax-deductible.') + '</div>' +
+    '<a href="' + g.url + '" style="display:inline-block;background:#2997ff;color:#ffffff;font-size:17px;text-decoration:none;padding:12px 26px;border-radius:980px;">' + escapeHtml(g.label || 'Donate today') + '</a>' +
+    ways +
+    '<div style="font-size:12px;line-height:1.5;color:#6e6e73;margin:22px auto 0;max-width:440px;">' + escapeHtml(g.sponsor || RD_SPONSOR_LINE) + '</div>' +
+    '</td></tr>';
+}
+
+function buildRoundupHtml(r, unsub) {
+  var ours = roundupOurs(r);
+  var rows = '';
+  rows += '<tr><td class="pad" style="padding:26px 28px 0;font-family:' + RD_FONT + ';">' +
+    '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>' +
+    '<td style="font-size:17px;font-weight:600;color:#f5f5f7;">Case<span style="color:#c6a068;">Analytica</span></td>' +
+    '<td align="right" style="font-size:13px;color:#86868b;">' + escapeHtml(roundupDateLabel(r.issue)) + '</td>' +
+    '</tr></table></td></tr>';
+  if (r.hero) rows += rdHeroHtml(r.hero);
+  if (ours.length) {
+    rows += rdLabel('From Case Analytica this week');
+    rows += ours.map(rdTileHtml).join('');
+  }
+  if (r.stat) rows += rdStatHtml(r.stat);
+  if (r.question) rows += rdQuestionHtml(r.question);
+  if (r.items && r.items.length) {
+    rows += rdRow('<div style="font-size:15px;font-weight:600;color:#86868b;padding:44px 0 14px;">Worth your time, from other New York newsrooms</div>');
+    var mid = roundupGiveMid(r), half = Math.ceil(r.items.length / 2);
+    r.items.forEach(function (it, i) {
+      rows += rdItemHtml(it);
+      if (mid && i === half - 1 && i < r.items.length - 1) rows += rdGiveMidHtml(mid);
+    });
+  }
+  var give = roundupGive(r);
+  if (give) rows += rdGiveHtml(give);
+  rows += '<tr><td align="center" style="padding:28px 28px 8px;font-family:' + RD_FONT + ';font-size:17px;font-weight:600;color:#f5f5f7;">' + escapeHtml(r.signoff || 'Case Analytica') + '</td></tr>';
+  var link = function (u, t) { return '<a href="' + u + '" style="color:#86868b;text-decoration:none;">' + t + '</a>'; };
+  rows += '<tr><td align="center" style="padding:22px 28px 40px;font-family:' + RD_FONT + ';font-size:12px;line-height:1.8;color:#6e6e73;">' +
+    link('https://www.caseanalytica.com', 'caseanalytica.com') + ' &nbsp;&middot;&nbsp; ' +
+    link('https://bsky.app/profile/caseanalytica.bsky.social', 'Bluesky') + ' &nbsp;&middot;&nbsp; ' +
+    link('https://www.youtube.com/@caseanalytica', 'YouTube') + ' &nbsp;&middot;&nbsp; ' +
+    link('https://www.tiktok.com/@case.analytica', 'TikTok') + ' &nbsp;&middot;&nbsp; ' +
+    link('https://www.instagram.com/caseanalytica/', 'Instagram') + ' &nbsp;&middot;&nbsp; ' +
+    link('https://www.linkedin.com/company/caseanalytica', 'LinkedIn') + '<br>' +
+    'General information, not legal advice.<br>' +
+    link(unsub, '<u>Unsubscribe</u>') + '</td></tr>';
+  return '<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">' +
+    '<meta name="color-scheme" content="dark"><meta name="supported-color-schemes" content="dark">' +
+    '<style>@media only screen and (max-width:620px){.w{width:100%!important}.big{font-size:84px!important;letter-spacing:-3px!important}.pad{padding-left:20px!important;padding-right:20px!important}.h3{font-size:22px!important}}</style></head>' +
+    '<body bgcolor="#000000" style="margin:0;padding:0;background:#000000;">' +
+    '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#000000" style="background:#000000;"><tr><td align="center">' +
+    '<table role="presentation" class="w" width="600" cellpadding="0" cellspacing="0" border="0" bgcolor="#000000" style="width:600px;max-width:100%;background:#000000;">' +
+    rows + '</table></td></tr></table></body></html>';
+}
+
+function buildRoundupPlain(r, unsub) {
+  var out = [];
+  if (r.hero) out.push(r.hero.number + '\n' + r.hero.line + (r.hero.url ? '\n' + r.hero.url : ''));
+  var ours = roundupOurs(r);
+  if (ours.length) out.push('From Case Analytica this week\n\n' + ours.map(function (a) { return a.title + (a.excerpt ? '\n' + a.excerpt : '') + '\n' + a.url; }).join('\n\n'));
+  if (r.stat) out.push(r.stat.number + '\n' + r.stat.line + (r.stat.url ? '\n' + r.stat.url : ''));
+  if (r.question) out.push('The exact question to ask:\n"' + r.question + '"');
+  if (r.items && r.items.length) {
+    var mid = roundupGiveMid(r), half = Math.ceil(r.items.length / 2);
+    var blocks = r.items.map(function (it) { return it.title + '\n' + it.outlet + ', ' + it.date + ', ' + it.by + '\n' + it.summary + '\n' + it.url; });
+    if (mid && half < blocks.length) blocks.splice(half, 0, (mid.heading || 'Enjoy our free stories?') + '\n' + mid.line + '\n' + mid.url);
+    out.push('Worth your time, from other New York newsrooms\n\n' + blocks.join('\n\n'));
+  }
+  var give = roundupGive(r);
+  if (give) {
+    var gw = (give.ways || []).map(function (w) { return w.text + (w.url || ''); }).join('\n');
+    out.push((give.line || '') + '\n' + give.url + (gw ? '\n\nOther ways to give:\n' + gw : '') + '\n\n' + (give.sponsor || RD_SPONSOR_LINE));
+  }
+  out.push(r.signoff || 'Case Analytica');
+  out.push('Unsubscribe: ' + unsub);
+  return out.join('\n\n');
+}
+
 function sendRoundupTo(email, r) {
   var unsub = liveUnsubscribeUrl(email);
-  var html = '<p>' + escapeHtml(r.intro) + '</p>' +
-    r.items.map(function (it) {
-      return '<p><strong><a href="' + it.url + '">' + escapeHtml(it.title) + '</a></strong><br>' +
-        '<span style="font-size:13px;">' + escapeHtml(it.outlet + ', ' + it.date + ', ' + it.by) + '</span><br>' +
-        escapeHtml(it.summary) + '</p>';
-    }).join('') +
-    (r.ours ? '<p><strong>From Case Analytica:</strong> <a href="' + r.ours.url + '">' + escapeHtml(r.ours.title) + '</a></p>' : '') +
-    '<p>' + escapeHtml(r.signoff || 'Dean') + '</p>' +
-    '<p style="font-size:12px; color:#888;"><a href="' + unsub + '">Unsubscribe</a></p>';
-  var plain = r.intro + '\n\n' +
-    r.items.map(function (it) { return it.title + '\n' + it.outlet + ', ' + it.date + ', ' + it.by + '\n' + it.summary + '\n' + it.url; }).join('\n\n') +
-    (r.ours ? '\n\nFrom Case Analytica: ' + r.ours.title + '\n' + r.ours.url : '') +
-    '\n\n' + (r.signoff || 'Dean') + '\n\nUnsubscribe: ' + unsub;
-  MailApp.sendEmail({ to: email, subject: r.subject, body: plain, htmlBody: html, name: DIGEST_FROM_NAME });
+  MailApp.sendEmail({ to: email, subject: r.subject, body: buildRoundupPlain(r, unsub), htmlBody: buildRoundupHtml(r, unsub), name: ROUNDUP_FROM_NAME });
 }
