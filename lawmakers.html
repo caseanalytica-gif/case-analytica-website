@@ -1,0 +1,500 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-035TDMG4Y0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-035TDMG4Y0');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="max-image-preview:large">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16.png">
+<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+<title>NYS Lawmakers and Justice Bills: Who Sponsors What, and How the Senate Voted</title>
+<meta name="description" content="Track New York State criminal justice bills in the Senate and Assembly: who sponsors and cosponsors each bill, where it stands, and how senators voted, each read from the Legislature's own record.">
+<link rel="canonical" href="https://www.caseanalytica.com/lawmakers.html">
+<link rel="alternate" type="application/rss+xml" title="Case Analytica" href="https://www.caseanalytica.com/feed.xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Case Analytica">
+<meta property="og:title" content="NYS Lawmakers and Justice Bills: Who Sponsors What, and How the Senate Voted">
+<meta property="og:description" content="Track New York State criminal justice bills in the Senate and Assembly: who sponsors and cosponsors each bill, where it stands, and how senators voted, each read from the Legislature's own record.">
+<meta property="og:url" content="https://www.caseanalytica.com/lawmakers.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="NYS Lawmakers and Justice Bills: Who Sponsors What, and How the Senate Voted">
+<meta name="twitter:description" content="Track New York State criminal justice bills in the Senate and Assembly: who sponsors and cosponsors each bill, where it stands, and how senators voted, each read from the Legislature's own record.">
+<link rel="stylesheet" href="assets/style.css?v=20261020c">
+<style>
+  .lm-tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px;margin:18px 0 8px}
+  .tile{background:var(--paper-raised);border:1px solid var(--line);border-radius:10px;padding:16px 18px}
+  .tile .n{font-family:var(--display);font-size:32px;line-height:1.1;color:var(--ink)}
+  .tile .l{font-size:14px;color:var(--ink-soft);margin-top:6px}
+  .lm-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:22px 0 4px;border-bottom:1px solid var(--line);padding-bottom:10px}
+  .lm-tabs a{border:1px solid var(--line);border-radius:999px;padding:7px 16px;font-size:16px;background:var(--paper-raised);color:var(--ink);text-decoration:none}
+  .lm-tabs a[aria-current="page"]{background:var(--pillar);color:var(--paper);border-color:var(--pillar);font-weight:600}
+  .lm-find{background:var(--paper-raised);border:1px solid var(--line);border-radius:10px;padding:14px 18px;margin:16px 0;font-size:16px}
+  .lm-find a{margin-right:14px}
+  .lm-tools{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:18px 0 8px}
+  .lm-tools input,.lm-tools select{font:inherit;font-size:16px;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--paper-raised);color:var(--ink);min-width:0}
+  .lm-tools input[type=search]{flex:1 1 220px}
+  .lm-chipbar{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 10px}
+  .lm-chipbar button{font:inherit;font-size:15px;border:1px solid var(--line);border-radius:999px;padding:5px 13px;background:var(--paper-raised);color:var(--ink);cursor:pointer}
+  .lm-chipbar button[aria-pressed="true"]{background:var(--pillar);color:var(--paper);border-color:var(--pillar)}
+  .lm-count{font-size:15px;color:var(--ink-soft);margin:8px 0}
+  .lm-list{list-style:none;margin:0;padding:0}
+  .lm-card{display:block;background:var(--paper-raised);border:1px solid var(--line);border-radius:10px;padding:14px 18px;margin:0 0 10px;text-decoration:none;color:var(--ink)}
+  .lm-card:hover,.lm-card:focus-visible{border-color:var(--pillar)}
+  .lm-card h3{font-size:18px;line-height:1.3;margin:0 0 6px;color:var(--ink)}
+  .lm-card .meta{font-size:14px;color:var(--ink-soft);margin:2px 0}
+  .lm-card .go{font-size:14px;color:var(--pillar);margin-top:6px;display:block}
+  .lm-pill{display:inline-block;font-size:13px;border:1px solid var(--line);border-radius:999px;padding:2px 10px;margin:0 6px 4px 0;color:var(--ink-soft)}
+  .lm-back{display:inline-block;margin:6px 0 14px;font-size:16px}
+  .lm-panel{background:var(--paper-raised);border:1px solid var(--line);border-radius:10px;padding:16px 18px;margin:14px 0}
+  .lm-panel h3{margin:0 0 8px;font-size:19px}
+  .lm-panel dl{margin:0;display:grid;grid-template-columns:max-content 1fr;gap:6px 16px;font-size:16px}
+  .lm-panel dt{color:var(--ink-soft)} .lm-panel dd{margin:0}
+  .lm-names{list-style:none;margin:8px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:6px 14px;font-size:15px}
+  .lm-names a{white-space:nowrap}
+  details.lm-d{margin:10px 0}
+  details.lm-d summary{cursor:pointer;color:var(--pillar);font-size:16px}
+  #lm-app:focus,#lm-app:focus-visible{outline:none}
+  table.lm-t{width:100%;border-collapse:collapse;font-size:15px;margin:8px 0}
+  table.lm-t th,table.lm-t td{border-bottom:1px solid var(--line);padding:7px 8px;text-align:left;vertical-align:top}
+  table.lm-t th{font-weight:600;color:var(--ink-soft);font-size:14px}
+  table.lm-t td.num,table.lm-t th.num{text-align:right}
+  table.lm-t tr.click{cursor:pointer} table.lm-t tr.click:hover{background:var(--paper)}
+  .lm-note{font-size:14px;color:var(--ink-soft);margin:8px 0}
+  .lm-source{font-size:14px;color:var(--ink-soft);margin:14px 0 0}
+  .lm-vote{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px;margin:8px 0}
+  .lm-vote div{border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:14px;color:var(--ink-soft)}
+  .lm-vote b{display:block;font-size:24px;font-family:var(--display);color:var(--ink);font-weight:400}
+  .lm-hide{display:none}
+  .lm-static{font-size:15px} .lm-static li{margin:8px 0}
+  .std li{margin:6px 0}
+  @media(max-width:600px){.tile .n{font-size:28px}.lm-panel dl{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="wrap nav-inner">
+    <a href="index.html" class="wordmark">Case<span>Analytica</span></a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+    <nav class="links">
+      <details class="navgroup">
+        <summary>What we do</summary>
+        <div class="navmenu">
+          <a href="restorative-justice.html">Restorative Justice</a>
+          <a href="articles.html">Articles</a>
+          <a href="stages/index.html">By case stage</a>
+          <a href="videos.html">Videos</a>
+          <a href="case-navigation.html">Case Navigation</a>
+          <a href="help-after-an-arrest-ny.html">Just been arrested</a>
+          <a href="directory.html">Where to get help</a>
+          <a href="parole-reporting-project.html">Parole reporting project</a>
+          <a href="parole-board-decisions.html">Parole decision charts</a>
+        </div>
+      </details>
+      <a href="data.html" class="current">Data</a>
+      <a href="about.html">Who we are</a>
+      <details class="navgroup">
+        <summary>Get involved</summary>
+        <div class="navmenu">
+          <a href="about.html#intake">Book a free intake call</a>
+          <a href="intake-worksheet.html">Case worksheet</a>
+          <a href="guide.html">The free guide</a>
+          <a href="checklist.html">Printable checklist</a>
+          <a href="https://fundrazr.com/CaseAnalytica?ref=cr_5FFML2" target="_blank" rel="noopener">Donate</a>
+        </div>
+      </details>
+      <a class="btn" href="about.html#intake">Book a Free Intake Call</a>
+    </nav>
+    <a class="btn btn-donate" href="https://fundrazr.com/CaseAnalytica?ref=cr_5FFML2" target="_blank" rel="noopener">Donate</a>
+    <label for="nav-toggle" class="nav-toggle-btn"><span class="nav-toggle-bars" aria-hidden="true">☰</span><span class="nav-toggle-text">Menu</span></label>
+  </div>
+</header>
+
+<a href="guide.html" class="guide-fab" aria-label="Get the free guide">
+  <span class="guide-fab-icon">📘</span>
+  <span class="guide-fab-text">Free Guide</span>
+</a>
+
+
+<main>
+
+<section style="padding-top:48px;">
+  <div class="narrow">
+    <p class="eyebrow">Data</p>
+    <h1 class="serif" style="font-size:clamp(28px,4vw,38px);margin:0 0 18px;">What New York lawmakers are doing on justice bills.</h1>
+    <p style="font-size:17px;color:var(--ink-soft);margin:0 0 10px;">Pick a bill to see who sponsors it, who has signed on as a cosponsor, where it stands, and how senators voted. Pick a lawmaker to see the justice bills they sponsor or cosponsor. Every line comes from the Legislature's own record and links to it. This page reports what is on the record. It does not rate, rank or take a side.</p>
+
+    <div class="lm-tiles" id="lm-tiles" aria-live="polite"></div>
+
+    <nav class="lm-tabs" aria-label="Sections" id="lm-tabs">
+      <a href="#/bills" data-tab="bills">Bills</a>
+      <a href="#/members" data-tab="members">Lawmakers</a>
+      <a href="#/how" data-tab="how">How it works</a>
+    </nav>
+
+    <div class="lm-find">
+      <p style="margin:0 0 8px"><strong>Go straight to the state’s own sites</strong></p>
+      <p style="margin:0 0 6px">NY Senate: <a href="https://www.nysenate.gov/legislation" target="_blank" rel="noopener">search any bill</a> <a href="https://www.nysenate.gov/senators-committees" target="_blank" rel="noopener">all senators</a> <a href="https://www.nysenate.gov/find-my-senator" target="_blank" rel="noopener">find your senator</a></p>
+      <p style="margin:0">NY Assembly: <a href="https://nyassembly.gov/leg/" target="_blank" rel="noopener">search any bill</a> <a href="https://nyassembly.gov/mem/" target="_blank" rel="noopener">all members</a> <a href="https://nyassembly.gov/mem/" target="_blank" rel="noopener">find your member</a></p>
+    </div>
+
+    <div id="lm-app" tabindex="-1">
+      <noscript><p>The interactive view needs JavaScript. The bills tracked are listed below.</p></noscript>
+      <!-- lm:begin -->
+<p>Bills tracked in the 2025-2026 session, newest official action first. Read 2026-11-19.</p>
+<ol class="lm-static">
+<li><strong>Extends certain provisions relating to the boarding of out of state incarcerated individuals</strong> (<a href="https://www.nysenate.gov/legislation/bills/2025/S10538" rel="noopener">S10538</a> and <a href="https://www.nysenate.gov/legislation/bills/2025/A11439" rel="noopener">A11439</a>). Sponsor: Julia Salazar (Senate); Chris Burdick (Assembly). Status: S10538: Senate Floor Calendar, 2026-06-01; A11439: Signed by Governor, 2026-08-28.</li>
+<li><strong>Prohibits the use of restraints on incarcerated individuals during labor, absent extraordinary circumstances, and on pregnant persons during a custodial interrogation</strong> (<a href="https://www.nysenate.gov/legislation/bills/2025/S2667" rel="noopener">S2667C</a> and <a href="https://www.nysenate.gov/legislation/bills/2025/A1670" rel="noopener">A1670B</a>). Sponsor: Julia Salazar (Senate); Linda Rosenthal (Assembly). Status: S2667C: Passed Assembly, 2026-06-05; A1670B: Assembly Floor Calendar, 2026-06-04.</li>
+<li><strong>Broadens the court's discretion to use extended terms of interim probation on consent of the defendant to avoid incarceratory outcomes</strong> (<a href="https://www.nysenate.gov/legislation/bills/2025/S10443" rel="noopener">S10443</a> and <a href="https://www.nysenate.gov/legislation/bills/2025/A11383" rel="noopener">A11383</a>). Sponsor: Zellnor Myrie (Senate); Al Taylor (Assembly). Status: S10443: In Assembly Committee, 2026-06-04; A11383: In Assembly Committee, 2026-05-15.</li>
+<li><strong>Creates an identification card program for local correctional facilities; and relates to issuance of and waiver of fees for identification cards issued pursuant to certain identification card programs</strong> (<a href="https://www.nysenate.gov/legislation/bills/2025/S4958" rel="noopener">S4958</a> and <a href="https://www.nysenate.gov/legislation/bills/2025/A6732" rel="noopener">A6732</a>). Sponsor: Jamaal Bailey (Senate); Eddie Gibbs (Assembly). Status: S4958: In Senate Committee, 2026-01-07; A6732: Assembly Floor Calendar, 2026-06-04.</li>
+<li><strong>Relates to the provision of breast pumps to certain incarcerated birth parents and allowing children to remain with their incarcerated birth parent for a period of time</strong> (<a href="https://www.nysenate.gov/legislation/bills/2025/S2666" rel="noopener">S2666B</a> and <a href="https://www.nysenate.gov/legislation/bills/2025/A1607" rel="noopener">A1607B</a>). Sponsor: Julia Salazar (Senate); Linda Rosenthal (Assembly). Status: S2666B: Assembly Floor Calendar, 2026-06-03; A1607B: Assembly Floor Calendar, 2026-06-03.</li>
+<li><strong>Relates to voting rights and access for incarcerated individuals</strong> (<a href="https://www.nysenate.gov/legislation/bills/2025/S440" rel="noopener">S440A</a> and <a href="https://www.nysenate.gov/legislation/bills/2025/A2121" rel="noopener">A2121A</a>). Sponsor: Zellnor Myrie (Senate); Latrice Walker (Assembly). Status: S440A: In Senate Committee, 2026-06-02; A2121A: Assembly Floor Calendar, 2026-06-03.</li>
+<li><strong>Provides that no state or local correctional facility shall deny entry to a visitor to such facility due to the fact that such person is menstruating, wearing a menstrual product or has a contraceptive device</strong> (<a href="https://www.nysenate.gov/legislation/bills/2025/S8353" rel="noopener">S8353A</a> and <a href="https://www.nysenate.gov/legislation/bills/2025/A8840" rel="noopener">A8840A</a>). Sponsor: Julia Salazar (Senate); Larinda Hooks (Assembly). Status: S8353A: Senate Floor Calendar, 2026-05-28; A8840A: Passed Senate, 2026-06-03.</li>
+<li><strong>Provides for enrollment in medical assistance programs for incarcerated individuals</strong> (<a href="https://www.nysenate.gov/legislation/bills/2025/S614" rel="noopener">S614B</a> and <a href="https://www.nysenate.gov/legislation/bills/2025/A269" rel="noopener">A269A</a>). Sponsor: Gustavo Rivera (Senate); Amy Paulin (Assembly). Status: S614B: Passed Assembly, 2026-06-02; A269A: Assembly Floor Calendar, 2026-06-02.</li>
+<li><strong>Requires the educational and vocational credits earned by incarcerated individuals are transferable upon release</strong> (<a href="https://www.nysenate.gov/legislation/bills/2025/S4379" rel="noopener">S4379</a> and <a href="https://www.nysenate.gov/legislation/bills/2025/A4348" rel="noopener">A4348</a>). Sponsor: Leroy Comrie (Senate); Erik Dilan (Assembly). Status: S4379: In Assembly Committee, 2026-06-02; A4348: In Assembly Committee, 2026-01-07.</li>
+<li><strong>Relates to the sealing of certain claims against law enforcement officers</strong> (<a href="https://www.nysenate.gov/legislation/bills/2025/S4117" rel="noopener">S4117B</a> and <a href="https://www.nysenate.gov/legislation/bills/2025/A2074" rel="noopener">A2074C</a>). Sponsor: Jessica Scarcella-Spanton (Senate); Sam Berger (Assembly). Status: S4117B: In Senate Committee, 2026-01-07; A2074C: In Assembly Committee, 2026-06-01.</li>
+<li><strong>Establishes visiting policies for incarcerated individuals</strong> (<a href="https://www.nysenate.gov/legislation/bills/2025/S5037" rel="noopener">S5037A</a> and <a href="https://www.nysenate.gov/legislation/bills/2025/A4603" rel="noopener">A4603A</a>). Sponsor: Luis R. Sepúlveda (Senate); David Weprin (Assembly). Status: S5037A: Senate Floor Calendar, 2026-05-11; A4603A: Passed Senate, 2026-06-01.</li>
+<li><strong>Allows a person a second hearing to seal their child protective services records</strong> (<a href="https://www.nysenate.gov/legislation/bills/2025/S9421" rel="noopener">S9421A</a> and <a href="https://www.nysenate.gov/legislation/bills/2025/A9244" rel="noopener">A9244A</a>). Sponsor: Jabari Brisport (Senate); Andrew Hevesi (Assembly). Status: S9421A: In Senate Committee, 2026-06-01; A9244A: Assembly Floor Calendar, 2026-06-01.</li>
+<li><strong>Directs the commissioner of the division of criminal justice services to study gender disparity in sentencing outcomes</strong> (<a href="https://www.nysenate.gov/legislation/bills/2025/S6442" rel="noopener">S6442</a> and <a href="https://www.nysenate.gov/legislation/bills/2025/A11260" rel="noopener">A11260</a>). Sponsor: Pete Harckham (Senate); Erik Dilan (Assembly). Status: S6442: In Assembly Committee, 2026-05-29; A11260: In Assembly Committee, 2026-05-04.</li>
+<li><strong>Requires screening incarcerated individuals for eligibility for public benefits prior to release</strong> (<a href="https://www.nysenate.gov/legislation/bills/2025/S5265" rel="noopener">S5265A</a> and <a href="https://www.nysenate.gov/legislation/bills/2025/A3399" rel="noopener">A3399A</a>). Sponsor: Jamaal Bailey (Senate); Jessica Gonzalez-Rojas (Assembly). Status: S5265A: Assembly Floor Calendar, 2026-05-29; A3399A: Assembly Floor Calendar, 2026-05-28.</li>
+<li><strong>Requires the commissioner of corrections and community supervision to make facility water testing results accessible to the public, incarcerated individuals and correctional facility staff</strong> (<a href="https://www.nysenate.gov/legislation/bills/2025/S6390" rel="noopener">S6390A</a> and <a href="https://www.nysenate.gov/legislation/bills/2025/A6666" rel="noopener">A6666A</a>). Sponsor: Pete Harckham (Senate); Anna Kelles (Assembly). Status: S6390A: Senate Floor Calendar, 2026-04-13; A6666A: Passed Senate, 2026-05-28.</li>
+<li><strong>Relates to findings of the state board of parole necessary for discretionary release of incarcerated individuals on parole</strong> (<a href="https://www.nysenate.gov/legislation/bills/2025/S159" rel="noopener">S159</a> and <a href="https://www.nysenate.gov/legislation/bills/2025/A127" rel="noopener">A127</a>). Sponsor: Julia Salazar (Senate); David Weprin (Assembly). Status: S159: In Senate Committee, 2026-05-20; A127: In Assembly Committee, 2026-01-07.</li>
+<li><strong>Provides for victim statements at the sentencing of a defendant for a misdemeanor</strong> (<a href="https://www.nysenate.gov/legislation/bills/2025/S611" rel="noopener">S611B</a> and <a href="https://www.nysenate.gov/legislation/bills/2025/A2138" rel="noopener">A2138B</a>). Sponsor: Toby Ann Stavisky (Senate); Carrie Woerner (Assembly). Status: S611B: In Assembly Committee, 2026-05-19; A2138B: In Assembly Committee, 2026-05-11.</li>
+<li><strong>Relates to certain information provided to incarcerated individuals upon their release</strong> (<a href="https://www.nysenate.gov/legislation/bills/2025/S6365" rel="noopener">S6365</a> and <a href="https://www.nysenate.gov/legislation/bills/2025/A5819" rel="noopener">A5819</a>). Sponsor: Julia Salazar (Senate); Erik Dilan (Assembly). Status: S6365: Passed Assembly, 2026-05-19; A5819: Assembly Floor Calendar, 2026-03-26.</li>
+<li><strong>Authorizes certain persons confined in institutions operated by the department of corrections and community supervision to apply for a sentence reduction</strong> (<a href="https://www.nysenate.gov/legislation/bills/2025/S158" rel="noopener">S158</a> and <a href="https://www.nysenate.gov/legislation/bills/2025/A1283" rel="noopener">A1283</a>). Sponsor: Julia Salazar (Senate); Latrice Walker (Assembly). Status: S158: In Senate Committee, 2026-05-18; A1283: In Assembly Committee, 2026-01-07.</li>
+<li><strong>Authorizes the transfer of pregnant and postpartum incarcerated individuals to residential treatment facilities</strong> (<a href="https://www.nysenate.gov/legislation/bills/2025/S6463" rel="noopener">S6463</a> and <a href="https://www.nysenate.gov/legislation/bills/2025/A1390" rel="noopener">A1390</a>). Sponsor: Cordell Cleare (Senate); Demond Meeks (Assembly). Status: S6463: In Assembly Committee, 2026-05-13; A1390: In Assembly Committee, 2026-01-07.</li>
+<li><strong>Provides for the expungement of syringe convictions</strong> (<a href="https://www.nysenate.gov/legislation/bills/2025/S1946" rel="noopener">S1946</a> and <a href="https://www.nysenate.gov/legislation/bills/2025/A2601" rel="noopener">A2601</a>). Sponsor: Gustavo Rivera (Senate); Anna Kelles (Assembly). Status: S1946: Passed Assembly, 2026-05-13; A2601: Assembly Floor Calendar, 2026-03-19.</li>
+<li><strong>Relates to the sentencing for the crime of aggravated cruelty to animals</strong> (<a href="https://www.nysenate.gov/legislation/bills/2025/S197" rel="noopener">S197</a> and <a href="https://www.nysenate.gov/legislation/bills/2025/A3050" rel="noopener">A3050</a>). Sponsor: Monica Martinez (Senate); Jen Lunsford (Assembly). Status: S197: In Assembly Committee, 2026-05-05; A3050: In Assembly Committee, 2026-05-13.</li>
+<li><strong>Relates to pre-release briefings for incarcerated veterans regarding available federal and state benefits</strong> (<a href="https://www.nysenate.gov/legislation/bills/2025/S9315" rel="noopener">S9315</a> and <a href="https://www.nysenate.gov/legislation/bills/2025/A10163" rel="noopener">A10163</a>). Sponsor: Jessica Scarcella-Spanton (Senate); Charles Lavine (Assembly). Status: S9315: Senate Floor Calendar, 2026-05-04; A10163: Passed Senate, 2026-05-12.</li>
+<li><strong>Eliminates mandatory minimum sentences; repealer</strong> (<a href="https://www.nysenate.gov/legislation/bills/2025/S1209" rel="noopener">S1209A</a> and <a href="https://www.nysenate.gov/legislation/bills/2025/A1297" rel="noopener">A1297A</a>). Sponsor: Zellnor Myrie (Senate); Demond Meeks (Assembly). Status: S1209A: In Senate Committee, 2026-05-12; A1297A: In Assembly Committee, 2026-05-12.</li>
+<li><strong>Relates to educational leave for eligible incarcerated individuals</strong> (<a href="https://www.nysenate.gov/legislation/bills/2025/S319" rel="noopener">S319</a> and <a href="https://www.nysenate.gov/legislation/bills/2025/A5459" rel="noopener">A5459</a>). Sponsor: Julia Salazar (Senate); Erik Dilan (Assembly). Status: S319: In Assembly Committee, 2026-05-06; A5459: In Assembly Committee, 2026-01-07.</li>
+<li><strong>Relates to the definition of &quot;direct relationship&quot; for the purposes of article 23-A of the correction law regarding certain licensures and employment</strong> (<a href="https://www.nysenate.gov/legislation/bills/2025/S1213" rel="noopener">S1213</a> and <a href="https://www.nysenate.gov/legislation/bills/2025/A7147" rel="noopener">A7147</a>). Sponsor: Jamaal Bailey (Senate); Latrice Walker (Assembly). Status: S1213: In Senate Committee, 2026-01-07; A7147: Assembly Floor Calendar, 2026-04-23.</li>
+<li><strong>Establishes the &quot;earned time act&quot;</strong> (<a href="https://www.nysenate.gov/legislation/bills/2025/S342" rel="noopener">S342</a> and <a href="https://www.nysenate.gov/legislation/bills/2025/A1085" rel="noopener">A1085</a>). Sponsor: Jeremy Cooney (Senate); Anna Kelles (Assembly). Status: S342: In Senate Committee, 2026-04-21; A1085: In Assembly Committee, 2026-01-07.</li>
+<li><strong>Relates to parole eligibility for certain incarcerated persons age fifty-five or older</strong> (<a href="https://www.nysenate.gov/legislation/bills/2025/S454" rel="noopener">S454</a> and <a href="https://www.nysenate.gov/legislation/bills/2025/S9846" rel="noopener">S9846</a> and <a href="https://www.nysenate.gov/legislation/bills/2025/A514" rel="noopener">A514</a>). Sponsor: Brad Hoylman-Sigal (Senate); Cordell Cleare (Senate); Maritza Davila (Assembly). Status: S454: In Senate Committee, 2025-01-08; S9846: In Senate Committee, 2026-04-08; A514: In Assembly Committee, 2026-01-07.</li>
+<li><strong>Relates to the former crime of loitering for the purpose of engaging in a prostitution offense and expunges criminal records for persons previously convicted of such crime</strong> (<a href="https://www.nysenate.gov/legislation/bills/2025/S9828" rel="noopener">S9828</a> and <a href="https://www.nysenate.gov/legislation/bills/2025/A588" rel="noopener">A588</a>). Sponsor: Julia Salazar (Senate); Amy Paulin (Assembly). Status: S9828: In Senate Committee, 2026-04-07; A588: In Assembly Committee, 2026-01-07.</li>
+<li><strong>Provides voice communication service to incarcerated people at no cost; repealer</strong> (<a href="https://www.nysenate.gov/legislation/bills/2025/S4160" rel="noopener">S4160</a> and <a href="https://www.nysenate.gov/legislation/bills/2025/A10646" rel="noopener">A10646</a>). Sponsor: Jamaal Bailey (Senate); Phara Souffrant Forrest (Assembly). Status: S4160: In Senate Committee, 2026-01-07; A10646: In Assembly Committee, 2026-03-19.</li>
+<li><strong>Requires a reading proficiency level assessment and dyslexia screening for certain incarcerated individuals</strong> (<a href="https://www.nysenate.gov/legislation/bills/2025/S395" rel="noopener">S395</a> and <a href="https://www.nysenate.gov/legislation/bills/2025/A1325" rel="noopener">A1325</a>). Sponsor: Zellnor Myrie (Senate); Jo Anne Simon (Assembly). Status: S395: In Senate Committee, 2026-03-17; A1325: In Senate Committee, 2026-01-12.</li>
+<li><strong>Requires victims be notified of right to make a victim impact statement and allows them to personally appear at parole hearings and make such a statement</strong> (<a href="https://www.nysenate.gov/legislation/bills/2025/S630" rel="noopener">S630</a> and <a href="https://www.nysenate.gov/legislation/bills/2025/A59" rel="noopener">A59</a>). Sponsor: Toby Ann Stavisky (Senate); Stacey Pheffer Amato (Assembly). Status: S630: In Assembly Committee, 2026-03-16; A59: In Assembly Committee, 2026-01-07.</li>
+<li><strong>Relates to allowing telephone calls prior to an incarcerated individual's transfer</strong> (<a href="https://www.nysenate.gov/legislation/bills/2025/S1050" rel="noopener">S1050</a> and <a href="https://www.nysenate.gov/legislation/bills/2025/A3780" rel="noopener">A3780</a>). Sponsor: Julia Salazar (Senate); David Weprin (Assembly). Status: S1050: In Assembly Committee, 2026-03-11; A3780: In Assembly Committee, 2026-01-07.</li>
+<li><strong>Clarifies that individuals have the ability to vote by absentee ballot if they are not currently incarcerated for a felony conviction</strong> (<a href="https://www.nysenate.gov/legislation/bills/2025/S3791" rel="noopener">S3791A</a> and <a href="https://www.nysenate.gov/legislation/bills/2025/A4423" rel="noopener">A4423B</a>). Sponsor: Zellnor Myrie (Senate); Erik Dilan (Assembly). Status: S3791A: In Senate Committee, 2026-01-07; A4423B: Assembly Floor Calendar, 2026-02-26.</li>
+<li><strong>Expands who may visit local correctional facilities</strong> (<a href="https://www.nysenate.gov/legislation/bills/2025/S1892" rel="noopener">S1892B</a> and <a href="https://www.nysenate.gov/legislation/bills/2025/A2119" rel="noopener">A2119A</a>). Sponsor: Robert Jackson (Senate); David Weprin (Assembly). Status: S1892B: In Assembly Committee, 2026-02-24; A2119A: Assembly Floor Calendar, 2026-01-07.</li>
+<li><strong>Authorizes bail for principals charged with aggravated cruelty to animals</strong> (<a href="https://www.nysenate.gov/legislation/bills/2025/S9231" rel="noopener">S9231</a> and <a href="https://www.nysenate.gov/legislation/bills/2025/A6722" rel="noopener">A6722</a>). Sponsor: Jessica Scarcella-Spanton (Senate); Paula Kay (Assembly). Status: S9231: In Senate Committee, 2026-02-18; A6722: In Assembly Committee, 2026-01-07.</li>
+<li><strong>Enacts the &quot;pretrial risk overview for threat evaluation, custody, and treatment (PROTECT) Act&quot;; repealer</strong> (<a href="https://www.nysenate.gov/legislation/bills/2025/S2282" rel="noopener">S2282A</a> and <a href="https://www.nysenate.gov/legislation/bills/2025/A9684" rel="noopener">A9684</a>). Sponsor: Pamela Helming (Senate); Michael Cashman (Assembly). Status: S2282A: In Senate Committee, 2026-01-07; A9684: In Assembly Committee, 2026-01-21.</li>
+<li><strong>Protects the rights of people in prisons, jails and forensic facilities</strong> (<a href="https://www.nysenate.gov/legislation/bills/2025/S3763" rel="noopener">S3763</a> and <a href="https://www.nysenate.gov/legislation/bills/2025/A1261" rel="noopener">A1261A</a>). Sponsor: Julia Salazar (Senate); Phara Souffrant Forrest (Assembly). Status: S3763: In Senate Committee, 2026-01-07; A1261A: In Assembly Committee, 2026-01-07.</li>
+<li><strong>Makes life imprisonment without parole mandatory for defendants convicted of murder in the first degree or second degree and the victim is a police officer, peace officer, first responder or correctional officer</strong> (<a href="https://www.nysenate.gov/legislation/bills/2025/S942" rel="noopener">S942</a> and <a href="https://www.nysenate.gov/legislation/bills/2025/A1480" rel="noopener">A1480</a>). Sponsor: Patrick M. Gallivan (Senate); Joe Angelino (Assembly). Status: S942: In Senate Committee, 2026-01-07; A1480: In Assembly Committee, 2026-01-07.</li>
+<li><strong>Provides for money upon release for certain incarcerated individuals; appropriation</strong> (<a href="https://www.nysenate.gov/legislation/bills/2025/S4078" rel="noopener">S4078</a> and <a href="https://www.nysenate.gov/legislation/bills/2025/A193" rel="noopener">A193</a>). Sponsor: Kevin S. Parker (Senate); Eddie Gibbs (Assembly). Status: S4078: In Senate Committee, 2026-01-07; A193: In Assembly Committee, 2026-01-07.</li>
+<li><strong>Relates to the confidentiality and expungement of records in juvenile delinquency cases in the family court</strong> (<a href="https://www.nysenate.gov/legislation/bills/2025/S3048" rel="noopener">S3048</a> and <a href="https://www.nysenate.gov/legislation/bills/2025/A2441" rel="noopener">A2441</a>). Sponsor: Jabari Brisport (Senate); Andrew Hevesi (Assembly). Status: S3048: In Senate Committee, 2026-01-07; A2441: Assembly Floor Calendar, 2026-01-07.</li>
+<li><strong>Requires that all victim impact statements in New York state be video recorded; requires that the members of the parole board review all relevant victim impact statements prior to the conduct of a parole hearing</strong> (<a href="https://www.nysenate.gov/legislation/bills/2025/S8354" rel="noopener">S8354</a> and <a href="https://www.nysenate.gov/legislation/bills/2025/A3419" rel="noopener">A3419</a>). Sponsor: Toby Ann Stavisky (Senate); John T. McDonald III (Assembly). Status: S8354: In Senate Committee, 2026-01-07; A3419: In Assembly Committee, 2026-01-07.</li>
+<li><strong>Enacts &quot;the prison wage act&quot; relating to payment for labor performed by incarcerated individuals</strong> (<a href="https://www.nysenate.gov/legislation/bills/2025/S439" rel="noopener">S439B</a> and <a href="https://www.nysenate.gov/legislation/bills/2025/A3596" rel="noopener">A3596B</a>). Sponsor: Zellnor Myrie (Senate); Eddie Gibbs (Assembly). Status: S439B: In Senate Committee, 2026-01-07; A3596B: In Assembly Committee, 2026-01-07.</li>
+<li><strong>Establishes the office of pretrial services</strong> (<a href="https://www.nysenate.gov/legislation/bills/2025/S430" rel="noopener">S430</a> and <a href="https://www.nysenate.gov/legislation/bills/2025/A3994" rel="noopener">A3994</a>). Sponsor: Julia Salazar (Senate); Anna Kelles (Assembly). Status: S430: In Senate Committee, 2026-01-07; A3994: In Assembly Committee, 2026-01-07.</li>
+<li><strong>Provides for the creation and maintenance of digital records for each incarcerated individual</strong> (<a href="https://www.nysenate.gov/legislation/bills/2025/S7510" rel="noopener">S7510</a> and <a href="https://www.nysenate.gov/legislation/bills/2025/A4958" rel="noopener">A4958</a>). Sponsor: Cordell Cleare (Senate); Eddie Gibbs (Assembly). Status: S7510: In Senate Committee, 2026-01-07; A4958: In Assembly Committee, 2026-01-07.</li>
+<li><strong>Relates to bail for certain felony offenses involving the manufacture, sale, distribution, or possession with intent to sell synthetic opioids</strong> (<a href="https://www.nysenate.gov/legislation/bills/2025/S307" rel="noopener">S307</a> and <a href="https://www.nysenate.gov/legislation/bills/2025/A5110" rel="noopener">A5110</a>). Sponsor: Steve Rhoads (Senate); Steve Stern (Assembly). Status: S307: In Senate Committee, 2026-01-07; A5110: In Assembly Committee, 2026-01-07.</li>
+<li><strong>Includes offenses involving the possession, display or discharge of certain firearms as qualifying offenses for the purpose of allowing a principal to be eligible to be held on bail</strong> (<a href="https://www.nysenate.gov/legislation/bills/2025/A632" rel="noopener">A632</a>). Sponsor: William A. Barclay (Assembly). Status: A632: In Assembly Committee, 2026-01-07.</li>
+<li><strong>Relates to bail for certain offenses involving threats of mass harm against a school district, school, school staff or a student</strong> (<a href="https://www.nysenate.gov/legislation/bills/2025/S8163" rel="noopener">S8163</a> and <a href="https://www.nysenate.gov/legislation/bills/2025/A6597" rel="noopener">A6597A</a>). Sponsor: Jessica Scarcella-Spanton (Senate); Paula Kay (Assembly). Status: S8163: In Senate Committee, 2026-01-07; A6597A: In Assembly Committee, 2026-01-07.</li>
+<li><strong>Provides for money upon release for certain incarcerated individuals; appropriation</strong> (<a href="https://www.nysenate.gov/legislation/bills/2025/S6222" rel="noopener">S6222</a> and <a href="https://www.nysenate.gov/legislation/bills/2025/A6990" rel="noopener">A6990</a>). Sponsor: Jeremy Cooney (Senate); Eddie Gibbs (Assembly). Status: S6222: In Senate Committee, 2026-01-07; A6990: In Assembly Committee, 2026-01-07.</li>
+<li><strong>Relates to the state board of parole membership, interviews with incarcerated individuals, and determination of parole</strong> (<a href="https://www.nysenate.gov/legislation/bills/2025/S3024" rel="noopener">S3024</a> and <a href="https://www.nysenate.gov/legislation/bills/2025/A7532" rel="noopener">A7532</a>). Sponsor: Robert Ortt (Senate); William A. Barclay (Assembly). Status: S3024: In Senate Committee, 2026-01-07; A7532: In Assembly Committee, 2026-01-07.</li>
+<li><strong>Includes certain offenses in being eligible for bail, makes certain offenses eligible to be considered hate crimes, and increases the penalties for certain offenses</strong> (<a href="https://www.nysenate.gov/legislation/bills/2025/A9127" rel="noopener">A9127</a>). Sponsor: William A. Barclay (Assembly). Status: A9127: In Assembly Committee, 2026-01-07.</li>
+<li><strong>Requires lifetime post-release supervision for certain offenders; prohibits good behavior allowances against certain determinate sentences</strong> (<a href="https://www.nysenate.gov/legislation/bills/2025/A9129" rel="noopener">A9129</a>). Sponsor: William A. Barclay (Assembly). Status: A9129: In Assembly Committee, 2026-01-07.</li>
+<li><strong>Requires the district attorney to mail disposition of criminal felony trial to any crime victim not present at time defendant sentenced or acquitted after completion of trial</strong> (<a href="https://www.nysenate.gov/legislation/bills/2025/S7546" rel="noopener">S7546</a> and <a href="https://www.nysenate.gov/legislation/bills/2025/A6332" rel="noopener">A6332A</a>). Sponsor: Samra Brouk (Senate); Gabriella Romero (Assembly). Status: S7546: Senate Floor Calendar, 2025-05-29; A6332A: Signed by Governor, 2025-12-05.</li>
+<li><strong>Prohibits correctional facilities from denying entry to certain peer support advocates based on such advocates' prior history of incarceration</strong> (<a href="https://www.nysenate.gov/legislation/bills/2025/S1806" rel="noopener">S1806A</a> and <a href="https://www.nysenate.gov/legislation/bills/2025/A4159" rel="noopener">A4159A</a>). Sponsor: Nathalia Fernandez (Senate); Chantel Jackson (Assembly). Status: S1806A: Senate Floor Calendar, 2025-04-07; A4159A: Signed by Governor, 2025-10-16.</li>
+<li><strong>Relates to breast cancer screening and diagnostic testing for incarcerated individuals in accordance with certain nationally recognized clinical practice guidelines</strong> (<a href="https://www.nysenate.gov/legislation/bills/2025/S768" rel="noopener">S768</a> and <a href="https://www.nysenate.gov/legislation/bills/2025/A2250" rel="noopener">A2250</a>). Sponsor: Cordell Cleare (Senate); Emerita Torres (Assembly). Status: S768: Senate Floor Calendar, 2025-01-13; A2250: Signed by Governor, 2025-02-14.</li>
+</ol>
+<!-- lm:end -->
+    </div>
+
+    <p class="lm-source" id="lm-source"></p>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap foot-grid">
+    <div>
+      <p><strong>Case Analytica</strong>: general information about the New York State justice system, not legal advice for your specific case. Always confirm specifics with a licensed attorney.</p>
+      <p class="foot-sponsor">Case Analytica is fiscally sponsored by the Alternative Newsweekly Foundation, EIN 30-0100369. All donations are tax-deductible to the extent allowed by law.</p>
+    </div>
+    <div class="foot-right">
+      <div class="donate-group">
+        <a class="donate-btn" href="https://fundrazr.com/CaseAnalytica?ref=cr_5FFML2" target="_blank" rel="noopener">♥ Donate</a>
+      </div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="restorative-justice.html">Restorative Justice</a>
+        <a href="videos.html">Videos</a>
+        <a href="articles.html">Articles</a>
+        <a href="case-navigation.html">Case Navigation</a>
+        <a href="guide.html">Guide</a>
+        <a href="about.html">About</a>
+        <a href="methodology.html">Methodology</a>
+        <a href="methodology.html#corrections">Corrections</a>
+        <a href="glossary.html">Glossary</a>
+        <a href="directory.html">Directory</a>
+        <a href="data.html">Data</a>
+        <a href="stages/index.html">By stage</a>
+      <a href="https://www.facebook.com/profile.php?id=61593408088467" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://www.tiktok.com/@case.analytica" target="_blank" rel="noopener">TikTok</a>
+      <a href="https://www.youtube.com/@caseanalytica" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.linkedin.com/company/caseanalytica" target="_blank" rel="noopener">LinkedIn</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+  var app=document.getElementById('lm-app'), tiles=document.getElementById('lm-tiles'), srcEl=document.getElementById('lm-source');
+  var B=null, M=null, L=null, mById={}, groups=[], gById={}, byBase={}, roles={};
+  var VOTE_NAME={AYE:'Aye',AYEWR:'Aye with reservations',NAY:'No',EXC:'Excused',ABS:'Absent'};
+  var VOTE_ORDER=['AYE','AYEWR','NAY','EXC','ABS'];
+  var STATUS_RANK={SIGNED_BY_GOV:6,VETOED:6,DELIVERED_TO_GOV:5,PASSED_SENATE:4,PASSED_ASSEMBLY:4,SENATE_FLOOR:3,ASSEMBLY_FLOOR:3};
+  var state={q:'',topic:'all',stage:'all',sort:'recent',mq:'',mhouse:'all'};
+
+  function el(tag,attrs,kids){
+    var e=document.createElement(tag);
+    if(attrs){for(var k in attrs){ if(k==='text')e.textContent=attrs[k]; else if(k==='class')e.className=attrs[k]; else e.setAttribute(k,attrs[k]); }}
+    (kids||[]).forEach(function(c){ if(c==null)return; e.appendChild(typeof c==='string'?document.createTextNode(c):c); });
+    return e;
+  }
+  function a(href,text,ext){ var e=el('a',{href:href,text:text}); if(ext){e.target='_blank';e.rel='noopener';} return e; }
+  function fmtDate(s){ if(!s)return ''; var p=s.split('-'); var m=['Jan.','Feb.','March','April','May','June','July','Aug.','Sept.','Oct.','Nov.','Dec.']; return m[+p[1]-1]+' '+(+p[2])+', '+p[0]; }
+  function chamberName(c){ return c==='SENATE'?'Senate':'Assembly'; }
+  function mem(id){ return mById[id]||{id:id,name:'Member '+id,chamber:'',district:''}; }
+  function memLink(id){ var m=mem(id); return a('#/member/'+id,m.name); }
+  function nameList(ids){ var ul=el('ul',{class:'lm-names'}); ids.slice().sort(function(x,y){return (mem(x).short||mem(x).name).localeCompare(mem(y).short||mem(y).name);}).forEach(function(id){ var li=el('li'); li.appendChild(memLink(id)); ul.appendChild(li); }); return ul; }
+
+  function officialMember(m){
+    if(!m||m.incumbent===false||m.alternate||!L) return null;
+    var d=String(m.district);
+    if(m.chamber==='SENATE'){ var s=L.senate[d]; return s?a('https://www.nysenate.gov/senators/'+s,'Senate page',true):a('https://www.nysenate.gov/district/'+d,'Senate page',true); }
+    var x=L.assembly[d]; return x?a('https://nyassembly.gov/mem/'+x.slug,'Assembly page',true):a('https://nyassembly.gov/mem/?ad='+d.padStart(3,'0'),'Assembly page',true);
+  }
+  function contactBlock(m){
+    var off=officialMember(m); if(!off) return null;
+    var box=el('div',{class:'lm-panel'}); box.appendChild(el('h3',{text:'Contact '+m.name}));
+    var p=el('p',{style:'margin:0 0 8px'}); p.appendChild(document.createTextNode('Go to the official page for district offices, phone numbers and the contact form: ')); off.textContent=(m.chamber==='SENATE'?'NY Senate page for ':'NY Assembly page for ')+m.name; p.appendChild(off); box.appendChild(p);
+    if(m.chamber==='ASSEMBLY'){ var x=L.assembly[String(m.district)]; if(x&&x.email){ var q=el('p',{style:'margin:0 0 8px'}); q.appendChild(document.createTextNode('Email, as the Assembly publishes it: ')); q.appendChild(a('mailto:'+x.email,x.email)); box.appendChild(q); } }
+    box.appendChild(el('p',{class:'lm-note',text:'Not sure this is your representative? Use the state\u2019s lookup: '+(m.chamber==='SENATE'?'find your senator':'find your Assembly member')+' by address.'}));
+    box.lastChild.appendChild(document.createTextNode(' ')); box.lastChild.appendChild(a(m.chamber==='SENATE'?'https://www.nysenate.gov/find-my-senator':'https://nyassembly.gov/mem/search/','Open the lookup',true));
+    return box;
+  }
+  function officialBills(g){
+    var p=el('p',{class:'lm-note'}); p.appendChild(document.createTextNode('Official pages: '));
+    g.bills.forEach(function(b,i){ if(i)p.appendChild(document.createTextNode(' \u00b7 ')); if(b.chamber==='SENATE') p.appendChild(a(b.url,'NY Senate page, '+b.printNo,true)); else p.appendChild(a(b.assemblyUrl,'NY Assembly page, '+b.printNo,true)); });
+    return p;
+  }
+  function stageOf(g){ var r=0; g.bills.forEach(function(b){ r=Math.max(r,STATUS_RANK[b.statusType]||1); }); return r>=6?'law':r>=4?'one':r>=3?'floor':'comm'; }
+  var STAGE_LABEL={comm:'In committee',floor:'On a floor calendar',one:'Passed one house',law:'Signed or vetoed'};
+  function lastDate(g){ return g.bills.reduce(function(m,b){return b.statusDate>m?b.statusDate:m;},''); }
+  function support(g){ return g.bills.reduce(function(n,b){return n+(b.sponsor?1:0)+b.coSponsors.length+b.multiSponsors.length;},0); }
+
+  function index(){
+    groups=B.groups; groups.forEach(function(g){ gById[g.id]=g; g.bills.forEach(function(b){ byBase[b.base]=g; }); });
+    M.members.forEach(function(m){ mById[m.id]=m; roles[m.id]={sp:[],co:[],votes:[]}; });
+    groups.forEach(function(g){ g.bills.forEach(function(b){
+      if(b.sponsor!=null && roles[b.sponsor]) roles[b.sponsor].sp.push({g:g,b:b});
+      b.coSponsors.concat(b.multiSponsors).forEach(function(id){ if(roles[id]) roles[id].co.push({g:g,b:b}); });
+      b.votes.forEach(function(v){ for(var code in v.members){ v.members[code].forEach(function(id){ if(roles[id]) roles[id].votes.push({g:g,b:b,v:v,code:code}); }); } });
+    });});
+  }
+
+  function setTitle(t){ document.title=t+' | Case Analytica'; }
+  function setTab(t){ [].forEach.call(document.querySelectorAll('#lm-tabs a'),function(x){ if(x.getAttribute('data-tab')===t) x.setAttribute('aria-current','page'); else x.removeAttribute('aria-current'); }); }
+  function mount(node,focus){ srcEl.hidden=!!focus; app.innerHTML=''; app.appendChild(node); if(focus){ app.focus({preventScroll:true}); window.scrollTo(0,app.getBoundingClientRect().top+window.pageYOffset-80); } }
+
+  /* ---------- bills list ---------- */
+  function billsView(){
+    var wrap=el('div');
+    var tools=el('div',{class:'lm-tools'});
+    var q=el('input',{type:'search',placeholder:'Search by title, bill number or sponsor','aria-label':'Search bills',value:state.q});
+    var sort=el('select',{'aria-label':'Sort bills'});
+    [['recent','Latest official action'],['support','Most sponsors and cosponsors'],['number','Bill number']].forEach(function(o){ var op=el('option',{value:o[0],text:o[1]}); if(state.sort===o[0])op.selected=true; sort.appendChild(op); });
+    var stage=el('select',{'aria-label':'Where the bill stands'});
+    [['all','Any stage'],['comm','In committee'],['floor','On a floor calendar'],['one','Passed one house'],['law','Signed or vetoed']].forEach(function(o){ var op=el('option',{value:o[0],text:o[1]}); if(state.stage===o[0])op.selected=true; stage.appendChild(op); });
+    tools.appendChild(q); tools.appendChild(stage); tools.appendChild(sort); wrap.appendChild(tools);
+    var chips=el('div',{class:'lm-chipbar',role:'group','aria-label':'Topic'});
+    var topics=[['all','All topics']].concat(Object.keys(B.topics).map(function(k){return [k,B.topics[k]];}));
+    topics.forEach(function(t){ var bt=el('button',{type:'button','aria-pressed':state.topic===t[0]?'true':'false',text:t[1]}); bt.onclick=function(){ state.topic=t[0]; draw(); [].forEach.call(chips.children,function(c){c.setAttribute('aria-pressed',c===bt?'true':'false');}); }; chips.appendChild(bt); });
+    wrap.appendChild(chips);
+    var count=el('p',{class:'lm-count','aria-live':'polite'}); wrap.appendChild(count);
+    var list=el('ul',{class:'lm-list'}); wrap.appendChild(list);
+
+    function draw(){
+      var ql=state.q.trim().toLowerCase();
+      var rows=groups.filter(function(g){
+        if(state.topic!=='all' && g.topics.indexOf(state.topic)<0) return false;
+        if(state.stage!=='all' && stageOf(g)!==state.stage) return false;
+        if(ql){ var hay=g.bills[0].title.toLowerCase()+' '+g.bills.map(function(b){return b.printNo+' '+b.base+' '+(b.sponsor!=null?mem(b.sponsor).name:'');}).join(' ').toLowerCase(); if(hay.indexOf(ql)<0) return false; }
+        return true;
+      });
+      rows.sort(function(x,y){ if(state.sort==='support') return support(y)-support(x); if(state.sort==='number') return x.id.localeCompare(y.id,undefined,{numeric:true}); return lastDate(y).localeCompare(lastDate(x)); });
+      count.textContent=rows.length+' of '+groups.length+' bills';
+      list.innerHTML='';
+      rows.forEach(function(g){
+        var b0=g.bills[0];
+        var card=el('a',{class:'lm-card',href:'#/bill/'+g.id});
+        card.appendChild(el('h3',{text:b0.title}));
+        var pills=el('div'); g.topics.forEach(function(t){ pills.appendChild(el('span',{class:'lm-pill',text:B.topics[t]})); }); card.appendChild(pills);
+        card.appendChild(el('p',{class:'meta',text:g.bills.map(function(b){return chamberName(b.chamber)+' '+b.printNo;}).join(' and ')}));
+        card.appendChild(el('p',{class:'meta',text:'Sponsor'+(g.bills.length>1?'s':'')+': '+g.bills.filter(function(b){return b.sponsor!=null;}).map(function(b){return mem(b.sponsor).name+' ('+chamberName(b.chamber)+')';}).join('; ')+'. '+support(g)+' sponsors and cosponsors in all.'}));
+        card.appendChild(el('p',{class:'meta',text:g.bills.map(function(b){return b.printNo+': '+b.status+', '+fmtDate(b.statusDate);}).join('. ')+'.'}));
+        card.appendChild(el('span',{class:'go',text:'See who is on the record'}));
+        var li=el('li'); li.appendChild(card); li.appendChild(officialBills(g)); li.lastChild.style.margin='-4px 18px 12px'; list.appendChild(li);
+      });
+      if(!rows.length) list.appendChild(el('li',{text:'No bills match. Clear the search or pick another topic.'}));
+    }
+    q.oninput=function(){ state.q=q.value; draw(); };
+    stage.onchange=function(){ state.stage=stage.value; draw(); };
+    sort.onchange=function(){ state.sort=sort.value; draw(); };
+    draw();
+    return wrap;
+  }
+
+  /* ---------- one bill ---------- */
+  function voteBlock(b,v){
+    var box=el('div',{class:'lm-panel'});
+    var kind=v.type==='FLOOR'?'Senate floor vote':'Senate committee vote'+(v.committee?' ('+v.committee+')':'');
+    box.appendChild(el('h3',{text:kind+', '+fmtDate(v.date)}));
+    box.appendChild(el('p',{class:'lm-note',text:'Recorded on '+b.printNo+(v.version?' version '+v.version:'')+'.'}));
+    var grid=el('div',{class:'lm-vote'});
+    VOTE_ORDER.forEach(function(code){ if(v.counts[code]!=null) grid.appendChild(el('div',null,[el('b',{text:String(v.counts[code])}),VOTE_NAME[code]])); });
+    box.appendChild(grid);
+    VOTE_ORDER.forEach(function(code){ if(v.members[code]&&v.members[code].length){ var d=el('details',{class:'lm-d'}); d.appendChild(el('summary',{text:VOTE_NAME[code]+' ('+v.members[code].length+')'})); d.appendChild(nameList(v.members[code])); box.appendChild(d); } });
+    return box;
+  }
+  function billView(id){
+    var g=gById[id]; if(!g) return notFound('bill');
+    var wrap=el('div');
+    wrap.appendChild(a('#/bills','← All bills')); wrap.lastChild.className='lm-back';
+    var b0=g.bills[0];
+    wrap.appendChild(el('h2',{class:'serif',style:'margin:0 0 8px;font-size:clamp(24px,3.4vw,30px)',text:b0.title}));
+    var pills=el('div'); g.topics.forEach(function(t){ pills.appendChild(el('span',{class:'lm-pill',text:B.topics[t]})); }); wrap.appendChild(pills);
+    if(b0.summary) wrap.appendChild(el('p',{class:'lm-note',text:'The Legislature’s summary: '+b0.summary}));
+    g.bills.forEach(function(b){
+      var p=el('div',{class:'lm-panel'}); p.appendChild(el('h3',{text:chamberName(b.chamber)+' bill '+b.printNo}));
+      var dl=el('dl');
+      function row(k,v){ dl.appendChild(el('dt',{text:k})); var dd=el('dd'); if(typeof v==='string')dd.textContent=v; else dd.appendChild(v); dl.appendChild(dd); }
+      row('Where it stands',b.status+', as of '+fmtDate(b.statusDate)+(b.committee?' ('+b.committee+')':''));
+      row('Sponsor',b.sponsor!=null?memLink(b.sponsor):'None listed');
+      row('Cosponsors',String(b.coSponsors.length));
+      if(b.multiSponsors.length) row('Multi-sponsors',String(b.multiSponsors.length));
+      row('Official pages',(function(){ var s=el('span'); s.appendChild(a(b.url,'NY Senate page',true)); s.appendChild(document.createTextNode(' · ')); s.appendChild(a(b.assemblyUrl,'NY Assembly page',true)); return s; })());
+      p.appendChild(dl);
+      if(b.coSponsors.length){ var d=el('details',{class:'lm-d'}); d.appendChild(el('summary',{text:'Cosponsors of '+b.printNo+' ('+b.coSponsors.length+')'})); d.appendChild(nameList(b.coSponsors)); p.appendChild(d); }
+      if(b.multiSponsors.length){ var d2=el('details',{class:'lm-d'}); d2.appendChild(el('summary',{text:'Multi-sponsors of '+b.printNo+' ('+b.multiSponsors.length+')'})); d2.appendChild(nameList(b.multiSponsors)); p.appendChild(d2); }
+      var on={}; [b.sponsor].concat(b.coSponsors,b.multiSponsors).forEach(function(i){ if(i!=null)on[i]=1; });
+      var rest=M.members.filter(function(m){ return m.chamber===b.chamber && !m.alternate && m.incumbent!==false && !on[m.id]; }).map(function(m){return m.id;});
+      var d3=el('details',{class:'lm-d'}); d3.appendChild(el('summary',{text:'Not listed as sponsor or cosponsor of '+b.printNo+' ('+rest.length+')'}));
+      d3.appendChild(el('p',{class:'lm-note',text:'The record shows no sponsorship or cosponsorship by these current members. This says nothing about how they would vote or what they think of the bill.'}));
+      d3.appendChild(nameList(rest)); p.appendChild(d3);
+      wrap.appendChild(p);
+    });
+    var any=false;
+    g.bills.forEach(function(b){ b.votes.forEach(function(v){ any=true; wrap.appendChild(voteBlock(b,v)); }); });
+    if(!any) wrap.appendChild(el('p',{class:'lm-note',text:'No Senate committee or floor vote has been recorded on this bill.'}));
+    wrap.appendChild(el('p',{class:'lm-note',text:'Assembly committee and floor votes are not shown here. The Senate’s data service that this page reads does not carry them. See the Assembly page linked above.'}));
+    wrap.appendChild(el('p',{class:'lm-source',text:'Source: New York State Senate Open Legislation, the Legislative Bill Drafting Commission record. Read '+fmtDate(B.read)+'. Cosponsors are those listed on the bill’s current version.'}));
+    return wrap;
+  }
+
+  /* ---------- lawmakers ---------- */
+  function membersView(){
+    var wrap=el('div'), tools=el('div',{class:'lm-tools'});
+    var q=el('input',{type:'search',placeholder:'Search by name','aria-label':'Search lawmakers',value:state.mq});
+    var h=el('select',{'aria-label':'Chamber'}); [['all','Both houses'],['SENATE','Senate'],['ASSEMBLY','Assembly']].forEach(function(o){ var op=el('option',{value:o[0],text:o[1]}); if(state.mhouse===o[0])op.selected=true; h.appendChild(op); });
+    tools.appendChild(q); tools.appendChild(h); wrap.appendChild(tools);
+    var count=el('p',{class:'lm-count','aria-live':'polite'}); wrap.appendChild(count);
+    var tbl=el('table',{class:'lm-t'}); wrap.appendChild(tbl);
+    wrap.appendChild(el('p',{class:'lm-note',text:'The counts are bills on this tracker only. A zero means no sponsorship or cosponsorship on a tracked bill, not that the member has done nothing on justice.'}));
+    function draw(){
+      var ql=state.mq.trim().toLowerCase();
+      var rows=M.members.filter(function(m){ if((m.alternate||m.incumbent===false) && !(roles[m.id].sp.length||roles[m.id].co.length||roles[m.id].votes.length)) return false; if(state.mhouse!=='all'&&m.chamber!==state.mhouse) return false; if(ql&&m.name.toLowerCase().indexOf(ql)<0) return false; return true; });
+      rows.sort(function(x,y){ return (x.short||x.name).localeCompare(y.short||y.name); });
+      count.textContent=rows.length+' lawmakers';
+      tbl.innerHTML='';
+      var thead=el('thead'),tr=el('tr'); ['Name','House','District','Sponsor','Cosponsor','Contact'].forEach(function(t,i){ tr.appendChild(el('th',{class:(i===3||i===4)?'num':'',text:t})); }); thead.appendChild(tr); tbl.appendChild(thead);
+      var tb=el('tbody'); rows.forEach(function(m){
+        var r=el('tr',{class:'click'}); var td=el('td'); td.appendChild(memLink(m.id)); r.appendChild(td);
+        r.appendChild(el('td',{text:chamberName(m.chamber)})); r.appendChild(el('td',{text:String(m.district)}));
+        r.appendChild(el('td',{class:'num',text:String(roles[m.id].sp.length)})); r.appendChild(el('td',{class:'num',text:String(roles[m.id].co.length)})); var od=el('td'); var ol=officialMember(m); if(ol){ ol.textContent='Contact page'; od.appendChild(ol); } r.appendChild(od);
+        r.onclick=function(ev){ if(ev.target.tagName!=='A') location.hash='#/member/'+m.id; };
+        tb.appendChild(r); }); tbl.appendChild(tb);
+    }
+    q.oninput=function(){ state.mq=q.value; draw(); }; h.onchange=function(){ state.mhouse=h.value; draw(); };
+    draw(); return wrap;
+  }
+  function memberView(id){
+    var m=mById[id]; if(!m) return notFound('lawmaker');
+    var R=roles[id], wrap=el('div');
+    wrap.appendChild(a('#/members','← All lawmakers')); wrap.lastChild.className='lm-back';
+    wrap.appendChild(el('h2',{class:'serif',style:'margin:0 0 6px;font-size:clamp(24px,3.4vw,30px)',text:m.name}));
+    wrap.appendChild(el('p',{class:'lm-note',text:chamberName(m.chamber)+', district '+m.district+(m.alternate?' (alternate listing in the session record)':'')+(m.incumbent===false?' Not a current member in the Legislature\u2019s session record.':'')+'.'}));
+    var cb=contactBlock(m); if(cb) wrap.appendChild(cb);
+    var t=el('div',{class:'lm-tiles'});
+    [[R.sp.length,'tracked bills sponsored'],[R.co.length,'tracked bills cosponsored'],[R.votes.length,'Senate votes recorded on tracked bills']].forEach(function(x){ t.appendChild(el('div',{class:'tile'},[el('div',{class:'n',text:String(x[0])}),el('div',{class:'l',text:x[1]})])); });
+    wrap.appendChild(t);
+    function billList(title,items){
+      var box=el('div',{class:'lm-panel'}); box.appendChild(el('h3',{text:title+' ('+items.length+')'}));
+      if(!items.length){ box.appendChild(el('p',{class:'lm-note',text:'None on the tracked bills.'})); return box; }
+      var ul=el('ul',{class:'lm-list'}); var seen={};
+      items.forEach(function(x){ var key=x.g.id+'|'+x.b.printNo; if(seen[key])return; seen[key]=1; var li=el('li',{style:'margin:0 0 8px'}); li.appendChild(a('#/bill/'+x.g.id,x.b.printNo+': '+x.g.bills[0].title)); li.appendChild(el('span',{class:'lm-note',text:' ('+x.b.status+', '+fmtDate(x.b.statusDate)+')'})); ul.appendChild(li); });
+      box.appendChild(ul); return box;
+    }
+    wrap.appendChild(billList('Sponsor of',R.sp)); wrap.appendChild(billList('Cosponsor of',R.co));
+    var vb=el('div',{class:'lm-panel'}); vb.appendChild(el('h3',{text:'Votes on tracked bills ('+R.votes.length+')'}));
+    if(!R.votes.length) vb.appendChild(el('p',{class:'lm-note',text:m.chamber==='SENATE'?'No recorded Senate vote on a tracked bill.':'The Senate record carries Senate votes only, so none are shown for Assembly members.'}));
+    else { var tb=el('table',{class:'lm-t'}); var th=el('thead'),trh=el('tr'); ['Bill','Vote','Type','Date'].forEach(function(x){trh.appendChild(el('th',{text:x}));}); th.appendChild(trh); tb.appendChild(th);
+      var body=el('tbody'); R.votes.slice().sort(function(x,y){return y.v.date.localeCompare(x.v.date);}).forEach(function(x){ var r=el('tr'); var c1=el('td'); c1.appendChild(a('#/bill/'+x.g.id,x.b.printNo)); r.appendChild(c1); r.appendChild(el('td',{text:VOTE_NAME[x.code]||x.code})); r.appendChild(el('td',{text:x.v.type==='FLOOR'?'Senate floor':'Senate committee'})); r.appendChild(el('td',{text:fmtDate(x.v.date)})); body.appendChild(r); }); tb.appendChild(body); vb.appendChild(tb); }
+    wrap.appendChild(vb);
+    wrap.appendChild(el('p',{class:'lm-source',text:'Source: New York State Senate Open Legislation. Read '+fmtDate(B.read)+'. Counts cover the bills on this tracker only.'}));
+    return wrap;
+  }
+
+  /* ---------- how it works ---------- */
+  function howView(){
+    var w=el('div'); w.appendChild(el('h2',{class:'serif',style:'margin:0 0 10px;font-size:clamp(24px,3.4vw,30px)',text:'How this tracker works'}));
+    function sec(h,items){ w.appendChild(el('h3',{text:h})); var ul=el('ul',{class:'std'}); items.forEach(function(i){ var li=el('li'); if(typeof i==='string')li.textContent=i; else li.appendChild(i); ul.appendChild(li); }); w.appendChild(ul); }
+    sec('What it is',['A reading of the New York State Legislature’s own record for the 2025-2026 session: who sponsors and cosponsors each justice bill, where the bill stands, and how senators voted in committee and on the floor.','Case Analytica is a news and information project. It reports what the record shows. It does not rate lawmakers, rank them, endorse a bill, or ask readers to contact anyone about a bill.']);
+    sec('What the labels mean',['Sponsor: the member whose name the Legislature lists as the bill’s lead sponsor. Cosponsor: a member who has signed on, as listed on the bill’s current version.','Not listed as sponsor or cosponsor: the record shows no sponsorship by that member. It does not show how the member would vote or what they think.','Votes: Aye, Aye with reservations, No, Excused and Absent, as the Senate records them. Committee votes decide whether a bill moves to the floor.']);
+    var ex=Object.keys(B.excluded||{}).map(function(k){ return k+': '+B.excluded[k]; });
+    sec('Which bills are tracked',['A bill is a candidate when its title is about parole and clemency, sentencing and time served, record sealing, prisons, jails, bail and pretrial, or reentry, and it sits in, or has moved through, one of these committees: '+B.committees.join(', ')+'.','A candidate is tracked when it has at least '+B.minSupport+' sponsors and cosponsors in all, or has moved past committee, or has a recorded Senate floor vote. Bills the Legislature has struck or merged into another bill are left out.','A bill and its same-as bill in the other house appear together.','Left out after a check by hand, because a word in the title matched but the bill is off topic: '+(ex.length?ex.join('; ')+'.':'none.')]);
+    sec('Limits',['The Senate’s data service does not carry Assembly committee or floor votes, so none are shown. Each bill links to the Assembly’s own page.','Sponsors and cosponsors can change as a bill is amended. The page shows the current version as of the read date, '+fmtDate(B.read)+'.','The session ends December 31, 2026. A bill that has not passed both houses and been signed by then does not carry over.','This page is general information, not legal advice.']);
+    sec('Source and corrections',[(function(){ var s=el('span'); s.appendChild(document.createTextNode('Data: ')); s.appendChild(a('https://legislation.nysenate.gov/','New York State Senate Open Legislation',true)); s.appendChild(document.createTextNode(', which publishes the Legislative Bill Drafting Commission record. We re-read it on the dates shown; the read date is the only claim about how current this is.')); return s; })(),'Each lawmaker\u2019s page links to their official page, where the district offices, phone numbers and contact form are kept. Assembly email addresses are the ones the Assembly publishes in its member directory, read '+(L?fmtDate(L.read):'')+'. Senate pages are read from the Senate\u2019s senator list, read '+(L?fmtDate(L.senateRead):'')+'.',(function(){ var s=el('span'); s.appendChild(document.createTextNode('If something here is wrong, write to ')); s.appendChild(a('mailto:caseanalytica@gmail.com','caseanalytica@gmail.com')); s.appendChild(document.createTextNode('. See also ')); s.appendChild(a('methodology.html','our method')); s.appendChild(document.createTextNode('.')); return s; })()]);
+    return w;
+  }
+  function notFound(what){ var w=el('div'); w.appendChild(el('p',{text:'That '+what+' is not on the tracker.'})); w.appendChild(a('#/bills','Back to all bills')); return w; }
+
+  /* ---------- routing ---------- */
+  function route(){
+    if(!B||!M)return;
+    var h=(location.hash||'#/bills').replace(/^#\/?/,'').split('/');
+    var view=h[0]||'bills', arg=decodeURIComponent(h[1]||'');
+    if(view==='bill'){ setTab('bills'); var g=gById[arg]; setTitle(g?g.bills[0].title:'Bill'); mount(billView(arg),true); }
+    else if(view==='member'){ setTab('members'); setTitle(mById[arg]?mById[arg].name:'Lawmaker'); mount(memberView(+arg),true); }
+    else if(view==='members'){ setTab('members'); setTitle('Lawmakers and justice bills'); mount(membersView(),false); }
+    else if(view==='how'){ setTab('how'); setTitle('How the lawmakers tracker works'); mount(howView(),false); }
+    else { setTab('bills'); setTitle('NYS lawmakers and justice bills'); mount(billsView(),false); }
+  }
+  function J(p){ return fetch(p).then(function(r){ if(!r.ok)throw new Error(p); return r.json(); }); }
+  Promise.all([J('assets/data/lawmakers/bills.json'),J('assets/data/lawmakers/members.json'),J('assets/data/lawmakers/official-links.json').catch(function(){return null;})]).then(function(r){
+    B=r[0]; M=r[1]; L=r[2]; index();
+    var sp=Object.keys(roles).filter(function(i){return roles[i].sp.length||roles[i].co.length;}).length;
+    var nb=groups.reduce(function(n,g){return n+g.bills.length;},0);
+    [[groups.length,'justice bills tracked'],[nb,'bill numbers, both houses'],[sp,'lawmakers sponsor or cosponsor one']].forEach(function(x){ tiles.appendChild(el('div',{class:'tile'},[el('div',{class:'n',text:String(x[0])}),el('div',{class:'l',text:x[1]})])); });
+    srcEl.textContent='Source: New York State Senate Open Legislation. Read '+fmtDate(B.read)+'. 2025-2026 session.';
+    window.addEventListener('hashchange',route); route();
+  }).catch(function(){ app.appendChild(el('p',{text:'The data could not be loaded. Try again later, or see the Legislature’s own bill search.'})); });
+})();
+</script>
+</body>
+</html>

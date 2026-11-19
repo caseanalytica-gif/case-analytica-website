@@ -39,6 +39,7 @@ STATIC_PAGES = [
     ("intake-worksheet.html", "0.7"),
     ("parole-file-worksheet.html", "0.7"),
     ("methodology.html", "0.7"), ("data.html", "0.8"), ("nyc-jail-population.html", "0.8"), ("ny-prison-population.html", "0.8"),
+    ("lawmakers.html", "0.8"),
     ("glossary.html", "0.7"),
     ("directory.html", "0.8"),
     ("parole-board-decisions.html", "0.7"),
