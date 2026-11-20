@@ -6,7 +6,14 @@
     <description>Reporting on New York's criminal courts, prisons and parole.</description>
     <language>en-us</language>
     <atom:link href="https://www.caseanalytica.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Mon, 16 Nov 2026 12:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 20 Nov 2026 12:00:00 +0000</lastBuildDate>
+    <item>
+      <title>The Rikers Plan Sets 2032 for Closing. The Number That Decides It Is Who Gets Held</title>
+      <link>https://www.caseanalytica.com/articles/rikers-closure-plan-2032-population-target-ny.html</link>
+      <guid isPermaLink="true">https://www.caseanalytica.com/articles/rikers-closure-plan-2032-population-target-ny.html</guid>
+      <pubDate>Fri, 20 Nov 2026 12:00:00 +0000</pubDate>
+      <description>The city&#x27;s new plan to close Rikers Island aims for the end of 2032, more than five years after the 2019 law&#x27;s August 2027 date. The plan&#x27;s math depends on how many people are held, and a court process decides that number.</description>
+    </item>
     <item>
       <title>The NYPD Is Disbanding the Unit That Polices Protests. What Happens to Someone It Arrests Does Not Change</title>
       <link>https://www.caseanalytica.com/articles/nypd-disbands-srg-protest-arrest-process-ny.html</link>
@@ -209,13 +216,6 @@
       <guid isPermaLink="true">https://www.caseanalytica.com/articles/clean-slate-coalition-implementation-advocacy-gap-ny.html</guid>
       <pubDate>Fri, 04 Sep 2026 12:00:00 +0000</pubDate>
       <description>The groups that spent four years passing New York&#x27;s Clean Slate Act have moved their public campaigns to other bills. Here&#x27;s what their own 2026 priorities say, and what&#x27;s at stake if implementation pressure doesn&#x27;t pick back up.</description>
-    </item>
-    <item>
-      <title>New York Says It Doesn&#x27;t Need More Money to Seal Your Clean Slate Record</title>
-      <link>https://www.caseanalytica.com/articles/clean-slate-implementation-funding-gap-ny.html</link>
-      <guid isPermaLink="true">https://www.caseanalytica.com/articles/clean-slate-implementation-funding-gap-ny.html</guid>
-      <pubDate>Fri, 04 Sep 2026 12:00:00 +0000</pubDate>
-      <description>State agencies told lawmakers in 2025 they weren&#x27;t asking for extra funding or staff to build the Clean Slate sealing system, and the court system hadn&#x27;t sent DCJS a single record yet. Here&#x27;s what that testimony means for the wait, and why it&#x27;s really a jobs and housing question.</description>
     </item>
   </channel>
 </rss>

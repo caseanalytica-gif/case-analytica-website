@@ -330,6 +330,17 @@ const VIDEOS = [
 
 const ARTICLES = [
   {
+    slug: "rikers-closure-plan-2032-population-target-ny",
+    title: "The Rikers Plan Sets 2032 for Closing. The Number That Decides It Is Who Gets Held",
+    category: "System",
+    stage: "system",
+    date: "2026-11-20",
+    excerpt: "The city's new plan to close Rikers Island aims for the end of 2032, more than five years after the 2019 law's August 2027 date. The plan's math depends on how many people are held, and a court process decides that number.",
+    image: "assets/photos/rikers-island-aerial.jpg",
+    imageAlt: "Aerial photograph of Rikers Island in the East River with LaGuardia Airport beyond it. No people are visible.",
+    imageCredit: "Photo: Cdogsimmons, Wikimedia Commons, public domain"
+  },
+  {
     slug: "nypd-disbands-srg-protest-arrest-process-ny",
     title: "The NYPD Is Disbanding the Unit That Polices Protests. What Happens to Someone It Arrests Does Not Change",
     category: "Rights & Process",
