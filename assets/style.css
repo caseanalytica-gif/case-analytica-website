@@ -1003,6 +1003,33 @@ main.fp{padding-top:0;}
   .cv-fx-years .cv-inner{padding-top:128px; padding-bottom:44px;}
 }
 
+/* dates: the plan's own dates drift left behind the figure, and its goal in italics. Ticks every 60px move by exactly one tile;
+   each text row holds its words twice and moves by exactly half, so neither loop has a seam */
+.cv-fx-dates .cv-fx{overflow:hidden;
+  background-image:linear-gradient(rgba(255,255,255,.16),rgba(255,255,255,.16)),repeating-linear-gradient(90deg,rgba(255,255,255,.22) 0 1px,transparent 1px 60px);
+  background-size:100% 1px,60px 22px; background-repeat:no-repeat,repeat-x; background-position:0 calc(100% - 70px),0 calc(100% - 59px);
+  animation:cv-dates-tick 3s linear infinite;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 18%,#000 82%,transparent);
+          mask-image:linear-gradient(90deg,transparent,#000 18%,#000 82%,transparent);}
+@keyframes cv-dates-tick{from{background-position:0 calc(100% - 70px),0 calc(100% - 59px);} to{background-position:0 calc(100% - 70px),-60px calc(100% - 59px);}}
+.cv-fx-dates .cv-fx::before,.cv-fx-dates .cv-fx::after{position:absolute; left:0; white-space:nowrap; width:max-content;
+  font-family:-apple-system,"SF Pro Display","Helvetica Neue",Helvetica,Arial,sans-serif; font-weight:700; letter-spacing:-.03em;}
+.cv-fx-dates .cv-fx::before{content:"2027 \00B7  2029 \00B7  2031 \00B7  2032 \00B7  2027 \00B7  2029 \00B7  2031 \00B7  2032 \00B7  2027 \00B7  2029 \00B7  2031 \00B7  2032 \00B7  2027 \00B7  2029 \00B7  2031 \00B7  2032 \00B7  ";
+  bottom:84px; font-size:clamp(28px,3.6vw,52px); color:rgba(255,255,255,.24); animation:pp-drift 70s linear infinite;}
+.cv-fx-dates .cv-fx::after{content:"No more than 4,100 held by the end of 2032.  \00B7  No more than 4,100 held by the end of 2032.  \00B7  ";
+  bottom:14px; font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif; font-style:italic; font-weight:400; letter-spacing:0;
+  font-size:clamp(20px,2.4vw,32px); color:rgba(41,151,255,.42); animation:pp-drift 110s linear infinite reverse;}
+.cv-fx-dates .cv-inner{padding-bottom:150px;}
+.cv-fx-dates .cv-sub{max-width:24ch; margin-left:auto; margin-right:auto; text-wrap:balance;}
+@media (prefers-reduced-motion:reduce){
+  .cv-fx-dates .cv-fx,.cv-fx-dates .cv-fx::before,.cv-fx-dates .cv-fx::after{animation:none;}
+}
+@media (max-width:640px){
+  .cv-fx-dates .cv-fx::before{bottom:auto; top:14px; font-size:26px;} .cv-fx-dates .cv-fx::after{bottom:auto; top:52px; font-size:17px;}
+  .cv-fx-dates .cv-fx{background-position:0 98px,0 87px; animation:none;}
+  .cv-fx-dates .cv-inner{padding-top:128px; padding-bottom:44px;}
+}
+
 /* Reporting project page (parole-reporting-project.html): the cinematic cover outside
    the front page, plus full-width big-type bands. Always black, whatever the theme. */
 .pp-hero{padding:0;}
