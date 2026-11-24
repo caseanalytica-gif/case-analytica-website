@@ -48,6 +48,13 @@ the week on the correct, official closing numbers:
    config.json under "daily"). VIX close minus open +3 or more: buy QQQ at
    the close, sell next close. -3 or less: buy GLD at the close, sell 5
    trading days later. Also sends SELL reminders. Does not touch the dashboard.
+4. **9:20 AM ET weekdays, "XSP morning spread check"**
+   (`trig_015RRSJ8Lp6zhjKpgp9vBFUB`): runs `xsp_alert.py` (settings in
+   config.json under "xsp"). Same-day XSP bull put spread at 50 delta (short
+   strike at the open), $2 or $3 wide, sold 9:35 to 9:40, held to the close.
+   SKIP when VIX closed 30+, SPY premarket is 0.5%+ below the prior close, or
+   VIX fell 3+ points the day before. Otherwise gives the minimum credit
+   (break-even plus $1.30 fees plus $5). Does not touch the dashboard.
 
 Both run `main.py --refresh`, upload the new `vix_model_data.json` to the
 dashboard, repoint every dataset at it in one batch, and delete the old file.
@@ -114,6 +121,13 @@ Monday-open entries: do not reintroduce them.
   after a -3 day won 63% of 86, avg +1.05%, walk-forward 66%. SVXY after +3 won
   69% of 70 (avg +0.87%) but was not chosen (crash risk). Daily moves of +1 or
   +2 have little or no edge.
+- XSP 50-delta spreads (tested 2026-11-24, SPY open to close since 2010,
+  scaled to XSP 713): the bull put was kept in full 54% of days; $2 break-even
+  $72 overall, $75 at VIX 20-30, $88 at VIX 30+; both halves $68/$73. One
+  contract a day at a $75 credit roughly breaks even, at $80 it lost in 3 of
+  17 years. Bear calls have no edge (VIX1D-priced credit $86 vs $87 payout).
+  Gap signals use SPY: the S&P 500 open print is partly stale. Spreads need
+  spread approval; the user's cash account may not allow them.
 - Tested 2026-11-07 and not adopted (do not re-test without a new reason):
   - Rotation: hold SPY (or GLD), switch to SCO on a +5 alert, back after the
     take-profit. 3 years: +109% vs +75% SPY alone; +156% vs +104% GLD alone.
