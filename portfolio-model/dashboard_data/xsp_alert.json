@@ -1,0 +1,51 @@
+{
+ "xsp_now": [
+  {
+   "run_at": "2026-11-24 09:17 ET",
+   "date": "2026-11-24",
+   "status": "SKIP",
+   "reasons": [
+    "SPY is -1.05% versus yesterday's close in premarket: after gaps down of 0.5% or more the $2 break-even rose to $82 to $88",
+    "VIX fell -4.76 points yesterday (close minus open): the next day the $2 break-even was about $100 and the spread was kept 47% of the time"
+   ],
+   "prev_day": "2026-11-23",
+   "spy_prev_close": 722.29,
+   "spy_premarket": 714.71,
+   "premarket_time": "09:15",
+   "premarket_gap_pct": -1.05,
+   "vix_prev": 26.62,
+   "vix_prev_change": -4.76,
+   "vix_bucket": "20 to 30",
+   "vix1d_prev": 26.69,
+   "xsp_prev_close": 723.72,
+   "xsp_estimate": 716.12,
+   "history_days": 946,
+   "spreads": [
+    {
+     "width": 2,
+     "short_strike": 716,
+     "long_strike": 714,
+     "keep_pct": 56.7,
+     "full_loss_pct": 32.3,
+     "break_even": 74.99,
+     "min_credit": 82,
+     "vix1d_fair_credit": 93.22,
+     "max_loss": 118
+    },
+    {
+     "width": 3,
+     "short_strike": 716,
+     "long_strike": 713,
+     "keep_pct": 56.7,
+     "full_loss_pct": 28.4,
+     "break_even": 105.3,
+     "min_credit": 112,
+     "vix1d_fair_credit": 134.91,
+     "max_loss": 188
+    }
+   ],
+   "entry_window": "9:35 to 9:40 AM ET, at the live XSP level, not the official open print"
+  }
+ ],
+ "generated": "2026-11-24T14:17:04.714830+00:00"
+}

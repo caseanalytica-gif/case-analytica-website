@@ -1,0 +1,6 @@
+XSP 2026-11-24: SKIP. 50-delta bull put spread, expires today.
+SPY premarket 714.71 at 09:15 ET (-1.05% vs 722.29 close). VIX 26.62 (yesterday -4.76 points close minus open). VIX1D 26.69. XSP about 716.12.
+Makes no sense today:
+- SPY is -1.05% versus yesterday's close in premarket: after gaps down of 0.5% or more the $2 break-even rose to $82 to $88
+- VIX fell -4.76 points yesterday (close minus open): the next day the $2 break-even was about $100 and the spread was kept 47% of the time
+Do not sell the spread today.
