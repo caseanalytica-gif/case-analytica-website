@@ -47,7 +47,7 @@ the week on the correct, official closing numbers:
    (`trig_01Ry8NEzqzshedkS81C8zQse`): runs `daily_alert.py` (rules in
    config.json under "daily"). VIX close minus open +3 or more: buy QQQ at
    the close, sell next close. -3 or less: buy GLD at the close, sell 5
-   trading days later. Also sends SELL reminders. Does not touch the dashboard.
+   trading days later. Also sends HOLD and SELL reminders. Does not touch the dashboard.
 4. **9:20 AM ET weekdays, "XSP morning spread check"**
    (`trig_015RRSJ8Lp6zhjKpgp9vBFUB`): runs `xsp_alert.py` (settings in
    config.json under "xsp"). Same-day XSP bull put spread at 50 delta (short
@@ -56,12 +56,12 @@ the week on the correct, official closing numbers:
    VIX fell 3+ points the day before. Otherwise gives the minimum credit
    (break-even plus $1.30 fees plus $5). Does not touch the dashboard.
 
-Both run `main.py --refresh`, upload the new `vix_model_data.json` to the
+The two Friday runs use `main.py --refresh`, upload the new `vix_model_data.json` to the
 dashboard, repoint every dataset at it in one batch, and delete the old file.
 
 The daily section (datasets daily_now, daily_orders, daily_rules, daily_log,
-Alerts tab) reads daily_alert.json, uploaded by the 3:37 PM weekday run, which
-repoints only those four datasets. main.py also folds the same tables into
+daily_held, Alerts tab) reads daily_alert.json, uploaded by the 3:37 PM weekday
+run, which repoints only those five datasets. main.py also folds the same tables into
 vix_model_data.json, so the Friday runs repoint all datasets to one file.
 
 If a Friday run fails or a refresh is done by hand, do the same steps: run
@@ -179,6 +179,14 @@ what the user approves.
 
 No em dashes and no exclamation points. Plain, direct sentences. Lead with the
 answer and the numbers.
+
+## Working with the user
+
+- Short instructions ("run it on xsp", "approve") mean: carry it through to
+  the script, the scheduled task, this file (after approval) and the Mac zip.
+- Every alert gives a verdict first: SKIP with the reason, or the exact price
+  to accept. Say plainly when a trade makes no sense.
+- "approve" covers only the edit just shown. Ask again for anything older.
 
 ## Running it
 
