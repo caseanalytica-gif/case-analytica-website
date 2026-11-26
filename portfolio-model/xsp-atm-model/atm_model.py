@@ -126,7 +126,8 @@ def live() -> dict:
     S, t_px = float(x.Close.iloc[-1]), x.index[-1]
     op = float(x.Open.iloc[0])
     iv = float(v.Close.iloc[-1])
-    h = max((pd.Timestamp(now.date()).tz_localize(ET) + pd.Timedelta(hours=16) - t_px).total_seconds() / 3600, 0.25)
+    close_hr = CFG.get("early_close_hour", {}).get(str(now.date()), 16)
+    h = max((pd.Timestamp(now.date()).tz_localize(ET) + pd.Timedelta(hours=close_hr) - t_px).total_seconds() / 3600, 0.25)
     d = _dl("^VIX", period="10d")
     d.index = pd.to_datetime(d.index).date
     vix_prev = float(d.Close[d.index < now.date()].iloc[-1])
