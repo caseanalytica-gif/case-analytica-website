@@ -1,0 +1,9 @@
+{
+  "note": "XSP same-day ATM call and put check at 10:00 and 11:00 ET. Separate from the VIX model. Read README.md.",
+  "history_period": "730d",
+  "min_bucket_days": 100,
+  "split_vix": 20,
+  "fees_per_contract": 0.65,
+  "min_edge_pct": 10,
+  "trading_hours_per_year": 1638
+}
