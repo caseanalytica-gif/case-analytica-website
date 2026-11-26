@@ -20,12 +20,20 @@ For same-day XSP, days to expiry becomes hours left to the 4:00 PM close over
 prices the nearest $1 strike with Black-Scholes and gives delta, gamma, vega
 and time decay per hour.
 
+Real quotes (2026-11-26): the alert takes the bid and ask for today's XSP
+expiry at that strike from Yahoo's option chain and judges the ask (what you
+pay). Yahoo option quotes run about 15 minutes behind, so XSP, VIX1D and the
+fair price are taken as of that moment. If the chain is unavailable (Yahoo
+rate-limits it), the price falls back to the VIX1D estimate and the alert says
+so. If a quote's implied volatility is under 0.6x or over 1.8x VIX1D, an
+UPSIDE becomes CHECK QUOTE, since the quote is likely stale.
+
 "Fair" price is what the option would have paid on average on past days like
 today: the move to the close divided by the VIX1D-implied move, from two years
 of hourly S&P 500 and VIX1D data (10:30 and 11:30 entries), in the same bucket
 (VIX above or below 20, market up or down since the open), scaled to today.
-The verdict is UPSIDE only if fair is at least 10% above the market price
-plus $0.65 fees.
+The verdict is UPSIDE only if fair is at least 10% above the ask plus $0.65
+fees.
 
 ## Test results (2026-11-26)
 
@@ -35,8 +43,10 @@ plus $0.65 fees.
 - Fair price as a share of market price: calls 71% to 97%, average 78%; puts
   62% to 99%, average 81%. It never reached 110%, so the model never flagged
   UPSIDE. "NO UPSIDE" is the expected daily answer.
-- The market price is estimated from VIX1D, not a live option quote. If the
-  broker's ask is at or below "pay at most", that option is genuinely cheap.
+- The test priced options from VIX1D, since past XSP quotes are not available
+  free. The live alert uses real quotes. Always confirm the broker's live ask
+  is at or below "pay at most" before buying.
+- Half days (1:00 PM close) are listed in config.json under early_close_hour.
 
 ## Running it
 
